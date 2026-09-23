@@ -1,0 +1,122 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { menu } from "@/data/menu";
+import CategoryFilter from "@/components/menu/CategoryFilter";
+import ProductCard from "@/components/menu/ProductCard";
+import ProductDetailsModal from "@/components/menu/ProductDetailsModal";
+import InstructionsModal from "@/components/menu/InstructionsModal";
+import CustomizeModal from "@/components/menu/CustomizeModal";
+import { MenuModalsProvider } from "@/components/menu/MenuModalsContext";
+import { columnId, columnsFor } from "@/components/menu/menuHelpers";
+import SectionHomeButton from "@/components/SectionHomeButton";
+import RevealObserver from "@/components/RevealObserver";
+
+export default function MenuSection() {
+  const [activeCategory, setActiveCategory] = useState("all");
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  const selectCategory = (slug: string) => {
+    const target = document.getElementById(slug === "all" ? menu[0].slug : slug);
+    setActiveCategory(slug);
+    target?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  // Keep the active category button in sync while the customer scrolls the menu.
+  useEffect(() => {
+    const sections = [...document.querySelectorAll<HTMLElement>(".menu-category")];
+    if (!sections.length) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveCategory((entry.target as HTMLElement).dataset.category || menu[0].slug);
+          }
+        });
+      },
+      { rootMargin: "-30% 0px -55%", threshold: 0 }
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <MenuModalsProvider>
+      <section className="menu-section" id="menu">
+        <div className="menu-intro">
+          <p className="eyebrow dark">EAT · DRINK · REPEAT</p>
+          <h2>THE MENU.</h2>
+          <p>Bright plates, bold flavours and coffee worth slowing down for. Browse it your way.</p>
+        </div>
+        <CategoryFilter categories={menu} active={activeCategory} onSelect={selectCategory} />
+        <div className="menu-content" ref={contentRef}>
+          {menu.map((category, categoryIndex) => {
+            const columns = columnsFor(category);
+            return (
+              <article
+                className="menu-category active-menu-category"
+                id={category.slug}
+                data-category={category.slug}
+                key={category.slug}
+              >
+                <header className="category-title">
+                  <div>
+                    <p>{String(categoryIndex + 1).padStart(2, "0")} · MENU</p>
+                    <h3>{category.category}</h3>
+                  </div>
+                  <span>{category.tagline}</span>
+                </header>
+                {columns.length > 1 && (
+                  <nav className="menu-subnav" aria-label={`${category.category} sections`}>
+                    {columns.map((column, index) => (
+                      <button
+                        key={column}
+                        type="button"
+                        data-subtarget={columnId(category, column)}
+                        onClick={() =>
+                          document
+                            .getElementById(columnId(category, column))
+                            ?.scrollIntoView({ behavior: "smooth", block: "start" })
+                        }
+                      >
+                        <span>{String(index + 1).padStart(2, "0")}</span>
+                        {column}
+                      </button>
+                    ))}
+                  </nav>
+                )}
+                <div className="menu-subsections">
+                  {columns.map((column, columnIndex) => (
+                    <section
+                      className="menu-subsection"
+                      id={columnId(category, column)}
+                      data-column={column}
+                      key={column}
+                    >
+                      <header>
+                        <span>{String(columnIndex + 1).padStart(2, "0")}</span>
+                        <h4>{column}</h4>
+                      </header>
+                      <div className="menu-grid">
+                        {category.items
+                          .filter((item) => item[6] === column)
+                          .map((item) => (
+                            <ProductCard category={category} item={item} key={item[0]} />
+                          ))}
+                      </div>
+                    </section>
+                  ))}
+                </div>
+              </article>
+            );
+          })}
+        </div>
+        <SectionHomeButton />
+      </section>
+      <ProductDetailsModal />
+      <InstructionsModal />
+      <CustomizeModal />
+      <RevealObserver watch={activeCategory} />
+    </MenuModalsProvider>
+  );
+}
