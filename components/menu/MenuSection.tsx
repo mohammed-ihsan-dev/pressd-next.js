@@ -14,6 +14,7 @@ import RevealObserver from "@/components/RevealObserver";
 
 export default function MenuSection() {
   const [activeCategory, setActiveCategory] = useState("all");
+  const [activeSubcategory, setActiveSubcategory] = useState<string>("");
   const contentRef = useRef<HTMLDivElement>(null);
 
   const selectCategory = (slug: string) => {
@@ -40,6 +41,26 @@ export default function MenuSection() {
     return () => observer.disconnect();
   }, []);
 
+  // Keep active subcategory in sync while scrolling through menu subsections
+  useEffect(() => {
+    const subsections = [...document.querySelectorAll<HTMLElement>(".menu-subsection")];
+    if (!subsections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSubcategory(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-25% 0px -55%", threshold: 0 }
+    );
+
+    subsections.forEach((sub) => observer.observe(sub));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <MenuModalsProvider>
       <section className="menu-section" id="menu">
@@ -52,6 +73,9 @@ export default function MenuSection() {
         <div className="menu-content" ref={contentRef}>
           {menu.map((category, categoryIndex) => {
             const columns = columnsFor(category);
+            const hasActiveInThisCategory = columns.some(
+              (col) => columnId(category, col) === activeSubcategory
+            );
             return (
               <article
                 className="menu-category active-menu-category"
@@ -68,21 +92,29 @@ export default function MenuSection() {
                 </header>
                 {columns.length > 1 && (
                   <nav className="menu-subnav" aria-label={`${category.category} sections`}>
-                    {columns.map((column, index) => (
-                      <button
-                        key={column}
-                        type="button"
-                        data-subtarget={columnId(category, column)}
-                        onClick={() =>
-                          document
-                            .getElementById(columnId(category, column))
-                            ?.scrollIntoView({ behavior: "smooth", block: "start" })
-                        }
-                      >
-                        <span>{String(index + 1).padStart(2, "0")}</span>
-                        {column}
-                      </button>
-                    ))}
+                    {columns.map((column, index) => {
+                      const subId = columnId(category, column);
+                      const isSubActive = hasActiveInThisCategory
+                        ? subId === activeSubcategory
+                        : index === 0;
+                      return (
+                        <button
+                          key={column}
+                          type="button"
+                          className={isSubActive ? "active" : undefined}
+                          data-subtarget={subId}
+                          onClick={() => {
+                            setActiveSubcategory(subId);
+                            document
+                              .getElementById(subId)
+                              ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                          }}
+                        >
+                          <span>{String(index + 1).padStart(2, "0")}</span>
+                          {column}
+                        </button>
+                      );
+                    })}
                   </nav>
                 )}
                 <div className="menu-subsections">

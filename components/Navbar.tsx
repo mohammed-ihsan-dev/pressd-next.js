@@ -67,7 +67,25 @@ export default function Navbar() {
         </nav>
         <div className="nav-actions">
           <button className="cart-toggle" aria-label="Open shopping cart" onClick={openCart}>
-            Cart <span>{quantity}</span>
+            Cart
+            <svg
+              className="cart-icon-svg"
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="var(--orange, #ffb31a)"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ flexShrink: 0, margin: "0 2px" }}
+              aria-hidden="true"
+            >
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span>{quantity}</span>
           </button>
           <button className="book-btn" onClick={openBooking}>
             Book a table <span>↗</span>
@@ -106,7 +124,25 @@ export default function Navbar() {
                 openCart();
               }}
             >
-              Cart <span>{quantity}</span>
+              Cart
+              <svg
+                className="cart-icon-svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--orange, #ffb31a)"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                style={{ flexShrink: 0, margin: "0 2px" }}
+                aria-hidden="true"
+              >
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+              <span>{quantity}</span>
             </button>
             <button
               className="book-btn"

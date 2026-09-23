@@ -11899,16 +11899,19 @@ body.detail-view .menu-section .menu-subsection .menu-card-info {
 }
 
 /* Keep the subsection row synchronized with the column currently in view. */
-body.menu-detail-view .menu-subnav button:first-child,
-.mobile-subnav-dock button:first-child {
-  background: transparent;
-  color: var(--cream)
-}
-
+.menu-subnav button.active,
 body.menu-detail-view .menu-subnav button.active,
 .mobile-subnav-dock button.active {
-  background: rgba(251, 176, 25, .18);
-  color: var(--orange)
+  background: var(--orange, #ffb31a) !important;
+  color: var(--ink, #080906) !important;
+  font-weight: 800 !important;
+}
+
+.menu-subnav button.active span,
+body.menu-detail-view .menu-subnav button.active span,
+.mobile-subnav-dock button.active span {
+  background: var(--ink, #080906) !important;
+  color: var(--orange, #ffb31a) !important;
 }
 
 /* Final uniform product-card framing and alignment */
@@ -12299,6 +12302,12 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
 .navbar .cart-toggle:hover {
   border-color: var(--orange, #fbb019) !important;
   color: var(--orange, #fbb019) !important;
+}
+
+.cart-toggle.cart-arrival-pop {
+  transform: scale(1.14) !important;
+  border-color: var(--orange, #fbb019) !important;
+  box-shadow: 0 0 16px rgba(251, 176, 25, 0.45) !important;
 }
 
 .navbar .cart-toggle span {

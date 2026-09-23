@@ -64,7 +64,43 @@ export default function ProductCard({ category, item }: { category: MenuCategory
 
       setTimeout(() => {
         fly.remove();
-      }, 680);
+
+        // Target arrival point centered on real cart icon
+        const currentCartRect = cartEl.getBoundingClientRect();
+        const centerX = currentCartRect.left + currentCartRect.width / 2;
+        const centerY = currentCartRect.top + currentCartRect.height / 2;
+
+        // Create elegant circular spark ring centered on cart icon
+        const ring = document.createElement("div");
+        ring.className = "cart-arrival-spark";
+        ring.style.position = "fixed";
+        ring.style.zIndex = "99999";
+        ring.style.left = `${centerX}px`;
+        ring.style.top = `${centerY}px`;
+        ring.style.width = "12px";
+        ring.style.height = "12px";
+        ring.style.borderRadius = "50%";
+        ring.style.border = "2px solid var(--orange, #ffb31a)";
+        ring.style.boxShadow = "0 0 10px var(--orange, #ffb31a)";
+        ring.style.transform = "translate(-50%, -50%) scale(0.6)";
+        ring.style.opacity = "1";
+        ring.style.pointerEvents = "none";
+        ring.style.transition = "all 0.38s cubic-bezier(0.1, 0.85, 0.25, 1)";
+
+        document.body.appendChild(ring);
+        void ring.offsetWidth;
+
+        ring.style.transform = "translate(-50%, -50%) scale(3.4)";
+        ring.style.opacity = "0";
+
+        // Subtle micro pop animation on cart button
+        cartEl.classList.add("cart-arrival-pop");
+
+        setTimeout(() => {
+          ring.remove();
+          cartEl.classList.remove("cart-arrival-pop");
+        }, 400);
+      }, 650);
     }
   };
 
