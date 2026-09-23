@@ -12174,19 +12174,10 @@ body.menu-detail-view .menu-subnav button.active,
 /* Base Navbar Styles Across All Breakpoints */
 header.navbar,
 .navbar,
-.navbar.scrolled,
-body.detail-view .navbar,
-body.home-view .navbar,
-body.menu-detail-view .navbar {
+.navbar.scrolled {
   position: fixed !important;
   z-index: 99 !important;
   top: 12px !important;
-  left: 50% !important;
-  right: auto !important;
-  transform: translateX(-50%) !important;
-  width: min(1380px, calc(100vw - 36px)) !important;
-  min-width: 0 !important;
-  max-width: none !important;
   height: 64px !important;
   padding: 8px 16px !important;
   border: 1px solid rgba(246, 233, 218, 0.3) !important;
@@ -12198,13 +12189,39 @@ body.menu-detail-view .navbar {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  gap: 16px !important;
+  gap: 12px !important;
   box-sizing: border-box !important;
 }
 
 header.navbar:before,
 .navbar:before {
   display: none !important;
+}
+
+/* Non-menu split-screen pages: Anchor navbar inside left hero/video area,
+   slightly left-aligned, never crossing into the right 50%/cards section. */
+@media (min-width: 1101px) {
+  body:not(.menu-detail-view) .navbar,
+  body.home-view .navbar,
+  body.detail-view:not(.menu-detail-view) .navbar {
+    position: fixed !important;
+    top: 24px !important;
+    left: clamp(24px, 4.5vw, 48px) !important;
+    right: auto !important;
+    transform: none !important;
+    width: fit-content !important;
+    max-width: calc(68vw - 6vw) !important;
+  }
+
+  /* Menu page exception: full-width centered navbar */
+  body.menu-detail-view .navbar {
+    position: fixed !important;
+    top: 12px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: min(1380px, calc(100vw - 36px)) !important;
+  }
 }
 
 /* Logo */
@@ -12232,11 +12249,11 @@ header.navbar:before,
   display: none !important;
 }
 
-/* Desktop Navigation */
+/* Desktop Navigation - Tight, compact item spacing */
 .navbar .desktop-nav {
   display: flex !important;
   align-items: center !important;
-  gap: 24px !important;
+  gap: 16px !important;
   margin: 0 !important;
 }
 
@@ -12279,11 +12296,11 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   display: inline-block !important;
 }
 
-/* Action Buttons Container (Cart + Book a Table) */
+/* Action Buttons Container (Cart + Book a Table) - Compact gap */
 .navbar .nav-actions {
   display: flex !important;
   align-items: center !important;
-  gap: 10px !important;
+  gap: 8px !important;
   margin-left: auto !important;
   flex-shrink: 0 !important;
 }
