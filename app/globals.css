@@ -12258,6 +12258,7 @@ header.navbar:before,
 }
 
 .navbar .desktop-nav a {
+  display: inline-block !important;
   font-family: 'Manrope', sans-serif !important;
   font-size: 11px !important;
   font-weight: 700 !important;
