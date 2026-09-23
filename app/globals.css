@@ -11077,18 +11077,28 @@ body.detail-view .menu-subsection .menu-card-info {
   }
 }
 
-/* Canonical menu layout: one container and one predictable grid system */
+/* Canonical menu layout: unified responsive container strategy */
 .menu-section .menu-intro,
+.menu-section .category-wrap,
 .menu-section .menu-content {
   box-sizing: border-box;
-  width: min(1380px, calc(100vw - 36px)) !important;
-  max-width: 1380px !important;
+  width: min(1680px, calc(100vw - 48px)) !important;
+  max-width: 1680px !important;
   margin-inline: auto !important;
+}
+
+.menu-section .menu-intro {
   padding-inline: 0 !important;
 }
 
+.menu-section .category-wrap {
+  margin-top: 50px !important;
+  margin-bottom: 0 !important;
+}
+
 .menu-section .menu-content {
-  display: block !important
+  display: block !important;
+  padding-inline: 0 !important;
 }
 
 .menu-section .menu-category {
@@ -11141,7 +11151,7 @@ body.detail-view .menu-section .menu-subsection .menu-grid {
   grid-auto-rows: 1fr;
   align-items: stretch;
   justify-content: start;
-  gap: 18px;
+  gap: 20px;
   margin: 0;
   padding: 0
 }
@@ -11165,27 +11175,20 @@ body.detail-view .menu-section .menu-subsection .menu-card-info {
   min-height: 158px
 }
 
-@media(min-width:900px) and (max-width:1199px) {
-
-  .menu-section .menu-intro,
-  .menu-section .menu-content {
-    max-width: 1080px;
-    padding-inline: 24px !important
-  }
-
+@media(min-width:960px) and (max-width:1279px) {
   .menu-section .menu-subsection .menu-grid,
   .menu-section .menu-subsection[data-column="Iced Coffee"] .menu-grid,
   body.detail-view .menu-section .menu-subsection .menu-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 17px
+    gap: 18px
   }
 }
 
-@media(min-width:640px) and (max-width:899px) {
-
+@media(min-width:640px) and (max-width:959px) {
   .menu-section .menu-intro,
+  .menu-section .category-wrap,
   .menu-section .menu-content {
-    padding-inline: 20px !important
+    width: calc(100vw - 32px) !important;
   }
 
   .menu-section .menu-category {
@@ -11200,7 +11203,7 @@ body.detail-view .menu-section .menu-subsection .menu-card-info {
   .menu-section .menu-subsection[data-column="Iced Coffee"] .menu-grid,
   body.detail-view .menu-section .menu-subsection .menu-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 15px
+    gap: 16px
   }
 
   .menu-section .menu-subsection .menu-card-info,
@@ -11210,10 +11213,10 @@ body.detail-view .menu-section .menu-subsection .menu-card-info {
 }
 
 @media(max-width:639px) {
-
   .menu-section .menu-intro,
+  .menu-section .category-wrap,
   .menu-section .menu-content {
-    padding-inline: 14px !important
+    width: calc(100vw - 24px) !important;
   }
 
   .menu-section .menu-category {
@@ -11242,10 +11245,10 @@ body.detail-view .menu-section .menu-subsection .menu-card-info {
 }
 
 @media(max-width:390px) {
-
   .menu-section .menu-intro,
+  .menu-section .category-wrap,
   .menu-section .menu-content {
-    padding-inline: 12px !important
+    width: calc(100vw - 20px) !important;
   }
 }
 
