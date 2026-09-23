@@ -1,0 +1,1056 @@
+{
+  "categories": {
+    "fresh-start": "Buon Inizio",
+    "hot-beverages": "Bevande Calde",
+    "ice-beverages": "Bevande Ghiacciate",
+    "protein-shakes-bars": "Frullati Proteici/Barrette",
+    "smoothies": "Smoothie",
+    "fresh-juices": "Succhi Freschi",
+    "refreshing-drinks": "Bevande Rinfrescanti",
+    "sandwiches": "Panini"
+  },
+  "categoryTaglines": {
+    "fresh-start": "Colazione · bowl · insalate · pancake",
+    "hot-beverages": "Caffè · tè · momenti di calore",
+    "ice-beverages": "Caffè freddo · frappè",
+    "protein-shakes-bars": "Frullati proteici · barrette proteiche",
+    "smoothies": "Ricchi di frutta · energia naturale",
+    "fresh-juices": "Spremuti a freddo · mocktail",
+    "refreshing-drinks": "Tè freddi · mojito · bevande rinfrescanti",
+    "sandwiches": "Preparati al momento · pieni di gusto"
+  },
+  "subcategories": {
+    "breakfast": "Colazione",
+    "bowls": "Bowl",
+    "salads": "Insalate",
+    "pancakes": "Pancake",
+    "cakes-pastries": "Torte e Pasticceria",
+    "coffee": "Caffè",
+    "teas": "Tè",
+    "iced-coffee": "Caffè Freddo",
+    "frappe": "Frappè",
+    "protein-shakes": "Frullati Proteici",
+    "protein-bars": "Barrette Proteiche",
+    "smoothies": "Smoothie",
+    "cold-press": "Spremuti a Freddo",
+    "mocktails": "Mocktail",
+    "iced-teas": "Tè Freddi",
+    "mojitos": "Mojito",
+    "refreshing-drinks": "Bevande Rinfrescanti",
+    "sandwiches": "Panini"
+  },
+  "products": {
+    "avacado-toast-with-poached-eggs": {
+      "name": "Toast all'Avocado con Uova in Camicia",
+      "description": "Cremoso toast all'avocado con uova in camicia, servito con un'insalata fresca dell'orto",
+      "ingredients": [
+        "Pane a lievitazione naturale",
+        "2 uova",
+        "Avocado schiacciato",
+        "Pomodori ciliegino",
+        "Lattuga",
+        "Ravanello",
+        "Formaggio labneh",
+        "Pepe nero",
+        "Sale da tavola"
+      ]
+    },
+    "avacado-toast-with-salmon": {
+      "name": "Toast all'Avocado con Salmone",
+      "description": "Cremoso toast all'avocado con salmone, servito con un'insalata fresca dell'orto",
+      "ingredients": [
+        "Pane a lievitazione naturale",
+        "Salmone affumicato",
+        "Avocado schiacciato",
+        "Pomodori ciliegino",
+        "Cetriolo",
+        "Lattuga",
+        "Ravanello",
+        "Pepe nero",
+        "Semi di sesamo",
+        "Sale da tavola"
+      ]
+    },
+    "avacado-toast-with-green-olives": {
+      "name": "Toast all'Avocado con Olive Verdi",
+      "description": "Toast all'avocado con un uovo in camicia, servito con un'insalata fresca dell'orto",
+      "ingredients": [
+        "Pane a lievitazione naturale",
+        "Olive verdi",
+        "Avocado schiacciato",
+        "Pomodori ciliegino",
+        "Lattuga",
+        "Ravanello",
+        "Formaggio labneh",
+        "Pepe nero",
+        "Semi di sesamo",
+        "Sale da tavola"
+      ]
+    },
+    "acai-bowl": {
+      "name": "Açaí Bowl",
+      "description": "Açaí guarnito con banana, frutti di bosco, granola e burro di arachidi",
+      "ingredients": [
+        "Purè di acai",
+        "Banana",
+        "Frutti di bosco",
+        "Granola fatta in casa",
+        "Semi di chia",
+        "Burro di arachidi"
+      ]
+    },
+    "blue-crash-bowl": {
+      "name": "Bowl Blu Intenso",
+      "description": "Una vivace smoothie bowl blu con mango, banana, frutti di bosco e granola",
+      "ingredients": [
+        "Yogurt greco",
+        "Spirulina blu",
+        "Mango",
+        "Granola fatta in casa",
+        "Banana",
+        "Frutti di bosco",
+        "Sciroppo d'acero"
+      ]
+    },
+    "mystic-matcha-bowl": {
+      "name": "Bowl al Matcha Mistico",
+      "description": "Una smoothie bowl ai frutti di bosco con avocado, banana, cetriolo e granola",
+      "ingredients": [
+        "Yogurt greco",
+        "Spirulina blu",
+        "Matcha blu",
+        "Mango",
+        "Frutti di bosco",
+        "Avocado",
+        "Cetriolo",
+        "Granola fatta in casa"
+      ]
+    },
+    "green-dream-bowl": {
+      "name": "Bowl Sogno Verde",
+      "description": "Una colorata bowl del benessere con frutta, verdura, frutta secca e granola",
+      "ingredients": [
+        "Yogurt greco",
+        "Moringa",
+        "Spirulina verde",
+        "Kiwi",
+        "Banana",
+        "Mango",
+        "Granola fatta in casa",
+        "Albicocca",
+        "Barbabietola",
+        "Mandorle tostate",
+        "Frutti di bosco"
+      ]
+    },
+    "detox-me-later-glow-bowl": {
+      "name": "Detox Glow Bowl",
+      "description": "Una smoothie bowl rosa guarnita con frutta tropicale, frutti di bosco e melograno",
+      "ingredients": [
+        "Yogurt greco",
+        "Matcha rosa",
+        "Banana",
+        "Mango",
+        "Frutto del drago",
+        "Frutti di bosco",
+        "Melograno",
+        "Granola fatta in casa"
+      ]
+    },
+    "tropical-glow-bowl": {
+      "name": "Bowl Glow Tropicale",
+      "description": "Una bowl verde tropicale con avocado, mango, ananas e frutti di bosco",
+      "ingredients": [
+        "Yogurt greco",
+        "Avocado",
+        "Mango",
+        "Banana",
+        "Granola fatta in casa",
+        "Ananas",
+        "Frutti di bosco",
+        "Pistacchio"
+      ]
+    },
+    "watermelon-feta": {
+      "name": "Anguria e Feta",
+      "description": "Anguria fresca, feta, semi di chia e menta",
+      "ingredients": [
+        "Anguria",
+        "Formaggio feta",
+        "Limone",
+        "Semi di chia"
+      ]
+    },
+    "blood-sugar-level": {
+      "name": "Livello di Glicemia",
+      "description": "Ceci, avocado, cetriolo, pomodori, ravanello e olive",
+      "ingredients": [
+        "Ceci",
+        "Cetriolo",
+        "Pomodori ciliegino",
+        "Avocado",
+        "Olive verdi",
+        "Ravanello",
+        "Cipollotti",
+        "Prezzemolo",
+        "Pepe nero",
+        "Olio d'oliva",
+        "Succo di limone",
+        "Sale da tavola"
+      ]
+    },
+    "chicken-ceasar": {
+      "name": "Caesar al Pollo",
+      "description": "Pollo grigliato, avocado, lattuga baby gem, parmigiano e crostini",
+      "ingredients": [
+        "Lattuga",
+        "Pollo alla griglia",
+        "Avocado",
+        "Pomodori ciliegino",
+        "Crostini",
+        "Parmigiano"
+      ]
+    },
+    "colon-cleaning": {
+      "name": "Pulizia del Colon",
+      "description": "Barbabietola, carota e cavolo in una vivace vinaigrette agli agrumi",
+      "ingredients": [
+        "Carota",
+        "Barbabietola",
+        "Cavolo",
+        "Mela rossa",
+        "Sale da tavola",
+        "Succo di limone"
+      ]
+    },
+    "flat-stomach": {
+      "name": "Pancia Piatta",
+      "description": "Piselli, cetriolo e cavolo rosso con erbe fresche",
+      "ingredients": [
+        "Cavolo cappuccio rosso",
+        "Piselli verdi",
+        "Cetriolo",
+        "Prezzemolo",
+        "Cipollotto",
+        "Pepe nero",
+        "Succo di limone",
+        "Sale da tavola"
+      ]
+    },
+    "tabbouloleh-salad": {
+      "name": "Insalata Tabbouleh",
+      "description": "Cous cous, cetriolo, pomodoro, erbe aromatiche e cipolla rossa",
+      "ingredients": [
+        "Bulgur",
+        "Pomodori ciliegino",
+        "Cetriolo",
+        "Cipolle rosse",
+        "Prezzemolo",
+        "Cipollotto"
+      ]
+    },
+    "triple-berries-salad": {
+      "name": "Insalata ai Tre Frutti di Bosco",
+      "description": "Spinaci, fragole, mirtilli, more e feta",
+      "ingredients": [
+        "Spinacino",
+        "Granola fatta in casa",
+        "Frutti di bosco",
+        "Formaggio feta"
+      ]
+    },
+    "nutella-pancake": {
+      "name": "Pancake alla Nutella",
+      "description": "Soffici pancake farciti con Nutella e completati con frutti di bosco freschi",
+      "ingredients": [
+        "Crema di yogurt greco"
+      ]
+    },
+    "berries-pancake": {
+      "name": "Pancake ai Frutti di Bosco",
+      "description": "Soffici pancake guarniti con fragole, mirtilli, lamponi e more",
+      "ingredients": [
+        "Crema di yogurt greco"
+      ]
+    },
+    "classic-pancake": {
+      "name": "Pancake Classici",
+      "description": "Classici pancake soffici completati con panna, frutti di bosco e un tocco di sciroppo",
+      "ingredients": [
+        "Crema di yogurt greco"
+      ]
+    },
+    "french-toast": {
+      "name": "French Toast",
+      "description": "French toast dorato servito con banana, panna e frutti di bosco freschi",
+      "ingredients": [
+        "Crema di yogurt greco"
+      ]
+    },
+    "pistachio-pancake": {
+      "name": "Pancake al Pistacchio",
+      "description": "Soffici pancake guarniti con crema di pistacchio, granella di pistacchi e frutta fresca",
+      "ingredients": [
+        "Crema di yogurt greco"
+      ]
+    },
+    "banana-bread": {
+      "name": "Banana Bread",
+      "description": "Una fetta soffice e morbida del classico banana bread",
+      "ingredients": [
+        "Una fetta soffice e morbida di pane alla banana classico"
+      ]
+    },
+    "blueberry-muffin": {
+      "name": "Muffin ai Mirtilli",
+      "description": "Un muffin soffice cotto con succosi mirtilli",
+      "ingredients": [
+        "Un muffin soffice cotto con mirtilli succosi"
+      ]
+    },
+    "brownies": {
+      "name": "Brownie",
+      "description": "Un brownie al cioccolato ricco e fondente",
+      "ingredients": [
+        "Un brownie al cioccolato denso e goloso"
+      ]
+    },
+    "chocolate-muffin": {
+      "name": "Muffin al Cioccolato",
+      "description": "Un soffice muffin al cioccolato dal gusto intenso di cacao",
+      "ingredients": [
+        "Un muffin al cioccolato soffice con una finitura ricca di cacao"
+      ]
+    },
+    "americano": {
+      "name": "Americano",
+      "description": "Espresso allungato con acqua calda per una tazza morbida e intensa",
+      "ingredients": [
+        "Espresso allungato con acqua calda per una tazza equilibrata e decisa"
+      ]
+    },
+    "cappuccino": {
+      "name": "Cappuccino",
+      "description": "Espresso con latte montato vellutato e una schiuma morbida",
+      "ingredients": [
+        "Espresso con latte caldo vellutato e una schiuma morbida"
+      ]
+    },
+    "cafe-latte": {
+      "name": "Caffè Latte",
+      "description": "Espresso macchiato con latte vellutato e una schiuma morbida",
+      "ingredients": [
+        "Espresso macchiato con latte vellutato e schiuma morbida"
+      ]
+    },
+    "spanish-latte": {
+      "name": "Latte Spagnolo",
+      "description": "Espresso bilanciato con latte caldo leggermente montato",
+      "ingredients": [
+        "Espresso bilanciato con latte caldo leggermente montato"
+      ]
+    },
+    "expresso": {
+      "name": "Espresso",
+      "description": "Uno shot singolo ricco e corposo",
+      "ingredients": [
+        "Un shot singolo ricco e corposo"
+      ]
+    },
+    "hot-matcha-latte": {
+      "name": "Matcha Latte Caldo",
+      "description": "Matcha frullato con latte caldo vellutato",
+      "ingredients": [
+        "Tè verde matcha",
+        "Latte caldo e schiuma"
+      ]
+    },
+    "matcha": {
+      "name": "Matcha",
+      "description": "Matcha vellutato servito caldo con una nota cremosa",
+      "ingredients": [
+        "Matcha cremoso servito caldo con una finitura morbida"
+      ]
+    },
+    "mochaccino": {
+      "name": "Mochaccino",
+      "description": "Espresso, cioccolato e latte montato vellutato",
+      "ingredients": [
+        "Single shot espresso",
+        "Cioccolato",
+        "Latte caldo e schiuma"
+      ]
+    },
+    "cortado": {
+      "name": "Cortado",
+      "description": "Un espresso corto ammorbidito con latte montato",
+      "ingredients": [
+        "Un espresso corto ammorbidito con latte montato"
+      ]
+    },
+    "flat-white": {
+      "name": "Flat White",
+      "description": "Espresso vellutato con latte caldo morbido e una fine microschiuma",
+      "ingredients": [
+        "Espresso vellutato con latte caldo e una schiuma sottile"
+      ]
+    },
+    "piccolo": {
+      "name": "Piccolo",
+      "description": "Un espresso corto ammorbidito con latte caldo vellutato",
+      "ingredients": [
+        "Un espresso corto ammorbidito con latte caldo fluido"
+      ]
+    },
+    "v60": {
+      "name": "V60",
+      "description": "Caffè filtro versato a mano dal gusto pulito e aromatico",
+      "ingredients": [
+        "Caffè monorigine"
+      ]
+    },
+    "tea-selections": {
+      "name": "Selezione di Tè",
+      "description": "Una selezione curata di classici tè caldi",
+      "ingredients": [
+        "Tè verde alla menta",
+        "Tè verde al gelsomino",
+        "Camomilla",
+        "Tè English Breakfast",
+        "Tè Earl Grey"
+      ]
+    },
+    "ginger-tisane-tea": {
+      "name": "Tisana allo Zenzero",
+      "description": "Un'infusione erbale lenitiva e priva di caffeina",
+      "ingredients": [
+        "Zenzero",
+        "Succo di limone",
+        "Miele"
+      ]
+    },
+    "iced-americano": {
+      "name": "Americano Freddo",
+      "description": "Doppio espresso versato sul ghiaccio",
+      "ingredients": [
+        "Doppio shot di espresso",
+        "Cubetti di ghiaccio e acqua"
+      ]
+    },
+    "raspberry-cano": {
+      "name": "Lampone-Cano",
+      "description": "Un rinfrescante Americano freddo infuso al lampone",
+      "ingredients": [
+        "Doppio shot di espresso",
+        "Sciroppo di lampone",
+        "Cubetti di ghiaccio e acqua"
+      ]
+    },
+    "ice-latte": {
+      "name": "Latte Freddo",
+      "description": "Espresso stratificato con latte freddo e servito sul ghiaccio",
+      "ingredients": [
+        "Espresso",
+        "Latte freddo",
+        "Cubetti di ghiaccio"
+      ]
+    },
+    "iced-matcha-latte": {
+      "name": "Matcha Latte Freddo",
+      "description": "Matcha shakerato con latte freddo e ghiaccio",
+      "ingredients": [
+        "Tè verde matcha",
+        "Cubetti di ghiaccio e latte"
+      ]
+    },
+    "iced-spanish-latte": {
+      "name": "Latte Spagnolo Freddo",
+      "description": "Espresso, latte freddo e una delicata dolcezza",
+      "ingredients": [
+        "Doppio shot di espresso",
+        "Latte condensato zuccherato",
+        "Cubetti di ghiaccio e latte freddo"
+      ]
+    },
+    "cold-drip-coffee": {
+      "name": "Caffè Cold Drip",
+      "description": "Caffè freddo a lenta infusione dal gusto morbido e intenso",
+      "ingredients": [
+        "Caffè freddo ad estrazione lenta"
+      ]
+    },
+    "iced-v60": {
+      "name": "V60 Freddo",
+      "description": "Caffè filtro preparato a mano e servito sul ghiaccio",
+      "ingredients": [
+        "Caffè monorigine",
+        "Cubetti di ghiaccio"
+      ]
+    },
+    "caramel-frappe": {
+      "name": "Frappè al Caramello",
+      "description": "Espresso, caramello e latte freddo frullati fino a renderli vellutati",
+      "ingredients": [
+        "Doppio shot di espresso",
+        "Sciroppo di caramello",
+        "Gelato alla vaniglia"
+      ]
+    },
+    "matcha-frappe": {
+      "name": "Frappè al Matcha",
+      "description": "Matcha e latte freddo frullati fino a una consistenza cremosa",
+      "ingredients": [
+        "Tè verde matcha",
+        "Gelato alla vaniglia"
+      ]
+    },
+    "mocha-frappe": {
+      "name": "Frappè Mocha",
+      "description": "Espresso, cioccolato fondente e latte freddo frullati fino a renderli vellutati",
+      "ingredients": [
+        "Single shot di espresso",
+        "Cioccolato",
+        "Gelato alla vaniglia"
+      ]
+    },
+    "press-d-frappe": {
+      "name": "Frappè Press'd",
+      "description": "Il nostro frappè al caffè cremoso, la nostra ricetta signature",
+      "ingredients": [
+        "Doppio shot di espresso",
+        "Gelato alla vaniglia"
+      ]
+    },
+    "cookies-cream": {
+      "name": "Cookies & Cream",
+      "description": "Proteine al gusto cookies & cream frullate con latte freddo",
+      "ingredients": [
+        "Cioccolato",
+        "Banana",
+        "Granola",
+        "Burro di arachidi",
+        "Proteine del siero del latte",
+        "Cacao in polvere",
+        "Latte"
+      ]
+    },
+    "dates-me": {
+      "name": "Datteri & Delizia",
+      "description": "Datteri, banana e proteine frullati in uno shake naturalmente dolce",
+      "ingredients": [
+        "Datteri",
+        "Banana",
+        "Granola",
+        "Proteine del siero del latte",
+        "Latte"
+      ]
+    },
+    "pb-j": {
+      "name": "PB & J",
+      "description": "Burro di arachidi, frutti di bosco e proteine frullati fino a renderli vellutati",
+      "ingredients": [
+        "Fragola",
+        "Lampone",
+        "Banana",
+        "Granola",
+        "Burro di arachidi",
+        "Barbabietola",
+        "Proteine del siero del latte",
+        "Latte"
+      ]
+    },
+    "rumble-in-the-jungle": {
+      "name": "Rumble in the Jungle",
+      "description": "Un frullato proteico verde con banana e verdure a foglia",
+      "ingredients": [
+        "Avocado",
+        "Broccoli",
+        "Spinacino",
+        "Cavolo riccio",
+        "Banana",
+        "Siero del latte",
+        "Latte"
+      ]
+    },
+    "power-protein": {
+      "name": "Power Protein",
+      "description": "Uno shake proteico morbido e cremoso, pensato per darti energia per tutta la giornata",
+      "ingredients": [
+        "Purè di acai",
+        "Mirtilli",
+        "Ciliegia",
+        "Banana",
+        "Barbabietola",
+        "Polvere di proteine del siero"
+      ]
+    },
+    "ice-and-shake": {
+      "name": "Freddo e Frullato",
+      "description": "Uno shake proteico freddo e cremoso, frullato sul ghiaccio",
+      "ingredients": [
+        "Un frullato proteico cremoso e fresco frullato su ghiaccio"
+      ]
+    },
+    "build-your-own": {
+      "name": "Crea il Tuo",
+      "description": "Scegli gli ingredienti che preferisci e crea il tuo frullato proteico",
+      "ingredients": [
+        "Inserisci nei commenti la tua scelta di tre frutti, proteine e latte"
+      ]
+    },
+    "fignuts": {
+      "name": "Fichi e Noci",
+      "description": "Fichi, frutta secca e semi pressati in una barretta naturalmente energizzante",
+      "ingredients": [
+        "Fichi",
+        "Anacardi",
+        "Uva passa"
+      ]
+    },
+    "walnana": {
+      "name": "Nocenana",
+      "description": "Una barretta proteica al cacao e frutta secca, ricca e dal gusto morbido",
+      "ingredients": [
+        "Banana",
+        "Noci",
+        "Uva passa",
+        "Albicocca",
+        "Avena",
+        "Sottile strato di cioccolato"
+      ]
+    },
+    "nutri-tropix": {
+      "name": "Nutri Tropix",
+      "description": "Una barretta energetica a strati con frutta tropicale e frutta secca",
+      "ingredients": [
+        "Cocco",
+        "Ananas",
+        "Anacardi",
+        "Albicocche",
+        "Datteri"
+      ]
+    },
+    "nutty-date-delight-ball": {
+      "name": "Pallina ai Datteri e Noci",
+      "description": "Palline energetiche di datteri e frutta secca ricoperte di cioccolato",
+      "ingredients": [
+        "Mandorla",
+        "Datteri",
+        "Sottile strato di cioccolato"
+      ]
+    },
+    "energy-booster": {
+      "name": "Carica di Energia",
+      "description": "Frutti di bosco misti, banana e un mix di frutta naturalmente energizzante",
+      "ingredients": [
+        "Ciliegie"
+      ]
+    },
+    "green-machine": {
+      "name": "Green Machine",
+      "description": "Verdure a foglia, mela, banana e un fresco mix tropicale",
+      "ingredients": [
+        "Cavolo riccio",
+        "Broccoli",
+        "Spinacino",
+        "Banana",
+        "Ananas",
+        "Avocado",
+        "Succo di mela"
+      ]
+    },
+    "mango-mania": {
+      "name": "Mango Mania",
+      "description": "Mango, banana e frutta tropicale frullati fino a renderli vellutati",
+      "ingredients": [
+        "Mango",
+        "Ananas",
+        "Pesca",
+        "Succo di mela"
+      ]
+    },
+    "pina-colada": {
+      "name": "Piña Colada",
+      "description": "Ananas e cocco frullati in uno smoothie tropicale cremoso",
+      "ingredients": [
+        "Ananas",
+        "Cocco",
+        "Banana",
+        "Succo di mela"
+      ]
+    },
+    "rubby-antioxidant-blend": {
+      "name": "Mix Antiossidante Ruby",
+      "description": "Un mix color rubino intenso di frutta e frutti di bosco ricchi di antiossidanti",
+      "ingredients": [
+        "Prugne secche",
+        "Carbone attivo",
+        "Mirtillo",
+        "Mora",
+        "Ribes nero",
+        "Barbabietola",
+        "Ciliegie",
+        "Succo di mela"
+      ]
+    },
+    "strawberry-fusion": {
+      "name": "Fragola Fusion",
+      "description": "Fragole e banana frullate in uno smoothie fresco e vivace",
+      "ingredients": [
+        "Fragola",
+        "Mango",
+        "Lampone",
+        "Banana",
+        "Barbabietola",
+        "Succo di mela"
+      ]
+    },
+    "smoothies-build-your-own": {
+      "name": "Crea il Tuo",
+      "description": "Scegli gli ingredienti che preferisci e crea il tuo smoothie",
+      "ingredients": [
+        "Inserisci nei commenti la tua scelta di tre frutti"
+      ]
+    },
+    "carrot": {
+      "name": "Carota",
+      "description": "Succo di carota appena spremuto, servito freddo",
+      "ingredients": [
+        "Succo di carota fresco"
+      ]
+    },
+    "green-apple": {
+      "name": "Mela Verde",
+      "description": "Mele verdi croccanti spremute fresche al momento",
+      "ingredients": [
+        "Succo di mela verde fresca"
+      ]
+    },
+    "orange": {
+      "name": "Arancia",
+      "description": "Succo d'arancia appena spremuto, servito freddo",
+      "ingredients": [
+        "Succo d'arancia fresco"
+      ]
+    },
+    "watermelon": {
+      "name": "Anguria",
+      "description": "Succo di anguria fresco servito sul ghiaccio",
+      "ingredients": [
+        "Succo d'anguria fresco"
+      ]
+    },
+    "fresh-mint-lemonade": {
+      "name": "Limonata alla Menta Fresca",
+      "description": "Limone fresco e menta frullati in una bevanda vivace e rinfrescante",
+      "ingredients": [
+        "Menta",
+        "Limone",
+        "Zucchero"
+      ]
+    },
+    "immunity-booster": {
+      "name": "Booster Immunitario",
+      "description": "Un vivace mix di agrumi pensato per una carica rinfrescante",
+      "ingredients": [
+        "Carota",
+        "Zenzero",
+        "Mela verde"
+      ]
+    },
+    "incredible-hulk": {
+      "name": "L'Incredibile Hulk",
+      "description": "Un intenso mix verde del benessere servito freddo",
+      "ingredients": [
+        "Mela verde",
+        "Zenzero",
+        "Ananas",
+        "Frutto della passione",
+        "Spirulina verde in polvere"
+      ]
+    },
+    "the-shield": {
+      "name": "Lo Scudo",
+      "description": "Un morbido e rinfrescante mix del benessere, la nostra ricetta signature",
+      "ingredients": [
+        "Mela verde",
+        "Zenzero",
+        "Ananas",
+        "Curcuma",
+        "Pepe nero"
+      ]
+    },
+    "ginger-iced-tea": {
+      "name": "Tè Freddo allo Zenzero",
+      "description": "Tè freddo infuso con zenzero vivace e speziato",
+      "ingredients": [
+        "Tè alla frutta",
+        "Zenzero fresco e limone",
+        "Miele"
+      ]
+    },
+    "passion-fruit-iced-tea": {
+      "name": "Tè Freddo al Frutto della Passione",
+      "description": "Tè freddo arricchito dal frutto della passione tropicale",
+      "ingredients": [
+        "Tè alla frutta",
+        "Sciroppo al frutto della passione",
+        "Frutto della passione fresco e limone"
+      ]
+    },
+    "peach-iced-tea": {
+      "name": "Tè Freddo alla Pesca",
+      "description": "Tè freddo morbido dal gusto di pesca matura",
+      "ingredients": [
+        "Tè alla frutta e limone",
+        "Sciroppo di pesca e cubetti di ghiaccio"
+      ]
+    },
+    "blue-lagoon-mojito": {
+      "name": "Mojito Blue Lagoon",
+      "description": "Un rinfrescante mix di agrumi e menta con un frizzante gusto blue lagoon",
+      "ingredients": [
+        "Menta fresca e limone",
+        "Sciroppo Blue Lagoon"
+      ]
+    },
+    "blueberry-mojito": {
+      "name": "Mojito ai Mirtilli",
+      "description": "Mirtilli, menta fresca, agrumi e soda frizzante",
+      "ingredients": [
+        "Menta fresca, limone e mirtillo",
+        "Sciroppo di mirtillo"
+      ]
+    },
+    "strawberry-mojito": {
+      "name": "Mojito alla Fragola",
+      "description": "Fragola, menta fresca, lime e soda frizzante",
+      "ingredients": [
+        "Fragola, menta fresca, lime e soda frizzante"
+      ]
+    },
+    "classic-mojito": {
+      "name": "Mojito Classico",
+      "description": "Lime fresco, menta e soda frizzante",
+      "ingredients": [
+        "Menta fresca e limone",
+        "Sciroppo mojito alla menta"
+      ]
+    },
+    "passion-fruit-mojito": {
+      "name": "Mojito al Frutto della Passione",
+      "description": "Frutto della passione, menta fresca, lime e soda frizzante",
+      "ingredients": [
+        "Menta fresca, limone e frutto della passione",
+        "Sciroppo al frutto della passione"
+      ]
+    },
+    "evian-water": {
+      "name": "Acqua Evian",
+      "description": "Acqua minerale naturale delle Alpi francesi",
+      "ingredients": [
+        "Acqua minerale naturale dalle Alpi francesi"
+      ]
+    },
+    "vitamin-well-upgrade": {
+      "name": "Vitamin Well Upgrade",
+      "description": "Bevanda vitaminica al limone e cactus con magnesio e zinco",
+      "ingredients": [
+        "Bevanda vitaminica al limone e cactus con magnesio e zinco"
+      ]
+    },
+    "c4-energy-drink": {
+      "name": "C4 Energy Drink",
+      "description": "Energy drink performante a zero zuccheri",
+      "ingredients": [
+        "Energy drink senza zucchero per prestazioni elevate"
+      ]
+    },
+    "perrier-sparkling-water": {
+      "name": "Acqua Frizzante Perrier",
+      "description": "La classica acqua minerale naturale frizzante Perrier",
+      "ingredients": [
+        "Acqua minerale frizzante naturale Perrier classica"
+      ]
+    },
+    "perrier-sparkling-water-with-lemon": {
+      "name": "Acqua Frizzante Perrier al Limone",
+      "description": "Acqua frizzante Perrier servita sul ghiaccio con limone",
+      "ingredients": [
+        "Acqua frizzante Perrier servita con ghiaccio e limone"
+      ]
+    },
+    "beef-pastrami": {
+      "name": "Pastrami di Manzo",
+      "description": "Pastrami di manzo, formaggio fuso, lattuga e cipolla",
+      "ingredients": [
+        "Formaggio Emmental",
+        "Pastrami di manzo",
+        "Cipolle caramellate",
+        "Lattuga",
+        "Pane"
+      ]
+    },
+    "chickado": {
+      "name": "Pollocado",
+      "description": "Pollo, avocado, pomodoro, cetriolo e salsa cremosa",
+      "ingredients": [
+        "Formaggio mozzarella",
+        "Mousse di pollo",
+        "Cetriolo",
+        "Pomodoro",
+        "Avocado",
+        "Pane"
+      ]
+    },
+    "halloumi-avocado": {
+      "name": "Halloumi e Avocado",
+      "description": "Halloumi, avocado, cetriolo e pomodoro",
+      "ingredients": [
+        "Formaggio halloumi alla griglia",
+        "Salsa all'avocado",
+        "Pomodoro",
+        "Cetriolo",
+        "Pane"
+      ]
+    },
+    "halloumi-pesto": {
+      "name": "Halloumi al Pesto",
+      "description": "Halloumi, pesto, cetriolo e pomodoro",
+      "ingredients": [
+        "Formaggio halloumi alla griglia",
+        "Salsa al pesto",
+        "Pomodoro",
+        "Cetriolo",
+        "Pane"
+      ]
+    },
+    "labneh": {
+      "name": "Labneh",
+      "description": "Labneh, cetriolo, pomodoro, olive e insalata verde",
+      "ingredients": [
+        "Formaggio labneh",
+        "Olive verdi a fette",
+        "Olio d'oliva",
+        "Pomodoro",
+        "Cetriolo",
+        "Pane"
+      ]
+    },
+    "melted-cheese": {
+      "name": "Formaggio Fuso",
+      "description": "Formaggio fuso caldo e pomodoro",
+      "ingredients": [
+        "Formaggio Cheddar ed Emmental",
+        "Pomodoro",
+        "Pane"
+      ]
+    },
+    "smoked-salmon": {
+      "name": "Salmone Affumicato",
+      "description": "Salmone affumicato, cetriolo e formaggio cremoso",
+      "ingredients": [
+        "Mix formaggio Philadelphia",
+        "Salmone affumicato",
+        "Cetriolo",
+        "Pomodoro",
+        "Pane"
+      ]
+    },
+    "smoked-turkey": {
+      "name": "Tacchino Affumicato",
+      "description": "Tacchino affumicato, formaggio fuso, pomodoro e pesto",
+      "ingredients": [
+        "Formaggio mozzarella",
+        "Tacchino affumicato",
+        "Salsa al pesto",
+        "Pomodori",
+        "Pane"
+      ]
+    }
+  },
+  "customization": {
+    "beans": {
+      "brazil": "Brasile",
+      "honduras": "Honduras",
+      "el-salvador": "El Salvador",
+      "hamasho": "Hamasho",
+      "decaf-colombia": "Decaffeinato (Colombia)"
+    },
+    "milk": {
+      "fresh-milk": "Latte Fresco",
+      "oat-milk": "Latte d'Avena",
+      "almond-milk": "Latte di Mandorla",
+      "coconut-milk": "Latte di Cocco"
+    },
+    "syrup": {
+      "none": "Nessuno",
+      "caramel": "Caramello",
+      "hazelnut": "Nocciola",
+      "vanilla": "Vaniglia",
+      "pistachio": "Pistacchio"
+    }
+  },
+  "ui": {
+    "eyebrow": "MANGIA · BEVI · RIPETI",
+    "menuHeading": "IL MENU.",
+    "menuIntro": "Piatti vivaci, sapori decisi e un caffè per cui vale la pena rallentare. Sfoglialo come preferisci.",
+    "menuLabel": "MENU",
+    "sectionsAriaSuffix": "sezioni",
+    "categoriesAll": "Tutti",
+    "categoriesAriaLabel": "Categorie del menu",
+    "categoryPrevAria": "Mostra le categorie precedenti del menu",
+    "categoryNextAria": "Mostra altre categorie del menu",
+    "details": "Dettagli",
+    "detailsAria": "Visualizza i dettagli di {name}",
+    "customize": "Personalizza",
+    "comment": "Commento",
+    "currencyPrefix": "AED",
+    "inCart": "Nel Carrello",
+    "addToCart": "Aggiungi",
+    "addAria": "Aggiungi {name} al carrello",
+    "inCartAria": "{name} è nel carrello",
+    "factsSize": "Formato",
+    "factsProtein": "Proteine",
+    "factsCarbohydrates": "Carboidrati",
+    "factsCalories": "Calorie",
+    "closeDetailsAria": "Chiudi i dettagli del prodotto",
+    "menuEyebrowModal": "MENU PRESS'D",
+    "whatsInside": "Cosa contiene",
+    "addToOrder": "Aggiungi all'Ordine",
+    "makeItYours": "RENDILO UNICO",
+    "customizeYourDrink": "Personalizza la Tua Bevanda",
+    "coffeeBeans": "CHICCHI DI CAFFÈ",
+    "milks": "LATTE",
+    "syrups": "SCIROPPI",
+    "commentHeading": "COMMENTO / ISTRUZIONI SPECIALI",
+    "commentHelp": "Dicci cosa vorresti ridurre, togliere o aggiungere a questa bevanda.",
+    "commentPlaceholder": "Aggiungi il tuo commento o le istruzioni speciali...",
+    "customizationSaved": "La personalizzazione della tua bevanda è stata salvata.",
+    "saveSelection": "SALVA SELEZIONE",
+    "closeCustomizeAria": "Chiudi la personalizzazione della bevanda",
+    "customiseYourOrder": "PERSONALIZZA IL TUO ORDINE",
+    "specialInstructions": "Istruzioni Speciali",
+    "instructionsHelp": "Dicci cosa vorresti ridurre, togliere o aggiungere a questo prodotto…",
+    "instructionsPlaceholder": "Dicci cosa vorresti ridurre, togliere o aggiungere a questo prodotto…",
+    "instructionsSaved": "Istruzioni salvate.",
+    "cancel": "Annulla",
+    "saveInstructions": "Salva Istruzioni",
+    "closeInstructionsAria": "Chiudi le istruzioni speciali",
+    "cartEyebrow": "IL TUO ORDINE",
+    "cart": "CARRELLO",
+    "closeCartAria": "Chiudi il carrello",
+    "customizedLabel": "Personalizzato:",
+    "specialInstructionsLabel": "Istruzioni speciali:",
+    "removeOneAria": "Rimuovi un {name}",
+    "addOneAria": "Aggiungi un {name}",
+    "emptyCart": "Il tuo carrello è vuoto.",
+    "exploreMenu": "Esplora il menu →",
+    "total": "Totale",
+    "orderOnWhatsapp": "Ordina su WhatsApp",
+    "orderSentTo": "L'ordine verrà inviato al numero +971 55 683 8426",
+    "selectLanguage": "SCEGLI LA TUA LINGUA",
+    "languageButtonAria": "Cambia la lingua del menu",
+    "changeLanguage": "Cambia lingua"
+  }
+}

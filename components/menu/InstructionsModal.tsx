@@ -4,13 +4,21 @@ import { useEffect, useRef, useState } from "react";
 import { useMenuModals } from "@/components/menu/MenuModalsContext";
 import { useCart } from "@/components/cart/CartContext";
 import { readInstructions, saveInstructions } from "@/lib/cart";
+import { menuItemById } from "@/data/menu";
+import { useLocale } from "@/lib/i18n/LocaleContext";
 
 export default function InstructionsModal() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const { instructionsProduct, closeInstructions } = useMenuModals();
   const { cart, applyCustomization } = useCart();
+  const { t, dir } = useLocale();
   const [value, setValue] = useState("");
   const [note, setNote] = useState("");
+
+  const productName = instructionsProduct ? menuItemById.get(instructionsProduct)?.[0] ?? "" : "";
+  const displayProductName = instructionsProduct
+    ? t(`products.${instructionsProduct}.name`, productName)
+    : "";
 
   useEffect(() => {
     // Reading the saved draft from localStorage has to happen client-side,
@@ -34,10 +42,10 @@ export default function InstructionsModal() {
     else delete saved[instructionsProduct];
     saveInstructions(saved);
 
-    const cartItem = cart.find((item) => item.name === instructionsProduct);
+    const cartItem = cart.find((item) => item.id === instructionsProduct);
     if (cartItem) applyCustomization(instructionsProduct, cartItem.customization, trimmed);
 
-    setNote("Instructions saved.");
+    setNote(t("ui.instructionsSaved", "Instructions saved."));
     setTimeout(() => dialogRef.current?.close(), 700);
   };
 
@@ -45,6 +53,7 @@ export default function InstructionsModal() {
     <dialog
       className="instructions-modal"
       ref={dialogRef}
+      dir={dir}
       aria-labelledby="instructions-title"
       onClick={(event) => {
         if (event.target === event.currentTarget) closeInstructions();
@@ -54,14 +63,14 @@ export default function InstructionsModal() {
       <button
         className="instructions-close"
         type="button"
-        aria-label="Close special instructions"
+        aria-label={t("ui.closeInstructionsAria", "Close special instructions")}
         onClick={closeInstructions}
       >
         ×
       </button>
-      <p className="instructions-eyebrow">CUSTOMISE YOUR ORDER</p>
-      <h2 id="instructions-title">Special Instructions</h2>
-      <p className="instructions-product">{instructionsProduct}</p>
+      <p className="instructions-eyebrow">{t("ui.customiseYourOrder", "CUSTOMISE YOUR ORDER")}</p>
+      <h2 id="instructions-title">{t("ui.specialInstructions", "Special Instructions")}</h2>
+      <p className="instructions-product">{displayProductName}</p>
       <form
         onSubmit={(event) => {
           event.preventDefault();
@@ -69,14 +78,14 @@ export default function InstructionsModal() {
         }}
       >
         <label htmlFor="product-instructions">
-          Tell us what you’d like to reduce, remove, or add to this product…
+          {t("ui.instructionsHelp", "Tell us what you'd like to reduce, remove, or add to this product…")}
         </label>
         <textarea
           id="product-instructions"
           name="instructions"
           maxLength={500}
           rows={5}
-          placeholder="Tell us what you’d like to reduce, remove, or add to this product…"
+          placeholder={t("ui.instructionsPlaceholder", "Tell us what you'd like to reduce, remove, or add to this product…")}
           value={value}
           onChange={(event) => setValue(event.target.value)}
         />
@@ -85,9 +94,9 @@ export default function InstructionsModal() {
         </p>
         <div>
           <button type="button" className="instructions-cancel" onClick={closeInstructions}>
-            Cancel
+            {t("ui.cancel", "Cancel")}
           </button>
-          <button type="submit">Save Instructions</button>
+          <button type="submit">{t("ui.saveInstructions", "Save Instructions")}</button>
         </div>
       </form>
     </dialog>

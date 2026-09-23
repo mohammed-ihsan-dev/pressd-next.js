@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useCart } from "@/components/cart/CartContext";
 import { useBooking } from "@/components/booking/BookingContext";
 import { useSectionLinkHandler, useSectionNav } from "@/components/navigation/SectionNavContext";
+import LanguageSelector from "@/components/menu/LanguageSelector";
 
 const NAV_LINKS = [
   { href: "#menu", label: "Menu" },
@@ -66,6 +67,7 @@ export default function Navbar() {
           })}
         </nav>
         <div className="nav-actions">
+          {activeSection === "menu" && <LanguageSelector />}
           <button className="cart-toggle" aria-label="Open shopping cart" onClick={openCart}>
             Cart
             <svg

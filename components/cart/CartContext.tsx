@@ -22,6 +22,7 @@ import { customizationExtra, type Customization } from "@/lib/customization";
 import { readCustomizations, readInstructions } from "@/lib/cart";
 
 interface AddToCartInput {
+  id: string;
   name: string;
   basePrice: number;
   image: string;
@@ -36,7 +37,7 @@ interface CartContextValue {
   closeCart: () => void;
   addToCart: (input: AddToCartInput) => void;
   changeQty: (index: number, delta: 1 | -1) => void;
-  applyCustomization: (name: string, customization: Customization, instructions: string) => void;
+  applyCustomization: (id: string, customization: Customization, instructions: string) => void;
   whatsappHref: string;
   cartImageFor: typeof cartImageFor;
   cartDetailsFor: typeof cartDetailsFor;
@@ -66,20 +67,20 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const quantity = useMemo(() => cart.reduce((sum, item) => sum + item.qty, 0), [cart]);
   const total = useMemo(() => cart.reduce((sum, item) => sum + item.price * item.qty, 0), [cart]);
 
-  const addToCart = useCallback(({ name, basePrice, image }: AddToCartInput) => {
-    const instructions = readInstructions()[name] || "";
-    const customization = readCustomizations()[name];
+  const addToCart = useCallback(({ id, name, basePrice, image }: AddToCartInput) => {
+    const instructions = readInstructions()[id] || "";
+    const customization = readCustomizations()[id];
     const price = basePrice + customizationExtra(customization);
     setCart((prev) => {
-      const existing = prev.find((item) => item.name === name);
+      const existing = prev.find((item) => item.id === id);
       if (existing) {
         return prev.map((item) =>
-          item.name === name
+          item.id === id
             ? { ...item, qty: item.qty + 1, basePrice, price, image: image || item.image, instructions, customization }
             : item
         );
       }
-      return [...prev, { name, basePrice, price, image, instructions, customization, qty: 1 }];
+      return [...prev, { id, name, basePrice, price, image, instructions, customization, qty: 1 }];
     });
   }, []);
 
@@ -92,10 +93,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const applyCustomization = useCallback(
-    (name: string, customization: Customization, instructions: string) => {
+    (id: string, customization: Customization, instructions: string) => {
       setCart((prev) =>
         prev.map((item) => {
-          if (item.name !== name) return item;
+          if (item.id !== id) return item;
           const basePrice = item.basePrice ?? item.price - customizationExtra(item.customization);
           return {
             ...item,

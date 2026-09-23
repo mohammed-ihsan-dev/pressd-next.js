@@ -1,0 +1,1056 @@
+{
+  "categories": {
+    "fresh-start": "Güne Başlangıç",
+    "hot-beverages": "Sıcak İçecekler",
+    "ice-beverages": "Buzlu İçecekler",
+    "protein-shakes-bars": "Protein Shake & Bar",
+    "smoothies": "Smoothie'ler",
+    "fresh-juices": "Taze Meyve Suları",
+    "refreshing-drinks": "Ferahlatıcı İçecekler",
+    "sandwiches": "Sandviçler"
+  },
+  "categoryTaglines": {
+    "fresh-start": "Kahvaltı · bowl · salata · pankek",
+    "hot-beverages": "Kahve · çay · sıcacık anlar",
+    "ice-beverages": "Buzlu kahve · frappe",
+    "protein-shakes-bars": "Protein shake · protein bar",
+    "smoothies": "Meyve dolu · doğal enerji",
+    "fresh-juices": "Soğuk sıkım · mocktail",
+    "refreshing-drinks": "Buzlu çay · mojito · ferahlatıcılar",
+    "sandwiches": "Taze hazırlanır · lezzet dolu"
+  },
+  "subcategories": {
+    "breakfast": "Kahvaltı",
+    "bowls": "Bowl",
+    "salads": "Salatalar",
+    "pancakes": "Pankekler",
+    "cakes-pastries": "Kekler & Tatlılar",
+    "coffee": "Kahve",
+    "teas": "Çaylar",
+    "iced-coffee": "Buzlu Kahve",
+    "frappe": "Frappe",
+    "protein-shakes": "Protein Shake'ler",
+    "protein-bars": "Protein Barlar",
+    "smoothies": "Smoothie'ler",
+    "cold-press": "Soğuk Sıkım",
+    "mocktails": "Mocktail'ler",
+    "iced-teas": "Buzlu Çaylar",
+    "mojitos": "Mojitolar",
+    "refreshing-drinks": "Ferahlatıcı İçecekler",
+    "sandwiches": "Sandviçler"
+  },
+  "products": {
+    "avacado-toast-with-poached-eggs": {
+      "name": "Poşe Yumurtalı Avokado Tost",
+      "description": "Poşe yumurtayla taçlandırılmış kremamsı avokado tost, taze mevsim salatasıyla servis edilir",
+      "ingredients": [
+        "Ekşi mayalı ekmek",
+        "2 yumurta",
+        "Püre avokado",
+        "Çeri domates",
+        "Marul",
+        "Turp",
+        "Labne peyniri",
+        "Karabiber",
+        "Masa tuzu"
+      ]
+    },
+    "avacado-toast-with-salmon": {
+      "name": "Somonlu Avokado Tost",
+      "description": "Somonla taçlandırılmış kremamsı avokado tost, taze mevsim salatasıyla servis edilir",
+      "ingredients": [
+        "Ekşi mayalı ekmek",
+        "Füme somon",
+        "Püre avokado",
+        "Çeri domates",
+        "Salatalık",
+        "Marul",
+        "Turp",
+        "Karabiber",
+        "Susam",
+        "Masa tuzu"
+      ]
+    },
+    "avacado-toast-with-green-olives": {
+      "name": "Yeşil Zeytinli Avokado Tost",
+      "description": "Poşe yumurtalı avokado tost, taze mevsim salatasıyla servis edilir",
+      "ingredients": [
+        "Ekşi mayalı ekmek",
+        "Yeşil zeytin",
+        "Püre avokado",
+        "Çeri domates",
+        "Marul",
+        "Turp",
+        "Labne peyniri",
+        "Karabiber",
+        "Susam",
+        "Masa tuzu"
+      ]
+    },
+    "acai-bowl": {
+      "name": "Açaí Bowl",
+      "description": "Muz, orman meyveleri, granola ve fıstık ezmesiyle taçlandırılmış açaí",
+      "ingredients": [
+        "Açai püresi",
+        "Muz",
+        "Orman meyveleri",
+        "Ev yapımı granola",
+        "Çiya tohumu",
+        "Fıstık ezmesi"
+      ]
+    },
+    "blue-crash-bowl": {
+      "name": "Mavi Patlama Bowl",
+      "description": "Mango, muz, orman meyveleri ve granola ile hazırlanan canlı mavi smoothie bowl",
+      "ingredients": [
+        "Süzme yoğurt",
+        "Mavi spirulina",
+        "Mango",
+        "Ev yapımı granola",
+        "Muz",
+        "Orman meyveleri",
+        "Akçaağaç şurubu"
+      ]
+    },
+    "mystic-matcha-bowl": {
+      "name": "Gizemli Matcha Bowl",
+      "description": "Avokado, muz, salatalık ve granola ile hazırlanan orman meyveli smoothie bowl",
+      "ingredients": [
+        "Süzme yoğurt",
+        "Mavi spirulina",
+        "Mavi matcha",
+        "Mango",
+        "Orman meyveleri",
+        "Avokado",
+        "Salatalık",
+        "Ev yapımı granola"
+      ]
+    },
+    "green-dream-bowl": {
+      "name": "Yeşil Rüya Bowl",
+      "description": "Meyve, sebze, kuruyemiş ve granola ile hazırlanan renkli wellness bowl",
+      "ingredients": [
+        "Süzme yoğurt",
+        "Moringa",
+        "Yeşil spirulina",
+        "Kivi",
+        "Muz",
+        "Mango",
+        "Ev yapımı granola",
+        "Kayısı",
+        "Pancar",
+        "Kavrulmuş badem",
+        "Orman meyveleri"
+      ]
+    },
+    "detox-me-later-glow-bowl": {
+      "name": "Parlayan Detoks Bowl",
+      "description": "Tropikal meyve, orman meyveleri ve narla taçlandırılmış pembe smoothie bowl",
+      "ingredients": [
+        "Süzme yoğurt",
+        "Pembe matcha",
+        "Muz",
+        "Mango",
+        "Ejder meyvesi",
+        "Orman meyveleri",
+        "Nar",
+        "Ev yapımı granola"
+      ]
+    },
+    "tropical-glow-bowl": {
+      "name": "Tropikal Işıltı Bowl",
+      "description": "Avokado, mango, ananas ve orman meyveleriyle hazırlanan tropikal yeşil bowl",
+      "ingredients": [
+        "Süzme yoğurt",
+        "Avokado",
+        "Mango",
+        "Muz",
+        "Ev yapımı granola",
+        "Ananas",
+        "Orman meyveleri",
+        "Fıstık"
+      ]
+    },
+    "watermelon-feta": {
+      "name": "Karpuz Feta",
+      "description": "Taze karpuz, feta peyniri, chia tohumu ve nane",
+      "ingredients": [
+        "Karpuz",
+        "Feta peyniri",
+        "Limon",
+        "Çiya tohumu"
+      ]
+    },
+    "blood-sugar-level": {
+      "name": "Kan Şekeri Dengesi",
+      "description": "Nohut, avokado, salatalık, domates, turp ve zeytin",
+      "ingredients": [
+        "Nohut",
+        "Salatalık",
+        "Çeri domates",
+        "Avokado",
+        "Yeşil zeytin",
+        "Turp",
+        "Yeşil soğan",
+        "Maydanoz",
+        "Karabiber",
+        "Zeytinyağı",
+        "Limon suyu",
+        "Masa tuzu"
+      ]
+    },
+    "chicken-ceasar": {
+      "name": "Tavuklu Sezar",
+      "description": "Izgara tavuk, avokado, marul, parmesan ve kruton",
+      "ingredients": [
+        "Marul",
+        "Izgara tavuk",
+        "Avokado",
+        "Çeri domates",
+        "Kruton",
+        "Parmesan peyniri"
+      ]
+    },
+    "colon-cleaning": {
+      "name": "Kolon Temizliği",
+      "description": "Parlak turunçlu sosla hazırlanmış pancar, havuç ve lahana",
+      "ingredients": [
+        "Havuç",
+        "Pancar",
+        "Lahana",
+        "Kırmızı elma",
+        "Masa tuzu",
+        "Limon suyu"
+      ]
+    },
+    "flat-stomach": {
+      "name": "Düz Karın",
+      "description": "Taze otlarla hazırlanmış bezelye, salatalık ve kırmızı lahana",
+      "ingredients": [
+        "Kırmızı lahana",
+        "Yeşil bezelye",
+        "Salatalık",
+        "Maydanoz",
+        "Taze soğan",
+        "Karabiber",
+        "Limon suyu",
+        "Masa tuzu"
+      ]
+    },
+    "tabbouloleh-salad": {
+      "name": "Tabule Salatası",
+      "description": "Kuskus, salatalık, domates, taze otlar ve kırmızı soğan",
+      "ingredients": [
+        "Bulgur",
+        "Çeri domates",
+        "Salatalık",
+        "Kırmızı soğan",
+        "Maydanoz",
+        "Taze soğan"
+      ]
+    },
+    "triple-berries-salad": {
+      "name": "Üçlü Orman Meyveleri Salatası",
+      "description": "Ispanak, çilek, yaban mersini, böğürtlen ve feta peyniri",
+      "ingredients": [
+        "Bebek ıspanak",
+        "Ev yapımı granola",
+        "Orman meyveleri",
+        "Feta peyniri"
+      ]
+    },
+    "nutella-pancake": {
+      "name": "Nutellalı Pankek",
+      "description": "Nutella ile katmanlanmış, taze orman meyveleriyle tamamlanan kabarık pankekler",
+      "ingredients": [
+        "Süzme yoğurt kreması"
+      ]
+    },
+    "berries-pancake": {
+      "name": "Orman Meyveli Pankek",
+      "description": "Çilek, yaban mersini, ahududu ve böğürtlenle taçlandırılmış kabarık pankekler",
+      "ingredients": [
+        "Süzme yoğurt kreması"
+      ]
+    },
+    "classic-pancake": {
+      "name": "Klasik Pankek",
+      "description": "Krema, orman meyveleri ve bir dokunuş şurupla tamamlanan klasik kabarık pankekler",
+      "ingredients": [
+        "Süzme yoğurt kreması"
+      ]
+    },
+    "french-toast": {
+      "name": "Fransız Tostu",
+      "description": "Muz, krema ve taze orman meyveleriyle servis edilen altın rengi Fransız tostu",
+      "ingredients": [
+        "Süzme yoğurt kreması"
+      ]
+    },
+    "pistachio-pancake": {
+      "name": "Fıstıklı Pankek",
+      "description": "Antep fıstığı kreması, çekilmiş fıstık ve taze meyveyle taçlandırılmış kabarık pankekler",
+      "ingredients": [
+        "Süzme yoğurt kreması"
+      ]
+    },
+    "banana-bread": {
+      "name": "Muzlu Kek",
+      "description": "Yumuşacık, nemli klasik muzlu kek dilimi",
+      "ingredients": [
+        "Klasik muzlu ekmeğin yumuşak, nemli bir dilimi"
+      ]
+    },
+    "blueberry-muffin": {
+      "name": "Yaban Mersinli Muffin",
+      "description": "Sulu yaban mersinleriyle pişirilmiş yumuşak muffin",
+      "ingredients": [
+        "Sulu yaban mersini ile pişirilmiş yumuşak bir kek"
+      ]
+    },
+    "brownies": {
+      "name": "Brownie",
+      "description": "Yoğun kıvamlı, çikolatalı brownie",
+      "ingredients": [
+        "Zengin, yoğun çikolatalı brownie"
+      ]
+    },
+    "chocolate-muffin": {
+      "name": "Çikolatalı Muffin",
+      "description": "Yoğun kakao aromalı yumuşak çikolatalı muffin",
+      "ingredients": [
+        "Yoğun kakaolu yumuşak çikolatalı kek"
+      ]
+    },
+    "americano": {
+      "name": "Americano",
+      "description": "Sıcak suyla uzatılmış, yumuşak ve dolgun içimli espresso",
+      "ingredients": [
+        "Yumuşak ve zengin bir tat için sıcak su ile uzatılmış espresso"
+      ]
+    },
+    "cappuccino": {
+      "name": "Cappuccino",
+      "description": "İpeksi buharda ısıtılmış süt ve pürüzsüz köpükle tamamlanan espresso",
+      "ingredients": [
+        "İpeksi buğulanmış süt ve pürüzsüz köpük ile espresso"
+      ]
+    },
+    "cafe-latte": {
+      "name": "Cafe Latte",
+      "description": "İpeksi süt ve pürüzsüz köpükle işaretlenmiş espresso",
+      "ingredients": [
+        "İpeksi süt ve pürüzsüz köpük ile zenginleştirilmiş espresso"
+      ]
+    },
+    "spanish-latte": {
+      "name": "Spanish Latte",
+      "description": "Ilık, hafif dokulu sütle dengelenmiş espresso",
+      "ingredients": [
+        "Sıcak, hafif dokulu süt ile dengelenmiş espresso"
+      ]
+    },
+    "expresso": {
+      "name": "Espresso",
+      "description": "Dolgun ve yoğun kıvamlı tek shot espresso",
+      "ingredients": [
+        "Zengin, dolgun gövdeli tek shot"
+      ]
+    },
+    "hot-matcha-latte": {
+      "name": "Sıcak Matcha Latte",
+      "description": "Buharda ısıtılmış pürüzsüz sütle çırpılmış matcha",
+      "ingredients": [
+        "Matcha yeşil çayı",
+        "Buharlanmış süt ve köpük"
+      ]
+    },
+    "matcha": {
+      "name": "Matcha",
+      "description": "Kremamsı bir bitişle sıcak servis edilen yumuşak matcha",
+      "ingredients": [
+        "Kremamsı bitişli, ılık servis edilen yumuşak matcha"
+      ]
+    },
+    "mochaccino": {
+      "name": "Mochaccino",
+      "description": "Espresso, çikolata ve ipeksi buharda ısıtılmış süt",
+      "ingredients": [
+        "Tek shot espresso",
+        "Çikolata",
+        "Buharlanmış süt ve köpük"
+      ]
+    },
+    "cortado": {
+      "name": "Cortado",
+      "description": "Dokulu sütle yumuşatılmış kısa bir espresso",
+      "ingredients": [
+        "Dokulu süt ile yumuşatılmış kısa espresso"
+      ]
+    },
+    "flat-white": {
+      "name": "Flat White",
+      "description": "İpeksi buharda ısıtılmış süt ve ince mikroköpükle tamamlanan kadifemsi espresso",
+      "ingredients": [
+        "Kadifemsı espresso, pürüzsüz süt ve ince mikro köpük"
+      ]
+    },
+    "piccolo": {
+      "name": "Piccolo",
+      "description": "Pürüzsüz buharda ısıtılmış sütle yumuşatılmış kısa bir espresso",
+      "ingredients": [
+        "Pürüzsüz süt ile yumuşatılmış kısa espresso"
+      ]
+    },
+    "v60": {
+      "name": "V60",
+      "description": "Temiz ve aromatik bitişli, elde demlenen filtre kahve",
+      "ingredients": [
+        "Yöresel kahve"
+      ]
+    },
+    "tea-selections": {
+      "name": "Çay Seçkisi",
+      "description": "Klasik sıcak çaylardan özenle seçilmiş bir seçki",
+      "ingredients": [
+        "Naneli yeşil çay",
+        "Yaseminli yeşil çay",
+        "Papatya çayı",
+        "İngiliz kahvaltı çayı",
+        "Earl Grey çayı"
+      ]
+    },
+    "ginger-tisane-tea": {
+      "name": "Zencefilli Bitki Çayı",
+      "description": "Kafeinsiz, rahatlatıcı bir bitki demlemesi",
+      "ingredients": [
+        "Zencefil",
+        "Limon suyu",
+        "Bal"
+      ]
+    },
+    "iced-americano": {
+      "name": "Buzlu Americano",
+      "description": "Buzun üzerine dökülen double espresso",
+      "ingredients": [
+        "Çift shot espresso",
+        "Buz küpleri ve su"
+      ]
+    },
+    "raspberry-cano": {
+      "name": "Ahududulu Americano",
+      "description": "Ahududu aromalı, ferahlatıcı buzlu Americano",
+      "ingredients": [
+        "Çift shot espresso",
+        "Ahududu şurubu",
+        "Buz küpleri ve su"
+      ]
+    },
+    "ice-latte": {
+      "name": "Buzlu Latte",
+      "description": "Soğuk sütle katmanlanmış ve buz üzerine servis edilen espresso",
+      "ingredients": [
+        "Espresso",
+        "Soğuk süt",
+        "Buz küpleri"
+      ]
+    },
+    "iced-matcha-latte": {
+      "name": "Buzlu Matcha Latte",
+      "description": "Soğuk süt ve buzla çalkalanmış matcha",
+      "ingredients": [
+        "Matcha yeşil çayı",
+        "Buz küpleri ve süt"
+      ]
+    },
+    "iced-spanish-latte": {
+      "name": "Buzlu Spanish Latte",
+      "description": "Espresso, soğuk süt ve hafif bir tatlılık",
+      "ingredients": [
+        "Çift shot espresso",
+        "Tatlandırılmış yoğunlaştırılmış süt",
+        "Buz küpleri ve soğuk süt"
+      ]
+    },
+    "cold-drip-coffee": {
+      "name": "Soğuk Damlatma Kahve",
+      "description": "Yavaşça damlatılarak hazırlanan, yumuşak ve dolgun bitişli soğuk kahve",
+      "ingredients": [
+        "Yavaş damlatmalı soğuk kahve"
+      ]
+    },
+    "iced-v60": {
+      "name": "Buzlu V60",
+      "description": "Buz üzerine servis edilen, elde demlenmiş filtre kahve",
+      "ingredients": [
+        "Yöresel kahve",
+        "Buz küpleri"
+      ]
+    },
+    "caramel-frappe": {
+      "name": "Karamelli Frappe",
+      "description": "Espresso, karamel ve soğuk sütün pürüzsüz kıvamda karıştırılmasıyla hazırlanır",
+      "ingredients": [
+        "Çift shot espresso",
+        "Karamel şurubu",
+        "Vanilyalı dondurma"
+      ]
+    },
+    "matcha-frappe": {
+      "name": "Matcha Frappe",
+      "description": "Matcha ve soğuk sütün kremamsı bir kıvamda karıştırılmasıyla hazırlanır",
+      "ingredients": [
+        "Matcha yeşil çayı",
+        "Vanilyalı dondurma"
+      ]
+    },
+    "mocha-frappe": {
+      "name": "Mocha Frappe",
+      "description": "Espresso, bitter çikolata ve soğuk sütün pürüzsüz kıvamda karıştırılmasıyla hazırlanır",
+      "ingredients": [
+        "Tek shot espresso",
+        "Çikolata",
+        "Vanilyalı dondurma"
+      ]
+    },
+    "press-d-frappe": {
+      "name": "Press’d Frappe",
+      "description": "İmza kremamsı kahve frappemiz",
+      "ingredients": [
+        "Çift shot espresso",
+        "Vanilyalı dondurma"
+      ]
+    },
+    "cookies-cream": {
+      "name": "Cookies & Cream",
+      "description": "Cookies & cream aromalı protein, soğuk sütle karıştırılır",
+      "ingredients": [
+        "Çikolata",
+        "Muz",
+        "Granola",
+        "Fıstık ezmesi",
+        "Peynir altı suyu proteini",
+        "Kakao tozu",
+        "Süt"
+      ]
+    },
+    "dates-me": {
+      "name": "Hurma Aşkı",
+      "description": "Hurma, muz ve proteinin karıştırılmasıyla hazırlanan doğal tatlı bir shake",
+      "ingredients": [
+        "Hurma",
+        "Muz",
+        "Granola",
+        "Peynir altı suyu proteini",
+        "Süt"
+      ]
+    },
+    "pb-j": {
+      "name": "PB & J",
+      "description": "Fıstık ezmesi, orman meyveleri ve proteinin pürüzsüz kıvamda karıştırılmasıyla hazırlanır",
+      "ingredients": [
+        "Çilek",
+        "Ahududu",
+        "Muz",
+        "Granola",
+        "Fıstık ezmesi",
+        "Pancar",
+        "Peynir altı suyu proteini",
+        "Süt"
+      ]
+    },
+    "rumble-in-the-jungle": {
+      "name": "Ormanda Kavga",
+      "description": "Muz ve yeşil yapraklı sebzelerle hazırlanan yeşil protein karışımı",
+      "ingredients": [
+        "Avokado",
+        "Brokoli",
+        "Bebek ıspanak",
+        "Kıvırcık lahana",
+        "Muz",
+        "Peynir altı suyu",
+        "Süt"
+      ]
+    },
+    "power-protein": {
+      "name": "Güç Proteini",
+      "description": "Gününe enerji katmak için hazırlanmış pürüzsüz, kremamsı bir protein shake",
+      "ingredients": [
+        "Açai püresi",
+        "Yaban mersini",
+        "Kiraz",
+        "Muz",
+        "Pancar",
+        "Peynir altı suyu proteini tozu"
+      ]
+    },
+    "ice-and-shake": {
+      "name": "Buzlu Shake",
+      "description": "Buzla pürüzsüz kıvamda karıştırılmış soğuk, kremamsı bir protein shake",
+      "ingredients": [
+        "Buz ile pürüzsüz karıştırılmış soğuk, kremamsı protein shake"
+      ]
+    },
+    "build-your-own": {
+      "name": "Kendi Karışımını Oluştur",
+      "description": "Tercih ettiğin malzemeleri seç ve kendi protein shake'ini oluştur",
+      "ingredients": [
+        "Yorum alanına seçtiğiniz üç meyve, protein tozu ve süt seçiminizi yazın"
+      ]
+    },
+    "fignuts": {
+      "name": "İncir & Kuruyemiş",
+      "description": "İncir, kuruyemiş ve tohumların preslenmesiyle hazırlanan doğal enerji barı",
+      "ingredients": [
+        "Incir",
+        "Kaju",
+        "Kuru üzüm"
+      ]
+    },
+    "walnana": {
+      "name": "Cevizli Kakao Bar",
+      "description": "Yoğun kakao ve kuruyemiş aromalı, pürüzsüz kıvamlı protein barı",
+      "ingredients": [
+        "Muz",
+        "Ceviz",
+        "Kuru üzüm",
+        "Kayısı",
+        "Yulaf",
+        "İnce çikolata katmanı"
+      ]
+    },
+    "nutri-tropix": {
+      "name": "Nutri Tropix",
+      "description": "Tropikal meyve ve kuruyemiş katmanlarından oluşan enerji barı",
+      "ingredients": [
+        "Hindistan cevizi",
+        "Ananas",
+        "Kaju",
+        "Kayısı",
+        "Hurma"
+      ]
+    },
+    "nutty-date-delight-ball": {
+      "name": "Hurmalı Kuruyemiş Topu",
+      "description": "Çikolata kaplı hurma ve kuruyemiş enerji topları",
+      "ingredients": [
+        "Badem",
+        "Hurma",
+        "İnce çikolata katmanı"
+      ]
+    },
+    "energy-booster": {
+      "name": "Enerji Takviyesi",
+      "description": "Karışık orman meyveleri, muz ve doğal enerji veren bir meyve karışımı",
+      "ingredients": [
+        "Kiraz meyvesi"
+      ]
+    },
+    "green-machine": {
+      "name": "Yeşil Makine",
+      "description": "Yeşil yapraklı sebzeler, elma, muz ve taze bir tropikal karışım",
+      "ingredients": [
+        "Kıvırcık lahana",
+        "Brokoli",
+        "Bebek ıspanak",
+        "Muz",
+        "Ananas",
+        "Avokado",
+        "Elma suyu"
+      ]
+    },
+    "mango-mania": {
+      "name": "Mango Çılgınlığı",
+      "description": "Mango, muz ve tropikal meyvenin pürüzsüz kıvamda karıştırılmasıyla hazırlanır",
+      "ingredients": [
+        "Mango",
+        "Ananas",
+        "Şeftali",
+        "Elma suyu"
+      ]
+    },
+    "pina-colada": {
+      "name": "Pina Colada",
+      "description": "Ananas ve hindistan cevizinin karıştırılmasıyla hazırlanan kremamsı tropikal smoothie",
+      "ingredients": [
+        "Ananas",
+        "Hindistan cevizi",
+        "Muz",
+        "Elma suyu"
+      ]
+    },
+    "rubby-antioxidant-blend": {
+      "name": "Yakut Antioksidan Karışımı",
+      "description": "Antioksidan açısından zengin meyve ve orman meyvelerinden oluşan koyu yakut rengi bir karışım",
+      "ingredients": [
+        "Kuru erik",
+        "Aktif kömür",
+        "Yaban mersini",
+        "Böğürtlen",
+        "Siyah frenk üzümü",
+        "Pancar",
+        "Kiraz meyvesi",
+        "Elma suyu"
+      ]
+    },
+    "strawberry-fusion": {
+      "name": "Çilek Füzyonu",
+      "description": "Çilek ve muzun karıştırılmasıyla hazırlanan canlı bir meyve smoothiesi",
+      "ingredients": [
+        "Çilek",
+        "Mango",
+        "Ahududu",
+        "Muz",
+        "Pancar",
+        "Elma suyu"
+      ]
+    },
+    "smoothies-build-your-own": {
+      "name": "Kendi Karışımını Oluştur",
+      "description": "Tercih ettiğin malzemeleri seç ve kendi smoothie'ni oluştur",
+      "ingredients": [
+        "Yorum alanına seçtiğiniz üç meyveyi yazın"
+      ]
+    },
+    "carrot": {
+      "name": "Havuç",
+      "description": "Soğuk servis edilen taze sıkılmış havuç suyu",
+      "ingredients": [
+        "Taze havuç suyu"
+      ]
+    },
+    "green-apple": {
+      "name": "Yeşil Elma",
+      "description": "Siparişe özel taze sıkılan çıtır yeşil elmalar",
+      "ingredients": [
+        "Taze yeşil elma suyu"
+      ]
+    },
+    "orange": {
+      "name": "Portakal",
+      "description": "Soğuk servis edilen taze sıkılmış portakal suyu",
+      "ingredients": [
+        "Taze portakal suyu"
+      ]
+    },
+    "watermelon": {
+      "name": "Karpuz",
+      "description": "Buz üzerinde servis edilen taze karpuz suyu",
+      "ingredients": [
+        "Taze karpuz suyu"
+      ]
+    },
+    "fresh-mint-lemonade": {
+      "name": "Taze Naneli Limonata",
+      "description": "Taze limon ve nanenin karıştırılmasıyla hazırlanan ferah, serinletici bir içecek",
+      "ingredients": [
+        "Nane",
+        "Limon",
+        "Şeker"
+      ]
+    },
+    "immunity-booster": {
+      "name": "Bağışıklık Takviyesi",
+      "description": "Ferahlatıcı bir canlanma için hazırlanmış canlı bir turunçgil karışımı",
+      "ingredients": [
+        "Havuç",
+        "Zencefil",
+        "Yeşil elma"
+      ]
+    },
+    "incredible-hulk": {
+      "name": "İnanılmaz Hulk",
+      "description": "Soğuk servis edilen cesur bir yeşil wellness karışımı",
+      "ingredients": [
+        "Yeşil elma",
+        "Zencefil",
+        "Ananas",
+        "Çarkıfelek meyvesi",
+        "Yeşil spirulina tozu"
+      ]
+    },
+    "the-shield": {
+      "name": "Kalkan",
+      "description": "Pürüzsüz, ferahlatıcı imza wellness karışımımız",
+      "ingredients": [
+        "Yeşil elma",
+        "Zencefil",
+        "Ananas",
+        "Zerdeçal",
+        "Karabiber"
+      ]
+    },
+    "ginger-iced-tea": {
+      "name": "Zencefilli Buzlu Çay",
+      "description": "Canlı ve ısıtıcı zencefille tatlandırılmış buzlu çay",
+      "ingredients": [
+        "Demleme meyve çayı",
+        "Taze zencefil ve limon",
+        "Bal"
+      ]
+    },
+    "passion-fruit-iced-tea": {
+      "name": "Çarkıfelekli Buzlu Çay",
+      "description": "Tropikal çarkıfelek meyvesiyle canlandırılmış buzlu çay",
+      "ingredients": [
+        "Demleme meyve çayı",
+        "Çarkıfelek şurubu",
+        "Taze çarkıfelek meyvesi ve limon"
+      ]
+    },
+    "peach-iced-tea": {
+      "name": "Şeftalili Buzlu Çay",
+      "description": "Olgun şeftali aromalı yumuşak, buzlu çay",
+      "ingredients": [
+        "Meyve çayı ve limon",
+        "Şeftali şurubu ve buz"
+      ]
+    },
+    "blue-lagoon-mojito": {
+      "name": "Blue Lagoon Mojito",
+      "description": "Parıldayan blue lagoon aromalı, turunçlu-naneli ferahlatıcı bir içecek",
+      "ingredients": [
+        "Taze nane ve limon",
+        "Blue Lagoon şurubu"
+      ]
+    },
+    "blueberry-mojito": {
+      "name": "Yaban Mersinli Mojito",
+      "description": "Yaban mersini, taze nane, turunçgil ve maden sodası",
+      "ingredients": [
+        "Taze nane, limon ve yaban mersini",
+        "Yaban mersini şurubu"
+      ]
+    },
+    "strawberry-mojito": {
+      "name": "Çilekli Mojito",
+      "description": "Çilek, taze nane, misket limonu ve maden sodası",
+      "ingredients": [
+        "Çilek, taze nane, misket limonu ve maden suyu"
+      ]
+    },
+    "classic-mojito": {
+      "name": "Klasik Mojito",
+      "description": "Taze misket limonu, nane ve maden sodası",
+      "ingredients": [
+        "Taze nane ve limon",
+        "Naneli mojito şurubu"
+      ]
+    },
+    "passion-fruit-mojito": {
+      "name": "Çarkıfelekli Mojito",
+      "description": "Çarkıfelek meyvesi, taze nane, misket limonu ve maden sodası",
+      "ingredients": [
+        "Taze nane, limon ve çarkıfelek",
+        "Çarkıfelek şurubu"
+      ]
+    },
+    "evian-water": {
+      "name": "Evian Su",
+      "description": "Fransız Alpleri'nden doğal kaynak suyu",
+      "ingredients": [
+        "Fransız Alpleri'nden doğal mineral suyu"
+      ]
+    },
+    "vitamin-well-upgrade": {
+      "name": "Vitamin Well Upgrade",
+      "description": "Magnezyum ve çinko içeren limon-kaktüs aromalı vitamin içeceği",
+      "ingredients": [
+        "Magnezyum ve çinko içeren limon-kaktüs vitamin içeceği"
+      ]
+    },
+    "c4-energy-drink": {
+      "name": "C4 Enerji İçeceği",
+      "description": "Şekersiz performans enerji içeceği",
+      "ingredients": [
+        "Şekersiz performans enerji içeceği"
+      ]
+    },
+    "perrier-sparkling-water": {
+      "name": "Perrier Maden Sodası",
+      "description": "Klasik Perrier doğal maden sodası",
+      "ingredients": [
+        "Klasik Perrier doğal maden suyu"
+      ]
+    },
+    "perrier-sparkling-water-with-lemon": {
+      "name": "Limonlu Perrier Maden Sodası",
+      "description": "Buz üzerinde limonla servis edilen Perrier maden sodası",
+      "ingredients": [
+        "Buz ve limon ile servis edilen Perrier maden suyu"
+      ]
+    },
+    "beef-pastrami": {
+      "name": "Dana Pastırma",
+      "description": "Dana pastırma, eritilmiş kaşar peyniri, marul ve soğan",
+      "ingredients": [
+        "Emmental peyniri",
+        "Dana pastırma",
+        "Karamelize soğan",
+        "Marul",
+        "Ekmek"
+      ]
+    },
+    "chickado": {
+      "name": "Tavukado",
+      "description": "Tavuk, avokado, domates, salatalık ve kremamsı sos",
+      "ingredients": [
+        "Mozzarella peyniri",
+        "Tavuk mus",
+        "Salatalık",
+        "Domates",
+        "Avokado",
+        "Ekmek"
+      ]
+    },
+    "halloumi-avocado": {
+      "name": "Halloumi Avokado",
+      "description": "Halloumi peyniri, avokado, salatalık ve domates",
+      "ingredients": [
+        "Izgara hellim peyniri",
+        "Avokado sos",
+        "Domates",
+        "Salatalık",
+        "Ekmek"
+      ]
+    },
+    "halloumi-pesto": {
+      "name": "Halloumi Pesto",
+      "description": "Halloumi peyniri, pesto, salatalık ve domates",
+      "ingredients": [
+        "Izgara hellim peyniri",
+        "Pesto sos",
+        "Domates",
+        "Salatalık",
+        "Ekmek"
+      ]
+    },
+    "labneh": {
+      "name": "Labne",
+      "description": "Labne, salatalık, domates, zeytin ve yeşillikler",
+      "ingredients": [
+        "Labne peyniri",
+        "Dilimlenmiş yeşil zeytin",
+        "Zeytinyağı",
+        "Domates",
+        "Salatalık",
+        "Ekmek"
+      ]
+    },
+    "melted-cheese": {
+      "name": "Eritilmiş Kaşar",
+      "description": "Sıcak eritilmiş kaşar peyniri ve domates",
+      "ingredients": [
+        "Cheddar ve Emmental peyniri",
+        "Domates",
+        "Ekmek"
+      ]
+    },
+    "smoked-salmon": {
+      "name": "Füme Somon",
+      "description": "Füme somon, salatalık ve krem peynir",
+      "ingredients": [
+        "Philadelphia peynir karışımı",
+        "Füme somon",
+        "Salatalık",
+        "Domates",
+        "Ekmek"
+      ]
+    },
+    "smoked-turkey": {
+      "name": "Füme Hindi",
+      "description": "Füme hindi, eritilmiş kaşar peyniri, domates ve pesto",
+      "ingredients": [
+        "Mozzarella peyniri",
+        "Füme hindi",
+        "Pesto sos",
+        "Domates",
+        "Ekmek"
+      ]
+    }
+  },
+  "customization": {
+    "beans": {
+      "brazil": "Brezilya",
+      "honduras": "Honduras",
+      "el-salvador": "El Salvador",
+      "hamasho": "Hamasho",
+      "decaf-colombia": "Kafeinsiz (Kolombiya)"
+    },
+    "milk": {
+      "fresh-milk": "Taze Süt",
+      "oat-milk": "Yulaf Sütü",
+      "almond-milk": "Badem Sütü",
+      "coconut-milk": "Hindistan Cevizi Sütü"
+    },
+    "syrup": {
+      "none": "Yok",
+      "caramel": "Karamel",
+      "hazelnut": "Fındık",
+      "vanilla": "Vanilya",
+      "pistachio": "Antep Fıstığı"
+    }
+  },
+  "ui": {
+    "eyebrow": "YE · İÇ · TEKRARLA",
+    "menuHeading": "MENÜ.",
+    "menuIntro": "Canlı tabaklar, cesur lezzetler ve yavaşlamaya değer bir kahve. Menüyü kendi tarzında keşfet.",
+    "menuLabel": "MENÜ",
+    "sectionsAriaSuffix": "bölümler",
+    "categoriesAll": "Tümü",
+    "categoriesAriaLabel": "Menü kategorileri",
+    "categoryPrevAria": "Önceki menü kategorilerini göster",
+    "categoryNextAria": "Daha fazla menü kategorisi göster",
+    "details": "Detaylar",
+    "detailsAria": "{name} için detayları görüntüle",
+    "customize": "Özelleştir",
+    "comment": "Yorum",
+    "currencyPrefix": "AED",
+    "inCart": "Sepette",
+    "addToCart": "Ekle",
+    "addAria": "{name} ürününü sepete ekle",
+    "inCartAria": "{name} sepette",
+    "factsSize": "Boyut",
+    "factsProtein": "Protein",
+    "factsCarbohydrates": "Karbonhidrat",
+    "factsCalories": "Kalori",
+    "closeDetailsAria": "Ürün detaylarını kapat",
+    "menuEyebrowModal": "PRESS'D MENÜ",
+    "whatsInside": "İçinde neler var",
+    "addToOrder": "Siparişe Ekle",
+    "makeItYours": "SANA GÖRE YAP",
+    "customizeYourDrink": "İçeceğini Özelleştir",
+    "coffeeBeans": "KAHVE ÇEKİRDEĞİ",
+    "milks": "SÜTLER",
+    "syrups": "ŞURUPLAR",
+    "commentHeading": "YORUM / ÖZEL TALİMATLAR",
+    "commentHelp": "Bu içecekte azaltmak, çıkarmak ya da eklemek istediğin bir şey varsa bize söyle.",
+    "commentPlaceholder": "Yorumunu ya da özel talimatını yaz...",
+    "customizationSaved": "İçecek tercihlerin kaydedildi.",
+    "saveSelection": "SEÇİMİ KAYDET",
+    "closeCustomizeAria": "İçecek özelleştirmesini kapat",
+    "customiseYourOrder": "SİPARİŞİNİ ÖZELLEŞTİR",
+    "specialInstructions": "Özel Talimatlar",
+    "instructionsHelp": "Bu üründe azaltmak, çıkarmak ya da eklemek istediğin bir şey varsa bize söyle…",
+    "instructionsPlaceholder": "Bu üründe azaltmak, çıkarmak ya da eklemek istediğin bir şey varsa bize söyle…",
+    "instructionsSaved": "Talimatların kaydedildi.",
+    "cancel": "Vazgeç",
+    "saveInstructions": "Talimatları Kaydet",
+    "closeInstructionsAria": "Özel talimatları kapat",
+    "cartEyebrow": "SİPARİŞİN",
+    "cart": "SEPET",
+    "closeCartAria": "Sepeti kapat",
+    "customizedLabel": "Özelleştirildi:",
+    "specialInstructionsLabel": "Özel talimatlar:",
+    "removeOneAria": "Bir {name} çıkar",
+    "addOneAria": "Bir {name} daha ekle",
+    "emptyCart": "Sepetin boş.",
+    "exploreMenu": "Menüyü keşfet →",
+    "total": "Toplam",
+    "orderOnWhatsapp": "WhatsApp'tan Sipariş Ver",
+    "orderSentTo": "Siparişin +971 55 683 8426 numarasına gönderilecek",
+    "selectLanguage": "DİLİNİ SEÇ",
+    "languageButtonAria": "Menü dilini değiştir",
+    "changeLanguage": "Dili değiştir"
+  }
+}

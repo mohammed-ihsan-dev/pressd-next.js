@@ -11,8 +11,11 @@ import { MenuModalsProvider } from "@/components/menu/MenuModalsContext";
 import { columnId, columnsFor } from "@/components/menu/menuHelpers";
 import SectionHomeButton from "@/components/SectionHomeButton";
 import RevealObserver from "@/components/RevealObserver";
+import { useLocale } from "@/lib/i18n/LocaleContext";
+import { slugify } from "@/lib/slugify";
 
 export default function MenuSection() {
+  const { t, locale, dir } = useLocale();
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeSubcategory, setActiveSubcategory] = useState<string>("");
   const contentRef = useRef<HTMLDivElement>(null);
@@ -63,11 +66,16 @@ export default function MenuSection() {
 
   return (
     <MenuModalsProvider>
-      <section className="menu-section" id="menu">
+      <section className="menu-section" id="menu" lang={locale} dir={dir}>
         <div className="menu-intro">
-          <p className="eyebrow dark">EAT · DRINK · REPEAT</p>
-          <h2>THE MENU.</h2>
-          <p>Bright plates, bold flavours and coffee worth slowing down for. Browse it your way.</p>
+          <p className="eyebrow dark">{t("ui.eyebrow", "EAT · DRINK · REPEAT")}</p>
+          <h2>{t("ui.menuHeading", "THE MENU.")}</h2>
+          <p>
+            {t(
+              "ui.menuIntro",
+              "Bright plates, bold flavours and coffee worth slowing down for. Browse it your way."
+            )}
+          </p>
         </div>
         <CategoryFilter categories={menu} active={activeCategory} onSelect={selectCategory} />
         <div className="menu-content" ref={contentRef}>
@@ -76,6 +84,7 @@ export default function MenuSection() {
             const hasActiveInThisCategory = columns.some(
               (col) => columnId(category, col) === activeSubcategory
             );
+            const categoryName = t(`categories.${category.slug}`, category.category);
             return (
               <article
                 className="menu-category active-menu-category"
@@ -85,13 +94,18 @@ export default function MenuSection() {
               >
                 <header className="category-title">
                   <div>
-                    <p>{String(categoryIndex + 1).padStart(2, "0")} · MENU</p>
-                    <h3>{category.category}</h3>
+                    <p>
+                      {String(categoryIndex + 1).padStart(2, "0")} · {t("ui.menuLabel", "MENU")}
+                    </p>
+                    <h3>{categoryName}</h3>
                   </div>
-                  <span>{category.tagline}</span>
+                  <span>{t(`categoryTaglines.${category.slug}`, category.tagline)}</span>
                 </header>
                 {columns.length > 1 && (
-                  <nav className="menu-subnav" aria-label={`${category.category} sections`}>
+                  <nav
+                    className="menu-subnav"
+                    aria-label={`${categoryName} ${t("ui.sectionsAriaSuffix", "sections")}`}
+                  >
                     {columns.map((column, index) => {
                       const subId = columnId(category, column);
                       const isSubActive = hasActiveInThisCategory
@@ -111,7 +125,7 @@ export default function MenuSection() {
                           }}
                         >
                           <span>{String(index + 1).padStart(2, "0")}</span>
-                          {column}
+                          {t(`subcategories.${slugify(column)}`, column)}
                         </button>
                       );
                     })}
@@ -127,13 +141,13 @@ export default function MenuSection() {
                     >
                       <header>
                         <span>{String(columnIndex + 1).padStart(2, "0")}</span>
-                        <h4>{column}</h4>
+                        <h4>{t(`subcategories.${slugify(column)}`, column)}</h4>
                       </header>
                       <div className="menu-grid">
                         {category.items
                           .filter((item) => item[6] === column)
                           .map((item) => (
-                            <ProductCard category={category} item={item} key={item[0]} />
+                            <ProductCard category={category} item={item} key={item[7]} />
                           ))}
                       </div>
                     </section>

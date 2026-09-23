@@ -1,0 +1,1056 @@
+{
+  "categories": {
+    "fresh-start": "元气开始",
+    "hot-beverages": "热饮",
+    "ice-beverages": "冰饮",
+    "protein-shakes-bars": "蛋白奶昔/蛋白棒",
+    "smoothies": "果昔",
+    "fresh-juices": "鲜榨果汁",
+    "refreshing-drinks": "清爽饮品",
+    "sandwiches": "三明治"
+  },
+  "categoryTaglines": {
+    "fresh-start": "早餐·能量碗·沙拉·松饼",
+    "hot-beverages": "咖啡·茶·温暖时光",
+    "ice-beverages": "冰咖啡·冰沙咖啡",
+    "protein-shakes-bars": "蛋白奶昔·蛋白棒",
+    "smoothies": "果味浓郁·天然活力",
+    "fresh-juices": "冷压果汁·无酒精鸡尾酒",
+    "refreshing-drinks": "冰茶·莫希托·清爽特饮",
+    "sandwiches": "现制现做·风味十足"
+  },
+  "subcategories": {
+    "breakfast": "早餐",
+    "bowls": "能量碗",
+    "salads": "沙拉",
+    "pancakes": "松饼",
+    "cakes-pastries": "蛋糕甜点",
+    "coffee": "咖啡",
+    "teas": "茶饮",
+    "iced-coffee": "冰咖啡",
+    "frappe": "冰沙咖啡",
+    "protein-shakes": "蛋白奶昔",
+    "protein-bars": "蛋白棒",
+    "smoothies": "果昔",
+    "cold-press": "冷压果汁",
+    "mocktails": "无酒精鸡尾酒",
+    "iced-teas": "冰茶",
+    "mojitos": "莫希托",
+    "refreshing-drinks": "清爽饮品",
+    "sandwiches": "三明治"
+  },
+  "products": {
+    "avacado-toast-with-poached-eggs": {
+      "name": "牛油果吐司配水波蛋",
+      "description": "绵密牛油果吐司,搭配水波蛋,配新鲜时蔬沙拉",
+      "ingredients": [
+        "酸酵母面包",
+        "2个鸡蛋",
+        "牛油果泥",
+        "圣女果",
+        "生菜",
+        "萝卜",
+        "黎巴嫩酸奶干酪",
+        "黑胡椒",
+        "食盐"
+      ]
+    },
+    "avacado-toast-with-salmon": {
+      "name": "牛油果吐司配三文鱼",
+      "description": "绵密牛油果吐司,搭配三文鱼,配新鲜时蔬沙拉",
+      "ingredients": [
+        "酸酵母面包",
+        "烟熏三文鱼",
+        "牛油果泥",
+        "圣女果",
+        "黄瓜",
+        "生菜",
+        "萝卜",
+        "黑胡椒",
+        "芝麻",
+        "食盐"
+      ]
+    },
+    "avacado-toast-with-green-olives": {
+      "name": "牛油果吐司配青橄榄",
+      "description": "牛油果吐司配水波蛋,搭配新鲜时蔬沙拉",
+      "ingredients": [
+        "酸酵母面包",
+        "青橄榄",
+        "牛油果泥",
+        "圣女果",
+        "生菜",
+        "萝卜",
+        "黎巴嫩酸奶干酪",
+        "黑胡椒",
+        "芝麻",
+        "食盐"
+      ]
+    },
+    "acai-bowl": {
+      "name": "巴西莓果碗",
+      "description": "巴西莓果昔,配香蕉、莓果、格兰诺拉燕麦片和花生酱",
+      "ingredients": [
+        "巴西莓果泥",
+        "香蕉",
+        "莓果",
+        "自制格兰诺拉麦片",
+        "奇亚籽",
+        "花生酱"
+      ]
+    },
+    "blue-crash-bowl": {
+      "name": "蓝色风暴碗",
+      "description": "鲜艳的蓝色果昔碗,配芒果、香蕉、莓果和格兰诺拉燕麦片",
+      "ingredients": [
+        "希腊酸奶",
+        "蓝藻",
+        "芒果",
+        "自制格兰诺拉麦片",
+        "香蕉",
+        "莓果",
+        "枫糖浆"
+      ]
+    },
+    "mystic-matcha-bowl": {
+      "name": "神秘抹茶碗",
+      "description": "莓果果昔碗,配牛油果、香蕉、黄瓜和格兰诺拉燕麦片",
+      "ingredients": [
+        "希腊酸奶",
+        "蓝藻",
+        "蓝抹茶",
+        "芒果",
+        "莓果",
+        "牛油果",
+        "黄瓜",
+        "自制格兰诺拉麦片"
+      ]
+    },
+    "green-dream-bowl": {
+      "name": "绿色梦幻碗",
+      "description": "缤纷养生碗,配时令水果、蔬菜、坚果和格兰诺拉燕麦片",
+      "ingredients": [
+        "希腊酸奶",
+        "辣木",
+        "绿藻",
+        "猕猴桃",
+        "香蕉",
+        "芒果",
+        "自制格兰诺拉麦片",
+        "杏子",
+        "甜菜根",
+        "烤烤杏仁",
+        "莓果"
+      ]
+    },
+    "detox-me-later-glow-bowl": {
+      "name": "焕颜排毒碗",
+      "description": "粉色果昔碗,配热带水果、莓果和石榴",
+      "ingredients": [
+        "希腊酸奶",
+        "粉色抹茶",
+        "香蕉",
+        "芒果",
+        "火龙果",
+        "莓果",
+        "石榴",
+        "自制格兰诺拉麦片"
+      ]
+    },
+    "tropical-glow-bowl": {
+      "name": "热带焕颜碗",
+      "description": "热带绿色碗,配牛油果、芒果、菠萝和莓果",
+      "ingredients": [
+        "希腊酸奶",
+        "牛油果",
+        "芒果",
+        "香蕉",
+        "自制格兰诺拉麦片",
+        "菠萝",
+        "莓果",
+        "开心果"
+      ]
+    },
+    "watermelon-feta": {
+      "name": "西瓜费达奶酪",
+      "description": "新鲜西瓜、费达奶酪、奇亚籽和薄荷",
+      "ingredients": [
+        "西瓜",
+        "费塔羊乳干酪",
+        "柠檬",
+        "奇亚籽"
+      ]
+    },
+    "blood-sugar-level": {
+      "name": "血糖平衡",
+      "description": "鹰嘴豆、牛油果、黄瓜、番茄、萝卜和橄榄",
+      "ingredients": [
+        "鹰嘴豆",
+        "黄瓜",
+        "圣女果",
+        "牛油果",
+        "青橄榄",
+        "萝卜",
+        "葱",
+        "欧芹",
+        "黑胡椒",
+        "橄榄油",
+        "柠檬汁",
+        "食盐"
+      ]
+    },
+    "chicken-ceasar": {
+      "name": "凯撒鸡肉沙拉",
+      "description": "烤鸡胸肉、牛油果、迷你生菜、帕玛森奶酪和法式面包丁",
+      "ingredients": [
+        "生菜",
+        "烤鸡肉",
+        "牛油果",
+        "圣女果",
+        "面包干",
+        "帕马森干酪"
+      ]
+    },
+    "colon-cleaning": {
+      "name": "肠道净化",
+      "description": "甜菜根、胡萝卜和卷心菜,搭配清新柑橘酱汁",
+      "ingredients": [
+        "胡萝卜",
+        "甜菜根",
+        "卷心菜",
+        "红苹果",
+        "食盐",
+        "柠檬汁"
+      ]
+    },
+    "flat-stomach": {
+      "name": "平坦小腹",
+      "description": "青豆、黄瓜和紫甘蓝,配新鲜香草",
+      "ingredients": [
+        "紫甘蓝",
+        "青豆",
+        "黄瓜",
+        "欧芹",
+        "小葱",
+        "黑胡椒",
+        "柠檬汁",
+        "食盐"
+      ]
+    },
+    "tabbouloleh-salad": {
+      "name": "塔布勒沙拉",
+      "description": "库斯库斯、黄瓜、番茄、香草和红洋葱",
+      "ingredients": [
+        "硬质小麦",
+        "圣女果",
+        "黄瓜",
+        "洋葱",
+        "欧芹",
+        "小葱"
+      ]
+    },
+    "triple-berries-salad": {
+      "name": "三重莓果沙拉",
+      "description": "菠菜、草莓、蓝莓、黑莓和费达奶酪",
+      "ingredients": [
+        "嫩菠菜",
+        "自制格兰诺拉麦片",
+        "莓果",
+        "费塔羊乳干酪"
+      ]
+    },
+    "nutella-pancake": {
+      "name": "能多益松饼",
+      "description": "松软松饼层叠能多益榛果可可酱,佐以新鲜莓果",
+      "ingredients": [
+        "希腊酸奶发泡霜"
+      ]
+    },
+    "berries-pancake": {
+      "name": "莓果松饼",
+      "description": "松软松饼,配草莓、蓝莓、覆盆子和黑莓",
+      "ingredients": [
+        "希腊酸奶发泡霜"
+      ]
+    },
+    "classic-pancake": {
+      "name": "经典松饼",
+      "description": "经典松软松饼,佐以奶油、莓果和少许糖浆",
+      "ingredients": [
+        "希腊酸奶发泡霜"
+      ]
+    },
+    "french-toast": {
+      "name": "法式吐司",
+      "description": "金黄法式吐司,配香蕉、奶油和新鲜莓果",
+      "ingredients": [
+        "希腊酸奶发泡霜"
+      ]
+    },
+    "pistachio-pancake": {
+      "name": "开心果松饼",
+      "description": "松软松饼,配开心果奶油酱、开心果碎和新鲜水果",
+      "ingredients": [
+        "希腊酸奶发泡霜"
+      ]
+    },
+    "banana-bread": {
+      "name": "香蕉面包",
+      "description": "柔软湿润的经典香蕉面包",
+      "ingredients": [
+        "一块松软湿润的香蕉面包"
+      ]
+    },
+    "blueberry-muffin": {
+      "name": "蓝莓玛芬",
+      "description": "松软玛芬,烘焙入多汁蓝莓",
+      "ingredients": [
+        "松软的大粒蓝莓马芬"
+      ]
+    },
+    "brownies": {
+      "name": "布朗尼",
+      "description": "浓郁绵密的巧克力布朗尼",
+      "ingredients": [
+        "浓郁湿润的巧克力布朗尼"
+      ]
+    },
+    "chocolate-muffin": {
+      "name": "巧克力玛芬",
+      "description": "松软巧克力玛芬,可可香浓郁悠长",
+      "ingredients": [
+        "口感浓郁的黑巧马芬"
+      ]
+    },
+    "americano": {
+      "name": "美式咖啡",
+      "description": "浓缩咖啡加入热水稀释,口感醇厚顺滑",
+      "ingredients": [
+        "浓缩咖啡兑热水，口感顺滑浓郁"
+      ]
+    },
+    "cappuccino": {
+      "name": "卡布奇诺",
+      "description": "浓缩咖啡搭配丝滑蒸奶,绵密奶泡收尾",
+      "ingredients": [
+        "浓缩咖啡配上奶泡和热牛奶"
+      ]
+    },
+    "cafe-latte": {
+      "name": "拿铁咖啡",
+      "description": "浓缩咖啡融入丝滑牛奶,奶泡细腻顺滑",
+      "ingredients": [
+        "浓缩咖啡融入热牛奶与细腻奶泡"
+      ]
+    },
+    "spanish-latte": {
+      "name": "西班牙拿铁",
+      "description": "浓缩咖啡与温热轻盈奶泡完美平衡",
+      "ingredients": [
+        "浓缩咖啡与温热鲜奶的完美平衡"
+      ]
+    },
+    "expresso": {
+      "name": "意式浓缩咖啡",
+      "description": "浓郁醇厚的单份浓缩咖啡",
+      "ingredients": [
+        "一口浓郁醇厚的单份浓缩"
+      ]
+    },
+    "hot-matcha-latte": {
+      "name": "抹茶拿铁(热)",
+      "description": "抹茶与丝滑蒸奶交融调制",
+      "ingredients": [
+        "抹茶绿茶",
+        "蒸发奶与泡沫"
+      ]
+    },
+    "matcha": {
+      "name": "抹茶",
+      "description": "温热顺滑的抹茶,奶香绵密收尾",
+      "ingredients": [
+        "温热香醇的顺滑抹茶"
+      ]
+    },
+    "mochaccino": {
+      "name": "摩卡奇诺",
+      "description": "浓缩咖啡、巧克力与丝滑蒸奶",
+      "ingredients": [
+        "单份浓缩咖啡",
+        "巧克力",
+        "蒸发奶与泡沫"
+      ]
+    },
+    "cortado": {
+      "name": "短笛咖啡",
+      "description": "浓缩咖啡加入细腻奶泡,口感柔和",
+      "ingredients": [
+        "精短浓缩与绵密奶泡的结合"
+      ]
+    },
+    "flat-white": {
+      "name": "馥芮白",
+      "description": "丝绒般浓缩咖啡搭配细腻蒸奶,绵密奶泡收尾",
+      "ingredients": [
+        "丝滑浓缩配上微奶泡"
+      ]
+    },
+    "piccolo": {
+      "name": "迷你拿铁",
+      "description": "短萃浓缩咖啡搭配丝滑蒸奶,口感柔和",
+      "ingredients": [
+        "短浓缩咖啡加热牛奶"
+      ]
+    },
+    "v60": {
+      "name": "V60手冲咖啡",
+      "description": "手冲滤泡咖啡,风味纯净芬芳",
+      "ingredients": [
+        "精品单品咖啡豆"
+      ]
+    },
+    "tea-selections": {
+      "name": "精选热茶",
+      "description": "精心甄选的经典热茶系列",
+      "ingredients": [
+        "薄荷绿茶",
+        "茉莉花绿茶",
+        "洋甘菊茶",
+        "英式早餐茶",
+        "伯爵红茶"
+      ]
+    },
+    "ginger-tisane-tea": {
+      "name": "姜味花草茶",
+      "description": "舒缓身心的无咖啡因花草茶饮",
+      "ingredients": [
+        "生姜",
+        "柠檬汁",
+        "蜂蜜"
+      ]
+    },
+    "iced-americano": {
+      "name": "冰美式咖啡",
+      "description": "双份浓缩咖啡淋于冰块之上",
+      "ingredients": [
+        "双份浓缩咖啡",
+        "冰块和水"
+      ]
+    },
+    "raspberry-cano": {
+      "name": "覆盆子美式咖啡",
+      "description": "清爽覆盆子风味冰美式咖啡",
+      "ingredients": [
+        "双份浓缩咖啡",
+        "覆盆子糖浆",
+        "冰块和水"
+      ]
+    },
+    "ice-latte": {
+      "name": "冰拿铁",
+      "description": "浓缩咖啡与冰镇牛奶层叠,加冰饮用",
+      "ingredients": [
+        "浓缩咖啡",
+        "冰牛奶",
+        "冰块"
+      ]
+    },
+    "iced-matcha-latte": {
+      "name": "冰抹茶拿铁",
+      "description": "抹茶与冰镇牛奶、冰块摇制而成",
+      "ingredients": [
+        "抹茶绿茶",
+        "冰块和牛奶"
+      ]
+    },
+    "iced-spanish-latte": {
+      "name": "冰西班牙拿铁",
+      "description": "浓缩咖啡、冰镇牛奶与淡淡甜意",
+      "ingredients": [
+        "双份浓缩咖啡",
+        "炼乳",
+        "冰块和冷牛奶"
+      ]
+    },
+    "cold-drip-coffee": {
+      "name": "冰滴咖啡",
+      "description": "慢滴冷萃咖啡,口感醇厚顺滑",
+      "ingredients": [
+        "慢滴冷萃咖啡"
+      ]
+    },
+    "iced-v60": {
+      "name": "冰镇V60手冲咖啡",
+      "description": "手冲滤泡咖啡,加冰饮用",
+      "ingredients": [
+        "精品单品咖啡豆",
+        "冰块"
+      ]
+    },
+    "caramel-frappe": {
+      "name": "焦糖冰沙咖啡",
+      "description": "浓缩咖啡、焦糖与冰镇牛奶,搅打至顺滑绵密",
+      "ingredients": [
+        "双份浓缩咖啡",
+        "焦糖糖浆",
+        "香草冰淇淋"
+      ]
+    },
+    "matcha-frappe": {
+      "name": "抹茶冰沙",
+      "description": "抹茶与冰镇牛奶搅打至绵密顺滑",
+      "ingredients": [
+        "抹茶绿茶",
+        "香草冰淇淋"
+      ]
+    },
+    "mocha-frappe": {
+      "name": "摩卡冰沙咖啡",
+      "description": "浓缩咖啡、黑巧克力与冰镇牛奶,搅打至顺滑绵密",
+      "ingredients": [
+        "单份浓缩咖啡",
+        "巧克力",
+        "香草冰淇淋"
+      ]
+    },
+    "press-d-frappe": {
+      "name": "PRESS'D 招牌冰沙咖啡",
+      "description": "我们的招牌绵密咖啡冰沙",
+      "ingredients": [
+        "双份浓缩咖啡",
+        "香草冰淇淋"
+      ]
+    },
+    "cookies-cream": {
+      "name": "曲奇奶油",
+      "description": "曲奇奶油蛋白粉与冰镇牛奶混合搅打而成",
+      "ingredients": [
+        "巧克力",
+        "香蕉",
+        "格兰诺拉麦片",
+        "花生酱",
+        "蛋白粉",
+        "可可粉",
+        "牛奶"
+      ]
+    },
+    "dates-me": {
+      "name": "椰枣时光",
+      "description": "椰枣、香蕉与蛋白粉混合搅打,天然香甜",
+      "ingredients": [
+        "椰枣",
+        "香蕉",
+        "格兰诺拉麦片",
+        "蛋白粉",
+        "牛奶"
+      ]
+    },
+    "pb-j": {
+      "name": "花生酱莓果",
+      "description": "花生酱、莓果与蛋白粉搅打至顺滑",
+      "ingredients": [
+        "草莓",
+        "覆盆子",
+        "香蕉",
+        "格兰诺拉麦片",
+        "花生酱",
+        "甜菜根",
+        "蛋白粉",
+        "牛奶"
+      ]
+    },
+    "rumble-in-the-jungle": {
+      "name": "丛林绿动",
+      "description": "绿色蛋白混饮,配香蕉与绿叶蔬菜",
+      "ingredients": [
+        "牛油果",
+        "西兰花",
+        "嫩菠菜",
+        "羽衣甘蓝",
+        "香蕉",
+        "乳清蛋白",
+        "牛奶"
+      ]
+    },
+    "power-protein": {
+      "name": "强力蛋白",
+      "description": "顺滑绵密的蛋白奶昔,为你的一天注满能量",
+      "ingredients": [
+        "巴西莓果泥",
+        "蓝莓",
+        "樱桃",
+        "香蕉",
+        "甜菜根",
+        "乳清蛋白粉"
+      ]
+    },
+    "ice-and-shake": {
+      "name": "冰镇蛋白昔",
+      "description": "加冰搅打的冰镇绵密蛋白奶昔",
+      "ingredients": [
+        "顺滑冰爽的克里米蛋白摇摇乐"
+      ]
+    },
+    "build-your-own": {
+      "name": "自由搭配",
+      "description": "选择你喜爱的食材,调配专属蛋白奶昔",
+      "ingredients": [
+        "请在备注栏填写您选择的三种水果、蛋白粉和牛奶"
+      ]
+    },
+    "fignuts": {
+      "name": "无花果坚果棒",
+      "description": "无花果、坚果与籽类压制而成的天然能量棒",
+      "ingredients": [
+        "无花果",
+        "腰果",
+        "葡萄干"
+      ]
+    },
+    "walnana": {
+      "name": "胡桃可可棒",
+      "description": "浓郁可可坚果蛋白棒,口感顺滑",
+      "ingredients": [
+        "香蕉",
+        "核桃",
+        "葡萄干",
+        "杏子",
+        "燕麦",
+        "薄巧层"
+      ]
+    },
+    "nutri-tropix": {
+      "name": "热带营养棒",
+      "description": "层叠热带水果与坚果能量棒",
+      "ingredients": [
+        "椰子",
+        "菠萝",
+        "腰果",
+        "杏干",
+        "椰枣"
+      ]
+    },
+    "nutty-date-delight-ball": {
+      "name": "椰枣坚果能量球",
+      "description": "巧克力包裹椰枣坚果能量球",
+      "ingredients": [
+        "杏仁",
+        "椰枣",
+        "薄巧层"
+      ]
+    },
+    "energy-booster": {
+      "name": "能量补给",
+      "description": "混合莓果、香蕉与天然活力水果调配而成",
+      "ingredients": [
+        "樱桃果肉"
+      ]
+    },
+    "green-machine": {
+      "name": "绿色能量",
+      "description": "绿叶蔬菜、苹果、香蕉与清新热带水果调配而成",
+      "ingredients": [
+        "羽衣甘蓝",
+        "西兰花",
+        "嫩菠菜",
+        "香蕉",
+        "菠萝",
+        "牛油果",
+        "苹果汁"
+      ]
+    },
+    "mango-mania": {
+      "name": "芒果狂想",
+      "description": "芒果、香蕉与热带水果搅打至顺滑",
+      "ingredients": [
+        "芒果",
+        "菠萝",
+        "桃子",
+        "苹果汁"
+      ]
+    },
+    "pina-colada": {
+      "name": "椰林飘香",
+      "description": "菠萝与椰浆搅打而成的绵密热带果昔",
+      "ingredients": [
+        "菠萝",
+        "椰子",
+        "香蕉",
+        "苹果汁"
+      ]
+    },
+    "rubby-antioxidant-blend": {
+      "name": "红宝石抗氧化特饮",
+      "description": "深宝石红特调,富含抗氧化水果与莓果",
+      "ingredients": [
+        "黑枣干",
+        "活性炭",
+        "蓝莓",
+        "黑莓",
+        "黑加仑",
+        "甜菜根",
+        "樱桃果肉",
+        "苹果汁"
+      ]
+    },
+    "strawberry-fusion": {
+      "name": "草莓融合",
+      "description": "草莓与香蕉搅打而成的清甜果昔",
+      "ingredients": [
+        "草莓",
+        "芒果",
+        "覆盆子",
+        "香蕉",
+        "甜菜根",
+        "苹果汁"
+      ]
+    },
+    "smoothies-build-your-own": {
+      "name": "自由搭配",
+      "description": "选择你喜爱的食材,调配专属果昔",
+      "ingredients": [
+        "请在备注栏填写您选择的三种水果"
+      ]
+    },
+    "carrot": {
+      "name": "胡萝卜汁",
+      "description": "现榨胡萝卜汁,冰镇呈现",
+      "ingredients": [
+        "鲜榨胡萝卜汁"
+      ]
+    },
+    "green-apple": {
+      "name": "青苹果汁",
+      "description": "现点现榨爽脆青苹果汁",
+      "ingredients": [
+        "鲜榨青苹果汁"
+      ]
+    },
+    "orange": {
+      "name": "鲜橙汁",
+      "description": "现榨橙汁,冰镇呈现",
+      "ingredients": [
+        "鲜榨橙汁"
+      ]
+    },
+    "watermelon": {
+      "name": "西瓜汁",
+      "description": "新鲜西瓜汁,加冰饮用",
+      "ingredients": [
+        "鲜榨西瓜汁"
+      ]
+    },
+    "fresh-mint-lemonade": {
+      "name": "鲜薄荷柠檬水",
+      "description": "新鲜柠檬与薄荷调制,清凉爽口",
+      "ingredients": [
+        "薄荷",
+        "柠檬",
+        "糖"
+      ]
+    },
+    "immunity-booster": {
+      "name": "免疫加强",
+      "description": "活力柑橘特调,清爽提神",
+      "ingredients": [
+        "胡萝卜",
+        "生姜",
+        "青苹果"
+      ]
+    },
+    "incredible-hulk": {
+      "name": "绿巨人",
+      "description": "浓郁绿色养生特调,冰镇饮用",
+      "ingredients": [
+        "青苹果",
+        "生姜",
+        "菠萝",
+        "百香果",
+        "绿藻粉"
+      ]
+    },
+    "the-shield": {
+      "name": "盾牌特饮",
+      "description": "顺滑清爽的招牌养生特调",
+      "ingredients": [
+        "青苹果",
+        "生姜",
+        "菠萝",
+        "姜黄",
+        "黑胡椒"
+      ]
+    },
+    "ginger-iced-tea": {
+      "name": "姜味冰茶",
+      "description": "冰镇茶饮,融入鲜姜暖意",
+      "ingredients": [
+        "冰镇特调水果茶",
+        "鲜姜和柠檬",
+        "蜂蜜"
+      ]
+    },
+    "passion-fruit-iced-tea": {
+      "name": "百香果冰茶",
+      "description": "冰镇茶饮,点缀热带百香果香气",
+      "ingredients": [
+        "冰镇特调水果茶",
+        "百香果糖浆",
+        "新鲜百香果和柠檬"
+      ]
+    },
+    "peach-iced-tea": {
+      "name": "蜜桃冰茶",
+      "description": "顺滑冰茶,带有成熟蜜桃风味",
+      "ingredients": [
+        "水果茶与柠檬",
+        "桃子糖浆和冰块"
+      ]
+    },
+    "blue-lagoon-mojito": {
+      "name": "蓝色泻湖莫希托",
+      "description": "清爽柑橘薄荷特调,融入气泡蓝色泻湖风味",
+      "ingredients": [
+        "鲜薄荷和柠檬",
+        "蓝柑糖浆"
+      ]
+    },
+    "blueberry-mojito": {
+      "name": "蓝莓莫希托",
+      "description": "蓝莓、新鲜薄荷、柑橘与气泡苏打水",
+      "ingredients": [
+        "鲜薄荷、柠檬和蓝莓",
+        "蓝莓糖浆"
+      ]
+    },
+    "strawberry-mojito": {
+      "name": "草莓莫希托",
+      "description": "草莓、新鲜薄荷、青柠与气泡苏打水",
+      "ingredients": [
+        "草莓、鲜薄荷、青柠和苏打水"
+      ]
+    },
+    "classic-mojito": {
+      "name": "经典莫希托",
+      "description": "新鲜青柠、薄荷与气泡苏打水",
+      "ingredients": [
+        "鲜薄荷和柠檬",
+        "薄荷莫吉托糖浆"
+      ]
+    },
+    "passion-fruit-mojito": {
+      "name": "百香果莫希托",
+      "description": "百香果、新鲜薄荷、青柠与气泡苏打水",
+      "ingredients": [
+        "鲜薄荷、柠檬和百香果",
+        "百香果糖浆"
+      ]
+    },
+    "evian-water": {
+      "name": "依云矿泉水",
+      "description": "源自法国阿尔卑斯山的天然矿泉水",
+      "ingredients": [
+        "源自法国阿尔卑斯山的天然矿泉水"
+      ]
+    },
+    "vitamin-well-upgrade": {
+      "name": "Vitamin Well 升级版",
+      "description": "柠檬仙人掌口味维生素饮品,含镁与锌",
+      "ingredients": [
+        "柠檬仙人掌维生素饮品，富含镁和锌"
+      ]
+    },
+    "c4-energy-drink": {
+      "name": "C4能量饮料",
+      "description": "零糖运动能量饮料",
+      "ingredients": [
+        "无糖高能能量饮料"
+      ]
+    },
+    "perrier-sparkling-water": {
+      "name": "巴黎水气泡水",
+      "description": "经典巴黎水天然气泡矿泉水",
+      "ingredients": [
+        "经典巴黎水天然气泡矿泉水"
+      ]
+    },
+    "perrier-sparkling-water-with-lemon": {
+      "name": "柠檬巴黎水气泡水",
+      "description": "巴黎水气泡水,加冰并配柠檬",
+      "ingredients": [
+        "巴黎水气泡水，配冰块与柠檬"
+      ]
+    },
+    "beef-pastrami": {
+      "name": "烟熏牛肉",
+      "description": "烟熏牛肉、融化芝士、生菜和洋葱",
+      "ingredients": [
+        "埃曼塔芝士",
+        "腌牛肉片",
+        "焦糖洋葱",
+        "生菜",
+        "面包"
+      ]
+    },
+    "chickado": {
+      "name": "鸡肉牛油果",
+      "description": "鸡肉、牛油果、番茄、黄瓜与奶油酱汁",
+      "ingredients": [
+        "马苏里拉芝士",
+        "鸡肉慕斯",
+        "黄瓜",
+        "西红柿",
+        "牛油果",
+        "面包"
+      ]
+    },
+    "halloumi-avocado": {
+      "name": "哈鲁米奶酪牛油果",
+      "description": "哈鲁米奶酪、牛油果、黄瓜和番茄",
+      "ingredients": [
+        "烤哈罗米芝士",
+        "牛油果特调酱",
+        "西红柿",
+        "黄瓜",
+        "面包"
+      ]
+    },
+    "halloumi-pesto": {
+      "name": "哈鲁米奶酪香蒜酱",
+      "description": "哈鲁米奶酪、香蒜酱、黄瓜和番茄",
+      "ingredients": [
+        "烤哈罗米芝士",
+        "罗勒松子青酱",
+        "西红柿",
+        "黄瓜",
+        "面包"
+      ]
+    },
+    "labneh": {
+      "name": "拉巴内乳酪",
+      "description": "拉巴内乳酪、黄瓜、番茄、橄榄与时蔬",
+      "ingredients": [
+        "黎巴嫩酸奶干酪",
+        "绿橄榄片",
+        "橄榄油",
+        "西红柿",
+        "黄瓜",
+        "面包"
+      ]
+    },
+    "melted-cheese": {
+      "name": "芝士",
+      "description": "温热融化芝士与番茄",
+      "ingredients": [
+        "切达和埃曼塔芝士",
+        "西红柿",
+        "面包"
+      ]
+    },
+    "smoked-salmon": {
+      "name": "烟熏三文鱼",
+      "description": "烟熏三文鱼、黄瓜与奶油芝士",
+      "ingredients": [
+        "费城奶油芝士酱",
+        "烟熏三文鱼",
+        "黄瓜",
+        "西红柿",
+        "面包"
+      ]
+    },
+    "smoked-turkey": {
+      "name": "烟熏火鸡",
+      "description": "烟熏火鸡、融化芝士、番茄与香蒜酱",
+      "ingredients": [
+        "马苏里拉芝士",
+        "烟熏火鸡肉",
+        "罗勒松子青酱",
+        "番茄",
+        "面包"
+      ]
+    }
+  },
+  "customization": {
+    "beans": {
+      "brazil": "巴西",
+      "honduras": "洪都拉斯",
+      "el-salvador": "萨尔瓦多",
+      "hamasho": "哈马乔",
+      "decaf-colombia": "低咖啡因(哥伦比亚)"
+    },
+    "milk": {
+      "fresh-milk": "鲜奶",
+      "oat-milk": "燕麦奶",
+      "almond-milk": "杏仁奶",
+      "coconut-milk": "椰奶"
+    },
+    "syrup": {
+      "none": "无",
+      "caramel": "焦糖",
+      "hazelnut": "榛果",
+      "vanilla": "香草",
+      "pistachio": "开心果"
+    }
+  },
+  "ui": {
+    "eyebrow": "吃 · 喝 · 反复回味",
+    "menuHeading": "菜单。",
+    "menuIntro": "缤纷美味,浓郁风味,还有值得你放慢脚步细细品味的咖啡。随心浏览,自在选择。",
+    "menuLabel": "菜单",
+    "sectionsAriaSuffix": "个分类",
+    "categoriesAll": "全部",
+    "categoriesAriaLabel": "菜单分类",
+    "categoryPrevAria": "显示上一组菜单分类",
+    "categoryNextAria": "显示更多菜单分类",
+    "details": "详情",
+    "detailsAria": "查看{name}的详情",
+    "customize": "定制",
+    "comment": "留言",
+    "currencyPrefix": "AED",
+    "inCart": "已加入购物车",
+    "addToCart": "添加",
+    "addAria": "将{name}加入购物车",
+    "inCartAria": "{name}已在购物车中",
+    "factsSize": "分量",
+    "factsProtein": "蛋白质",
+    "factsCarbohydrates": "碳水化合物",
+    "factsCalories": "卡路里",
+    "closeDetailsAria": "关闭产品详情",
+    "menuEyebrowModal": "PRESS'D 菜单",
+    "whatsInside": "内含成分",
+    "addToOrder": "加入订单",
+    "makeItYours": "打造专属口味",
+    "customizeYourDrink": "定制你的饮品",
+    "coffeeBeans": "咖啡豆",
+    "milks": "奶类",
+    "syrups": "糖浆",
+    "commentHeading": "留言 / 特殊要求",
+    "commentHelp": "请告诉我们您希望在这杯饮品中减少、去除或添加的内容。",
+    "commentPlaceholder": "输入您的留言或特殊要求……",
+    "customizationSaved": "您的饮品定制已保存。",
+    "saveSelection": "保存选择",
+    "closeCustomizeAria": "关闭饮品定制",
+    "customiseYourOrder": "定制您的订单",
+    "specialInstructions": "特殊要求",
+    "instructionsHelp": "请告诉我们您希望在这款产品中减少、去除或添加的内容……",
+    "instructionsPlaceholder": "请告诉我们您希望在这款产品中减少、去除或添加的内容……",
+    "instructionsSaved": "备注已保存。",
+    "cancel": "取消",
+    "saveInstructions": "保存备注",
+    "closeInstructionsAria": "关闭特殊要求",
+    "cartEyebrow": "您的订单",
+    "cart": "购物车",
+    "closeCartAria": "关闭购物车",
+    "customizedLabel": "定制内容:",
+    "specialInstructionsLabel": "特殊要求:",
+    "removeOneAria": "移除一份{name}",
+    "addOneAria": "添加一份{name}",
+    "emptyCart": "您的购物车是空的。",
+    "exploreMenu": "浏览菜单 →",
+    "total": "总计",
+    "orderOnWhatsapp": "通过WhatsApp下单",
+    "orderSentTo": "订单将发送至 +971 55 683 8426",
+    "selectLanguage": "选择语言",
+    "languageButtonAria": "更改菜单语言",
+    "changeLanguage": "更改语言"
+  }
+}

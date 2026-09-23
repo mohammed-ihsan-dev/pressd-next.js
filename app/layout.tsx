@@ -10,6 +10,14 @@ import "./globals.css";
 const GOOGLE_FONTS_HREF =
   "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Playfair+Display:ital,wght@1,500&display=swap";
 
+// Fallback glyph coverage for the multilingual Menu (Arabic, Devanagari,
+// Malayalam, Simplified Chinese, Japanese, Korean). Google Fonts serves each
+// family as per-script @font-face blocks with unicode-range, so the browser
+// only downloads a file when that script's characters actually appear on the
+// page — negligible cost for the default English visitor.
+const NOTO_FALLBACK_FONTS_HREF =
+  "https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans+Malayalam:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap";
+
 export const metadata: Metadata = {
   title: "PRESS'D | Specialty Coffee & Café at Meydan Polo Residence",
   description:
@@ -52,6 +60,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           crossOrigin="anonymous"
         />
         <link href={GOOGLE_FONTS_HREF} rel="stylesheet" />
+        <link href={NOTO_FALLBACK_FONTS_HREF} rel="stylesheet" />
         <link
           rel="preload"
           href="/assets/pressd-hero-cinematic.mp4?v=2"

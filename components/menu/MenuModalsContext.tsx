@@ -14,13 +14,15 @@ interface MenuModalsValue {
   openDetails: (ref: ProductRef) => void;
   closeDetails: () => void;
 
+  /** Stable product id (not the translated display name). */
   instructionsProduct: string | null;
-  openInstructions: (name: string) => void;
+  openInstructions: (id: string) => void;
   closeInstructions: () => void;
 
+  /** Stable product id (not the translated display name). */
   customizeProduct: string | null;
   customizeMode: CustomizeMode;
-  openCustomize: (name: string, mode: CustomizeMode) => void;
+  openCustomize: (id: string, mode: CustomizeMode) => void;
   closeCustomize: () => void;
 }
 
@@ -41,8 +43,8 @@ export function MenuModalsProvider({ children }: { children: React.ReactNode }) 
     closeInstructions: () => setInstructionsProduct(null),
     customizeProduct,
     customizeMode,
-    openCustomize: (name, mode) => {
-      setCustomizeProduct(name);
+    openCustomize: (id, mode) => {
+      setCustomizeProduct(id);
       setCustomizeMode(mode);
     },
     closeCustomize: () => setCustomizeProduct(null),

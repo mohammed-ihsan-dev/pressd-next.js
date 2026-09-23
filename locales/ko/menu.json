@@ -1,0 +1,1056 @@
+{
+  "categories": {
+    "fresh-start": "프레시 스타트",
+    "hot-beverages": "따뜻한 음료",
+    "ice-beverages": "아이스 음료",
+    "protein-shakes-bars": "프로틴 쉐이크/바",
+    "smoothies": "스무디",
+    "fresh-juices": "프레시 주스",
+    "refreshing-drinks": "상큼한 음료",
+    "sandwiches": "샌드위치"
+  },
+  "categoryTaglines": {
+    "fresh-start": "브렉퍼스트 · 볼 · 샐러드 · 팬케이크",
+    "hot-beverages": "커피 · 티 · 따뜻한 순간",
+    "ice-beverages": "아이스커피 · 프라페",
+    "protein-shakes-bars": "프로틴 쉐이크 · 프로틴 바",
+    "smoothies": "과일 가득 · 자연스러운 에너지 충전",
+    "fresh-juices": "콜드 프레스 · 목테일",
+    "refreshing-drinks": "아이스티 · 모히토 · 리프레셔",
+    "sandwiches": "신선하게 만든 · 풍부한 맛"
+  },
+  "subcategories": {
+    "breakfast": "브렉퍼스트",
+    "bowls": "볼",
+    "salads": "샐러드",
+    "pancakes": "팬케이크",
+    "cakes-pastries": "케이크 & 페이스트리",
+    "coffee": "커피",
+    "teas": "티",
+    "iced-coffee": "아이스커피",
+    "frappe": "프라페",
+    "protein-shakes": "프로틴 쉐이크",
+    "protein-bars": "프로틴 바",
+    "smoothies": "스무디",
+    "cold-press": "콜드 프레스",
+    "mocktails": "목테일",
+    "iced-teas": "아이스티",
+    "mojitos": "모히토",
+    "refreshing-drinks": "상큼한 음료",
+    "sandwiches": "샌드위치"
+  },
+  "products": {
+    "avacado-toast-with-poached-eggs": {
+      "name": "아보카도 토스트 & 수란",
+      "description": "부드러운 아보카도 토스트에 수란을 올리고 신선한 가든 샐러드를 곁들였습니다",
+      "ingredients": [
+        "사워도우 브레드",
+        "계란 2개",
+        "으깬 아보카도",
+        "체리 토마토",
+        "양상추",
+        "래디시",
+        "라브네 치즈",
+        "블랙 페퍼",
+        "식염"
+      ]
+    },
+    "avacado-toast-with-salmon": {
+      "name": "아보카도 토스트 & 연어",
+      "description": "부드러운 아보카도 토스트에 연어를 올리고 신선한 가든 샐러드를 곁들였습니다",
+      "ingredients": [
+        "사워도우 브레드",
+        "훈제 연어",
+        "으깬 아보카도",
+        "체리 토마토",
+        "오이",
+        "양상추",
+        "래디시",
+        "블랙 페퍼",
+        "참깨",
+        "식염"
+      ]
+    },
+    "avacado-toast-with-green-olives": {
+      "name": "아보카도 토스트 & 그린 올리브",
+      "description": "수란을 올린 아보카도 토스트에 신선한 가든 샐러드를 곁들였습니다",
+      "ingredients": [
+        "사워도우 브레드",
+        "그린 올리브",
+        "으깬 아보카도",
+        "체리 토마토",
+        "양상추",
+        "래디시",
+        "라브네 치즈",
+        "블랙 페퍼",
+        "참깨",
+        "식염"
+      ]
+    },
+    "acai-bowl": {
+      "name": "아사이 볼",
+      "description": "아사이에 바나나, 베리, 그래놀라, 땅콩버터를 올렸습니다",
+      "ingredients": [
+        "아사이 퓨레",
+        "바나나",
+        "베리류",
+        "수제 그라놀라",
+        "치아시드",
+        "땅콩 버터"
+      ]
+    },
+    "blue-crash-bowl": {
+      "name": "블루 크래시 볼",
+      "description": "망고, 바나나, 베리, 그래놀라를 올린 선명한 블루 스무디 볼",
+      "ingredients": [
+        "그릭 요거트",
+        "블루 스피룰리나",
+        "망고",
+        "수제 그라놀라",
+        "바나나",
+        "베리류",
+        "메이플 시럽"
+      ]
+    },
+    "mystic-matcha-bowl": {
+      "name": "미스틱 말차 볼",
+      "description": "아보카도, 바나나, 오이, 그래놀라를 담은 베리 스무디 볼",
+      "ingredients": [
+        "그릭 요거트",
+        "블루 스피룰리나",
+        "블루 말차",
+        "망고",
+        "베리류",
+        "아보카도",
+        "오이",
+        "수제 그라놀라"
+      ]
+    },
+    "green-dream-bowl": {
+      "name": "그린 드림 볼",
+      "description": "과일, 채소, 견과류, 그래놀라로 채운 컬러풀한 웰니스 볼",
+      "ingredients": [
+        "그릭 요거트",
+        "모링가",
+        "그린 스피룰리나",
+        "키위",
+        "바나나",
+        "망고",
+        "수제 그라놀라",
+        "살구",
+        "비트",
+        "구운 아몬드",
+        "베리류"
+      ]
+    },
+    "detox-me-later-glow-bowl": {
+      "name": "디톡스 미 레이터 글로우 볼",
+      "description": "트로피컬 과일, 베리, 석류를 올린 핑크 스무디 볼",
+      "ingredients": [
+        "그릭 요거트",
+        "핑크 말차",
+        "바나나",
+        "망고",
+        "드래곤 프루트",
+        "베리류",
+        "석류",
+        "수제 그라놀라"
+      ]
+    },
+    "tropical-glow-bowl": {
+      "name": "트로피컬 글로우 볼",
+      "description": "아보카도, 망고, 파인애플, 베리로 만든 트로피컬 그린 볼",
+      "ingredients": [
+        "그릭 요거트",
+        "아보카도",
+        "망고",
+        "바나나",
+        "수제 그라놀라",
+        "파인애플",
+        "베리류",
+        "피스타치오"
+      ]
+    },
+    "watermelon-feta": {
+      "name": "수박 페타",
+      "description": "신선한 수박, 페타 치즈, 치아씨, 민트",
+      "ingredients": [
+        "수박",
+        "페타 치즈",
+        "레몬",
+        "치아시드"
+      ]
+    },
+    "blood-sugar-level": {
+      "name": "블러드 슈거 레벨",
+      "description": "병아리콩, 아보카도, 오이, 토마토, 무, 올리브",
+      "ingredients": [
+        "병아리콩",
+        "오이",
+        "체리 토마토",
+        "아보카도",
+        "그린 올리브",
+        "래디시",
+        "쪽파",
+        "파슬리",
+        "블랙 페퍼",
+        "올리브 오일",
+        "레몬 즙",
+        "식염"
+      ]
+    },
+    "chicken-ceasar": {
+      "name": "치킨 시저",
+      "description": "그릴에 구운 치킨, 아보카도, 베이비 젬 상추, 파르메산, 크루통",
+      "ingredients": [
+        "양상추",
+        "그릴드 치킨",
+        "아보카도",
+        "체리 토마토",
+        "크루통",
+        "파르메산 치즈"
+      ]
+    },
+    "colon-cleaning": {
+      "name": "콜론 클리닝",
+      "description": "비트, 당근, 양배추에 상큼한 시트러스 드레싱을 더했습니다",
+      "ingredients": [
+        "당근",
+        "비트",
+        "양배추",
+        "빨간 사과",
+        "식염",
+        "레몬 즙"
+      ]
+    },
+    "flat-stomach": {
+      "name": "플랫 스토마크",
+      "description": "완두콩, 오이, 적양배추에 신선한 허브를 더했습니다",
+      "ingredients": [
+        "적양배추",
+        "완두콩",
+        "오이",
+        "파슬리",
+        "파",
+        "블랙 페퍼",
+        "레몬 즙",
+        "식염"
+      ]
+    },
+    "tabbouloleh-salad": {
+      "name": "타불레 샐러드",
+      "description": "쿠스쿠스, 오이, 토마토, 허브, 적양파",
+      "ingredients": [
+        "부르굴",
+        "체리 토마토",
+        "오이",
+        "적양파",
+        "파슬리",
+        "파"
+      ]
+    },
+    "triple-berries-salad": {
+      "name": "트리플 베리 샐러드",
+      "description": "시금치, 딸기, 블루베리, 블랙베리, 페타 치즈",
+      "ingredients": [
+        "어린 시금치",
+        "수제 그라놀라",
+        "베리류",
+        "페타 치즈"
+      ]
+    },
+    "nutella-pancake": {
+      "name": "누텔라 팬케이크",
+      "description": "폭신한 팬케이크에 누텔라를 층층이 바르고 신선한 베리로 마무리했습니다",
+      "ingredients": [
+        "그릭 요거트 크림"
+      ]
+    },
+    "berries-pancake": {
+      "name": "베리 팬케이크",
+      "description": "폭신한 팬케이크 위에 딸기, 블루베리, 라즈베리, 블랙베리를 올렸습니다",
+      "ingredients": [
+        "그릭 요거트 크림"
+      ]
+    },
+    "classic-pancake": {
+      "name": "클래식 팬케이크",
+      "description": "폭신한 클래식 팬케이크에 크림, 베리, 시럽을 살짝 더했습니다",
+      "ingredients": [
+        "그릭 요거트 크림"
+      ]
+    },
+    "french-toast": {
+      "name": "프렌치 토스트",
+      "description": "노릇하게 구운 프렌치 토스트에 바나나, 크림, 신선한 베리를 곁들였습니다",
+      "ingredients": [
+        "그릭 요거트 크림"
+      ]
+    },
+    "pistachio-pancake": {
+      "name": "피스타치오 팬케이크",
+      "description": "폭신한 팬케이크 위에 피스타치오 크림, 다진 피스타치오, 신선한 과일을 올렸습니다",
+      "ingredients": [
+        "그릭 요거트 크림"
+      ]
+    },
+    "banana-bread": {
+      "name": "바나나 브레드",
+      "description": "부드럽고 촉촉한 클래식 바나나 브레드 한 조각",
+      "ingredients": [
+        "촉촉하고 부드러운 클래식 바나나 브레드 한 조각"
+      ]
+    },
+    "blueberry-muffin": {
+      "name": "블루베리 머핀",
+      "description": "촉촉한 블루베리를 듬뿍 넣어 구운 부드러운 머핀",
+      "ingredients": [
+        "즙이 많은 블루베리가 들어간 부드러운 머핀"
+      ]
+    },
+    "brownies": {
+      "name": "브라우니",
+      "description": "진하고 쫀득한 초콜릿 브라우니",
+      "ingredients": [
+        "진하고 촉촉한 초콜릿 브라우니"
+      ]
+    },
+    "chocolate-muffin": {
+      "name": "초콜릿 머핀",
+      "description": "진한 코코아 풍미가 가득한 부드러운 초콜릿 머핀",
+      "ingredients": [
+        "진한 코코아 향이 살아있는 부드러운 초콜릿 머핀"
+      ]
+    },
+    "americano": {
+      "name": "아메리카노",
+      "description": "에스프레소에 뜨거운 물을 더해 부드럽고 진하게 즐기는 한 잔",
+      "ingredients": [
+        "에스프레소에 따뜻한 물을 더한 부드럽고 깊은 맛"
+      ]
+    },
+    "cappuccino": {
+      "name": "카푸치노",
+      "description": "부드러운 스팀 밀크와 매끄러운 거품으로 마무리한 에스프레소",
+      "ingredients": [
+        "부드러운 스팀 밀크와 크리미한 거품이 어우러진 에스프레소"
+      ]
+    },
+    "cafe-latte": {
+      "name": "카페 라떼",
+      "description": "부드러운 밀크와 매끄러운 거품을 더한 에스프레소",
+      "ingredients": [
+        "부드러운 우유 거품을 올린 에스프레소"
+      ]
+    },
+    "spanish-latte": {
+      "name": "스패니시 라떼",
+      "description": "따뜻하고 부드러운 밀크와 균형을 이룬 에스프레소",
+      "ingredients": [
+        "따뜻하고 부드러운 우유로 균형을 잡은 에스프레소"
+      ]
+    },
+    "expresso": {
+      "name": "에스프레소",
+      "description": "진하고 묵직한 싱글 샷",
+      "ingredients": [
+        "진하고 바디감이 풍부한 싱글 샷"
+      ]
+    },
+    "hot-matcha-latte": {
+      "name": "핫 말차 라떼",
+      "description": "부드러운 스팀 밀크와 함께 저어낸 말차",
+      "ingredients": [
+        "말차 그린티",
+        "스팀 밀크와 거품"
+      ]
+    },
+    "matcha": {
+      "name": "말차",
+      "description": "부드럽고 크리미하게 즐기는 따뜻한 말차",
+      "ingredients": [
+        "부드럽고 크리미하게 완성된 따뜻한 말차"
+      ]
+    },
+    "mochaccino": {
+      "name": "모카치노",
+      "description": "에스프레소, 초콜릿, 부드러운 스팀 밀크",
+      "ingredients": [
+        "싱글 샷 에스프레소",
+        "초콜릿",
+        "스팀 밀크와 거품"
+      ]
+    },
+    "cortado": {
+      "name": "코르타도",
+      "description": "부드러운 밀크로 풍미를 더한 짧은 에스프레소",
+      "ingredients": [
+        "스팀 밀크로 부드럽게 감싼 쇼트 에스프레소"
+      ]
+    },
+    "flat-white": {
+      "name": "플랫 화이트",
+      "description": "벨벳처럼 부드러운 에스프레소에 스팀 밀크와 고운 마이크로폼을 더했습니다",
+      "ingredients": [
+        "벨벳 같은 에스프레소와 미세한 우유 거품의 조합"
+      ]
+    },
+    "piccolo": {
+      "name": "피콜로",
+      "description": "부드러운 스팀 밀크로 풍미를 더한 짧은 에스프레소",
+      "ingredients": [
+        "부드러운 스팀 밀크를 더한 쇼트 에스프레소"
+      ]
+    },
+    "v60": {
+      "name": "V60",
+      "description": "깔끔하고 향긋한 풍미의 핸드드립 커피",
+      "ingredients": [
+        "싱글 오리진 커피"
+      ]
+    },
+    "tea-selections": {
+      "name": "티 셀렉션",
+      "description": "엄선한 클래식 핫 티 컬렉션",
+      "ingredients": [
+        "민트 그린티",
+        "재스민 그린티",
+        "캐모마일 티",
+        "잉글리시 브렉퍼스트 티",
+        "얼그레이 티"
+      ]
+    },
+    "ginger-tisane-tea": {
+      "name": "진저 티산",
+      "description": "편안하게 즐기는 카페인 없는 허브차",
+      "ingredients": [
+        "생강",
+        "레몬 즙",
+        "꿀"
+      ]
+    },
+    "iced-americano": {
+      "name": "아이스 아메리카노",
+      "description": "얼음 위에 부은 더블 에스프레소",
+      "ingredients": [
+        "더블 샷 에스프레소",
+        "얼음과 물"
+      ]
+    },
+    "raspberry-cano": {
+      "name": "라즈베리 카노",
+      "description": "상큼한 라즈베리를 더한 아이스 아메리카노",
+      "ingredients": [
+        "더블 샷 에스프레소",
+        "라즈베리 시럽",
+        "얼음과 물"
+      ]
+    },
+    "ice-latte": {
+      "name": "아이스 라떼",
+      "description": "차가운 밀크와 층을 이룬 에스프레소를 얼음 위에 서빙했습니다",
+      "ingredients": [
+        "에스프레소",
+        "차가운 우유",
+        "얼음"
+      ]
+    },
+    "iced-matcha-latte": {
+      "name": "아이스 말차 라떼",
+      "description": "차가운 밀크, 얼음과 함께 흔들어 만든 말차",
+      "ingredients": [
+        "말차 그린티",
+        "얼음과 우유"
+      ]
+    },
+    "iced-spanish-latte": {
+      "name": "아이스 스패니시 라떼",
+      "description": "에스프레소, 차가운 밀크, 은은한 단맛",
+      "ingredients": [
+        "더블 샷 에스프레소",
+        "연유",
+        "얼음과 차가운 우유"
+      ]
+    },
+    "cold-drip-coffee": {
+      "name": "콜드 드립 커피",
+      "description": "천천히 내려 부드럽고 진하게 완성한 콜드 드립 커피",
+      "ingredients": [
+        "슬로우 드립 콜드 커피"
+      ]
+    },
+    "iced-v60": {
+      "name": "아이스 V60",
+      "description": "얼음 위에 서빙하는 핸드드립 커피",
+      "ingredients": [
+        "싱글 오리진 커피",
+        "얼음"
+      ]
+    },
+    "caramel-frappe": {
+      "name": "카라멜 프라페",
+      "description": "에스프레소, 카라멜, 차가운 밀크를 부드럽게 블렌딩했습니다",
+      "ingredients": [
+        "더블 샷 에스프레소",
+        "카라멜 시럽",
+        "바닐라 아이스크림"
+      ]
+    },
+    "matcha-frappe": {
+      "name": "말차 프라페",
+      "description": "말차와 차가운 밀크를 크리미하게 블렌딩했습니다",
+      "ingredients": [
+        "말차 그린티",
+        "바닐라 아이스크림"
+      ]
+    },
+    "mocha-frappe": {
+      "name": "모카 프라페",
+      "description": "에스프레소, 다크 초콜릿, 차가운 밀크를 부드럽게 블렌딩했습니다",
+      "ingredients": [
+        "싱글 샷 에스프레소",
+        "초콜릿",
+        "바닐라 아이스크림"
+      ]
+    },
+    "press-d-frappe": {
+      "name": "PRESS'D 프라페",
+      "description": "PRESS'D의 시그니처 크리미 커피 프라페",
+      "ingredients": [
+        "더블 샷 에스프레소",
+        "바닐라 아이스크림"
+      ]
+    },
+    "cookies-cream": {
+      "name": "쿠키 앤 크림",
+      "description": "쿠키 앤 크림 프로틴과 차가운 밀크를 블렌딩했습니다",
+      "ingredients": [
+        "초콜릿",
+        "바나나",
+        "그라놀라",
+        "땅콩 버터",
+        "웨이 프로틴",
+        "코코아 파우더",
+        "우유"
+      ]
+    },
+    "dates-me": {
+      "name": "데이츠 미",
+      "description": "대추야자, 바나나, 프로틴을 블렌딩한 자연스럽게 달콤한 쉐이크",
+      "ingredients": [
+        "대추야자",
+        "바나나",
+        "그라놀라",
+        "웨이 프로틴",
+        "우유"
+      ]
+    },
+    "pb-j": {
+      "name": "PB & J",
+      "description": "땅콩버터, 베리, 프로틴을 부드럽게 블렌딩했습니다",
+      "ingredients": [
+        "딸기",
+        "라즈베리",
+        "바나나",
+        "그라놀라",
+        "땅콩 버터",
+        "비트",
+        "웨이 프로틴",
+        "우유"
+      ]
+    },
+    "rumble-in-the-jungle": {
+      "name": "럼블 인 더 정글",
+      "description": "바나나와 녹색 잎채소를 더한 그린 프로틴 블렌드",
+      "ingredients": [
+        "아보카도",
+        "브로콜리",
+        "어린 시금치",
+        "케일",
+        "바나나",
+        "웨이",
+        "우유"
+      ]
+    },
+    "power-protein": {
+      "name": "파워 프로틴",
+      "description": "하루를 든든하게 채워주는 부드럽고 크리미한 프로틴 쉐이크",
+      "ingredients": [
+        "아사이 퓨레",
+        "블루베리",
+        "체리",
+        "바나나",
+        "비트",
+        "웨이 프로틴 파우더"
+      ]
+    },
+    "ice-and-shake": {
+      "name": "아이스 앤 쉐이크",
+      "description": "얼음과 함께 부드럽게 블렌딩한 시원하고 크리미한 프로틴 쉐이크",
+      "ingredients": [
+        "얼음과 함께 블렌딩된 차갑고 크리미한 단백질 쉐이크"
+      ]
+    },
+    "build-your-own": {
+      "name": "나만의 쉐이크 만들기",
+      "description": "원하는 재료를 선택해 나만의 프로틴 쉐이크를 만들어보세요",
+      "ingredients": [
+        "요청사항란에 선택하신 과일 3가지, 프로틴 파우더, 우유 종류를 적어주세요"
+      ]
+    },
+    "fignuts": {
+      "name": "피그너츠",
+      "description": "무화과, 견과류, 씨앗을 눌러 만든 자연 에너지 바",
+      "ingredients": [
+        "무화과",
+        "캐슈넛",
+        "건포도"
+      ]
+    },
+    "walnana": {
+      "name": "월나나",
+      "description": "진한 카카오와 견과류로 만든 부드러운 프로틴 바",
+      "ingredients": [
+        "바나나",
+        "호두",
+        "건포도",
+        "살구",
+        "귀리",
+        "얇은 초콜릿 코팅"
+      ]
+    },
+    "nutri-tropix": {
+      "name": "뉴트리 트로픽스",
+      "description": "트로피컬 과일과 견과류를 층층이 쌓은 에너지 바",
+      "ingredients": [
+        "코코넛",
+        "파인애플",
+        "캐슈넛",
+        "살구",
+        "대추야자"
+      ]
+    },
+    "nutty-date-delight-ball": {
+      "name": "너티 데이트 딜라이트 볼",
+      "description": "초콜릿으로 코팅한 대추야자 & 견과류 에너지 볼",
+      "ingredients": [
+        "아몬드",
+        "대추야자",
+        "얇은 초콜릿 코팅"
+      ]
+    },
+    "energy-booster": {
+      "name": "에너지 부스터",
+      "description": "믹스 베리, 바나나로 만든 자연스러운 에너지 충전 블렌드",
+      "ingredients": [
+        "체리 과일"
+      ]
+    },
+    "green-machine": {
+      "name": "그린 머신",
+      "description": "녹색 잎채소, 사과, 바나나로 만든 신선한 트로피컬 블렌드",
+      "ingredients": [
+        "케일",
+        "브로콜리",
+        "어린 시금치",
+        "바나나",
+        "파인애플",
+        "아보카도",
+        "사과 주스"
+      ]
+    },
+    "mango-mania": {
+      "name": "망고 마니아",
+      "description": "망고, 바나나, 트로피컬 과일을 부드럽게 블렌딩했습니다",
+      "ingredients": [
+        "망고",
+        "파인애플",
+        "복숭아",
+        "사과 주스"
+      ]
+    },
+    "pina-colada": {
+      "name": "피나콜라다",
+      "description": "파인애플과 코코넛을 블렌딩한 크리미한 트로피컬 스무디",
+      "ingredients": [
+        "파인애플",
+        "코코넛",
+        "바나나",
+        "사과 주스"
+      ]
+    },
+    "rubby-antioxidant-blend": {
+      "name": "루비 항산화 블렌드",
+      "description": "항산화 성분이 풍부한 과일과 베리로 만든 깊은 루비빛 블렌드",
+      "ingredients": [
+        "푸룬",
+        "활성탄",
+        "블루베리",
+        "블랙베리",
+        "블랙커런트",
+        "비트",
+        "체리 과일",
+        "사과 주스"
+      ]
+    },
+    "strawberry-fusion": {
+      "name": "스트로베리 퓨전",
+      "description": "딸기와 바나나를 블렌딩한 상큼한 과일 스무디",
+      "ingredients": [
+        "딸기",
+        "망고",
+        "라즈베리",
+        "바나나",
+        "비트",
+        "사과 주스"
+      ]
+    },
+    "smoothies-build-your-own": {
+      "name": "나만의 스무디 만들기",
+      "description": "원하는 재료를 선택해 나만의 스무디를 만들어보세요",
+      "ingredients": [
+        "요청사항란에 선택하신 과일 3가지를 적어주세요"
+      ]
+    },
+    "carrot": {
+      "name": "당근",
+      "description": "신선하게 착즙해 시원하게 서빙하는 당근 주스",
+      "ingredients": [
+        "생당근 주스"
+      ]
+    },
+    "green-apple": {
+      "name": "청사과",
+      "description": "주문 즉시 착즙하는 아삭한 청사과 주스",
+      "ingredients": [
+        "생청사과 주스"
+      ]
+    },
+    "orange": {
+      "name": "오렌지",
+      "description": "신선하게 착즙해 시원하게 서빙하는 오렌지 주스",
+      "ingredients": [
+        "생오렌지 주스"
+      ]
+    },
+    "watermelon": {
+      "name": "수박",
+      "description": "얼음 위에 서빙하는 신선한 수박 주스",
+      "ingredients": [
+        "생수박 주스"
+      ]
+    },
+    "fresh-mint-lemonade": {
+      "name": "프레시 민트 레모네이드",
+      "description": "신선한 레몬과 민트를 블렌딩한 상큼하고 시원한 음료",
+      "ingredients": [
+        "민트",
+        "레몬",
+        "설탕"
+      ]
+    },
+    "immunity-booster": {
+      "name": "이뮤니티 부스터",
+      "description": "상쾌한 기운을 더해주는 생기 있는 시트러스 블렌드",
+      "ingredients": [
+        "당근",
+        "생강",
+        "청사과"
+      ]
+    },
+    "incredible-hulk": {
+      "name": "인크레더블 헐크",
+      "description": "시원하게 즐기는 진한 그린 웰니스 블렌드",
+      "ingredients": [
+        "청사과",
+        "생강",
+        "파인애플",
+        "패션프루트",
+        "그린 스피룰리나 파우더"
+      ]
+    },
+    "the-shield": {
+      "name": "더 쉴드",
+      "description": "부드럽고 상쾌한 시그니처 웰니스 블렌드",
+      "ingredients": [
+        "청사과",
+        "생강",
+        "파인애플",
+        "강황",
+        "블랙 페퍼"
+      ]
+    },
+    "ginger-iced-tea": {
+      "name": "진저 아이스티",
+      "description": "상큼하고 알싸한 생강 향을 더한 차가운 티",
+      "ingredients": [
+        "수제 과일티",
+        "생생강과 레몬",
+        "꿀"
+      ]
+    },
+    "passion-fruit-iced-tea": {
+      "name": "패션프루트 아이스티",
+      "description": "트로피컬 패션프루트로 상큼함을 더한 차가운 티",
+      "ingredients": [
+        "수제 과일티",
+        "패션프루트 시럽",
+        "생패션프루트와 레몬"
+      ]
+    },
+    "peach-iced-tea": {
+      "name": "피치 아이스티",
+      "description": "잘 익은 복숭아 향이 가득한 부드러운 아이스티",
+      "ingredients": [
+        "과일티와 레몬",
+        "복숭아 시럽과 얼음"
+      ]
+    },
+    "blue-lagoon-mojito": {
+      "name": "블루 라군 모히토",
+      "description": "스파클링한 블루 라군 향과 상큼한 시트러스 민트가 어우러진 쿨러",
+      "ingredients": [
+        "생민트와 레몬",
+        "블루 라군 시럽"
+      ]
+    },
+    "blueberry-mojito": {
+      "name": "블루베리 모히토",
+      "description": "블루베리, 신선한 민트, 시트러스, 스파클링 소다",
+      "ingredients": [
+        "생민트, 레몬, 블루베리",
+        "블루베리 시럽"
+      ]
+    },
+    "strawberry-mojito": {
+      "name": "스트로베리 모히토",
+      "description": "딸기, 신선한 민트, 라임, 스파클링 소다",
+      "ingredients": [
+        "딸기, 생민트, 라임, 탄산수"
+      ]
+    },
+    "classic-mojito": {
+      "name": "클래식 모히토",
+      "description": "신선한 라임, 민트, 스파클링 소다",
+      "ingredients": [
+        "생민트와 레몬",
+        "민트 모히또 시럽"
+      ]
+    },
+    "passion-fruit-mojito": {
+      "name": "패션프루트 모히토",
+      "description": "패션프루트, 신선한 민트, 라임, 스파클링 소다",
+      "ingredients": [
+        "생민트, 레몬, 패션프루트",
+        "패션프루트 시럽"
+      ]
+    },
+    "evian-water": {
+      "name": "에비앙 워터",
+      "description": "프랑스 알프스에서 온 천연 미네랄 워터",
+      "ingredients": [
+        "프랑스 알프스산 청정 천연 광천수"
+      ]
+    },
+    "vitamin-well-upgrade": {
+      "name": "비타민 웰 업그레이드",
+      "description": "마그네슘과 아연이 함유된 레몬-선인장 비타민 음료",
+      "ingredients": [
+        "마그네슘과 아연이 함유된 레몬 선인장 비타민 음료"
+      ]
+    },
+    "c4-energy-drink": {
+      "name": "C4 에너지 드링크",
+      "description": "무설탕 퍼포먼스 에너지 드링크",
+      "ingredients": [
+        "무설탕 퍼포먼스 에너지 드링크"
+      ]
+    },
+    "perrier-sparkling-water": {
+      "name": "페리에 스파클링 워터",
+      "description": "클래식 페리에 천연 스파클링 미네랄 워터",
+      "ingredients": [
+        "클래식 페리에 탄산수"
+      ]
+    },
+    "perrier-sparkling-water-with-lemon": {
+      "name": "레몬을 곁들인 페리에 스파클링 워터",
+      "description": "얼음과 레몬을 곁들여 서빙하는 페리에 스파클링 워터",
+      "ingredients": [
+        "얼음과 레몬을添え 페리에 탄산수"
+      ]
+    },
+    "beef-pastrami": {
+      "name": "비프 파스트라미",
+      "description": "비프 파스트라미, 녹인 치즈, 양상추, 양파",
+      "ingredients": [
+        "에멘탈 치즈",
+        "비프 파스트라미",
+        "카라멜라이즈드 어니언",
+        "양상추",
+        "빵"
+      ]
+    },
+    "chickado": {
+      "name": "치카도",
+      "description": "치킨, 아보카도, 토마토, 오이, 크리미 드레싱",
+      "ingredients": [
+        "모짜렐라 치즈",
+        "치킨 무스",
+        "오이",
+        "토마토",
+        "아보카도",
+        "빵"
+      ]
+    },
+    "halloumi-avocado": {
+      "name": "할루미 아보카도",
+      "description": "할루미 치즈, 아보카도, 오이, 토마토",
+      "ingredients": [
+        "그릴드 할루미 치즈",
+        "아보카도 소스",
+        "토마토",
+        "오이",
+        "빵"
+      ]
+    },
+    "halloumi-pesto": {
+      "name": "할루미 페스토",
+      "description": "할루미 치즈, 페스토, 오이, 토마토",
+      "ingredients": [
+        "그릴드 할루미 치즈",
+        "페스토 소스",
+        "토마토",
+        "오이",
+        "빵"
+      ]
+    },
+    "labneh": {
+      "name": "라브네",
+      "description": "라브네, 오이, 토마토, 올리브, 채소",
+      "ingredients": [
+        "라브네 치즈",
+        "슬라이스 그린 올리브",
+        "올리브 오일",
+        "토마토",
+        "오이",
+        "빵"
+      ]
+    },
+    "melted-cheese": {
+      "name": "멜티드 치즈",
+      "description": "따뜻하게 녹인 치즈와 토마토",
+      "ingredients": [
+        "체다 & 에멘탈 치즈",
+        "토마토",
+        "빵"
+      ]
+    },
+    "smoked-salmon": {
+      "name": "스모크드 살몬",
+      "description": "훈제 연어, 오이, 크림치즈",
+      "ingredients": [
+        "필라델피아 치즈 믹스",
+        "훈제 연어",
+        "오이",
+        "토마토",
+        "빵"
+      ]
+    },
+    "smoked-turkey": {
+      "name": "스모크드 터키",
+      "description": "훈제 칠면조, 녹인 치즈, 토마토, 페스토",
+      "ingredients": [
+        "모짜렐라 치즈",
+        "훈제 터키",
+        "페스토 소스",
+        "토마토",
+        "빵"
+      ]
+    }
+  },
+  "customization": {
+    "beans": {
+      "brazil": "브라질",
+      "honduras": "온두라스",
+      "el-salvador": "엘살바도르",
+      "hamasho": "하마쇼",
+      "decaf-colombia": "디카페인 (콜롬비아)"
+    },
+    "milk": {
+      "fresh-milk": "일반 우유",
+      "oat-milk": "오트밀크",
+      "almond-milk": "아몬드밀크",
+      "coconut-milk": "코코넛밀크"
+    },
+    "syrup": {
+      "none": "없음",
+      "caramel": "카라멜",
+      "hazelnut": "헤이즐넛",
+      "vanilla": "바닐라",
+      "pistachio": "피스타치오"
+    }
+  },
+  "ui": {
+    "eyebrow": "먹고 · 마시고 · 반복",
+    "menuHeading": "메뉴.",
+    "menuIntro": "화사한 플레이팅, 강렬한 맛, 그리고 잠시 멈춰 즐길 만한 커피. 나만의 방식으로 둘러보세요.",
+    "menuLabel": "메뉴",
+    "sectionsAriaSuffix": "섹션",
+    "categoriesAll": "전체",
+    "categoriesAriaLabel": "메뉴 카테고리",
+    "categoryPrevAria": "이전 메뉴 카테고리 보기",
+    "categoryNextAria": "다음 메뉴 카테고리 보기",
+    "details": "상세보기",
+    "detailsAria": "{name} 상세정보 보기",
+    "customize": "커스터마이즈",
+    "comment": "코멘트",
+    "currencyPrefix": "AED",
+    "inCart": "담김",
+    "addToCart": "담기",
+    "addAria": "{name} 장바구니에 담기",
+    "inCartAria": "{name}이(가) 장바구니에 있습니다",
+    "factsSize": "사이즈",
+    "factsProtein": "단백질",
+    "factsCarbohydrates": "탄수화물",
+    "factsCalories": "칼로리",
+    "closeDetailsAria": "상품 상세정보 닫기",
+    "menuEyebrowModal": "PRESS'D 메뉴",
+    "whatsInside": "무엇이 들어있나요",
+    "addToOrder": "주문에 추가",
+    "makeItYours": "나만의 스타일로",
+    "customizeYourDrink": "음료 커스터마이즈하기",
+    "coffeeBeans": "커피 원두",
+    "milks": "밀크",
+    "syrups": "시럽",
+    "commentHeading": "코멘트 / 특별 요청사항",
+    "commentHelp": "이 음료에서 줄이거나 빼고 싶은 것, 또는 추가하고 싶은 것을 알려주세요.",
+    "commentPlaceholder": "코멘트나 특별 요청사항을 입력해주세요...",
+    "customizationSaved": "음료 커스터마이징이 저장되었습니다.",
+    "saveSelection": "선택 저장",
+    "closeCustomizeAria": "음료 커스터마이즈 닫기",
+    "customiseYourOrder": "주문 커스터마이즈하기",
+    "specialInstructions": "특별 요청사항",
+    "instructionsHelp": "이 상품에서 줄이거나 빼고 싶은 것, 또는 추가하고 싶은 것을 알려주세요…",
+    "instructionsPlaceholder": "이 상품에서 줄이거나 빼고 싶은 것, 또는 추가하고 싶은 것을 알려주세요…",
+    "instructionsSaved": "요청사항이 저장되었습니다.",
+    "cancel": "취소",
+    "saveInstructions": "요청사항 저장",
+    "closeInstructionsAria": "특별 요청사항 닫기",
+    "cartEyebrow": "나의 주문",
+    "cart": "장바구니",
+    "closeCartAria": "장바구니 닫기",
+    "customizedLabel": "커스터마이즈:",
+    "specialInstructionsLabel": "특별 요청사항:",
+    "removeOneAria": "{name} 1개 빼기",
+    "addOneAria": "{name} 1개 추가",
+    "emptyCart": "장바구니가 비어 있습니다.",
+    "exploreMenu": "메뉴 둘러보기 →",
+    "total": "합계",
+    "orderOnWhatsapp": "WhatsApp으로 주문하기",
+    "orderSentTo": "주문 내역이 +971 55 683 8426 으로 전송됩니다",
+    "selectLanguage": "언어를 선택하세요",
+    "languageButtonAria": "메뉴 언어 변경",
+    "changeLanguage": "언어 변경"
+  }
+}

@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { useMenuModals } from "@/components/menu/MenuModalsContext";
 import { useCart } from "@/components/cart/CartContext";
 import { readCustomizations, readInstructions, saveCustomizations, saveInstructions } from "@/lib/cart";
+import { menuItemById } from "@/data/menu";
+import { slugify } from "@/lib/slugify";
+import { useLocale } from "@/lib/i18n/LocaleContext";
 import {
   beanOptions,
   milkOptions,
@@ -14,15 +17,18 @@ import {
 
 function OptionGroup({
   name,
+  group,
   options,
   selected,
   onChange,
 }: {
   name: string;
+  group: "beans" | "milk" | "syrup";
   options: [string, number][];
   selected: string;
   onChange: (value: string) => void;
 }) {
+  const { t } = useLocale();
   return (
     <div className="customize-options option-grid">
       {options.map(([option, price]) => (
@@ -34,8 +40,12 @@ function OptionGroup({
             checked={selected === option}
             onChange={() => onChange(option)}
           />
-          <span>{option}</span>
-          {price ? <b>+ {price.toFixed(2)} AED</b> : null}
+          <span>{t(`customization.${group}.${slugify(option)}`, option)}</span>
+          {price ? (
+            <b>
+              + {price.toFixed(2)} {t("ui.currencyPrefix", "AED")}
+            </b>
+          ) : null}
         </label>
       ))}
     </div>
@@ -46,6 +56,12 @@ export default function CustomizeModal() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const { customizeProduct, customizeMode, closeCustomize } = useMenuModals();
   const { cart, applyCustomization } = useCart();
+  const { t, dir } = useLocale();
+
+  const productName = customizeProduct ? menuItemById.get(customizeProduct)?.[0] ?? "" : "";
+  const displayProductName = customizeProduct
+    ? t(`products.${customizeProduct}.name`, productName)
+    : "";
 
   const [beans, setBeans] = useState("Brazil");
   const [milk, setMilk] = useState("Fresh Milk");
@@ -105,10 +121,10 @@ export default function CustomizeModal() {
     else delete savedInstructions[customizeProduct];
     saveInstructions(savedInstructions);
 
-    const cartItem = cart.find((item) => item.name === customizeProduct);
+    const cartItem = cart.find((item) => item.id === customizeProduct);
     if (cartItem) applyCustomization(customizeProduct, customization, trimmedInstructions);
 
-    setNote("Your drink customization is saved.");
+    setNote(t("ui.customizationSaved", "Your drink customization is saved."));
     setTimeout(() => dialogRef.current?.close(), 650);
   };
 
@@ -116,19 +132,25 @@ export default function CustomizeModal() {
     <dialog
       className={`customize-modal${customizeMode === "milk-only" ? " milk-only-mode" : ""}`}
       ref={dialogRef}
+      dir={dir}
       aria-labelledby="customize-title"
       onClick={(event) => {
         if (event.target === event.currentTarget) closeCustomize();
       }}
       onClose={closeCustomize}
     >
-      <button className="customize-close close-btn" type="button" aria-label="Close drink customization" onClick={closeCustomize}>
+      <button
+        className="customize-close close-btn"
+        type="button"
+        aria-label={t("ui.closeCustomizeAria", "Close drink customization")}
+        onClick={closeCustomize}
+      >
         ×
       </button>
       <div className="modal-header customize-header">
-        <span className="customize-eyebrow eyebrow">MAKE IT YOURS</span>
-        <h2 id="customize-title">Customize Your Drink</h2>
-        <h3 className="customize-product-name product-name">{customizeProduct}</h3>
+        <span className="customize-eyebrow eyebrow">{t("ui.makeItYours", "MAKE IT YOURS")}</span>
+        <h2 id="customize-title">{t("ui.customizeYourDrink", "Customize Your Drink")}</h2>
+        <h3 className="customize-product-name product-name">{displayProductName}</h3>
       </div>
       <form
         onSubmit={(event) => {
@@ -139,29 +161,29 @@ export default function CustomizeModal() {
         <div className="customize-grid customize-content">
           {customizeMode !== "milk-only" && (
             <section className="custom-section coffee-section">
-              <h4>COFFEE BEANS</h4>
-              <OptionGroup name="beans" options={beanOptions} selected={beans} onChange={setBeans} />
+              <h4>{t("ui.coffeeBeans", "COFFEE BEANS")}</h4>
+              <OptionGroup name="beans" group="beans" options={beanOptions} selected={beans} onChange={setBeans} />
             </section>
           )}
           <section className="custom-section milk-section">
-            <h4>MILKS</h4>
-            <OptionGroup name="milk" options={milkOptions} selected={milk} onChange={setMilk} />
+            <h4>{t("ui.milks", "MILKS")}</h4>
+            <OptionGroup name="milk" group="milk" options={milkOptions} selected={milk} onChange={setMilk} />
           </section>
           {customizeMode !== "milk-only" && (
             <section className="custom-section add-on-section">
-              <h4>SYRUPS</h4>
-              <OptionGroup name="syrup" options={syrupOptions} selected={syrup} onChange={setSyrup} />
+              <h4>{t("ui.syrups", "SYRUPS")}</h4>
+              <OptionGroup name="syrup" group="syrup" options={syrupOptions} selected={syrup} onChange={setSyrup} />
             </section>
           )}
           <section className="custom-section customize-comment comment-section">
-            <h4>COMMENT / SPECIAL INSTRUCTIONS</h4>
-            <p>Tell us what you’d like to reduce, remove, or add to this drink.</p>
+            <h4>{t("ui.commentHeading", "COMMENT / SPECIAL INSTRUCTIONS")}</h4>
+            <p>{t("ui.commentHelp", "Tell us what you'd like to reduce, remove, or add to this drink.")}</p>
             <textarea
               id="customize-instructions"
               name="instructions"
               maxLength={500}
               rows={4}
-              placeholder="Add your comment or special instructions..."
+              placeholder={t("ui.commentPlaceholder", "Add your comment or special instructions...")}
               value={instructions}
               onChange={(event) => setInstructions(event.target.value)}
             />
@@ -171,7 +193,8 @@ export default function CustomizeModal() {
           {note}
         </p>
         <button className="customize-save save-btn" type="submit">
-          SAVE SELECTION{extra ? ` · + AED ${extra.toFixed(2)}` : ""}
+          {t("ui.saveSelection", "SAVE SELECTION")}
+          {extra ? ` · + ${t("ui.currencyPrefix", "AED")} ${extra.toFixed(2)}` : ""}
         </button>
       </form>
     </dialog>

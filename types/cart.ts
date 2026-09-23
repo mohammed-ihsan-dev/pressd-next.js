@@ -1,6 +1,7 @@
 import type { Customization } from "@/lib/customization";
 
 export interface CartItem {
+  id: string;
   name: string;
   basePrice: number;
   price: number;

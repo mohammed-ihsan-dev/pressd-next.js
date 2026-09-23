@@ -1,7 +1,9 @@
 // Cart data model + localStorage persistence. Keys are unchanged from the
 // original site so existing customers' carts survive the migration:
 //   pressd-cart, pressd-customizations, pressd-instructions
-import { menu, type MenuItem } from "@/data/menu";
+// Records are keyed by stable product `id`, not by the (now translatable)
+// display name, so switching Menu language never loses or duplicates items.
+import { menuItemById, menuItemByName } from "@/data/menu";
 import {
   customizationExtra,
   customizationText,
@@ -16,6 +18,9 @@ export const STORAGE_KEYS = {
 } as const;
 
 export interface CartItem {
+  id: string;
+  /** Canonical English name — used for the WhatsApp order message and as a
+   *  display fallback; the UI itself renders the translated name via `id`. */
   name: string;
   basePrice: number;
   price: number;
@@ -25,11 +30,8 @@ export interface CartItem {
   qty: number;
 }
 
-const menuItemByName = new Map<string, MenuItem>(
-  menu.flatMap((category) => category.items.map((item) => [item[0], item] as const))
-);
-
-export const cartMenuItem = (item: { name: string }) => menuItemByName.get(item.name);
+export const cartMenuItem = (item: { id?: string; name: string }) =>
+  (item.id && menuItemById.get(item.id)) || menuItemByName.get(item.name);
 export const cartImageFor = (item: CartItem) => item.image || cartMenuItem(item)?.[3] || "";
 export const cartDetailsFor = (item: CartItem) => cartMenuItem(item)?.[1] || "";
 
@@ -38,13 +40,19 @@ export function readCart(): CartItem[] {
   try {
     const parsed = JSON.parse(localStorage.getItem(STORAGE_KEYS.cart) || "[]") as CartItem[];
     return parsed.map((item) => {
+      // Carts saved before product IDs existed only have `name` — backfill
+      // the stable id from the live menu so language switching works for them too.
+      const id = item.id || menuItemByName.get(item.name)?.[7] || "";
       const customization = item.customization;
-      if (!customization || !("beans" in customization) || !customization.beans) return item;
+      if (!customization || !("beans" in customization) || !customization.beans) {
+        return { ...item, id };
+      }
       const oldExtra = Number((customization as { extraPrice?: number }).extraPrice || 0);
       const basePrice = item.basePrice ?? item.price - oldExtra;
       const sanitized = sanitizeCustomization(customization);
       return {
         ...item,
+        id,
         basePrice,
         price: basePrice + customizationExtra(sanitized),
         customization: sanitized,
@@ -60,10 +68,21 @@ export function saveCart(cart: CartItem[]) {
   localStorage.setItem(STORAGE_KEYS.cart, JSON.stringify(cart));
 }
 
+/** Remaps any legacy name-keyed record to id-keyed, for records saved before product IDs existed. */
+function byId<T>(raw: Record<string, T>): Record<string, T> {
+  const result: Record<string, T> = {};
+  for (const [key, value] of Object.entries(raw)) {
+    const id = menuItemById.has(key) ? key : menuItemByName.get(key)?.[7];
+    if (id) result[id] = value;
+  }
+  return result;
+}
+
 export function readInstructions(): Record<string, string> {
   if (typeof window === "undefined") return {};
   try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEYS.instructions) || "{}");
+    const raw = JSON.parse(localStorage.getItem(STORAGE_KEYS.instructions) || "{}") as Record<string, string>;
+    return byId(raw);
   } catch {
     return {};
   }
@@ -82,7 +101,7 @@ export function readCustomizations(): Record<string, Customization> {
       Customization
     >;
     return Object.fromEntries(
-      Object.entries(raw).map(([product, customization]) => [
+      Object.entries(byId(raw)).map(([product, customization]) => [
         product,
         sanitizeCustomization(customization),
       ])

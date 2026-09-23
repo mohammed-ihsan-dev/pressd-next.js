@@ -10,6 +10,8 @@
 // battle-tested transform logic below from type-checking, while the exported
 // `menu` constant is still given a real MenuCategory[] type for every consumer.
 
+import { slugify } from "@/lib/slugify";
+
 export interface ProductDetails {
   ingredients: string[];
   size?: string;
@@ -18,8 +20,8 @@ export interface ProductDetails {
   calories?: string;
 }
 
-/** [name, description, price, image, tag, details, column] */
-export type MenuItem = [string, string, number, string, string, ProductDetails, string];
+/** [name, description, price, image, tag, details, column, id] */
+export type MenuItem = [string, string, number, string, string, ProductDetails, string, string];
 
 export interface MenuCategory {
   category: string;
@@ -157,7 +159,29 @@ function buildMenu() {
     {category:'Refreshing Drinks',slug:'refreshing-drinks',tagline:'Iced teas · mojitos · refreshers',items:[...coldItems.filter(isIcedTea).map(item=>{item[6]='Iced Teas';return item}),...coldItems.filter(isMojito).map(item=>{item[6]='Mojitos';return item}),...coldItems.filter(isRefreshing).map(item=>{item[6]='Refreshing Drinks';return item})]},
     {category:'Sandwiches',slug:'sandwiches',tagline:'Freshly made · full of flavour',items:tagged('Sandwiches','Sandwiches')}
   ];
+
+  // Stable, language-independent product IDs: generated once from the
+  // canonical English name, never regenerated from translated text. A name
+  // reused across categories (e.g. "Build Your Own") is disambiguated with
+  // its category slug so every ID stays unique.
+  const usedIds = new Set();
+  menu.forEach(category=>category.items.forEach(item=>{
+    const base=slugify(item[0]);
+    const id=usedIds.has(base)?slugify(`${category.slug}-${item[0]}`):base;
+    usedIds.add(id);
+    item[7]=id;
+  }));
+
   return menu;
 }
 
 export const menu: MenuCategory[] = buildMenu();
+
+export const menuItemById = new Map<string, MenuItem>(
+  menu.flatMap((category) => category.items.map((item) => [item[7], item] as const))
+);
+
+/** Back-compat lookup for carts saved before product IDs existed. */
+export const menuItemByName = new Map<string, MenuItem>(
+  menu.flatMap((category) => category.items.map((item) => [item[0], item] as const))
+);
