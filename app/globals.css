@@ -8665,9 +8665,10 @@ body.menu-detail-view .navbar.scrolled {
   position: fixed !important;
   z-index: 100 !important;
   top: 12px !important;
-  left: max(16px, calc((100vw - 1320px)/2)) !important;
-  right: max(16px, calc((100vw - 1320px)/2)) !important;
-  width: auto !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  width: min(1380px, calc(100vw - 36px)) !important;
   min-width: 0 !important;
   max-width: none !important;
   height: 64px !important;
@@ -8680,9 +8681,10 @@ body.menu-detail-view .menu-section .category-wrap,
 body.menu-detail-view .menu-section .category-wrap:not(.is-pinned) {
   position: sticky !important;
   z-index: 90 !important;
-  top: 88px !important;
-  width: min(1272px, calc(100% - 48px)) !important;
-  margin: 34px auto 0 !important;
+  top: 84px !important;
+  width: min(1380px, calc(100vw - 36px)) !important;
+  max-width: 1380px !important;
+  margin: 24px auto 0 !important;
   padding: 5px !important;
   border: 1px solid rgba(251, 176, 25, .5) !important;
   border-radius: 16px !important;
@@ -11110,10 +11112,10 @@ body.detail-view .menu-subsection .menu-card-info {
 .menu-section .menu-intro,
 .menu-section .menu-content {
   box-sizing: border-box;
-  width: 100%;
-  max-width: 1320px;
-  margin-inline: auto;
-  padding-inline: 24px !important
+  width: min(1380px, calc(100vw - 36px)) !important;
+  max-width: 1380px !important;
+  margin-inline: auto !important;
+  padding-inline: 0 !important;
 }
 
 .menu-section .menu-content {
@@ -11313,9 +11315,10 @@ body.detail-view .menu-section .menu-subsection .menu-card-info {
   body.detail-view.menu-detail-view .navbar {
     position: fixed !important;
     top: 12px !important;
-    left: 24px !important;
-    right: 24px !important;
-    width: auto !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: min(1380px, calc(100vw - 36px)) !important;
     min-width: 0 !important;
     max-width: none !important;
     height: 64px !important
@@ -11343,8 +11346,8 @@ body.detail-view .menu-section .menu-subsection .menu-card-info {
     position: sticky;
     z-index: 80;
     top: 84px;
-    width: calc(100% - 48px);
-    max-width: 1272px;
+    width: min(1380px, calc(100vw - 36px)) !important;
+    max-width: 1380px !important;
     margin: 24px auto 0 !important;
     border-radius: 15px
   }
