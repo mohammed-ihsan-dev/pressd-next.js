@@ -8739,8 +8739,8 @@ body.menu-detail-view .menu-subnav button {
 }
 
 body.menu-detail-view .menu-subnav button:first-child {
-  background: rgba(251, 176, 25, .15);
-  color: var(--orange)
+  background: transparent;
+  color: var(--cream);
 }
 
 body.menu-detail-view .menu-subnav button span {
@@ -9447,8 +9447,8 @@ body.menu-detail-view .menu-subsection {
   }
 
   .mobile-subnav-dock button:first-child {
-    background: rgba(251, 176, 25, .15);
-    color: var(--orange)
+    background: transparent;
+    color: var(--cream);
   }
 
   .mobile-subnav-dock button span {
@@ -10848,8 +10848,8 @@ body.detail-view .menu-subsection .menu-card-info {
   }
 
   .menu-subnav button:first-child {
-    background: rgba(251, 176, 25, .15);
-    color: var(--orange)
+    background: transparent;
+    color: var(--cream);
   }
 
   .menu-subnav button span {
