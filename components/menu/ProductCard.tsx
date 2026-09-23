@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import type { MenuCategory, MenuItem } from "@/data/menu";
 import { useCart } from "@/components/cart/CartContext";
 import { useMenuModals } from "@/components/menu/MenuModalsContext";
@@ -8,14 +9,70 @@ import { customizeModeFor } from "@/components/menu/menuHelpers";
 export default function ProductCard({ category, item }: { category: MenuCategory; item: MenuItem }) {
   const [name, description, price, image, tag, details] = item;
   const customizeMode = customizeModeFor(category, item);
-  const { addToCart } = useCart();
+  const { cart, addToCart } = useCart();
   const { openDetails, openInstructions, openCustomize } = useMenuModals();
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const cartItem = cart.find((c) => c.name === name);
+  const isInCart = Boolean(cartItem && cartItem.qty > 0);
 
   const detailsPreview = (details?.ingredients || [description]).join(", ");
 
+  const handleAddToCart = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    addToCart({ name, basePrice: price, image });
+
+    // Smooth flying product image animation targeting the navbar cart icon
+    const imgEl = cardRef.current?.querySelector<HTMLImageElement>(".menu-img img");
+    const cartEl =
+      document.querySelector<HTMLElement>(".navbar .cart-toggle") ||
+      document.querySelector<HTMLElement>(".cart-toggle");
+
+    if (imgEl && cartEl) {
+      const imgRect = imgEl.getBoundingClientRect();
+      const cartRect = cartEl.getBoundingClientRect();
+
+      const fly = document.createElement("img");
+      fly.src = image;
+      fly.alt = name;
+      fly.className = "cart-fly-image";
+      fly.style.position = "fixed";
+      fly.style.zIndex = "99999";
+      fly.style.top = `${imgRect.top}px`;
+      fly.style.left = `${imgRect.left}px`;
+      fly.style.width = `${imgRect.width}px`;
+      fly.style.height = `${imgRect.height}px`;
+      fly.style.borderRadius = "16px";
+      fly.style.objectFit = "cover";
+      fly.style.pointerEvents = "none";
+      fly.style.boxShadow = "0 10px 25px rgba(0,0,0,0.35)";
+      fly.style.transition = "all 0.65s cubic-bezier(0.2, 0.8, 0.25, 1)";
+      fly.style.transform = "scale(1) rotate(0deg)";
+      fly.style.opacity = "1";
+
+      document.body.appendChild(fly);
+
+      // Force reflow
+      void fly.offsetWidth;
+
+      fly.style.top = `${cartRect.top + cartRect.height / 2 - 20}px`;
+      fly.style.left = `${cartRect.left + cartRect.width / 2 - 20}px`;
+      fly.style.width = "40px";
+      fly.style.height = "40px";
+      fly.style.opacity = "0.15";
+      fly.style.transform = "scale(0.4) rotate(15deg)";
+
+      setTimeout(() => {
+        fly.remove();
+      }, 680);
+    }
+  };
+
   return (
     <div
-      className={`menu-card${customizeMode ? " customizable-card" : ""}`}
+      ref={cardRef}
+      className={`menu-card${customizeMode ? " customizable-card" : ""}${isInCart ? " in-cart" : ""}`}
+      data-cart-qty={cartItem?.qty || 0}
       role="button"
       tabIndex={0}
       aria-label={`View details for ${name}`}
@@ -73,18 +130,11 @@ export default function ProductCard({ category, item }: { category: MenuCategory
         <div className="menu-card-actions">
           <strong>AED {price}</strong>
           <button
-            className="add-cart"
-            onClick={(event) => {
-              event.stopPropagation();
-              addToCart({ name, basePrice: price, image });
-              const button = event.currentTarget;
-              button.textContent = "Added ✓";
-              setTimeout(() => {
-                button.textContent = "Add +";
-              }, 1200);
-            }}
+            className={`add-cart${isInCart ? " in-cart" : ""}`}
+            onClick={handleAddToCart}
+            aria-label={isInCart ? `${name} is in cart` : `Add ${name} to cart`}
           >
-            Add +
+            {isInCart ? "In Cart ✓" : "Add +"}
           </button>
         </div>
       </div>

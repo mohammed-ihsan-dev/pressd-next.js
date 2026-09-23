@@ -9861,45 +9861,14 @@ body.menu-detail-view .menu-subsection {
 }
 
 /* Persistent visual state for products already in the cart */
-.menu-card.in-cart {
-  border-color: var(--orange) !important;
-  background: #fff4d8;
-  box-shadow: 0 0 0 2px rgba(251, 176, 25, .32), 0 18px 42px rgba(0, 0, 0, .16) !important
-}
-
-.menu-card.in-cart:after {
-  content: "IN CART";
-  position: absolute;
-  z-index: 4;
-  top: 12px;
-  right: 12px;
-  padding: 7px 10px;
-  border-radius: 999px;
-  background: var(--orange);
-  color: var(--ink);
-  font-size: 7px;
-  font-weight: 900;
-  letter-spacing: .11em;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, .18)
-}
-
-.menu-card.in-cart .menu-card-info {
-  background: linear-gradient(145deg, rgba(251, 176, 25, .2), rgba(255, 255, 255, .12))
-}
-
-.menu-card.in-cart .add-cart {
-  border-color: var(--orange) !important;
-  background: var(--orange) !important;
-  color: var(--ink) !important
-}
-
-.menu-card.in-cart .add-cart:after {
-  content: " · " attr(data-cart-qty);
-  font-weight: 900
-}
-
-.menu-card.in-cart .menu-img img {
-  filter: saturate(1.06)
+.add-cart.in-cart,
+.menu-card.in-cart .add-cart,
+.menu-subsection .add-cart.in-cart,
+.menu-card-actions .add-cart.in-cart {
+  background: var(--orange, #ffb31a) !important;
+  color: var(--ink, #080906) !important;
+  border-color: var(--orange, #ffb31a) !important;
+  font-weight: 700 !important;
 }
 
 /* Two product cards per row across portrait and landscape tablets */
