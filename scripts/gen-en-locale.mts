@@ -88,6 +88,7 @@ const ui = {
   selectLanguage: "SELECT YOUR LANGUAGE",
   languageButtonAria: "Change menu language",
   changeLanguage: "Change language",
+  chooseLanguage: "Choose your preferred language for the menu.",
 };
 
 const dictionary = { categories, categoryTaglines, subcategories, products, customization, ui };

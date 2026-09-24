@@ -1051,6 +1051,7 @@
     "orderSentTo": "Order will be sent to +971 55 683 8426",
     "selectLanguage": "SELECT YOUR LANGUAGE",
     "languageButtonAria": "Change menu language",
-    "changeLanguage": "Change language"
+    "changeLanguage": "Change language",
+    "chooseLanguage": "Choose your preferred language for the menu."
   }
 }

@@ -1,20 +1,16 @@
 "use client";
 
-import { useSectionNav } from "@/components/navigation/SectionNavContext";
-
 export default function SectionHomeButton() {
-  const { openHome } = useSectionNav();
   return (
     <button
       className="section-home-button"
       type="button"
-      aria-label="Go back to home"
+      aria-label="Scroll to top"
       onClick={() => {
-        openHome();
-        history.replaceState(null, "", "#home");
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }}
     >
-      <span aria-hidden="true">⌂</span>
+      <span aria-hidden="true">↑</span>
     </button>
   );
 }

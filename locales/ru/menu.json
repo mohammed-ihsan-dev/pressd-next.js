@@ -1051,6 +1051,7 @@
     "orderSentTo": "Заказ будет отправлен на +971 55 683 8426",
     "selectLanguage": "ВЫБЕРИТЕ ЯЗЫК",
     "languageButtonAria": "Изменить язык меню",
-    "changeLanguage": "Изменить язык"
+    "changeLanguage": "Изменить язык",
+    "chooseLanguage": "Выберите язык, на котором вам удобно просматривать меню."
   }
 }

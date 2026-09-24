@@ -1,14 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useSectionNav } from "@/components/navigation/SectionNavContext";
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
-  const { openHome } = useSectionNav();
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 700);
+    const onScroll = () => setVisible(window.scrollY > 300);
     addEventListener("scroll", onScroll, { passive: true });
     return () => removeEventListener("scroll", onScroll);
   }, []);
@@ -16,10 +14,9 @@ export default function BackToTop() {
   return (
     <button
       className={`back-to-top${visible ? " visible" : ""}`}
-      aria-label="Back to top"
+      aria-label="Scroll to top"
       onClick={() => {
-        openHome();
-        history.replaceState(null, "", "#home");
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }}
     >
       ↑

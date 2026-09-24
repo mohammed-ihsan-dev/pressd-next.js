@@ -22,6 +22,11 @@ export const metadata: Metadata = {
   title: "PRESS'D | Specialty Coffee & Café at Meydan Polo Residence",
   description:
     "PRESS'D is a wellness café at Meydan Polo Residence, Dubai, serving specialty coffee, fresh food and good energy in a pet-friendly, work-friendly space.",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
   openGraph: {
     title: "PRESS'D | Wellness Café at Meydan Polo Residence",
     description:

@@ -130,7 +130,7 @@ select {
   width: 100%;
   height: 48px;
   object-fit: contain;
-  filter: brightness(0) invert(1)
+  filter: none
 }
 
 .desktop-nav {
@@ -1630,13 +1630,20 @@ dialog {
   display: block;
   min-height: 0;
   padding: 0;
-  border: 0;
-  border-radius: 24px;
+  border: 1px solid rgba(251, 176, 25, 0.42);
+  border-radius: 20px;
   overflow: hidden;
   background: #171816;
   color: #f5efdf;
   cursor: pointer;
-  text-align: left
+  text-align: left;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  transition: transform 0.35s var(--ease), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.rail-card:hover {
+  border-color: rgba(251, 176, 25, 0.85);
+  box-shadow: 0 8px 24px rgba(251, 176, 25, 0.3);
 }
 
 .rail-card img {
@@ -2286,7 +2293,7 @@ footer {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  transition: transform .45s var(--ease), background .4s, color .4s
+  transition: transform .45s var(--ease), background .4s, color .4s;
 }
 
 .explore-card:hover {
@@ -2369,7 +2376,7 @@ footer {
 /* Signature and social additions */
 .signature-copy>p:not(.eyebrow) {
   max-width: 500px;
-  color: #fffbd;
+  color: #fffb;
   line-height: 1.6
 }
 
@@ -4258,18 +4265,13 @@ body.home-view .section-home-button {
     background: var(--ink)
   }
 
-  body.detail-view .hero {
-    height: 88px !important;
-    min-height: 88px !important;
-    padding: 8px !important;
-    overflow: visible
-  }
-
+  body.detail-view .hero,
   body.detail-view .hero-main {
-    height: 72px !important;
-    min-height: 72px !important;
-    border-radius: 16px;
-    background: var(--ink)
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   body.detail-view .hero-media,
@@ -4291,12 +4293,22 @@ body.home-view .section-home-button {
   body.detail-view main>section.active-detail {
     display: block !important;
     margin: 0 8px;
-    padding: 58px 16px 88px;
+    padding: 72px 16px 88px;
     border: 1px solid rgba(251, 176, 25, .2);
     border-radius: 18px;
     background: var(--ink);
     color: var(--cream);
-    animation: mobileSectionIn .55s var(--ease) both
+    /* `both` (= backwards + forwards) permanently pins this element's
+       transform at the animation's final keyframe value once it completes.
+       That value is authored as `none`, but browsers resolve a
+       just-finished transform animation's "none" to an identity matrix
+       rather than the literal keyword — which still creates a new
+       containing block for any `position:fixed` descendant (breaking the
+       category rail's fixed positioning below, see .category-wrap fix).
+       `backwards` alone keeps the no-flash-before-start behavior while
+       letting the element fully detach from the animation (reverting to
+       its true default `transform: none`) once it finishes. */
+    animation: mobileSectionIn .55s var(--ease) backwards
   }
 
   body.detail-view .menu-section.active-detail {
@@ -5061,7 +5073,9 @@ body.home-view {
   }
 
   body.detail-view main>section.active-detail {
-    animation: mobileSectionIn .65s var(--ease) both
+    /* `backwards` only, not `both` — see the .55s rule above for why `both`
+       leaves a permanent transform that breaks fixed-position descendants. */
+    animation: mobileSectionIn .65s var(--ease) backwards
   }
 
   .mobile-dock {
@@ -5836,19 +5850,13 @@ body.home-view {
     padding: 12px
   }
 
-  body.detail-view .hero {
-    display: block !important;
-    height: 92px;
-    min-height: 92px;
-    padding: 0;
-    background: transparent
-  }
-
+  body.detail-view .hero,
   body.detail-view .hero-main {
-    height: 92px;
-    min-height: 92px;
-    border-radius: 18px;
-    background: var(--ink)
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   body.detail-view .hero-media,
@@ -5862,12 +5870,14 @@ body.home-view {
   body.detail-view main>section.active-detail {
     height: auto;
     min-height: calc(100svh - 116px);
-    margin-top: 12px;
-    padding: 76px 5vw;
+    margin-top: 0;
+    padding: 72px 5vw 88px;
     overflow: visible;
     border: 1px solid rgba(251, 176, 25, .22);
     border-radius: 20px;
-    animation: mobileSectionIn .65s var(--ease) both
+    /* `backwards` only, not `both` — see the .55s rule above for why `both`
+       leaves a permanent transform that breaks fixed-position descendants. */
+    animation: mobileSectionIn .65s var(--ease) backwards
   }
 
   body.detail-view .menu-section.active-detail {
@@ -6379,7 +6389,7 @@ body.home-view {
 /* Refined mobile menu, cart and navigation experience. */
 @media(max-width:760px) {
   body.detail-view .menu-section.active-detail {
-    padding-top: 84px;
+    padding-top: 72px;
     padding-bottom: 110px
   }
 
@@ -6400,7 +6410,7 @@ body.home-view {
   }
 
   body.detail-view .menu-section .category-wrap {
-    top: 76px;
+    top: 68px;
     margin: 30px -1px 0;
     padding: 5px;
     border-radius: 14px
@@ -8786,16 +8796,18 @@ body.menu-detail-view .menu-subsection {
   body.menu-detail-view .navbar,
   body.menu-detail-view .navbar.scrolled {
     top: 8px !important;
-    left: 10px !important;
-    right: 10px !important;
-    height: 66px !important
+    left: 12px !important;
+    right: 12px !important;
+    height: 56px !important;
+    transform: none !important;
+    width: calc(100vw - 24px) !important;
   }
 
   body.menu-detail-view .menu-section .category-wrap,
   body.menu-detail-view .menu-section .category-wrap:not(.is-pinned),
   body.menu-detail-view .menu-section .category-wrap.is-pinned {
     position: sticky !important;
-    top: 82px !important;
+    top: 68px !important;
     left: auto !important;
     right: auto !important;
     width: calc(100% - 24px) !important;
@@ -8803,12 +8815,13 @@ body.menu-detail-view .menu-subsection {
   }
 
   body.menu-detail-view .menu-subnav {
-    top: 145px;
+    position: sticky !important;
+    top: 124px !important;
     margin-bottom: 22px
   }
 
   body.menu-detail-view .menu-subsection {
-    scroll-margin-top: 205px
+    scroll-margin-top: 176px !important
   }
 }
 
@@ -8817,11 +8830,11 @@ body.menu-detail-view .menu-subsection {
   body.menu-detail-view .menu-section .category-wrap,
   body.menu-detail-view .menu-section .category-wrap:not(.is-pinned),
   body.menu-detail-view .menu-section .category-wrap.is-pinned {
-    top: 80px !important
+    top: 68px !important
   }
 
   body.menu-detail-view .menu-subnav {
-    top: 143px
+    top: 124px !important
   }
 }
 
@@ -9378,7 +9391,7 @@ body.menu-detail-view .menu-subsection {
   body.menu-detail-view .menu-category.active-menu-category>.menu-subnav {
     position: fixed !important;
     z-index: 91 !important;
-    top: 145px !important;
+    top: 124px !important;
     left: 12px !important;
     right: 12px !important;
     width: auto !important;
@@ -9392,7 +9405,7 @@ body.menu-detail-view .menu-subsection {
 
 @media(max-width:390px) {
   body.menu-detail-view .menu-category.active-menu-category>.menu-subnav {
-    top: 143px !important
+    top: 124px !important
   }
 }
 
@@ -9408,7 +9421,7 @@ body.menu-detail-view .menu-subsection {
   body.menu-detail-view .mobile-subnav-dock:not([hidden]) {
     position: fixed;
     z-index: 92;
-    top: 145px;
+    top: 124px;
     left: 12px;
     right: 12px;
     display: flex;
@@ -9469,7 +9482,7 @@ body.menu-detail-view .menu-subsection {
 
 @media(max-width:390px) {
   body.menu-detail-view .mobile-subnav-dock:not([hidden]) {
-    top: 143px
+    top: 124px
   }
 }
 
@@ -9477,9 +9490,9 @@ body.menu-detail-view .menu-subsection {
   body.menu-detail-view>.category-wrap.is-pinned {
     position: fixed !important;
     z-index: 93 !important;
-    top: 82px !important;
-    left: 10px !important;
-    right: 10px !important;
+    top: 68px !important;
+    left: 12px !important;
+    right: 12px !important;
     width: auto !important;
     max-width: none !important;
     margin: 0 !important;
@@ -9494,17 +9507,17 @@ body.menu-detail-view .menu-subsection {
 
   body.menu-detail-view .mobile-subnav-dock:not([hidden]) {
     z-index: 92 !important;
-    top: 145px !important
+    top: 124px !important
   }
 }
 
 @media(max-width:390px) {
   body.menu-detail-view>.category-wrap.is-pinned {
-    top: 80px !important
+    top: 68px !important
   }
 
   body.menu-detail-view .mobile-subnav-dock:not([hidden]) {
-    top: 143px !important
+    top: 124px !important
   }
 }
 
@@ -10439,7 +10452,16 @@ body.menu-detail-view .menu-subsection {
   }
 }
 
-/* Pin the menu category rail only after it reaches the mobile header. */
+/* Pin the menu category rail below the mobile header, matching the original
+   site's plain `position:fixed` behavior at this breakpoint (confirmed by
+   testing the reference project directly). This used to be gated behind a
+   `.is-pinned` class meant to be toggled by a scroll listener, but that JS
+   was never implemented anywhere in the React port — so `:not(.is-pinned)`
+   was always true and the rail was permanently stuck in normal flow,
+   scrolling away with the page instead of staying under the navbar. The
+   `:not(.is-pinned)` selector is kept only to preserve this rule's
+   specificity against an older `position:sticky` declaration earlier in
+   this file; it no longer gates any behavior. */
 .category-pin-spacer {
   height: 0
 }
@@ -10448,8 +10470,19 @@ body.menu-detail-view .menu-subsection {
 
   .category-wrap:not(.is-pinned),
   body.detail-view .menu-section .category-wrap:not(.is-pinned) {
-    position: relative !important;
-    top: auto !important
+    position: fixed !important;
+    z-index: 89 !important;
+    top: 82px !important;
+    left: 10px !important;
+    right: 10px !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 5px !important;
+    border: 1px solid rgba(251, 176, 25, .58) !important;
+    border-radius: 16px !important;
+    background: rgba(5, 6, 5, .98) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .48) !important;
+    backdrop-filter: blur(16px)
   }
 
   .category-wrap.is-pinned {
@@ -10470,6 +10503,7 @@ body.menu-detail-view .menu-subsection {
 }
 
 @media(max-width:390px) {
+  .category-wrap:not(.is-pinned),
   .category-wrap.is-pinned {
     top: 80px !important
   }
@@ -11078,17 +11112,54 @@ body.detail-view .menu-subsection .menu-card-info {
 }
 
 /* Canonical menu layout: unified responsive container strategy */
+header.navbar,
+.navbar,
+.navbar.scrolled,
+body.detail-view .navbar,
+body.menu-detail-view .navbar,
 .menu-section .menu-intro,
 .menu-section .category-wrap,
 .menu-section .menu-content {
   box-sizing: border-box;
-  width: min(1680px, calc(100vw - 48px)) !important;
-  max-width: 1680px !important;
+  width: min(1380px, calc(100vw - 64px)) !important;
+  max-width: 1380px !important;
   margin-inline: auto !important;
 }
 
 .menu-section .menu-intro {
+  display: grid !important;
+  grid-template-columns: 1fr auto !important;
+  align-items: end !important;
+  gap: 16px 40px !important;
   padding-inline: 0 !important;
+}
+
+.menu-section .menu-intro .eyebrow {
+  grid-column: 1 / -1 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.18em !important;
+  color: var(--orange, #fbb019) !important;
+  text-transform: uppercase !important;
+  margin-bottom: 6px !important;
+}
+
+.menu-section .menu-intro h2 {
+  font: 800 clamp(54px, 8.5vw, 130px)/0.82 Manrope, sans-serif !important;
+  letter-spacing: -0.08em !important;
+  margin: 0 !important;
+  color: var(--cream, #f5efdf) !important;
+}
+
+.menu-section .menu-intro>p:last-child {
+  max-width: 400px !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: clamp(14px, 1.1vw, 16px) !important;
+  line-height: 1.6 !important;
+  letter-spacing: -0.01em !important;
+  color: rgba(245, 239, 223, 0.75) !important;
+  margin: 0 !important;
+  align-self: end !important;
+  padding-bottom: 6px !important;
 }
 
 .menu-section .category-wrap {
@@ -11184,11 +11255,33 @@ body.detail-view .menu-section .menu-subsection .menu-card-info {
   }
 }
 
+@media(max-width:834px) {
+  .menu-section .menu-intro {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+  }
+
+  .menu-section .menu-intro>p:last-child {
+    max-width: 38ch !important;
+    margin-top: 18px !important;
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
 @media(min-width:640px) and (max-width:959px) {
+  header.navbar,
+  .navbar,
+  .navbar.scrolled,
+  body.detail-view .navbar,
+  body.menu-detail-view .navbar,
   .menu-section .menu-intro,
   .menu-section .category-wrap,
   .menu-section .menu-content {
-    width: calc(100vw - 32px) !important;
+    width: min(100%, calc(100vw - 36px)) !important;
   }
 
   .menu-section .menu-category {
@@ -11213,10 +11306,15 @@ body.detail-view .menu-section .menu-subsection .menu-card-info {
 }
 
 @media(max-width:639px) {
+  header.navbar,
+  .navbar,
+  .navbar.scrolled,
+  body.detail-view .navbar,
+  body.menu-detail-view .navbar,
   .menu-section .menu-intro,
   .menu-section .category-wrap,
   .menu-section .menu-content {
-    width: calc(100vw - 24px) !important;
+    width: min(100%, calc(100vw - 32px)) !important;
   }
 
   .menu-section .menu-category {
@@ -11674,7 +11772,15 @@ body.detail-view .menu-section .menu-subsection .menu-card-info {
 @media(min-width:640px) and (max-width:1100px) {
   body.detail-view.menu-detail-view .navbar {
     left: 16px !important;
-    right: 16px !important
+    right: 16px !important;
+    /* Same class of bug as the phone breakpoint above: an unconditional
+       desktop rule centers the bar via left:50% + translateX(-50%). This
+       block already repositions left/right for tablets but never redid
+       transform, so the leftover translateX (still sized for the old 50%
+       position) throws the bar hundreds of pixels off-screen at every
+       width in this tablet range, even before any scrolling happens. */
+    transform: none !important;
+    width: auto !important;
   }
 
   body.detail-view.menu-detail-view .menu-section .category-wrap {
@@ -11731,6 +11837,12 @@ body.detail-view .menu-section .menu-subsection .menu-card-info {
     top: 8px !important;
     left: 8px !important;
     right: 8px !important;
+    /* This selector already wins left/right for both the resting and
+       .scrolled navbar (highest-specificity match in this range), but a
+       lower-tier rule elsewhere still won width for the resting state only,
+       producing a few pixels of width "breathing" the instant .scrolled was
+       added. Deriving width from left+right here keeps both states identical. */
+    width: auto !important;
     height: 62px !important;
     padding-inline: 13px !important;
     border-radius: 15px
@@ -12216,7 +12328,7 @@ header.navbar:before,
   width: auto !important;
   max-width: 100% !important;
   object-fit: contain !important;
-  filter: brightness(0) invert(1) !important;
+  filter: none !important;
 }
 
 .navbar .logo:before,
@@ -12422,6 +12534,29 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
     border-radius: 14px !important;
   }
 
+  body.detail-view .hero,
+  body.detail-view .hero-main,
+  body.menu-detail-view .hero,
+  body.menu-detail-view .hero-main {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.detail-view main>section.active-detail,
+  body.menu-detail-view main>.menu-section.active-detail {
+    margin-top: 0 !important;
+    padding-top: 72px !important;
+  }
+
+  body.detail-view .menu-section .category-wrap,
+  body.menu-detail-view .menu-section .category-wrap {
+    top: 68px !important;
+    margin-top: 20px !important;
+  }
+
   .navbar .desktop-nav {
     display: none !important;
   }
@@ -12613,12 +12748,18 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   .hero-rail {
     min-height: 0;
     height: 100%;
-    overflow: hidden;
+    overflow: visible;
+    padding: 6px;
+    gap: 14px;
+    box-sizing: border-box;
   }
 
   .hero-rail .rail-card {
     min-height: 0;
     height: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(251, 176, 25, 0.42) !important;
+    border-radius: 18px !important;
   }
 }
 
@@ -12818,7 +12959,111 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
 .customize-modal,
 .instructions-modal,
 .cart-drawer,
-.navbar .language-dropdown {
+.navbar .language-dropdown,
+.language-prompt-modal {
   font-family: "DM Sans", "Noto Sans Arabic", "Noto Sans Devanagari", "Noto Sans Malayalam",
     "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", sans-serif;
+}
+
+/* ============================================================
+   FIRST-VISIT MENU LANGUAGE PROMPT — same light/cream modal shell
+   already used by the other Menu dialogs (instructions/customize),
+   with a selectable list styled like the customize modal's own
+   option cards, so it reads as an original part of the site rather
+   than a new design system.
+   ============================================================ */
+.language-prompt-modal {
+  width: min(420px, calc(100% - 24px));
+  max-height: min(560px, calc(100dvh - 24px));
+  padding: 40px 34px 34px;
+  border: 0;
+  border-radius: 22px;
+  background: var(--cream);
+  color: var(--ink);
+  box-shadow: 0 30px 100px #0009;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.language-prompt-modal::backdrop {
+  background: #000b;
+  backdrop-filter: blur(6px);
+}
+
+.language-prompt-eyebrow {
+  margin: 0 0 6px;
+  color: #9a6410;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.language-prompt-modal h2 {
+  margin: 0;
+  font: 800 clamp(26px, 5vw, 34px) / 1.05 Manrope;
+  letter-spacing: -0.03em;
+}
+
+.language-prompt-subtitle {
+  margin: 10px 0 20px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.language-prompt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 2px 2px 2px 0;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.language-prompt-list li {
+  display: block;
+}
+
+.language-prompt-list button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  padding: 11px 14px;
+  border: 1px solid #0002;
+  border-radius: 12px;
+  background: #fff6;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.language-prompt-list button:hover,
+.language-prompt-list button:focus-visible {
+  border-color: #b6780e;
+  outline: none;
+}
+
+.language-prompt-list button.active {
+  border-color: #b6780e;
+  background: rgba(251, 176, 25, 0.15);
+  box-shadow: inset 0 0 0 1px rgba(182, 120, 14, 0.12);
+}
+
+.language-prompt-modal .language-check {
+  flex: 0 0 auto;
+  color: #b6780e;
+  font-size: 13px;
+}
+
+@media (max-width: 480px) {
+  .language-prompt-modal {
+    padding: 32px 22px 26px;
+  }
 }

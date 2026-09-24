@@ -1051,6 +1051,7 @@
     "orderSentTo": "ご注文は +971 55 683 8426 に送信されます",
     "selectLanguage": "言語を選択",
     "languageButtonAria": "メニューの言語を変更",
-    "changeLanguage": "言語を変更"
+    "changeLanguage": "言語を変更",
+    "chooseLanguage": "メニューをご覧になる言語を選択してください。"
   }
 }
