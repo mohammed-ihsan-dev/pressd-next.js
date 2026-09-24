@@ -12718,7 +12718,7 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
 
 /* Precise sticky-header scroll alignment strategy for main category and subcategory navigation */
 .menu-section .menu-category {
-  scroll-margin-top: 44px !important;
+  scroll-margin-top: 124px !important;
 }
 
 .menu-section .menu-subsection {
@@ -12727,7 +12727,7 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
 
 @media (max-width: 959px) {
   .menu-section .menu-category {
-    scroll-margin-top: 54px !important;
+    scroll-margin-top: 128px !important;
   }
   .menu-section .menu-subsection {
     scroll-margin-top: 142px !important;
@@ -12736,7 +12736,7 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
 
 @media (max-width: 639px) {
   .menu-section .menu-category {
-    scroll-margin-top: 62px !important;
+    scroll-margin-top: 130px !important;
   }
   .menu-section .menu-subsection {
     scroll-margin-top: 138px !important;
@@ -12745,7 +12745,7 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
 
 @media (max-width: 390px) {
   .menu-section .menu-category {
-    scroll-margin-top: 56px !important;
+    scroll-margin-top: 130px !important;
   }
   .menu-section .menu-subsection {
     scroll-margin-top: 132px !important;
