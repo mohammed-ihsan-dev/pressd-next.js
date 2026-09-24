@@ -21,7 +21,12 @@ export default function MenuSection() {
   const contentRef = useRef<HTMLDivElement>(null);
 
   const selectCategory = (slug: string) => {
-    const target = document.getElementById(slug === "all" ? menu[0].slug : slug);
+    if (slug === "all") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setActiveCategory("all");
+      return;
+    }
+    const target = document.getElementById(slug);
     setActiveCategory(slug);
     target?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
