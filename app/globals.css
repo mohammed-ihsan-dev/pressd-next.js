@@ -12574,7 +12574,7 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   body.detail-view main>section.active-detail,
   body.menu-detail-view main>.menu-section.active-detail {
     margin-top: 0 !important;
-    padding-top: 88px !important;
+    padding-top: 136px !important;
   }
 
   body.detail-view .menu-section .category-wrap,
