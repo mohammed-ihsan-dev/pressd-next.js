@@ -1046,7 +1046,7 @@ select {
 
 footer {
   background: var(--orange);
-  padding: 80px 5vw 25px
+  padding: 44px 5vw 20px
 }
 
 .footer-top {
@@ -1062,13 +1062,28 @@ footer {
 
 .footer-links {
   display: grid;
-  gap: 9px;
-  font-size: 12px
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 700
+}
+
+.footer-links a {
+  color: #070806;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: opacity 0.25s ease
+}
+
+.footer-links a:hover {
+  opacity: 0.7
 }
 
 .footer-statement {
   font: 800 clamp(32px, 4vw, 65px) Manrope;
-  margin: 80px 0 30px
+  margin: 36px 0 20px
 }
 
 .footer-bottom {
@@ -1076,8 +1091,19 @@ footer {
   padding-top: 20px;
   display: flex;
   justify-content: space-between;
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: .12em
+}
+
+.footer-bottom a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.25s ease
+}
+
+.footer-bottom a:hover {
+  opacity: 0.7
 }
 
 dialog {
@@ -4772,11 +4798,11 @@ body.home-view .section-home-button {
   }
 
   footer {
-    padding: 66px 18px 100px
+    padding: 36px 18px 84px
   }
 
   .footer-statement {
-    margin-top: 55px
+    margin-top: 28px
   }
 
   .mobile-dock {

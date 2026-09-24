@@ -24,7 +24,12 @@ export default function Footer() {
       <div className="footer-statement">COFFEE. FOOD. PEOPLE.</div>
       <div className="footer-bottom">
         <span>© 2026 PRESS’D WELLNESS CAFÉ</span>
-        <span>INSTAGRAM · TIKTOK · FACEBOOK</span>
+        <span>
+          <a href="https://www.instagram.com/pressd.cafe" target="_blank" rel="noopener noreferrer">
+            INSTAGRAM
+          </a>{" "}
+          · TIKTOK · FACEBOOK
+        </span>
         <span>MEYDAN POLO RESIDENCE, DUBAI</span>
       </div>
     </footer>
