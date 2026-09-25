@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useLocale, LOCALES } from "@/lib/i18n/LocaleContext";
 import { useSectionNav } from "@/components/navigation/SectionNavContext";
 import { hasLanguagePromptCookie, setLanguagePromptCookie } from "@/lib/languagePromptCookie";
@@ -9,20 +9,16 @@ export default function LanguagePromptModal() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const { locale, setLocale, dir } = useLocale();
   const { activeSection } = useSectionNav();
-  const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    if (activeSection === "menu" && !hasLanguagePromptCookie()) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setIsOpen(true);
-    }
-  }, [activeSection]);
+  // The modal MUST ONLY show when the user is actively viewing the Menu section (#menu)
+  const isMenuSection = activeSection === "menu";
+  const shouldShow = isMenuSection && !hasLanguagePromptCookie();
 
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
 
-    if (isOpen) {
+    if (shouldShow) {
       if (!dialog.open) {
         try {
           dialog.showModal();
@@ -35,17 +31,23 @@ export default function LanguagePromptModal() {
         dialog.close();
       }
     }
-  }, [isOpen]);
+  }, [shouldShow]);
+
+  // Completely unmount the dialog if we are NOT on the Menu section (#menu).
+  // This guarantees the modal will NEVER appear on #home or any other page.
+  if (!isMenuSection) {
+    return null;
+  }
 
   const handleSelectLanguage = (code: string) => {
     setLocale(code);
     setLanguagePromptCookie();
-    setIsOpen(false);
+    dialogRef.current?.close();
   };
 
   const handleClose = () => {
     setLanguagePromptCookie();
-    setIsOpen(false);
+    dialogRef.current?.close();
   };
 
   return (
@@ -86,4 +88,5 @@ export default function LanguagePromptModal() {
     </dialog>
   );
 }
+
 
