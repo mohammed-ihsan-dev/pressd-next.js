@@ -10529,6 +10529,7 @@ body.menu-detail-view .menu-subsection {
 }
 
 @media(max-width:390px) {
+
   .category-wrap:not(.is-pinned),
   .category-wrap.is-pinned {
     top: 80px !important
@@ -11275,6 +11276,7 @@ body.detail-view .menu-section .menu-subsection .menu-card-info {
 }
 
 @media(min-width:960px) and (max-width:1279px) {
+
   .menu-section .menu-subsection .menu-grid,
   .menu-section .menu-subsection[data-column="Iced Coffee"] .menu-grid,
   body.detail-view .menu-section .menu-subsection .menu-grid {
@@ -11301,6 +11303,7 @@ body.detail-view .menu-section .menu-subsection .menu-card-info {
 }
 
 @media(min-width:640px) and (max-width:959px) {
+
   header.navbar,
   .navbar,
   .navbar.scrolled,
@@ -11334,6 +11337,7 @@ body.detail-view .menu-section .menu-subsection .menu-card-info {
 }
 
 @media(max-width:639px) {
+
   header.navbar,
   .navbar,
   .navbar.scrolled,
@@ -11371,6 +11375,7 @@ body.detail-view .menu-section .menu-subsection .menu-card-info {
 }
 
 @media(max-width:390px) {
+
   .menu-section .menu-intro,
   .menu-section .category-wrap,
   .menu-section .menu-content {
@@ -12316,6 +12321,7 @@ header.navbar:before,
 /* Non-menu split-screen pages: Anchor navbar inside left hero/video area,
    slightly left-aligned, never crossing into the right 50%/cards section. */
 @media (min-width: 1101px) {
+
   body:not(.menu-detail-view) .navbar,
   body.home-view .navbar,
   body.detail-view:not(.menu-detail-view) .navbar {
@@ -12448,9 +12454,18 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
 }
 
 @keyframes cartArrivalPopKeyframe {
-  0% { transform: scale(1); }
-  40% { transform: scale(1.18); box-shadow: 0 0 18px rgba(251, 176, 25, 0.5); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.18);
+    box-shadow: 0 0 18px rgba(251, 176, 25, 0.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .cart-toggle.cart-arrival-pop,
@@ -12741,6 +12756,7 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   .menu-section .menu-category {
     scroll-margin-top: 128px !important;
   }
+
   .menu-section .menu-subsection {
     scroll-margin-top: 142px !important;
   }
@@ -12750,6 +12766,7 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   .menu-section .menu-category {
     scroll-margin-top: 130px !important;
   }
+
   .menu-section .menu-subsection {
     scroll-margin-top: 138px !important;
   }
@@ -12759,6 +12776,7 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   .menu-section .menu-category {
     scroll-margin-top: 130px !important;
   }
+
   .menu-section .menu-subsection {
     scroll-margin-top: 132px !important;
   }
@@ -12812,6 +12830,7 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
 }
 
 @media (hover: hover) {
+
   .hero-rail .rail-card:hover span b,
   .hero-rail .rail-card span b:hover,
   .rail-card:hover span b,
