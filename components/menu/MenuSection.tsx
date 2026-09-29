@@ -14,8 +14,6 @@ import RevealObserver from "@/components/RevealObserver";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 import { slugify } from "@/lib/slugify";
 
-import LanguagePromptModal from "@/components/menu/LanguagePromptModal";
-
 export default function MenuSection() {
   const { t, locale, dir } = useLocale();
   const [activeCategory, setActiveCategory] = useState("all");
@@ -169,7 +167,6 @@ export default function MenuSection() {
       <ProductDetailsModal />
       <InstructionsModal />
       <CustomizeModal />
-      <LanguagePromptModal />
       <RevealObserver watch={activeCategory} />
     </MenuModalsProvider>
   );

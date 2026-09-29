@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { DEFAULT_LOCALE, isSupportedLocale, localeMeta, LOCALES } from "@/lib/i18n/locales";
+import { DEFAULT_LOCALE, isSupportedLocale, localeMeta } from "@/lib/i18n/locales";
 import { loadDictionary, type MenuDictionary } from "@/lib/i18n/dictionary";
 
 const STORAGE_KEY = "pressd-menu-language";
@@ -94,5 +94,3 @@ export function useLocale() {
   if (!ctx) throw new Error("useLocale must be used within LocaleProvider");
   return ctx;
 }
-
-export { LOCALES };
