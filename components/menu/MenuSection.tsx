@@ -13,12 +13,54 @@ import SectionHomeButton from "@/components/SectionHomeButton";
 import RevealObserver from "@/components/RevealObserver";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 import { slugify } from "@/lib/slugify";
+import { useScrollDirection } from "@/lib/hooks/useScrollDirection";
 
 export default function MenuSection() {
   const { t, locale, dir } = useLocale();
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeSubcategory, setActiveSubcategory] = useState<string>("");
   const contentRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const navHidden = useScrollDirection();
+
+  // Scroll-down normally keeps the bars hidden, but briefly reveals them as a
+  // "category checkpoint" when the user crosses into a new category while
+  // still scrolling down — see the activeCategory effect below. Scroll-up
+  // behavior (navHidden alone) is untouched.
+  const [transitionPulse, setTransitionPulse] = useState(false);
+  const pulsedCategoryRef = useRef<string | null>(null);
+  const pulseTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
+  // Applied imperatively (not via the className prop) because SectionNavContext
+  // adds/removes "active-detail" on this same <section> via raw DOM classList
+  // manipulation, outside React's tracking. Driving this through className would
+  // make React's reconciliation overwrite the whole class attribute on every
+  // scroll-triggered toggle, silently wiping out "active-detail" and breaking
+  // the menu scroll-fix CSS that depends on it.
+  useEffect(() => {
+    sectionRef.current?.classList.toggle("menu-nav-hidden", navHidden && !transitionPulse);
+  }, [navHidden, transitionPulse]);
+
+  // One-shot "checkpoint" pulse: the first time activeCategory changes to a
+  // category we haven't already pulsed for, briefly force the bars visible
+  // (even while navHidden is true from downward scrolling), then let them
+  // settle back to whatever navHidden says. Skips the initial mount so the
+  // page doesn't pulse on load, and dedupes per category so lingering near a
+  // boundary can't repeatedly flicker it.
+  useEffect(() => {
+    if (pulsedCategoryRef.current === null) {
+      pulsedCategoryRef.current = activeCategory;
+      return;
+    }
+    if (pulsedCategoryRef.current === activeCategory) return;
+    pulsedCategoryRef.current = activeCategory;
+
+    clearTimeout(pulseTimeoutRef.current);
+    setTransitionPulse(true);
+    pulseTimeoutRef.current = setTimeout(() => setTransitionPulse(false), 1400);
+  }, [activeCategory]);
+
+  useEffect(() => () => clearTimeout(pulseTimeoutRef.current), []);
 
   const selectCategory = (slug: string) => {
     if (slug === "all") {
@@ -43,7 +85,7 @@ export default function MenuSection() {
           }
         });
       },
-      { rootMargin: "-30% 0px -55%", threshold: 0 }
+      { rootMargin: "-20% 0px -70% 0px", threshold: 0 }
     );
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
@@ -71,7 +113,13 @@ export default function MenuSection() {
 
   return (
     <MenuModalsProvider>
-      <section className="menu-section" id="menu" lang={locale} dir={dir}>
+      <section
+        className="menu-section"
+        id="menu"
+        lang={locale}
+        dir={dir}
+        ref={sectionRef}
+      >
         <div className="menu-intro">
           <p className="eyebrow dark">{t("ui.eyebrow", "EAT · DRINK · REPEAT")}</p>
           <h2>{t("ui.menuHeading", "THE MENU.")}</h2>

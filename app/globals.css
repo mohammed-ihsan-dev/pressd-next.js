@@ -1592,7 +1592,7 @@ dialog {
 }
 
 .hero-shade {
-  background: linear-gradient(0deg, rgba(2, 3, 2, .92) 0%, rgba(2, 3, 2, .25) 48%, rgba(2, 3, 2, .08) 100%), linear-gradient(90deg, rgba(2, 3, 2, .2), transparent)
+  background: linear-gradient(0deg, rgba(2, 3, 2, .58) 0%, rgba(2, 3, 2, .22) 48%, rgba(2, 3, 2, .06) 100%), linear-gradient(90deg, rgba(2, 3, 2, .14), transparent)
 }
 
 .hero-content {
@@ -1656,7 +1656,7 @@ dialog {
   display: block;
   min-height: 0;
   padding: 0;
-  border: 1px solid rgba(251, 176, 25, 0.42);
+  border: 0;
   border-radius: 20px;
   overflow: hidden;
   background: #171816;
@@ -5209,9 +5209,12 @@ body.home-view {
   color: var(--orange)
 }
 
-/* Soft off-white strokes for all six homepage cards. */
+/* Cards read as part of the editorial layout via their own photography,
+   bottom gradient and soft drop shadow (see .hero-rail .rail-card box-shadow
+   elsewhere) rather than a boxed outline — no visible stroke at rest, only
+   the faintest hint on hover so focus/hover state is still perceivable. */
 .hero-rail .rail-card {
-  outline-color: rgba(247, 241, 230, .42)
+  outline-color: transparent
 }
 
 .hero-rail .rail-card>span b {
@@ -5219,14 +5222,14 @@ body.home-view {
 }
 
 .hero-rail .rail-card:hover {
-  outline-color: rgba(247, 241, 230, .78)
+  outline-color: rgba(247, 241, 230, .18)
 }
 
 @media(max-width:760px) {
 
   .hero-rail .rail-card,
   .hero-rail .rail-card:first-child {
-    outline-color: rgba(247, 241, 230, .46)
+    outline-color: transparent
   }
 }
 
@@ -11423,8 +11426,10 @@ body.detail-view .menu-section .menu-subsection .menu-card-info {
     transform: translateX(-50%) !important;
     width: min(1380px, calc(100vw - 36px)) !important;
     min-width: 0 !important;
-    max-width: none !important;
-    height: 64px !important
+    max-width: 1380px !important;
+    height: 64px !important;
+    padding: 8px 16px !important;
+    border-radius: 17px !important;
   }
 
   body.detail-view.menu-detail-view .navbar .desktop-nav {
@@ -11448,7 +11453,7 @@ body.detail-view .menu-section .menu-subsection .menu-card-info {
   body.detail-view.menu-detail-view .menu-section .category-wrap {
     position: sticky;
     z-index: 80;
-    top: 84px;
+    top: 96px;
     width: min(1380px, calc(100vw - 36px)) !important;
     max-width: 1380px !important;
     margin: 24px auto 0 !important;
@@ -12297,11 +12302,11 @@ header.navbar,
 .navbar.scrolled {
   position: fixed !important;
   z-index: 99 !important;
-  top: 12px !important;
-  height: 64px !important;
-  padding: 8px 16px !important;
+  top: 14px !important;
+  height: clamp(66px, 7vh, 76px) !important;
+  padding: 8px clamp(16px, 1.4vw, 24px) !important;
   border: 1px solid rgba(246, 233, 218, 0.3) !important;
-  border-radius: 17px !important;
+  border-radius: 20px !important;
   background: rgba(2, 3, 3, 0.94) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
@@ -12309,7 +12314,7 @@ header.navbar,
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  gap: 12px !important;
+  gap: clamp(14px, 1.5vw, 24px) !important;
   box-sizing: border-box !important;
 }
 
@@ -12319,19 +12324,24 @@ header.navbar:before,
 }
 
 /* Non-menu split-screen pages: Anchor navbar inside left hero/video area,
-   slightly left-aligned, never crossing into the right 50%/cards section. */
+   proportional to desktop viewport with premium presence. */
 @media (min-width: 1101px) {
 
   body:not(.menu-detail-view) .navbar,
   body.home-view .navbar,
   body.detail-view:not(.menu-detail-view) .navbar {
     position: fixed !important;
-    top: 24px !important;
-    left: clamp(24px, 4.5vw, 48px) !important;
+    top: clamp(20px, 2.5vh, 32px) !important;
+    left: clamp(24px, 2.6vw, 44px) !important;
     right: auto !important;
     transform: none !important;
-    width: fit-content !important;
-    max-width: calc(68vw - 6vw) !important;
+    width: auto !important;
+    min-width: min(580px, calc(100% - 64px)) !important;
+    max-width: calc(64vw - 48px) !important;
+    height: 64px !important;
+    padding: 8px 18px !important;
+    border-radius: 14px !important;
+    gap: clamp(20px, 2.2vw, 36px) !important;
   }
 
   /* Menu page exception: full-width centered navbar */
@@ -12342,6 +12352,10 @@ header.navbar:before,
     right: auto !important;
     transform: translateX(-50%) !important;
     width: min(1380px, calc(100vw - 36px)) !important;
+    max-width: 1380px !important;
+    height: 64px !important;
+    padding: 8px 16px !important;
+    border-radius: 17px !important;
   }
 }
 
@@ -12350,7 +12364,7 @@ header.navbar:before,
   display: flex !important;
   align-items: center !important;
   width: auto !important;
-  max-width: 140px !important;
+  max-width: clamp(150px, 11vw, 185px) !important;
   height: auto !important;
   margin: 0 !important;
   flex-shrink: 0 !important;
@@ -12358,7 +12372,7 @@ header.navbar:before,
 
 .navbar .logo img {
   display: block !important;
-  height: 38px !important;
+  height: clamp(40px, 4.2vh, 48px) !important;
   width: auto !important;
   max-width: 100% !important;
   object-fit: contain !important;
@@ -12370,21 +12384,21 @@ header.navbar:before,
   display: none !important;
 }
 
-/* Desktop Navigation - Tight, compact item spacing */
+/* Desktop Navigation - Proportional, elegant item spacing */
 .navbar .desktop-nav {
   display: flex !important;
   align-items: center !important;
-  gap: 16px !important;
+  gap: clamp(18px, 1.6vw, 30px) !important;
   margin: 0 !important;
 }
 
 .navbar .desktop-nav a {
   display: inline-block !important;
   font-family: 'Manrope', sans-serif !important;
-  font-size: 11px !important;
+  font-size: clamp(12px, 0.82vw, 13.5px) !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.08em !important;
+  letter-spacing: 0.1em !important;
   color: #f5efdf !important;
   text-decoration: none !important;
   white-space: nowrap !important;
@@ -12422,7 +12436,7 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
 .navbar .nav-actions {
   display: flex !important;
   align-items: center !important;
-  gap: 8px !important;
+  gap: clamp(10px, 0.9vw, 14px) !important;
   margin-left: auto !important;
   flex-shrink: 0 !important;
 }
@@ -12814,7 +12828,7 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
     min-height: 0;
     height: 100%;
     box-sizing: border-box;
-    border: 1px solid rgba(251, 176, 25, 0.42) !important;
+    border: 0 !important;
     border-radius: 18px !important;
   }
 }
@@ -13019,4 +13033,1598 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
 .navbar .language-dropdown {
   font-family: "DM Sans", "Noto Sans Arabic", "Noto Sans Devanagari", "Noto Sans Malayalam",
     "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", sans-serif;
+}
+
+/* ============================================================
+   PRESS'D HOMEPAGE HERO REFINEMENT
+   - 73-75% Dominant Hero Viewport + 25-27% 3-Card Vertical Rail
+   - Strict PRESS'D Luxury Palette: Black, Deep Charcoal, Cream, Subtle Gold
+   - No glassmorphism, no generic SaaS UI, no excessive shadows
+   - Exactly 3 main cards: Menu, Reservation, Pet Friendly (+ Visit link)
+   - Subtle Pet-Friendly Brand Statement in main hero
+   ============================================================ */
+
+@media (min-width: 761px) {
+  .hero {
+    height: 100svh !important;
+    min-height: 720px !important;
+    max-height: none !important;
+    width: 100% !important;
+    max-width: 1920px !important;
+    margin-inline: auto !important;
+    padding: clamp(14px, 1.2vw, 20px) !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 3.15fr) minmax(360px, 1fr) !important;
+    gap: clamp(14px, 1.2vw, 20px) !important;
+    background: #070806 !important;
+    color: #f5efdf !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-main {
+    position: relative !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    border-radius: 24px !important;
+    background: #070806 !important;
+  }
+
+  .hero-media {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    filter: saturate(0.8) contrast(1.1) !important;
+    transform: scale(1.02) !important;
+  }
+
+  .hero-shade {
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(0deg, rgba(2, 3, 2, 0.55) 0%, rgba(2, 3, 2, 0.25) 50%, rgba(2, 3, 2, 0.08) 100%),
+      linear-gradient(90deg, rgba(2, 3, 2, 0.35) 0%, rgba(2, 3, 2, 0.12) 60%, transparent 100%) !important;
+    pointer-events: none !important;
+  }
+
+  .hero-content {
+    position: absolute !important;
+    left: clamp(32px, 3.6vw, 56px) !important;
+    right: clamp(28px, 3.2vw, 48px) !important;
+    bottom: clamp(28px, 4.2vh, 52px) !important;
+    z-index: 5 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-end !important;
+    justify-content: space-between !important;
+    gap: clamp(20px, 2.5vw, 40px) !important;
+    pointer-events: none !important;
+  }
+
+  .hero-content-left {
+    pointer-events: auto !important;
+    max-width: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+
+  .hero-content-left>.eyebrow {
+    display: block !important;
+    font-family: "Manrope", sans-serif !important;
+    font-size: clamp(11px, 0.82vw, 13px) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.24em !important;
+    color: var(--orange, #fbb019) !important;
+    margin: 0 0 clamp(14px, 1.8vh, 22px) 0 !important;
+    text-transform: uppercase !important;
+    line-height: 1 !important;
+  }
+
+  .hero h1 {
+    font-family: "Playfair Display", Georgia, serif !important;
+    font-weight: 500 !important;
+    font-style: italic !important;
+    font-size: clamp(52px, 5.2vw, 94px) !important;
+    line-height: 0.88 !important;
+    letter-spacing: -0.045em !important;
+    color: #f5efdf !important;
+    margin: 0 0 clamp(16px, 2.2vh, 28px) 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+
+  .hero h1 span {
+    display: block !important;
+    white-space: nowrap !important;
+    font-style: italic !important;
+    color: #f5efdf !important;
+  }
+
+  .hero h1 .accent {
+    font-style: italic !important;
+    color: #f5efdf !important;
+  }
+
+  .hero-bottom {
+    margin: 0 !important;
+  }
+
+  .hero-bottom>p {
+    font-family: "DM Sans", sans-serif !important;
+    font-size: clamp(13px, 1.05vw, 16px) !important;
+    font-weight: 400 !important;
+    line-height: 1.55 !important;
+    letter-spacing: 0.03em !important;
+    color: rgba(245, 239, 223, 0.85) !important;
+    margin: 0 !important;
+    max-width: clamp(340px, 26vw, 460px) !important;
+  }
+
+  /* Themed Circular Instagram Link on Bottom-Right of Video */
+  .hero-round-link {
+    pointer-events: auto !important;
+    width: clamp(48px, 4.8vh, 56px) !important;
+    height: clamp(48px, 4.8vh, 56px) !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(245, 239, 223, 0.26) !important;
+    background: rgba(7, 8, 6, 0.55) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    color: #f5efdf !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    margin-bottom: 2px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
+  }
+
+  .hero-round-link:hover {
+    border-color: var(--orange, #fbb019) !important;
+    color: var(--orange, #fbb019) !important;
+    background: rgba(7, 8, 6, 0.85) !important;
+    transform: scale(1.08) !important;
+    box-shadow: 0 4px 18px rgba(251, 176, 25, 0.25) !important;
+  }
+
+  .hero-round-link .instagram-icon-svg {
+    width: 22px !important;
+    height: 22px !important;
+    display: block !important;
+    stroke: currentColor !important;
+    transition: stroke 0.3s ease !important;
+  }
+
+  /* Pet Friendly Brand Statement Badge in lower-right of hero */
+  .hero-pet-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 8px 16px !important;
+    background: #070806 !important;
+    border: 1px solid rgba(251, 176, 25, 0.45) !important;
+    border-radius: 999px !important;
+    color: #f5efdf !important;
+    text-decoration: none !important;
+    transition: transform 0.3s ease, border-color 0.3s ease !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+  }
+
+  .hero-pet-badge:hover {
+    border-color: var(--orange, #fbb019) !important;
+    transform: translateY(-2px) !important;
+  }
+
+  .hero-pet-badge-paw {
+    font-size: 14px !important;
+    display: grid !important;
+    place-items: center !important;
+  }
+
+  .hero-pet-badge-text {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1px !important;
+    text-align: left !important;
+  }
+
+  .hero-pet-badge-title {
+    font-family: "Manrope", sans-serif !important;
+    font-size: 9.5px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.16em !important;
+    color: var(--orange, #fbb019) !important;
+    text-transform: uppercase !important;
+  }
+
+  .hero-pet-badge-desc {
+    font-family: "DM Sans", sans-serif !important;
+    font-size: 10.5px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.04em !important;
+    color: #f5efdf !important;
+    opacity: 0.9 !important;
+    text-transform: uppercase !important;
+  }
+
+  /* Right Rail: Exactly 3 stacked cards + small Visit link */
+  .hero-rail-head {
+    display: none !important;
+  }
+
+  .hero-rail {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: clamp(12px, 1.2vh, 18px) !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    grid-template: none !important;
+  }
+
+  .hero-rail .rail-card {
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+    display: block !important;
+    position: relative !important;
+    border: 0 !important;
+    border-radius: 22px !important;
+    overflow: hidden !important;
+    background: #11120f !important;
+    color: #f5efdf !important;
+    cursor: pointer !important;
+    text-align: left !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+    transition: transform 0.35s ease, border-color 0.35s ease !important;
+  }
+
+  .hero-rail .rail-card:first-child {
+    grid-column: auto !important;
+  }
+
+  .hero-rail .rail-card:hover {
+    transform: translateY(-2px) !important;
+    border-color: rgba(251, 176, 25, 0.85) !important;
+  }
+
+  .hero-rail .rail-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    filter: saturate(0.85) brightness(0.82) !important;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease !important;
+  }
+
+  .hero-rail .rail-card:hover img {
+    transform: scale(1.04) !important;
+    filter: saturate(0.95) brightness(0.9) !important;
+  }
+
+  /* Pet Friendly Golden Retriever framing & visual storytelling */
+  .hero-rail .rail-card-featured {
+    border-color: rgba(251, 176, 25, 0.6) !important;
+  }
+
+  .hero-rail .rail-card-featured:hover {
+    border-color: var(--orange, #fbb019) !important;
+  }
+
+  .hero-rail .rail-card a[href="#pets"]>img,
+  .hero-rail a[href="#pets"]>img {
+    object-position: 50% 46% !important;
+  }
+
+  .hero-rail .rail-card-tag {
+    position: absolute !important;
+    top: 14px !important;
+    left: 14px !important;
+    padding: 6px 12px !important;
+    border-radius: 999px !important;
+    background: #070806 !important;
+    border: 1px solid rgba(251, 176, 25, 0.65) !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+    line-height: 1 !important;
+  }
+
+  .hero-rail .rail-card-tag span {
+    font-family: "Manrope", sans-serif !important;
+    font-size: 9.5px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.14em !important;
+    color: var(--orange, #fbb019) !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    line-height: 1 !important;
+  }
+
+  /* Curved cutout for card title at bottom-right */
+  .hero-rail .rail-card span {
+    position: absolute !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    min-width: clamp(180px, 12vw, 240px) !important;
+    height: clamp(58px, 6.2vh, 70px) !important;
+    padding: 0 10px 0 clamp(20px, 1.6vw, 32px) !important;
+    border-radius: 24px 0 0 0 !important;
+    background: #070806 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    font: 500 clamp(17px, 1.15vw, 22px) "Playfair Display", Georgia, serif !important;
+    text-transform: uppercase !important;
+    color: #f5efdf !important;
+    letter-spacing: 0.04em !important;
+    z-index: 2 !important;
+  }
+
+  /* Remove any clipping pseudo-element from the card label tab */
+  .hero-rail .rail-card span:before,
+  .rail-card span:before {
+    display: none !important;
+    content: none !important;
+  }
+
+  .hero-rail .rail-card span b {
+    position: relative !important;
+    z-index: 5 !important;
+    width: clamp(38px, 4.2vh, 46px) !important;
+    height: clamp(38px, 4.2vh, 46px) !important;
+    border: 1px solid rgba(245, 239, 223, 0.3) !important;
+    border-radius: 50% !important;
+    display: grid !important;
+    place-items: center !important;
+    font: 400 clamp(15px, 1.1vw, 19px) "DM Sans", sans-serif !important;
+    color: #f5efdf !important;
+    transition: all 0.35s ease !important;
+  }
+
+  .hero-rail .rail-card:hover span b {
+    background: #f5efdf !important;
+    color: #070806 !important;
+    transform: rotate(-35deg) !important;
+  }
+
+  /* Pet Friendly card gold button */
+  .hero-rail .rail-card span b.gold-btn {
+    background: var(--orange, #fbb019) !important;
+    color: #070806 !important;
+    border-color: var(--orange, #fbb019) !important;
+    font-weight: 700 !important;
+  }
+
+  .hero-rail .rail-card:hover span b.gold-btn {
+    background: #f5efdf !important;
+    color: #070806 !important;
+    border-color: #f5efdf !important;
+    transform: rotate(-35deg) !important;
+  }
+
+  .hero-carousel-dots {
+    display: none !important;
+  }
+}
+
+/* Tablet adjustments (761px - 1024px) */
+@media (min-width: 761px) and (max-width: 1024px) {
+  .hero {
+    grid-template-columns: minmax(0, 68fr) minmax(250px, 32fr) !important;
+    padding: 12px !important;
+    gap: 12px !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 5.5vw, 76px) !important;
+  }
+
+  .hero-rail .rail-card span {
+    min-width: 145px !important;
+    height: 48px !important;
+    font-size: 14px !important;
+  }
+
+  .hero-rail .rail-card span b {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 13px !important;
+  }
+}
+
+/* Mobile Layout (<= 760px) */
+@media (max-width: 760px) {
+  .hero {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 10px !important;
+    gap: 12px !important;
+    overflow: visible !important;
+  }
+
+  .hero-main {
+    height: 72svh !important;
+    min-height: 520px !important;
+    max-height: 640px !important;
+    border-radius: 19px !important;
+  }
+
+  .hero-content {
+    left: 18px !important;
+    right: 18px !important;
+    bottom: 20px !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-end !important;
+    gap: 16px !important;
+  }
+
+  .hero-content-left {
+    max-width: calc(100% - 56px) !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 8.8vw, 46px) !important;
+    line-height: 0.9 !important;
+    margin: 0 0 14px 0 !important;
+  }
+
+  .hero-bottom>p {
+    font-size: 12px !important;
+    max-width: 220px !important;
+  }
+
+  .hero-pet-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 7px 14px !important;
+    background: #070806 !important;
+    border: 1px solid rgba(251, 176, 25, 0.45) !important;
+    border-radius: 999px !important;
+  }
+
+  .hero-pet-badge-text {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1px !important;
+    text-align: left !important;
+  }
+
+  .hero-pet-badge-paw {
+    font-size: 13px !important;
+  }
+
+  .hero-pet-badge-title {
+    font-family: "Manrope", sans-serif !important;
+    font-size: 9px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.16em !important;
+    color: var(--orange, #fbb019) !important;
+    text-transform: uppercase !important;
+    line-height: 1.2 !important;
+  }
+
+  .hero-pet-badge-desc {
+    font-family: "DM Sans", sans-serif !important;
+    font-size: 9.5px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.04em !important;
+    color: #f5efdf !important;
+    text-transform: uppercase !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Horizontal swipeable cards on mobile */
+  .hero-rail-head {
+    display: flex !important;
+    justify-content: space-between !important;
+    padding: 0 4px !important;
+  }
+
+  .hero-rail {
+    display: flex !important;
+    flex-direction: row !important;
+    grid-template: none !important;
+    gap: 10px !important;
+    overflow-x: auto !important;
+    overscroll-behavior-x: contain !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-padding: 8px !important;
+    padding: 2px 2px 8px !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    height: auto !important;
+  }
+
+  .hero-rail::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .hero-rail .rail-card {
+    flex: 0 0 78vw !important;
+    max-width: 320px !important;
+    height: 210px !important;
+    scroll-snap-align: center !important;
+    border-radius: 18px !important;
+  }
+
+  .hero-rail .rail-card:first-child {
+    grid-column: auto !important;
+  }
+
+  .hero-rail .rail-card span {
+    min-width: 155px !important;
+    height: 50px !important;
+    font-size: 14px !important;
+  }
+
+  .hero-carousel-dots {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 4px 0 10px !important;
+  }
+
+  .hero-carousel-dots button {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 999px !important;
+    background: rgba(245, 239, 223, 0.25) !important;
+    border: none !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .hero-carousel-dots button.active {
+    width: 24px !important;
+    background: var(--orange, #fbb019) !important;
+  }
+}
+
+/* ============================================================
+   NAVBAR CART & CTA REFINEMENT
+   - Minimal shopping-bag/cart icon only (no text, no quantity count)
+   - BOOK A TABLE as primary CTA with subtle warm-gold treatment
+   ============================================================ */
+.navbar .cart-toggle {
+  width: clamp(42px, 4.4vh, 48px) !important;
+  height: clamp(42px, 4.4vh, 48px) !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  border: 1px solid rgba(246, 233, 218, 0.3) !important;
+  color: #f5efdf !important;
+  transition: all 0.3s ease !important;
+}
+
+.navbar .cart-toggle:hover {
+  border-color: var(--orange, #fbb019) !important;
+  color: var(--orange, #fbb019) !important;
+}
+
+.navbar .cart-toggle .cart-icon-svg {
+  stroke: var(--orange, #ffb31a) !important;
+  width: clamp(18px, 1.8vh, 21px) !important;
+  height: clamp(18px, 1.8vh, 21px) !important;
+  display: block !important;
+  margin: 0 !important;
+}
+
+.navbar .book-btn {
+  height: clamp(42px, 4.4vh, 48px) !important;
+  padding: 0 clamp(18px, 1.4vw, 24px) !important;
+  background: rgba(251, 176, 25, 0.12) !important;
+  border: 1px solid rgba(251, 176, 25, 0.6) !important;
+  border-radius: 999px !important;
+  color: #f5efdf !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: clamp(11px, 0.8vw, 12.5px) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  transition: all 0.3s ease !important;
+}
+
+.navbar .book-btn:hover {
+  background: var(--orange, #fbb019) !important;
+  color: #070806 !important;
+  border-color: var(--orange, #fbb019) !important;
+  box-shadow: 0 4px 18px rgba(251, 176, 25, 0.35) !important;
+}
+
+/* ============================================================
+   PET FRIENDLY MICRO-INTERACTION — a small discovery moment layered
+   on top of the existing hero-pet-badge, not a redesign of it. The
+   badge's own look (pill, border, title/desc) is untouched; this
+   only adds the hover/tap paw-trail → dog → "Bow wow!" sequence
+   above it, plus swaps the emoji paw for a line-art SVG one.
+   ============================================================ */
+.hero-pet-interaction {
+  position: relative;
+  display: inline-flex;
+}
+
+.hero-pet-badge-paw svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--orange, #fbb019);
+  stroke-width: 1.4;
+  fill: rgba(251, 176, 25, 0.12);
+  transition: transform 0.35s var(--ease, ease);
+  transform: rotate(0deg) scale(1);
+}
+
+.hero-pet-interaction:hover .hero-pet-badge-paw svg,
+.hero-pet-interaction:focus-within .hero-pet-badge-paw svg {
+  transform: rotate(-3deg) scale(1.05);
+}
+
+/* Decorative overlay — never intercepts pointer events, never affects layout. */
+.pet-fx {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 2px);
+  width: 1px;
+  /* Compressed from the original ~160px reach: the badge now floats right
+     at the hero/rail seam (close under the card above it) rather than low
+     in the hero with lots of clear space above, so the sequence needs to
+     stay closer to the badge to avoid climbing into that card. */
+  height: 90px;
+  pointer-events: none;
+}
+
+.pet-fx-paw,
+.pet-fx-dog,
+.pet-fx-text,
+.pet-fx-particles i {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+}
+
+.pet-fx-paw {
+  color: var(--orange, #fbb019);
+  width: 11px;
+  height: 11px;
+  margin-left: -5.5px;
+}
+
+.pet-fx-paw svg {
+  width: 100%;
+  height: 100%;
+  stroke: var(--orange, #fbb019);
+  stroke-width: 2;
+  fill: rgba(251, 176, 25, 0.5);
+}
+
+/* A gentle zigzag trail climbing from the badge toward the dog, staying
+   close to the vertical centre line so nothing downstream collides. */
+.pet-fx-paw-1 {
+  bottom: 3px;
+  margin-left: 9px;
+  --rot: -10deg;
+  transform: scale(0.5) rotate(var(--rot));
+}
+
+.pet-fx-paw-2 {
+  bottom: 13px;
+  margin-left: -10px;
+  --rot: 8deg;
+  transform: scale(0.5) rotate(var(--rot));
+}
+
+.pet-fx-paw-3 {
+  bottom: 23px;
+  margin-left: 7px;
+  --rot: -6deg;
+  transform: scale(0.5) rotate(var(--rot));
+}
+
+.pet-fx-paw-4 {
+  bottom: 32px;
+  margin-left: -6px;
+  --rot: 6deg;
+  transform: scale(0.5) rotate(var(--rot));
+}
+
+.pet-fx-dog {
+  bottom: 38px;
+  width: 32px;
+  height: 32px;
+  margin-left: -16px;
+  color: var(--cream, #f5efdf);
+  transform: translateY(8px) scale(0.8);
+}
+
+.pet-fx-dog svg {
+  width: 100%;
+  height: 100%;
+  stroke: var(--cream, #f5efdf);
+  stroke-width: 2.2;
+}
+
+.pet-fx-text {
+  bottom: 64px;
+  width: max-content;
+  /* "Bow wow!" at 15px italic Playfair renders ~68px wide — a fixed
+     margin centers it without needing a transform-based offset, which
+     keeps the keyframes below simple and breakpoint-portable. */
+  margin-left: -34px;
+  transform: translateY(6px);
+  font: 500 15px/1 "Playfair Display", serif;
+  font-style: italic;
+  color: var(--orange, #fbb019);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.pet-fx-particles i {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--orange, #fbb019);
+}
+
+.pet-fx-particles i:nth-child(1) {
+  bottom: 32px;
+  margin-left: -22px;
+}
+
+.pet-fx-particles i:nth-child(2) {
+  bottom: 46px;
+  margin-left: 20px;
+}
+
+.pet-fx-particles i:nth-child(3) {
+  bottom: 52px;
+  margin-left: -16px;
+}
+
+.pet-fx-particles i:nth-child(4) {
+  bottom: 26px;
+  margin-left: 16px;
+}
+
+.pet-fx-particles i:nth-child(5) {
+  bottom: 50px;
+  margin-left: 4px;
+}
+
+/* Playing state — staggered reveal, matches the ~1.6s sequence timed in
+   PetFriendlyInteraction.tsx (SEQUENCE_MS). Each element animates once via
+   its own keyframes rather than one shared timeline, so they stay
+   independently tunable. */
+.hero-pet-interaction.is-playing .pet-fx-paw-1 {
+  animation: petPawPop 0.5s var(--ease, ease) 0ms forwards;
+}
+
+.hero-pet-interaction.is-playing .pet-fx-paw-2 {
+  animation: petPawPop 0.5s var(--ease, ease) 90ms forwards;
+}
+
+.hero-pet-interaction.is-playing .pet-fx-paw-3 {
+  animation: petPawPop 0.5s var(--ease, ease) 180ms forwards;
+}
+
+.hero-pet-interaction.is-playing .pet-fx-paw-4 {
+  animation: petPawPop 0.5s var(--ease, ease) 270ms forwards;
+}
+
+.hero-pet-interaction.is-playing .pet-fx-dog {
+  animation: petDogIn 0.55s var(--ease, ease) 420ms forwards;
+}
+
+.hero-pet-interaction.is-playing .pet-fx-text {
+  animation: petTextIn 0.45s var(--ease, ease) 780ms forwards;
+}
+
+.hero-pet-interaction.is-playing .pet-fx-particles i {
+  animation: petParticle 0.6s ease-out 900ms forwards;
+}
+
+.hero-pet-interaction.is-playing .pet-fx-paw,
+.hero-pet-interaction.is-playing .pet-fx-dog,
+.hero-pet-interaction.is-playing .pet-fx-text,
+.hero-pet-interaction.is-playing .pet-fx-particles i {
+  animation-fill-mode: forwards;
+}
+
+/* Everything fades back to the resting state together near the end of the
+   sequence, well inside the SEQUENCE_MS window the component resets on. */
+.hero-pet-interaction.is-playing .pet-fx {
+  animation: petFxReset 0.35s ease-in 1250ms forwards;
+}
+
+@keyframes petPawPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(var(--rot, 0deg));
+  }
+
+  55% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0.55;
+    transform: scale(1) rotate(var(--rot, 0deg));
+  }
+}
+
+@keyframes petDogIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.8);
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes petTextIn {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.92);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes petParticle {
+  0% {
+    opacity: 0;
+    transform: scale(0.4) translate(0, 0);
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1) translate(var(--px, 6px), calc(-1 * var(--py, 10px)));
+  }
+}
+
+.pet-fx-particles i:nth-child(1) {
+  --px: -8px;
+  --py: 10px;
+}
+
+.pet-fx-particles i:nth-child(2) {
+  --px: 10px;
+  --py: 8px;
+}
+
+.pet-fx-particles i:nth-child(3) {
+  --px: -4px;
+  --py: 14px;
+}
+
+.pet-fx-particles i:nth-child(4) {
+  --px: 7px;
+  --py: -6px;
+}
+
+.pet-fx-particles i:nth-child(5) {
+  --px: -10px;
+  --py: -4px;
+}
+
+@keyframes petFxReset {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* Reduced motion: one simple fade/scale instead of the staggered sequence. */
+.hero-pet-interaction.reduced-motion .pet-fx-paw,
+.hero-pet-interaction.reduced-motion .pet-fx-particles i {
+  display: none;
+}
+
+.hero-pet-interaction.reduced-motion.is-playing .pet-fx-dog {
+  animation: petReducedFadeDog 0.45s ease forwards;
+}
+
+.hero-pet-interaction.reduced-motion.is-playing .pet-fx-text {
+  animation: petReducedFadeText 0.45s ease forwards;
+}
+
+.hero-pet-interaction.reduced-motion.is-playing .pet-fx {
+  animation: petFxReset 0.2s ease-in 300ms forwards;
+}
+
+@keyframes petReducedFadeDog {
+  0% {
+    opacity: 0;
+    transform: translateY(4px) scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes petReducedFadeText {
+  0% {
+    opacity: 0;
+    transform: translateY(4px) scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-pet-interaction .pet-fx-paw,
+  .hero-pet-interaction .pet-fx-particles i {
+    display: none;
+  }
+
+  .hero-pet-interaction.is-playing .pet-fx-dog {
+    animation: petReducedFadeDog 0.45s ease forwards;
+  }
+
+  .hero-pet-interaction.is-playing .pet-fx-text {
+    animation: petReducedFadeText 0.45s ease forwards;
+  }
+
+  .hero-pet-interaction.is-playing .pet-fx {
+    animation: petFxReset 0.2s ease-in 300ms forwards;
+  }
+}
+
+@media (max-width: 760px) {
+
+  /* The Pet Friendly badge now floats right-aligned near the hero/rail seam
+     on mobile (see .hero-pet-float below), leaving almost no clearance to
+     its right but a wide-open gap to its left — so the sequence mirrors
+     into that gap instead of the opposite direction used previously. */
+  .pet-fx {
+    left: auto;
+    right: 100%;
+    bottom: auto;
+    top: 50%;
+    width: 1px;
+    height: 1px;
+    transform: translateY(-50%);
+  }
+
+  .pet-fx-paw,
+  .pet-fx-dog,
+  .pet-fx-text,
+  .pet-fx-particles i {
+    bottom: auto;
+    margin-left: 0;
+  }
+
+  .pet-fx-paw-1 {
+    top: 5px;
+    margin-left: -8px;
+  }
+
+  .pet-fx-paw-2 {
+    top: -9px;
+    margin-left: -20px;
+  }
+
+  .pet-fx-paw-3 {
+    top: 7px;
+    margin-left: -34px;
+  }
+
+  .pet-fx-paw-4 {
+    top: -7px;
+    margin-left: -48px;
+  }
+
+  .pet-fx-dog {
+    top: -9px;
+    margin-left: -78px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .pet-fx-text {
+    top: -32px;
+    margin-left: -96px;
+    font-size: 11px;
+  }
+
+  .pet-fx-particles i:nth-child(1) {
+    top: -13px;
+    margin-left: -42px;
+  }
+
+  .pet-fx-particles i:nth-child(2) {
+    top: 13px;
+    margin-left: -58px;
+  }
+
+  .pet-fx-particles i:nth-child(3) {
+    top: -19px;
+    margin-left: -66px;
+  }
+
+  .pet-fx-particles i:nth-child(4) {
+    top: 9px;
+    margin-left: -28px;
+  }
+
+  .pet-fx-particles i:nth-child(5) {
+    top: -3px;
+    margin-left: -74px;
+  }
+}
+
+/* ============================================================
+   PET FRIENDLY BADGE POSITIONING FIX
+   - Positioned relative to .hero-main container
+   - Anchored near the lower-right edge of the visual hero
+   - 100% visible, never clipped by the left or right edge of the viewport
+   ============================================================ */
+.hero-pet-float {
+  position: absolute !important;
+  right: clamp(16px, 2.2vw, 28px) !important;
+  bottom: clamp(96px, 15vh, 140px) !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  z-index: 10 !important;
+}
+
+@media (max-width: 760px) {
+  .hero-pet-float {
+    position: absolute !important;
+    right: 16px !important;
+    bottom: 76px !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    z-index: 10 !important;
+  }
+}
+
+.navbar .book-btn span {
+  margin-left: 5px !important;
+  display: inline !important;
+}
+
+/* ============================================================
+   PRESS’D VISIT PAGE — SINGLE-SCREEN / NO-SCROLL EDITORIAL LAYOUT
+   Scoped with :not(.menu-detail-view): this locks body/main into a
+   fixed-height split-screen grid, which is correct for short "detail"
+   sections like Visit/Our Café/Pet Friendly but was unintentionally
+   also catching the Menu (which shares the plain .detail-view class),
+   clipping its 97-product page to one screen and killing document
+   scroll entirely. The Menu needs normal long-page scrolling instead
+   — see body.detail-view.menu-detail-view overrides elsewhere, which
+   this scoping now lets win instead of being shadowed by !important.
+   ============================================================ */
+@media (min-width: 761px) {
+  body.detail-view:not(.menu-detail-view) {
+    height: 100vh !important;
+    height: 100dvh !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    background: var(--ink, #070806) !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) main {
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    max-width: 1920px !important;
+    margin-inline: auto !important;
+    padding: clamp(14px, 1.2vw, 20px) !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(460px, 1.08fr) !important;
+    gap: clamp(14px, 1.2vw, 20px) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .hero {
+    display: block !important;
+    height: 100% !important;
+    max-height: calc(100dvh - clamp(28px, 2.4vw, 40px)) !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    overflow: hidden !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .hero-main {
+    height: 100% !important;
+    max-height: 100% !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .hero-rail,
+  body.detail-view:not(.menu-detail-view) .hero-rail-head,
+  body.detail-view:not(.menu-detail-view) .hero-carousel-dots {
+    display: none !important;
+  }
+
+  body.detail-view #visit.active-detail {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    max-height: calc(100dvh - clamp(28px, 2.4vw, 40px)) !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: clamp(26px, 2.6vw, 44px) clamp(28px, 3vw, 50px) !important;
+    background: var(--cream, #f5efdf) !important;
+    color: #070806 !important;
+    border-radius: 24px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    position: relative !important;
+    animation: detailPanelIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards !important;
+  }
+}
+
+.visit-shell {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  min-height: 0 !important;
+  gap: clamp(12px, 1.8vh, 20px) !important;
+  box-sizing: border-box !important;
+}
+
+/* Zone 1 (Top Block): Title + Opening Hours */
+.visit-top-block {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  gap: 20px !important;
+  padding-bottom: clamp(10px, 1.6vh, 16px) !important;
+  border-bottom: 1px solid rgba(7, 8, 6, 0.1) !important;
+  flex-shrink: 0 !important;
+}
+
+.visit-title-group .eyebrow {
+  font-family: "Manrope", sans-serif !important;
+  font-size: 10.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.22em !important;
+  color: #9a6410 !important;
+  margin: 0 0 6px 0 !important;
+  text-transform: uppercase !important;
+}
+
+.visit-heading {
+  font-family: "Manrope", sans-serif !important;
+  font-size: clamp(34px, 3.6vw, 56px) !important;
+  font-weight: 800 !important;
+  line-height: 0.92 !important;
+  letter-spacing: -0.04em !important;
+  color: #070806 !important;
+  margin: 0 !important;
+  text-transform: uppercase !important;
+}
+
+.visit-heading .accent {
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 500 !important;
+  color: #9a6410 !important;
+  display: inline-block !important;
+}
+
+.visit-hours-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  text-align: right !important;
+  gap: 5px !important;
+  padding-top: 4px !important;
+  margin-right: clamp(40px, 4.2vw, 60px) !important;
+}
+
+.visit-micro-tag {
+  font-family: "Manrope", sans-serif !important;
+  font-size: 9.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: #9a6410 !important;
+  display: block !important;
+}
+
+.visit-hours-details {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 12px !important;
+}
+
+.visit-hours-day {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: rgba(7, 8, 6, 0.65) !important;
+}
+
+.visit-hours-time {
+  font-family: "Manrope", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #070806 !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* Zone 2 (Middle Block): Location + CTAs */
+.visit-middle-block {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 20px !important;
+  padding: clamp(8px, 1.4vh, 14px) 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.visit-location-info {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  text-align: left !important;
+}
+
+.visit-location-name {
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-size: clamp(18px, 1.5vw, 24px) !important;
+  font-weight: 600 !important;
+  color: #070806 !important;
+  margin: 0 !important;
+  line-height: 1.2 !important;
+}
+
+.visit-location-sub {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: clamp(13px, 0.95vw, 15px) !important;
+  color: rgba(7, 8, 6, 0.72) !important;
+  margin: 0 !important;
+  font-weight: 400 !important;
+}
+
+.visit-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+}
+
+.visit-cta-book {
+  height: clamp(42px, 4.4vh, 48px) !important;
+  padding: 0 clamp(18px, 1.4vw, 24px) !important;
+  background: var(--orange, #fbb019) !important;
+  color: #070806 !important;
+  border: 1px solid var(--orange, #fbb019) !important;
+  border-radius: 999px !important;
+  font-family: "Manrope", sans-serif !important;
+  font-size: clamp(11px, 0.82vw, 12.5px) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 4px 12px rgba(251, 176, 25, 0.25) !important;
+}
+
+.visit-cta-book:hover {
+  background: #070806 !important;
+  color: #f5efdf !important;
+  border-color: #070806 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(7, 8, 6, 0.2) !important;
+}
+
+.visit-cta-directions {
+  height: clamp(42px, 4.4vh, 48px) !important;
+  padding: 0 clamp(18px, 1.4vw, 24px) !important;
+  background: #070806 !important;
+  color: #f5efdf !important;
+  border: 1px solid rgba(7, 8, 6, 0.25) !important;
+  border-radius: 999px !important;
+  font-family: "Manrope", sans-serif !important;
+  font-size: clamp(11px, 0.82vw, 12.5px) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  transition: all 0.25s ease !important;
+}
+
+.visit-cta-directions:hover {
+  border-color: #9a6410 !important;
+  color: #fbb019 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Zone 3 (Bottom Block): Compact Map Video + Contact Info (2-column grid) */
+.visit-bottom-grid {
+  display: grid !important;
+  grid-template-columns: 1.12fr 0.88fr !important;
+  gap: 12px !important;
+  flex: 1 1 0 !important;
+  min-height: 0 !important;
+  max-height: 230px !important;
+}
+
+.visit-map-card {
+  position: relative !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  background: #070806 !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  display: block !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 16px rgba(7, 8, 6, 0.12) !important;
+  border: 1px solid rgba(7, 8, 6, 0.1) !important;
+  transition: transform 0.35s ease, border-color 0.35s ease !important;
+}
+
+.visit-map-card:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(251, 176, 25, 0.6) !important;
+}
+
+.visit-map-video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  filter: saturate(0.85) brightness(0.8) !important;
+  display: block !important;
+  transition: transform 0.6s ease, filter 0.4s ease !important;
+}
+
+.visit-map-card:hover .visit-map-video {
+  transform: scale(1.04) !important;
+  filter: saturate(0.95) brightness(0.88) !important;
+}
+
+.visit-map-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(180deg, rgba(7, 8, 6, 0.2) 0%, rgba(7, 8, 6, 0.75) 100%) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  padding: 12px 14px !important;
+  pointer-events: none !important;
+}
+
+.visit-map-badge {
+  align-self: flex-start !important;
+  background: rgba(7, 8, 6, 0.75) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(245, 239, 223, 0.3) !important;
+  border-radius: 999px !important;
+  padding: 4px 10px !important;
+  font-family: "Manrope", sans-serif !important;
+  font-size: 8.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em !important;
+  color: #f5efdf !important;
+  text-transform: uppercase !important;
+}
+
+.visit-map-title {
+  font-family: "Manrope", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: 0.04em !important;
+  color: #f5efdf !important;
+  margin: 0 !important;
+  text-transform: uppercase !important;
+}
+
+.visit-contact-card {
+  background: rgba(7, 8, 6, 0.045) !important;
+  border: 1px solid rgba(7, 8, 6, 0.08) !important;
+  border-radius: 16px !important;
+  padding: 12px 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.visit-contact-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.visit-contact-row {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1px !important;
+  text-align: left !important;
+}
+
+.visit-contact-k {
+  font-family: "Manrope", sans-serif !important;
+  font-size: 8.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.14em !important;
+  color: #9a6410 !important;
+  text-transform: uppercase !important;
+}
+
+.visit-contact-v {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 11.5px !important;
+  line-height: 1.35 !important;
+  color: #070806 !important;
+  margin: 0 !important;
+  font-weight: 500 !important;
+}
+
+.visit-contact-link {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 12px !important;
+  color: #070806 !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  transition: color 0.2s ease !important;
+}
+
+.visit-contact-link:hover {
+  color: #9a6410 !important;
+}
+
+.visit-social-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  color: #070806 !important;
+  font-weight: 600 !important;
+}
+
+.visit-social-link:hover {
+  color: #9a6410 !important;
+}
+
+.visit-social-link svg {
+  stroke: currentColor !important;
+  flex-shrink: 0 !important;
+}
+
+/* Close/Home button in top-right of visit panel */
+body.detail-view #visit .section-home-button {
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  margin: 0 !important;
+  z-index: 10 !important;
+  display: grid !important;
+}
+
+/* Mobile Layout (<= 760px) */
+@media (max-width: 760px) {
+  body.detail-view {
+    height: auto !important;
+    overflow-y: auto !important;
+  }
+
+  body.detail-view main {
+    height: auto !important;
+    max-height: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 10px !important;
+    overflow: visible !important;
+  }
+
+  body.detail-view #visit.active-detail {
+    height: auto !important;
+    max-height: none !important;
+    padding: 30px 18px 44px !important;
+    overflow: visible !important;
+  }
+
+  .visit-shell {
+    gap: 20px !important;
+  }
+
+  .visit-top-block {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+
+  .visit-hours-card {
+    align-items: flex-start !important;
+    text-align: left !important;
+    margin-right: 0 !important;
+  }
+
+  .visit-middle-block {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+
+  .visit-bottom-grid {
+    grid-template-columns: 1fr !important;
+    max-height: none !important;
+  }
+
+  .visit-map-card {
+    height: 180px !important;
+  }
+}
+
+/* ============================================================
+   MENU — scroll-aware category bars (hide on scroll down, show on
+   scroll up). Purely a transform/opacity toggle on top of the
+   existing sticky positioning above; dimensions, spacing and
+   typography are untouched.
+   ============================================================ */
+body.menu-detail-view .category-wrap,
+body.menu-detail-view .menu-subnav {
+  transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease !important;
+  will-change: transform, opacity;
+}
+
+body.menu-detail-view .menu-section.menu-nav-hidden .category-wrap,
+body.menu-detail-view .menu-section.menu-nav-hidden .menu-subnav {
+  transform: translateY(-100%) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
