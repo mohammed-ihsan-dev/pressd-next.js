@@ -13167,8 +13167,14 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
     max-width: clamp(340px, 26vw, 460px) !important;
   }
 
-  /* Themed Circular Instagram Link on Bottom-Right of Video */
+  /* Themed Circular Instagram Link on Top-Right of Video */
   .hero-round-link {
+    position: absolute !important;
+    top: clamp(24px, 2.8vh, 36px) !important;
+    right: clamp(20px, 2.2vw, 36px) !important;
+    bottom: auto !important;
+    left: auto !important;
+    z-index: 10 !important;
     pointer-events: auto !important;
     width: clamp(48px, 4.8vh, 56px) !important;
     height: clamp(48px, 4.8vh, 56px) !important;
@@ -13182,7 +13188,7 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
     align-items: center !important;
     justify-content: center !important;
     flex-shrink: 0 !important;
-    margin-bottom: 2px !important;
+    margin: 0 !important;
     transition: all 0.3s ease !important;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
   }
@@ -13469,7 +13475,18 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   }
 
   .hero-content-left {
-    max-width: calc(100% - 56px) !important;
+    max-width: 100% !important;
+  }
+
+  .hero-round-link {
+    position: absolute !important;
+    top: 68px !important;
+    right: 16px !important;
+    bottom: auto !important;
+    left: auto !important;
+    z-index: 10 !important;
+    width: 42px !important;
+    height: 42px !important;
   }
 
   .hero h1 {
