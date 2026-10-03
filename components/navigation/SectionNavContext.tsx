@@ -37,6 +37,21 @@ export function SectionNavProvider({ children }: { children: React.ReactNode }) 
   }, []);
 
   useEffect(() => {
+    const handleHash = () => {
+      const h = location.hash.slice(1);
+      if (h && h !== "home") {
+        setActiveSection(h);
+      } else {
+        setActiveSection(null);
+      }
+    };
+    // Sync initial hash after hydration
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
+
+  useEffect(() => {
     const body = document.body;
     const isDetail = activeSection !== null;
     body.classList.toggle("home-view", !isDetail);

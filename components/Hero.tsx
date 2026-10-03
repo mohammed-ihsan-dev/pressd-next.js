@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { useSectionLinkHandler } from "@/components/navigation/SectionNavContext";
 import { useBooking } from "@/components/booking/BookingContext";
 import { prefersReducedMotion } from "@/lib/utils";
-import PetFriendlyInteraction from "@/components/PetFriendlyInteraction";
 
 const RAIL_LINKS = [
   { href: "#menu", label: "Menu", img: "/assets/menu-cover.webp", kind: "a" as const },
@@ -130,10 +129,15 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Pet Friendly Badge: anchored relative to hero-main, fully visible, never clipped */}
-        <div className="hero-pet-float">
-          <PetFriendlyInteraction />
-        </div>
+        {/* Static decorative pet artwork, anchored relative to hero-main */}
+        <a
+          className="hero-pet-float"
+          href="#pets"
+          onClick={handleLink("#pets")}
+          aria-label="Pet friendly — see our Pet Friendly page"
+        >
+          <img src="/website-pet-icon.png" alt="" />
+        </a>
       </div>
 
       <div className="hero-rail-head" aria-hidden="true">
