@@ -4,11 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import { useSectionLinkHandler } from "@/components/navigation/SectionNavContext";
 import { useBooking } from "@/components/booking/BookingContext";
 import { prefersReducedMotion } from "@/lib/utils";
+import PetPawTrail from "@/components/PetPawTrail";
+import PetInteractiveIcon from "@/components/PetInteractiveIcon";
 
 const RAIL_LINKS = [
-  { href: "#menu", label: "Menu", img: "/assets/menu-cover.webp", kind: "a" as const },
-  { href: "#book", label: "Reservation", img: "/assets/work-ambience-cover.webp", kind: "book" as const },
-  { href: "#about", label: "Our café", img: "/assets/our-cafe-cover.webp", kind: "a" as const },
+  { href: "#menu", label: "Menu", img: "/assets/menu-latte-cover.webp", kind: "a" as const },
+  { href: "#book", label: "Reservation", img: "/assets/reservation-cover.webp", kind: "book" as const },
+  { href: "#about", label: "Our café", img: "/assets/cafe-interior-cover.webp", kind: "a" as const },
 ];
 
 export default function Hero() {
@@ -17,6 +19,32 @@ export default function Hero() {
   const handleLink = useSectionLinkHandler();
   const { openBooking } = useBooking();
   const [carouselIndex, setCarouselIndex] = useState(0);
+
+  // Touch-only Easter egg on the Pet Friendly icon: a walking paw-print
+  // trail. Desktop keeps its separate mouse-tracking interaction (handled
+  // elsewhere) untouched — gated on event.pointerType, not viewport width,
+  // so a touch-capable laptop using a mouse doesn't trigger it either.
+  const [pawTrigger, setPawTrigger] = useState(0);
+  const pawPlayingRef = useRef(false);
+  const handlePetPointerUp = (event: React.PointerEvent<HTMLElement>) => {
+    if (event.pointerType !== "touch" || pawPlayingRef.current) return;
+    pawPlayingRef.current = true;
+    setPawTrigger((n) => n + 1);
+  };
+
+  // Desktop/laptop (primary input is a precise, hover-capable pointer) gets
+  // cursor-tracking pupils + the petJump.mp4 click animation; touch-primary
+  // devices get static pupils and the paw-trail tap handler above instead
+  // — never both. Capability-based, not viewport width, so a touch-capable
+  // laptop using a mouse still gets the desktop behavior.
+  const [hasFinePointer, setHasFinePointer] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const update = () => setHasFinePointer(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   // Play the hero video from its beginning once mounted (matches original timing).
   useEffect(() => {
@@ -129,15 +157,12 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Static decorative pet artwork, anchored relative to hero-main */}
-        <a
-          className="hero-pet-float"
-          href="#pets"
-          onClick={handleLink("#pets")}
-          aria-label="Pet friendly — see our Pet Friendly page"
-        >
-          <img src="/website-pet-icon.png" alt="" />
-        </a>
+        {/* Pet Friendly icon: same artwork and pupils on every device.
+            Fine-pointer devices get cursor-tracking + the petJump.mp4
+            click animation; touch devices get static pupils and the
+            existing tap-to-paw-trail handler above — never both. */}
+        <PetInteractiveIcon interactive={hasFinePointer} onTouchTap={handlePetPointerUp} />
+        <PetPawTrail trigger={pawTrigger} onDone={() => { pawPlayingRef.current = false; }} />
       </div>
 
       <div className="hero-rail-head" aria-hidden="true">
@@ -151,7 +176,7 @@ export default function Hero() {
             <button key={link.label} className="rail-card" onClick={openBooking}>
               <img src={link.img} alt="Intimate table reservation at PRESS'D Wellness Café" />
               <span>
-                {link.label} <b className="gold-btn">→</b>
+                {link.label} <b>→</b>
               </span>
             </button>
           ) : (

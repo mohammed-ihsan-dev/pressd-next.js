@@ -39,7 +39,7 @@ export function SectionNavProvider({ children }: { children: React.ReactNode }) 
   useEffect(() => {
     const handleHash = () => {
       const h = location.hash.slice(1);
-      if (h && h !== "home") {
+      if (h && h !== "home" && document.getElementById(h)) {
         setActiveSection(h);
       } else {
         setActiveSection(null);

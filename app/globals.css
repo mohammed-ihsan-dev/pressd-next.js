@@ -2877,9 +2877,6 @@ footer {
   }
 }
 
-#pets {
-  scroll-margin-top: 88px
-}
 
 .navbar:before {
   display: none !important
@@ -5163,22 +5160,6 @@ body.home-view {
   transform: scale(1.1)
 }
 
-/* Keep the Pet Friendly card focused on the dog. */
-.hero-rail a[href="#pets"]>img {
-  object-position: 50% 48%;
-  transform: scale(1.03)
-}
-
-.hero-rail a[href="#pets"]:hover>img {
-  transform: scale(1.08)
-}
-
-@media(max-width:760px) {
-  .hero-rail a[href="#pets"]>img {
-    object-position: 50% 46%;
-    transform: scale(1.06)
-  }
-}
 
 /* Cinematic readability overlay for Visit Us cover. */
 .visit-video-cover:before {
@@ -7125,26 +7106,12 @@ body.detail-view .menu-section .category-wrap:after {
 }
 
 /* Navigation stroke specification: HEX #F6E9DA / RGB 246, 233, 218. */
-.navbar,
-.navbar.scrolled,
-body.detail-view .navbar {
-  border-color: #F6E9DA !important
-}
-
 .navbar .cart-toggle,
 .navbar>.book-btn {
   border-color: #F6E9DA !important
 }
 
 @media(max-width:760px) {
-
-  .navbar,
-  .navbar.scrolled,
-  body.home-view .navbar,
-  body.home-view .navbar.scrolled,
-  body.detail-view .navbar {
-    border-color: #F6E9DA !important
-  }
 
   .navbar .cart-toggle,
   .navbar .menu-toggle {
@@ -7991,7 +7958,6 @@ body.product-modal-open {
     left: 10px !important;
     right: 10px !important;
     height: 66px !important;
-    border: 1px solid rgba(247, 241, 230, .55) !important;
     border-radius: 20px !important;
     background: rgba(5, 6, 5, .97) !important;
     box-shadow: 0 12px 34px rgba(0, 0, 0, .42) !important
@@ -12299,13 +12265,17 @@ body.menu-detail-view .menu-subnav button.active span,
 /* Base Navbar Styles Across All Breakpoints */
 header.navbar,
 .navbar,
-.navbar.scrolled {
+.navbar.scrolled,
+body.detail-view .navbar,
+body.home-view .navbar,
+body.menu-detail-view .navbar {
   position: fixed !important;
   z-index: 99 !important;
   top: 14px !important;
   height: clamp(66px, 7vh, 76px) !important;
   padding: 8px clamp(16px, 1.4vw, 24px) !important;
-  border: 1px solid rgba(246, 233, 218, 0.3) !important;
+  border: none !important;
+  outline: none !important;
   border-radius: 20px !important;
   background: rgba(2, 3, 3, 0.94) !important;
   backdrop-filter: blur(16px) !important;
@@ -12856,10 +12826,10 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
  * SMALL HOVER UI FIXES
  * ============================================================ */
 
-/* CHANGE 1: Home / Hero Page Quick-Access Card Arrow Button Hover */
+/* Home / Hero Page Quick-Access Card Arrow Button */
 .hero-rail .rail-card span b,
 .rail-card span b {
-  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease !important;
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease !important;
 }
 
 @media (hover: hover) {
@@ -12868,10 +12838,10 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   .hero-rail .rail-card span b:hover,
   .rail-card:hover span b,
   .rail-card span b:hover {
-    background-color: var(--orange, #ffb31a) !important;
-    color: var(--ink, #080906) !important;
-    border-color: var(--orange, #ffb31a) !important;
-    transform: none !important;
+    background-color: rgba(245, 239, 223, 0.12) !important;
+    color: #f5efdf !important;
+    border-color: rgba(245, 239, 223, 0.55) !important;
+    transform: translateX(2px) !important;
   }
 }
 
@@ -13275,6 +13245,10 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
     transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease !important;
   }
 
+  .hero-rail .rail-card img[src*="reservation-cover"] {
+    object-position: 50% 55% !important;
+  }
+
   .hero-rail .rail-card:hover img {
     transform: scale(1.04) !important;
     filter: saturate(0.95) brightness(0.9) !important;
@@ -13289,10 +13263,6 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
     border-color: var(--orange, #fbb019) !important;
   }
 
-  .hero-rail .rail-card a[href="#pets"]>img,
-  .hero-rail a[href="#pets"]>img {
-    object-position: 50% 46% !important;
-  }
 
   .hero-rail .rail-card-tag {
     position: absolute !important;
@@ -13318,24 +13288,35 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
     line-height: 1 !important;
   }
 
-  /* Curved cutout for card title at bottom-right */
+  /* Compact editorial caption cutout for card title at bottom-right */
   .hero-rail .rail-card span {
     position: absolute !important;
     right: 0 !important;
     bottom: 0 !important;
-    min-width: clamp(180px, 12vw, 240px) !important;
-    height: clamp(58px, 6.2vh, 70px) !important;
-    padding: 0 10px 0 clamp(20px, 1.6vw, 32px) !important;
-    border-radius: 24px 0 0 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    height: clamp(34px, 3.8vh, 38px) !important;
+    padding: 0 10px 0 15px !important;
+    border-radius: 14px 0 0 0 !important;
+    border-top: 1px solid rgba(245, 239, 223, 0.12) !important;
+    border-left: 1px solid rgba(245, 239, 223, 0.12) !important;
+    border-right: none !important;
+    border-bottom: none !important;
     background: #070806 !important;
-    display: flex !important;
+    display: inline-flex !important;
     align-items: center !important;
-    justify-content: space-between !important;
-    font: 500 clamp(17px, 1.15vw, 22px) "Playfair Display", Georgia, serif !important;
+    justify-content: flex-end !important;
+    gap: 9px !important;
+    font-family: "Playfair Display", Georgia, serif !important;
+    font-style: italic !important;
+    font-weight: 500 !important;
+    font-size: clamp(12.5px, 0.9vw, 13.5px) !important;
     text-transform: uppercase !important;
     color: #f5efdf !important;
-    letter-spacing: 0.04em !important;
+    letter-spacing: 0.08em !important;
+    line-height: 1 !important;
     z-index: 2 !important;
+    box-sizing: border-box !important;
   }
 
   /* Remove any clipping pseudo-element from the card label tab */
@@ -13348,36 +13329,28 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   .hero-rail .rail-card span b {
     position: relative !important;
     z-index: 5 !important;
-    width: clamp(38px, 4.2vh, 46px) !important;
-    height: clamp(38px, 4.2vh, 46px) !important;
+    width: 22px !important;
+    height: 22px !important;
     border: 1px solid rgba(245, 239, 223, 0.3) !important;
     border-radius: 50% !important;
     display: grid !important;
     place-items: center !important;
-    font: 400 clamp(15px, 1.1vw, 19px) "DM Sans", sans-serif !important;
+    font-family: "DM Sans", sans-serif !important;
+    font-style: normal !important;
+    font-size: 11px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
     color: #f5efdf !important;
-    transition: all 0.35s ease !important;
+    background: transparent !important;
+    transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease !important;
+    flex-shrink: 0 !important;
   }
 
   .hero-rail .rail-card:hover span b {
-    background: #f5efdf !important;
-    color: #070806 !important;
-    transform: rotate(-35deg) !important;
-  }
-
-  /* Pet Friendly card gold button */
-  .hero-rail .rail-card span b.gold-btn {
-    background: var(--orange, #fbb019) !important;
-    color: #070806 !important;
-    border-color: var(--orange, #fbb019) !important;
-    font-weight: 700 !important;
-  }
-
-  .hero-rail .rail-card:hover span b.gold-btn {
-    background: #f5efdf !important;
-    color: #070806 !important;
-    border-color: #f5efdf !important;
-    transform: rotate(-35deg) !important;
+    background: rgba(245, 239, 223, 0.15) !important;
+    border-color: rgba(245, 239, 223, 0.6) !important;
+    color: #f5efdf !important;
+    transform: translateX(2px) !important;
   }
 
   .hero-carousel-dots {
@@ -13398,15 +13371,17 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   }
 
   .hero-rail .rail-card span {
-    min-width: 145px !important;
-    height: 48px !important;
-    font-size: 14px !important;
+    min-width: 0 !important;
+    height: 34px !important;
+    font-size: 12px !important;
+    padding: 0 8px 0 13px !important;
+    gap: 8px !important;
   }
 
   .hero-rail .rail-card span b {
-    width: 32px !important;
-    height: 32px !important;
-    font-size: 13px !important;
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 10px !important;
   }
 }
 
@@ -13505,9 +13480,17 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   }
 
   .hero-rail .rail-card span {
-    min-width: 155px !important;
-    height: 50px !important;
-    font-size: 14px !important;
+    min-width: 0 !important;
+    height: 33px !important;
+    font-size: 11.5px !important;
+    padding: 0 7px 0 12px !important;
+    gap: 7px !important;
+  }
+
+  .hero-rail .rail-card span b {
+    width: 19px !important;
+    height: 19px !important;
+    font-size: 9.5px !important;
   }
 
   .hero-carousel-dots {
@@ -13592,9 +13575,12 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
 
 
 /* ============================================================
-   PET ICON — static decorative artwork (public/website-pet-icon.png),
-   bottom-right of the hero/video panel. Positioned relative to
-   .hero-main, scales proportionally per breakpoint, never animated.
+   PET ICON — public/petIcon.png, bottom-right of the hero/video panel.
+   Positioned relative to .hero-main, scales proportionally per
+   breakpoint. Same artwork + pupils on every device (see
+   PetInteractiveIcon.tsx): fine-pointer devices get cursor tracking +
+   the petJump.mp4 click animation, touch devices get static pupils and
+   the paw-trail tap (see PetPawTrail.tsx) — never both.
    ============================================================ */
 .hero-pet-float {
   position: absolute !important;
@@ -13633,6 +13619,73 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
     z-index: 10 !important;
     width: clamp(50px, 13vw, 68px) !important;
   }
+}
+
+/* Desktop/laptop-only interactive variant of the pet icon (same
+   .hero-pet-float position/size above). Base artwork (public/petIcon.png)
+   is completely static; the two pupils are drawn as crisp CSS circles,
+   each tracked independently relative to its own eye (see
+   PetInteractiveIcon.tsx for the measured per-eye clamp geometry). On
+   click the jump video crossfades in over the same box, then crossfades
+   back out to the static artwork + pupils. */
+.hero-pet-interactive {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+}
+
+.hero-pet-base-img,
+.hero-pet-jump-video {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+}
+
+.hero-pet-base-img {
+  position: absolute;
+  inset: 0;
+}
+
+/* The pupil pair — each dot tracks its own eye independently and is
+   clamped to that eye's own measured safe ellipse. Drawn as vector
+   circles (not a translated raster) so they stay crisp at the icon's
+   small rendered size. Never resized or rotated; only translated a few
+   px by PetInteractiveIcon.tsx. */
+.hero-pet-pupils {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  will-change: transform;
+  transition: opacity 0.12s ease;
+}
+
+.hero-pet-pupil {
+  position: absolute;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-pet-jump-video {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  /* petJump.mp4 has an opaque black background (video has no alpha channel);
+     clip it to the badge's own circular footprint (measured from
+     petIcon.png) so only the badge crossfades in, with no black square
+     flashing in behind it. */
+  clip-path: circle(34% at 50% 50%);
+}
+
+.hero-pet-interactive.is-jumping .hero-pet-pupils {
+  opacity: 0;
+}
+
+.hero-pet-interactive.is-jumping .hero-pet-jump-video {
+  opacity: 1;
 }
 
 .navbar .book-btn span {
@@ -14000,7 +14053,7 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
 .visit-location-image {
   flex: 0.9 1 0 !important;
   min-width: 0 !important;
-  border-radius: 10px !important;
+  border-radius: 0 !important;
   overflow: hidden !important;
   position: relative !important;
 }
@@ -14631,6 +14684,7 @@ body.menu-detail-view .menu-section.menu-nav-hidden .menu-subnav {
   opacity: 0 !important;
   pointer-events: none !important;
 }
+
 /* ============================================================
    SITE-WIDE DARK THEME — carries the Home hero palette (ink
    background, warm cream type, PRESS'D gold accents) onto the
@@ -14699,4 +14753,85 @@ body:not(.menu-detail-view)>footer .footer-links a:hover {
 body:not(.menu-detail-view)>footer .footer-bottom {
   border-top-color: rgba(245, 239, 223, .15);
   color: rgba(245, 239, 223, .6)
+}
+
+/* ============================================================
+   PET FRIENDLY — touch-only paw-print trail Easter egg. Isolated,
+   new class names (pet-paw-*), not referenced anywhere else in this
+   file, so no cascade/specificity concerns with the rest of the sheet.
+   ============================================================ */
+.pet-paw-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.pet-paw-step-wrap {
+  position: absolute;
+  width: clamp(18px, 5.5vw, 32px);
+  height: clamp(18px, 5.5vw, 32px);
+}
+
+.pet-paw-step {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: pet-paw-fade 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.pet-paw-step svg {
+  width: 100%;
+  height: 100%;
+  fill: #d97706;
+}
+
+.pet-paw-step.pet-paw-reduced {
+  animation: pet-paw-reduced-fade 420ms ease-out both;
+}
+
+@keyframes pet-paw-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+  }
+
+  25% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  68% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.92);
+  }
+}
+
+@keyframes pet-paw-reduced-fade {
+  0% {
+    opacity: 0;
+  }
+
+  45% {
+    opacity: 0.85;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pet-paw-step {
+    animation-name: pet-paw-reduced-fade;
+    animation-duration: 420ms;
+  }
 }

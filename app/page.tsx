@@ -5,7 +5,6 @@ import Hero from "@/components/Hero";
 import IntroSection from "@/components/IntroSection";
 import MenuSection from "@/components/menu/MenuSection";
 import SignatureSection from "@/components/SignatureSection";
-import PetFriendlySection from "@/components/PetFriendlySection";
 import WorkSection from "@/components/WorkSection";
 import WhySection from "@/components/WhySection";
 import HealthySection from "@/components/HealthySection";
@@ -30,7 +29,6 @@ export default function Home() {
         <IntroSection />
         <MenuSection />
         <SignatureSection />
-        <PetFriendlySection />
         <WorkSection />
         <WhySection />
         <HealthySection />
