@@ -1,13 +1,17 @@
 "use client";
 
-import { useSectionLinkHandler } from "@/components/navigation/SectionNavContext";
+import { useSectionLinkHandler, useSectionNav } from "@/components/navigation/SectionNavContext";
 
 export default function Footer() {
   const handleLink = useSectionLinkHandler();
+  // Outside the Menu the footer is dark, so it uses the light-on-dark navbar
+  // logo; the Menu keeps its approved gold footer and logo.
+  const { activeSection } = useSectionNav();
+  const logoSrc = activeSection === "menu" ? "/assets/pressd-footer-logo.png?v=2" : "/assets/pressd-logo.webp";
   return (
     <footer>
       <div className="footer-top">
-        <img className="footer-logo" src="/assets/pressd-footer-logo.png?v=2" alt="PRESS'D Wellness Café" />
+        <img className="footer-logo" src={logoSrc} alt="PRESS'D Wellness Café" />
         <div className="footer-links">
           <a href="#menu" onClick={handleLink("#menu")}>
             Menu

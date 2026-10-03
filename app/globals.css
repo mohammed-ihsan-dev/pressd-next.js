@@ -14645,3 +14645,164 @@ body.menu-detail-view .menu-section.menu-nav-hidden .menu-subnav {
   opacity: 0 !important;
   pointer-events: none !important;
 }
+/* ============================================================
+   SITE-WIDE DARK THEME — carries the Home hero palette (ink
+   background, warm cream type, PRESS'D gold accents) onto every
+   non-Menu surface: About and Visit panels, the booking dialog
+   and the footer. Colour only: layout, type and spacing are
+   untouched. The Menu view (including its footer, cart and
+   product modals) is deliberately left as approved.
+   ============================================================ */
+body:not(.menu-detail-view) {
+  background: var(--ink)
+}
+
+/* About */
+#about.intro {
+  background: var(--ink);
+  color: var(--cream)
+}
+
+#about .eyebrow {
+  color: var(--orange)
+}
+
+#about h2 {
+  color: var(--cream)
+}
+
+#about h2 em {
+  color: var(--orange)
+}
+
+#about .lead {
+  color: var(--cream)
+}
+
+#about .facts span {
+  border-color: rgba(245, 239, 223, .2);
+  color: rgba(245, 239, 223, .8)
+}
+
+/* Visit */
+body.detail-view #visit.active-detail {
+  background: var(--ink) !important;
+  color: var(--cream) !important
+}
+
+#visit .visit-top-block {
+  border-bottom-color: rgba(245, 239, 223, .12) !important
+}
+
+#visit .eyebrow,
+#visit .visit-heading .accent,
+#visit .visit-micro-tag,
+#visit .visit-contact-k {
+  color: var(--orange) !important
+}
+
+#visit .visit-heading,
+#visit .visit-hours-time,
+#visit .visit-location-name,
+#visit .visit-contact-v,
+#visit .visit-contact-link,
+#visit .visit-social-link {
+  color: var(--cream) !important
+}
+
+#visit .visit-hours-day {
+  color: rgba(245, 239, 223, .65) !important
+}
+
+#visit .visit-location-sub {
+  color: rgba(245, 239, 223, .72) !important
+}
+
+#visit .visit-contact-link:hover,
+#visit .visit-social-link:hover {
+  color: var(--orange) !important
+}
+
+#visit .visit-cta-book:hover {
+  background: var(--cream) !important;
+  color: var(--ink) !important;
+  border-color: var(--cream) !important
+}
+
+#visit .visit-cta-directions {
+  background: transparent !important;
+  color: var(--cream) !important;
+  border-color: rgba(245, 239, 223, .25) !important
+}
+
+#visit .visit-cta-directions:hover {
+  border-color: var(--orange) !important;
+  color: var(--orange) !important
+}
+
+#visit .visit-map-card {
+  border-color: rgba(245, 239, 223, .1) !important
+}
+
+#visit .visit-contact-card {
+  background: rgba(245, 239, 223, .04) !important;
+  border-color: rgba(245, 239, 223, .1) !important
+}
+
+/* Booking dialog */
+.booking {
+  background: var(--ink);
+  color: var(--cream);
+  border: 1px solid rgba(251, 176, 25, .2)
+}
+
+.booking .eyebrow {
+  color: var(--orange)
+}
+
+.booking .dialog-close {
+  color: var(--cream);
+  border-color: rgba(245, 239, 223, .25)
+}
+
+.booking input,
+.booking select {
+  color: var(--cream);
+  border-bottom-color: rgba(245, 239, 223, .2);
+  color-scheme: dark
+}
+
+.booking input::placeholder {
+  color: rgba(245, 239, 223, .45)
+}
+
+.booking select option {
+  background: var(--ink);
+  color: var(--cream)
+}
+
+.booking button[type=submit] {
+  background: var(--orange);
+  color: var(--ink)
+}
+
+/* Footer (outside the Menu view) */
+body:not(.menu-detail-view)>footer {
+  background: var(--ink);
+  color: var(--cream);
+  border-top: 1px solid rgba(251, 176, 25, .2)
+}
+
+body:not(.menu-detail-view)>footer .footer-links a {
+  color: var(--cream)
+}
+
+body:not(.menu-detail-view)>footer .footer-links a:hover {
+  color: var(--orange);
+  opacity: 1
+}
+
+body:not(.menu-detail-view)>footer .footer-bottom {
+  border-top-color: rgba(245, 239, 223, .15);
+  color: rgba(245, 239, 223, .6)
+}
