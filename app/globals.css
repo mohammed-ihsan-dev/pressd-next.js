@@ -12324,8 +12324,10 @@ header.navbar:before,
 }
 
 /* Non-menu split-screen pages: Anchor navbar inside left hero/video area,
-   proportional to desktop viewport with premium presence. */
-@media (min-width: 1101px) {
+   proportional to desktop viewport with premium presence. Starts at 761px
+   (not 1101px) so there's no gap where the tablet-landscape range falls
+   through to the full-width Menu-style navbar rule instead. */
+@media (min-width: 761px) {
 
   body:not(.menu-detail-view) .navbar,
   body.home-view .navbar,
@@ -12342,6 +12344,20 @@ header.navbar:before,
     padding: 8px 18px !important;
     border-radius: 14px !important;
     gap: clamp(20px, 2.2vw, 36px) !important;
+  }
+
+  /* At tablet-landscape widths the hero column is proportionally narrower
+     than the 64vw formula above assumes (it tracks a ~460px-floor split
+     grid, not a flat percentage), so the navbar would overshoot past the
+     hero into the detail panel next to it. Clamp it down to match. */
+  @media (max-width: 1100px) {
+
+    body:not(.menu-detail-view) .navbar,
+    body.home-view .navbar,
+    body.detail-view:not(.menu-detail-view) .navbar {
+      min-width: min(320px, calc(100% - 64px)) !important;
+      max-width: calc(44vw - 40px) !important;
+    }
   }
 
   /* Menu page exception: full-width centered navbar */
@@ -12372,11 +12388,12 @@ header.navbar:before,
 
 .navbar .logo img {
   display: block !important;
-  height: clamp(40px, 4.2vh, 48px) !important;
+  height: clamp(38px, 3.8vh, 44px) !important;
   width: auto !important;
   max-width: 100% !important;
   object-fit: contain !important;
   filter: none !important;
+  transform: none !important;
 }
 
 .navbar .logo:before,
@@ -12591,8 +12608,10 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
     border-radius: 14px !important;
   }
 
-  body.detail-view .hero,
-  body.detail-view .hero-main,
+  /* Non-menu detail views keep their split-screen hero down to 761px (see the
+     min-width:761px grid rule) — only Menu permanently replaces its hero with
+     the catalog, which is already handled unconditionally elsewhere. Hiding
+     body.detail-view .hero here too used to leave a blank gap in this range. */
   body.menu-detail-view .hero,
   body.menu-detail-view .hero-main {
     display: none !important;
@@ -13209,59 +13228,6 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
     transition: stroke 0.3s ease !important;
   }
 
-  /* Pet Friendly Brand Statement Badge in lower-right of hero */
-  .hero-pet-badge {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    padding: 8px 16px !important;
-    background: #070806 !important;
-    border: 1px solid rgba(251, 176, 25, 0.45) !important;
-    border-radius: 999px !important;
-    color: #f5efdf !important;
-    text-decoration: none !important;
-    transition: transform 0.3s ease, border-color 0.3s ease !important;
-    cursor: pointer !important;
-    white-space: nowrap !important;
-  }
-
-  .hero-pet-badge:hover {
-    border-color: var(--orange, #fbb019) !important;
-    transform: translateY(-2px) !important;
-  }
-
-  .hero-pet-badge-paw {
-    font-size: 14px !important;
-    display: grid !important;
-    place-items: center !important;
-  }
-
-  .hero-pet-badge-text {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1px !important;
-    text-align: left !important;
-  }
-
-  .hero-pet-badge-title {
-    font-family: "Manrope", sans-serif !important;
-    font-size: 9.5px !important;
-    font-weight: 800 !important;
-    letter-spacing: 0.16em !important;
-    color: var(--orange, #fbb019) !important;
-    text-transform: uppercase !important;
-  }
-
-  .hero-pet-badge-desc {
-    font-family: "DM Sans", sans-serif !important;
-    font-size: 10.5px !important;
-    font-weight: 500 !important;
-    letter-spacing: 0.04em !important;
-    color: #f5efdf !important;
-    opacity: 0.9 !important;
-    text-transform: uppercase !important;
-  }
-
   /* Right Rail: Exactly 3 stacked cards + small Visit link */
   .hero-rail-head {
     display: none !important;
@@ -13500,47 +13466,6 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
     max-width: 220px !important;
   }
 
-  .hero-pet-badge {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    padding: 7px 14px !important;
-    background: #070806 !important;
-    border: 1px solid rgba(251, 176, 25, 0.45) !important;
-    border-radius: 999px !important;
-  }
-
-  .hero-pet-badge-text {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1px !important;
-    text-align: left !important;
-  }
-
-  .hero-pet-badge-paw {
-    font-size: 13px !important;
-  }
-
-  .hero-pet-badge-title {
-    font-family: "Manrope", sans-serif !important;
-    font-size: 9px !important;
-    font-weight: 800 !important;
-    letter-spacing: 0.16em !important;
-    color: var(--orange, #fbb019) !important;
-    text-transform: uppercase !important;
-    line-height: 1.2 !important;
-  }
-
-  .hero-pet-badge-desc {
-    font-family: "DM Sans", sans-serif !important;
-    font-size: 9.5px !important;
-    font-weight: 500 !important;
-    letter-spacing: 0.04em !important;
-    color: #f5efdf !important;
-    text-transform: uppercase !important;
-    line-height: 1.2 !important;
-  }
-
   /* Horizontal swipeable cards on mobile */
   .hero-rail-head {
     display: flex !important;
@@ -13665,474 +13590,48 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   box-shadow: 0 4px 18px rgba(251, 176, 25, 0.35) !important;
 }
 
-/* ============================================================
-   PET FRIENDLY MICRO-INTERACTION — a small discovery moment layered
-   on top of the existing hero-pet-badge, not a redesign of it. The
-   badge's own look (pill, border, title/desc) is untouched; this
-   only adds the hover/tap paw-trail → dog → "Bow wow!" sequence
-   above it, plus swaps the emoji paw for a line-art SVG one.
-   ============================================================ */
-.hero-pet-interaction {
-  position: relative;
-  display: inline-flex;
-}
-
-.hero-pet-badge-paw svg {
-  width: 14px;
-  height: 14px;
-  stroke: var(--orange, #fbb019);
-  stroke-width: 1.4;
-  fill: rgba(251, 176, 25, 0.12);
-  transition: transform 0.35s var(--ease, ease);
-  transform: rotate(0deg) scale(1);
-}
-
-.hero-pet-interaction:hover .hero-pet-badge-paw svg,
-.hero-pet-interaction:focus-within .hero-pet-badge-paw svg {
-  transform: rotate(-3deg) scale(1.05);
-}
-
-/* Decorative overlay — never intercepts pointer events, never affects layout. */
-.pet-fx {
-  position: absolute;
-  left: 50%;
-  bottom: calc(100% + 2px);
-  width: 1px;
-  /* Compressed from the original ~160px reach: the badge now floats right
-     at the hero/rail seam (close under the card above it) rather than low
-     in the hero with lots of clear space above, so the sequence needs to
-     stay closer to the badge to avoid climbing into that card. */
-  height: 90px;
-  pointer-events: none;
-}
-
-.pet-fx-paw,
-.pet-fx-dog,
-.pet-fx-text,
-.pet-fx-particles i {
-  position: absolute;
-  left: 0;
-  opacity: 0;
-}
-
-.pet-fx-paw {
-  color: var(--orange, #fbb019);
-  width: 11px;
-  height: 11px;
-  margin-left: -5.5px;
-}
-
-.pet-fx-paw svg {
-  width: 100%;
-  height: 100%;
-  stroke: var(--orange, #fbb019);
-  stroke-width: 2;
-  fill: rgba(251, 176, 25, 0.5);
-}
-
-/* A gentle zigzag trail climbing from the badge toward the dog, staying
-   close to the vertical centre line so nothing downstream collides. */
-.pet-fx-paw-1 {
-  bottom: 3px;
-  margin-left: 9px;
-  --rot: -10deg;
-  transform: scale(0.5) rotate(var(--rot));
-}
-
-.pet-fx-paw-2 {
-  bottom: 13px;
-  margin-left: -10px;
-  --rot: 8deg;
-  transform: scale(0.5) rotate(var(--rot));
-}
-
-.pet-fx-paw-3 {
-  bottom: 23px;
-  margin-left: 7px;
-  --rot: -6deg;
-  transform: scale(0.5) rotate(var(--rot));
-}
-
-.pet-fx-paw-4 {
-  bottom: 32px;
-  margin-left: -6px;
-  --rot: 6deg;
-  transform: scale(0.5) rotate(var(--rot));
-}
-
-.pet-fx-dog {
-  bottom: 38px;
-  width: 32px;
-  height: 32px;
-  margin-left: -16px;
-  color: var(--cream, #f5efdf);
-  transform: translateY(8px) scale(0.8);
-}
-
-.pet-fx-dog svg {
-  width: 100%;
-  height: 100%;
-  stroke: var(--cream, #f5efdf);
-  stroke-width: 2.2;
-}
-
-.pet-fx-text {
-  bottom: 64px;
-  width: max-content;
-  /* "Bow wow!" at 15px italic Playfair renders ~68px wide — a fixed
-     margin centers it without needing a transform-based offset, which
-     keeps the keyframes below simple and breakpoint-portable. */
-  margin-left: -34px;
-  transform: translateY(6px);
-  font: 500 15px/1 "Playfair Display", serif;
-  font-style: italic;
-  color: var(--orange, #fbb019);
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-}
-
-.pet-fx-particles i {
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: var(--orange, #fbb019);
-}
-
-.pet-fx-particles i:nth-child(1) {
-  bottom: 32px;
-  margin-left: -22px;
-}
-
-.pet-fx-particles i:nth-child(2) {
-  bottom: 46px;
-  margin-left: 20px;
-}
-
-.pet-fx-particles i:nth-child(3) {
-  bottom: 52px;
-  margin-left: -16px;
-}
-
-.pet-fx-particles i:nth-child(4) {
-  bottom: 26px;
-  margin-left: 16px;
-}
-
-.pet-fx-particles i:nth-child(5) {
-  bottom: 50px;
-  margin-left: 4px;
-}
-
-/* Playing state — staggered reveal, matches the ~1.6s sequence timed in
-   PetFriendlyInteraction.tsx (SEQUENCE_MS). Each element animates once via
-   its own keyframes rather than one shared timeline, so they stay
-   independently tunable. */
-.hero-pet-interaction.is-playing .pet-fx-paw-1 {
-  animation: petPawPop 0.5s var(--ease, ease) 0ms forwards;
-}
-
-.hero-pet-interaction.is-playing .pet-fx-paw-2 {
-  animation: petPawPop 0.5s var(--ease, ease) 90ms forwards;
-}
-
-.hero-pet-interaction.is-playing .pet-fx-paw-3 {
-  animation: petPawPop 0.5s var(--ease, ease) 180ms forwards;
-}
-
-.hero-pet-interaction.is-playing .pet-fx-paw-4 {
-  animation: petPawPop 0.5s var(--ease, ease) 270ms forwards;
-}
-
-.hero-pet-interaction.is-playing .pet-fx-dog {
-  animation: petDogIn 0.55s var(--ease, ease) 420ms forwards;
-}
-
-.hero-pet-interaction.is-playing .pet-fx-text {
-  animation: petTextIn 0.45s var(--ease, ease) 780ms forwards;
-}
-
-.hero-pet-interaction.is-playing .pet-fx-particles i {
-  animation: petParticle 0.6s ease-out 900ms forwards;
-}
-
-.hero-pet-interaction.is-playing .pet-fx-paw,
-.hero-pet-interaction.is-playing .pet-fx-dog,
-.hero-pet-interaction.is-playing .pet-fx-text,
-.hero-pet-interaction.is-playing .pet-fx-particles i {
-  animation-fill-mode: forwards;
-}
-
-/* Everything fades back to the resting state together near the end of the
-   sequence, well inside the SEQUENCE_MS window the component resets on. */
-.hero-pet-interaction.is-playing .pet-fx {
-  animation: petFxReset 0.35s ease-in 1250ms forwards;
-}
-
-@keyframes petPawPop {
-  0% {
-    opacity: 0;
-    transform: scale(0.5) rotate(var(--rot, 0deg));
-  }
-
-  55% {
-    opacity: 0.9;
-  }
-
-  100% {
-    opacity: 0.55;
-    transform: scale(1) rotate(var(--rot, 0deg));
-  }
-}
-
-@keyframes petDogIn {
-  0% {
-    opacity: 0;
-    transform: translateY(8px) scale(0.8);
-  }
-
-  70% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes petTextIn {
-  0% {
-    opacity: 0;
-    transform: translateY(6px) scale(0.92);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes petParticle {
-  0% {
-    opacity: 0;
-    transform: scale(0.4) translate(0, 0);
-  }
-
-  35% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(1) translate(var(--px, 6px), calc(-1 * var(--py, 10px)));
-  }
-}
-
-.pet-fx-particles i:nth-child(1) {
-  --px: -8px;
-  --py: 10px;
-}
-
-.pet-fx-particles i:nth-child(2) {
-  --px: 10px;
-  --py: 8px;
-}
-
-.pet-fx-particles i:nth-child(3) {
-  --px: -4px;
-  --py: 14px;
-}
-
-.pet-fx-particles i:nth-child(4) {
-  --px: 7px;
-  --py: -6px;
-}
-
-.pet-fx-particles i:nth-child(5) {
-  --px: -10px;
-  --py: -4px;
-}
-
-@keyframes petFxReset {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-/* Reduced motion: one simple fade/scale instead of the staggered sequence. */
-.hero-pet-interaction.reduced-motion .pet-fx-paw,
-.hero-pet-interaction.reduced-motion .pet-fx-particles i {
-  display: none;
-}
-
-.hero-pet-interaction.reduced-motion.is-playing .pet-fx-dog {
-  animation: petReducedFadeDog 0.45s ease forwards;
-}
-
-.hero-pet-interaction.reduced-motion.is-playing .pet-fx-text {
-  animation: petReducedFadeText 0.45s ease forwards;
-}
-
-.hero-pet-interaction.reduced-motion.is-playing .pet-fx {
-  animation: petFxReset 0.2s ease-in 300ms forwards;
-}
-
-@keyframes petReducedFadeDog {
-  0% {
-    opacity: 0;
-    transform: translateY(4px) scale(0.95);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes petReducedFadeText {
-  0% {
-    opacity: 0;
-    transform: translateY(4px) scale(0.95);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-  .hero-pet-interaction .pet-fx-paw,
-  .hero-pet-interaction .pet-fx-particles i {
-    display: none;
-  }
-
-  .hero-pet-interaction.is-playing .pet-fx-dog {
-    animation: petReducedFadeDog 0.45s ease forwards;
-  }
-
-  .hero-pet-interaction.is-playing .pet-fx-text {
-    animation: petReducedFadeText 0.45s ease forwards;
-  }
-
-  .hero-pet-interaction.is-playing .pet-fx {
-    animation: petFxReset 0.2s ease-in 300ms forwards;
-  }
-}
-
-@media (max-width: 760px) {
-
-  /* The Pet Friendly badge now floats right-aligned near the hero/rail seam
-     on mobile (see .hero-pet-float below), leaving almost no clearance to
-     its right but a wide-open gap to its left — so the sequence mirrors
-     into that gap instead of the opposite direction used previously. */
-  .pet-fx {
-    left: auto;
-    right: 100%;
-    bottom: auto;
-    top: 50%;
-    width: 1px;
-    height: 1px;
-    transform: translateY(-50%);
-  }
-
-  .pet-fx-paw,
-  .pet-fx-dog,
-  .pet-fx-text,
-  .pet-fx-particles i {
-    bottom: auto;
-    margin-left: 0;
-  }
-
-  .pet-fx-paw-1 {
-    top: 5px;
-    margin-left: -8px;
-  }
-
-  .pet-fx-paw-2 {
-    top: -9px;
-    margin-left: -20px;
-  }
-
-  .pet-fx-paw-3 {
-    top: 7px;
-    margin-left: -34px;
-  }
-
-  .pet-fx-paw-4 {
-    top: -7px;
-    margin-left: -48px;
-  }
-
-  .pet-fx-dog {
-    top: -9px;
-    margin-left: -78px;
-    width: 22px;
-    height: 22px;
-  }
-
-  .pet-fx-text {
-    top: -32px;
-    margin-left: -96px;
-    font-size: 11px;
-  }
-
-  .pet-fx-particles i:nth-child(1) {
-    top: -13px;
-    margin-left: -42px;
-  }
-
-  .pet-fx-particles i:nth-child(2) {
-    top: 13px;
-    margin-left: -58px;
-  }
-
-  .pet-fx-particles i:nth-child(3) {
-    top: -19px;
-    margin-left: -66px;
-  }
-
-  .pet-fx-particles i:nth-child(4) {
-    top: 9px;
-    margin-left: -28px;
-  }
-
-  .pet-fx-particles i:nth-child(5) {
-    top: -3px;
-    margin-left: -74px;
-  }
-}
 
 /* ============================================================
-   PET FRIENDLY BADGE POSITIONING FIX
-   - Positioned relative to .hero-main container
-   - Anchored near the lower-right edge of the visual hero
-   - 100% visible, never clipped by the left or right edge of the viewport
+   PET ICON — static decorative artwork (public/website-pet-icon.png),
+   bottom-right of the hero/video panel. Positioned relative to
+   .hero-main, scales proportionally per breakpoint, never animated.
    ============================================================ */
 .hero-pet-float {
   position: absolute !important;
-  right: clamp(16px, 2.2vw, 28px) !important;
-  bottom: clamp(96px, 15vh, 140px) !important;
+  right: 6% !important;
+  bottom: 11% !important;
   left: auto !important;
   top: auto !important;
   transform: none !important;
   z-index: 10 !important;
+  width: clamp(88px, 9vw, 138px) !important;
+  height: auto !important;
+}
+
+.hero-pet-float img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .hero-pet-float {
+    right: 5% !important;
+    bottom: 10% !important;
+    width: clamp(70px, 9vw, 105px) !important;
+  }
 }
 
 @media (max-width: 760px) {
   .hero-pet-float {
     position: absolute !important;
-    right: 16px !important;
-    bottom: 76px !important;
+    right: 12px !important;
+    bottom: 64px !important;
     left: auto !important;
     top: auto !important;
     transform: none !important;
     z-index: 10 !important;
+    width: clamp(50px, 13vw, 68px) !important;
   }
 }
 
@@ -14187,11 +13686,17 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   }
 
   body.detail-view:not(.menu-detail-view) .hero-main {
+    display: block !important;
     height: 100% !important;
     max-height: 100% !important;
     border-radius: 24px !important;
     overflow: hidden !important;
     position: relative !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .hero-media,
+  body.detail-view:not(.menu-detail-view) .hero-content {
+    display: block !important;
   }
 
   body.detail-view:not(.menu-detail-view) .hero-rail,
@@ -14208,13 +13713,43 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
     min-height: 0 !important;
     margin: 0 !important;
     padding: clamp(26px, 2.6vw, 44px) clamp(28px, 3vw, 50px) !important;
-    background: var(--cream, #f5efdf) !important;
-    color: #070806 !important;
+    background: var(--ink, #070806) !important;
+    color: var(--cream, #f5efdf) !important;
     border-radius: 24px !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
     position: relative !important;
     animation: detailPanelIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards !important;
+  }
+
+  body.detail-view #about.active-detail {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    max-height: calc(100dvh - clamp(28px, 2.4vw, 40px)) !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: clamp(28px, 2.8vw, 48px) clamp(30px, 3.2vw, 54px) !important;
+    background: var(--cream, #f5efdf) !important;
+    color: var(--ink, #070806) !important;
+    border: 1px solid rgba(7, 8, 6, 0.08) !important;
+    border-radius: 24px !important;
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(7, 8, 6, 0.18) transparent !important;
+    position: relative !important;
+    animation: detailPanelIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards !important;
+  }
+
+  body.detail-view #about.active-detail::-webkit-scrollbar {
+    width: 5px !important;
+  }
+
+  body.detail-view #about.active-detail::-webkit-scrollbar-thumb {
+    background: rgba(7, 8, 6, 0.18) !important;
+    border-radius: 10px !important;
   }
 }
 
@@ -14225,38 +13760,34 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   height: 100% !important;
   max-height: 100% !important;
   min-height: 0 !important;
-  gap: clamp(12px, 1.8vh, 20px) !important;
+  gap: clamp(14px, 2vh, 22px) !important;
   box-sizing: border-box !important;
 }
 
-/* Zone 1 (Top Block): Title + Opening Hours */
-.visit-top-block {
+/* ---------- Intro ---------- */
+.visit-intro {
+  flex-shrink: 0 !important;
+}
+
+.visit-intro-head {
   display: flex !important;
   justify-content: space-between !important;
   align-items: flex-start !important;
   gap: 20px !important;
-  padding-bottom: clamp(10px, 1.6vh, 16px) !important;
-  border-bottom: 1px solid rgba(7, 8, 6, 0.1) !important;
-  flex-shrink: 0 !important;
 }
 
 .visit-title-group .eyebrow {
-  font-family: "Manrope", sans-serif !important;
-  font-size: 10.5px !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.22em !important;
-  color: #9a6410 !important;
   margin: 0 0 6px 0 !important;
-  text-transform: uppercase !important;
+  color: var(--orange, #fbb019) !important;
 }
 
 .visit-heading {
   font-family: "Manrope", sans-serif !important;
-  font-size: clamp(34px, 3.6vw, 56px) !important;
+  font-size: clamp(32px, 3.4vw, 52px) !important;
   font-weight: 800 !important;
-  line-height: 0.92 !important;
-  letter-spacing: -0.04em !important;
-  color: #070806 !important;
+  line-height: 0.95 !important;
+  letter-spacing: -0.03em !important;
+  color: var(--cream, #f5efdf) !important;
   margin: 0 !important;
   text-transform: uppercase !important;
 }
@@ -14265,7 +13796,7 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   font-family: "Playfair Display", Georgia, serif !important;
   font-style: italic !important;
   font-weight: 500 !important;
-  color: #9a6410 !important;
+  color: var(--orange, #fbb019) !important;
   display: inline-block !important;
 }
 
@@ -14274,9 +13805,10 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   flex-direction: column !important;
   align-items: flex-end !important;
   text-align: right !important;
-  gap: 5px !important;
+  gap: 6px !important;
   padding-top: 4px !important;
   margin-right: clamp(40px, 4.2vw, 60px) !important;
+  flex-shrink: 0 !important;
 }
 
 .visit-micro-tag {
@@ -14285,63 +13817,46 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   font-weight: 800 !important;
   letter-spacing: 0.18em !important;
   text-transform: uppercase !important;
-  color: #9a6410 !important;
+  color: var(--orange, #fbb019) !important;
   display: block !important;
 }
 
 .visit-hours-details {
   display: flex !important;
-  align-items: baseline !important;
-  gap: 12px !important;
+  align-items: center !important;
+  gap: 8px !important;
+  color: var(--orange, #fbb019) !important;
 }
 
 .visit-hours-day {
   font-family: "DM Sans", sans-serif !important;
-  font-size: 13.5px !important;
+  font-size: 13px !important;
   font-weight: 500 !important;
-  color: rgba(7, 8, 6, 0.65) !important;
+  color: rgba(245, 239, 223, 0.6) !important;
 }
 
 .visit-hours-time {
   font-family: "Manrope", sans-serif !important;
-  font-size: 14px !important;
+  font-size: 13.5px !important;
   font-weight: 700 !important;
-  color: #070806 !important;
-  letter-spacing: 0.02em !important;
+  color: var(--cream, #f5efdf) !important;
+  letter-spacing: 0.01em !important;
 }
 
-/* Zone 2 (Middle Block): Location + CTAs */
-.visit-middle-block {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  gap: 20px !important;
-  padding: clamp(8px, 1.4vh, 14px) 0 !important;
-  flex-shrink: 0 !important;
+.visit-divider {
+  height: 1px !important;
+  background: rgba(245, 239, 223, 0.14) !important;
+  margin: clamp(14px, 1.8vh, 20px) 0 clamp(12px, 1.6vh, 16px) !important;
 }
 
-.visit-location-info {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 3px !important;
-  text-align: left !important;
-}
-
-.visit-location-name {
-  font-family: "Playfair Display", Georgia, serif !important;
-  font-size: clamp(18px, 1.5vw, 24px) !important;
-  font-weight: 600 !important;
-  color: #070806 !important;
-  margin: 0 !important;
-  line-height: 1.2 !important;
-}
-
-.visit-location-sub {
+.visit-intro-copy {
   font-family: "DM Sans", sans-serif !important;
   font-size: clamp(13px, 0.95vw, 15px) !important;
-  color: rgba(7, 8, 6, 0.72) !important;
-  margin: 0 !important;
+  line-height: 1.5 !important;
+  color: rgba(245, 239, 223, 0.72) !important;
+  margin: 0 0 clamp(16px, 2vh, 22px) !important;
   font-weight: 400 !important;
+  max-width: 46ch !important;
 }
 
 .visit-actions {
@@ -14353,12 +13868,12 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
 }
 
 .visit-cta-book {
-  height: clamp(42px, 4.4vh, 48px) !important;
-  padding: 0 clamp(18px, 1.4vw, 24px) !important;
+  height: clamp(40px, 4.2vh, 46px) !important;
+  padding: 0 clamp(20px, 1.6vw, 28px) !important;
   background: var(--orange, #fbb019) !important;
   color: #070806 !important;
   border: 1px solid var(--orange, #fbb019) !important;
-  border-radius: 999px !important;
+  border-radius: 3px !important;
   font-family: "Manrope", sans-serif !important;
   font-size: clamp(11px, 0.82vw, 12.5px) !important;
   font-weight: 800 !important;
@@ -14370,28 +13885,27 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   align-items: center !important;
   gap: 6px !important;
   transition: all 0.25s ease !important;
-  box-shadow: 0 4px 12px rgba(251, 176, 25, 0.25) !important;
 }
 
 .visit-cta-book:hover {
-  background: #070806 !important;
-  color: #f5efdf !important;
-  border-color: #070806 !important;
+  background: #f5efdf !important;
+  color: #070806 !important;
+  border-color: #f5efdf !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 6px 16px rgba(7, 8, 6, 0.2) !important;
 }
 
 .visit-cta-directions {
-  height: clamp(42px, 4.4vh, 48px) !important;
-  padding: 0 clamp(18px, 1.4vw, 24px) !important;
-  background: #070806 !important;
-  color: #f5efdf !important;
-  border: 1px solid rgba(7, 8, 6, 0.25) !important;
-  border-radius: 999px !important;
+  height: clamp(40px, 4.2vh, 46px) !important;
+  padding: 0 4px !important;
+  background: transparent !important;
+  color: rgba(245, 239, 223, 0.78) !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(245, 239, 223, 0.3) !important;
+  border-radius: 0 !important;
   font-family: "Manrope", sans-serif !important;
   font-size: clamp(11px, 0.82vw, 12.5px) !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.12em !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
   text-decoration: none !important;
   cursor: pointer !important;
@@ -14403,163 +13917,202 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
 }
 
 .visit-cta-directions:hover {
-  border-color: #9a6410 !important;
-  color: #fbb019 !important;
-  transform: translateY(-2px) !important;
+  border-color: var(--orange, #fbb019) !important;
+  color: var(--orange, #fbb019) !important;
 }
 
-/* Zone 3 (Bottom Block): Compact Map Video + Contact Info (2-column grid) */
-.visit-bottom-grid {
-  display: grid !important;
-  grid-template-columns: 1.12fr 0.88fr !important;
-  gap: 12px !important;
-  flex: 1 1 0 !important;
-  min-height: 0 !important;
-  max-height: 230px !important;
+/* ---------- Location ---------- */
+.visit-location-card {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: clamp(18px, 2vw, 30px) !important;
+  padding: clamp(10px, 1.4vh, 16px) 0 !important;
+  flex-shrink: 0 !important;
 }
 
-.visit-map-card {
-  position: relative !important;
-  border-radius: 16px !important;
-  overflow: hidden !important;
-  background: #070806 !important;
-  height: 100% !important;
-  min-height: 0 !important;
-  display: block !important;
+.visit-location-info {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 6px !important;
+  text-align: left !important;
+  flex: 1.1 1 0 !important;
+  min-width: 0 !important;
+}
+
+.visit-location-name {
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-size: clamp(18px, 1.4vw, 22px) !important;
+  font-weight: 600 !important;
+  color: var(--cream, #f5efdf) !important;
+  margin: 2px 0 0 !important;
+  line-height: 1.2 !important;
+}
+
+.visit-location-sub {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: clamp(12.5px, 0.9vw, 14px) !important;
+  color: rgba(245, 239, 223, 0.6) !important;
+  margin: 0 0 6px !important;
+  font-weight: 400 !important;
+}
+
+.visit-location-address {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  color: rgba(245, 239, 223, 0.6) !important;
+  margin: 2px 0 10px !important;
+}
+
+.visit-location-address svg {
+  flex-shrink: 0 !important;
+  margin-top: 2px !important;
+  color: var(--orange, #fbb019) !important;
+}
+
+.visit-maps-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  padding: 0 0 2px !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(245, 239, 223, 0.3) !important;
+  border-radius: 0 !important;
+  font-family: "Manrope", sans-serif !important;
+  font-size: 10.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: rgba(245, 239, 223, 0.78) !important;
   text-decoration: none !important;
-  box-shadow: 0 4px 16px rgba(7, 8, 6, 0.12) !important;
-  border: 1px solid rgba(7, 8, 6, 0.1) !important;
-  transition: transform 0.35s ease, border-color 0.35s ease !important;
+  transition: all 0.25s ease !important;
 }
 
-.visit-map-card:hover {
-  transform: translateY(-2px) !important;
-  border-color: rgba(251, 176, 25, 0.6) !important;
+.visit-maps-link:hover {
+  border-color: var(--orange, #fbb019) !important;
+  color: var(--orange, #fbb019) !important;
 }
 
-.visit-map-video {
+.visit-location-image {
+  flex: 0.9 1 0 !important;
+  min-width: 0 !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.visit-location-image img {
   width: 100% !important;
   height: 100% !important;
+  min-height: 150px !important;
   object-fit: cover !important;
-  filter: saturate(0.85) brightness(0.8) !important;
   display: block !important;
-  transition: transform 0.6s ease, filter 0.4s ease !important;
 }
 
-.visit-map-card:hover .visit-map-video {
-  transform: scale(1.04) !important;
-  filter: saturate(0.95) brightness(0.88) !important;
-}
-
-.visit-map-overlay {
-  position: absolute !important;
-  inset: 0 !important;
-  background: linear-gradient(180deg, rgba(7, 8, 6, 0.2) 0%, rgba(7, 8, 6, 0.75) 100%) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  padding: 12px 14px !important;
-  pointer-events: none !important;
-}
-
-.visit-map-badge {
-  align-self: flex-start !important;
-  background: rgba(7, 8, 6, 0.75) !important;
-  backdrop-filter: blur(8px) !important;
-  border: 1px solid rgba(245, 239, 223, 0.3) !important;
-  border-radius: 999px !important;
-  padding: 4px 10px !important;
-  font-family: "Manrope", sans-serif !important;
-  font-size: 8.5px !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.12em !important;
-  color: #f5efdf !important;
-  text-transform: uppercase !important;
-}
-
-.visit-map-title {
-  font-family: "Manrope", sans-serif !important;
-  font-size: 13px !important;
-  font-weight: 800 !important;
-  line-height: 1.15 !important;
-  letter-spacing: 0.04em !important;
-  color: #f5efdf !important;
-  margin: 0 !important;
-  text-transform: uppercase !important;
-}
-
-.visit-contact-card {
-  background: rgba(7, 8, 6, 0.045) !important;
-  border: 1px solid rgba(7, 8, 6, 0.08) !important;
-  border-radius: 16px !important;
-  padding: 12px 16px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  height: 100% !important;
-  min-height: 0 !important;
-  box-sizing: border-box !important;
-}
-
-.visit-contact-list {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 8px !important;
-}
-
+/* ---------- Contact ---------- */
 .visit-contact-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: clamp(28px, 3.4vw, 48px) !important;
+  flex-shrink: 0 !important;
+  padding: clamp(14px, 1.8vh, 20px) 0 !important;
+  flex-wrap: wrap !important;
+}
+
+.visit-contact-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 11px !important;
+  color: var(--orange, #fbb019) !important;
+  text-decoration: none !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.visit-contact-item:hover {
+  opacity: 0.72 !important;
+}
+
+.visit-contact-item svg {
+  flex-shrink: 0 !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.visit-contact-item>span {
   display: flex !important;
   flex-direction: column !important;
   gap: 1px !important;
-  text-align: left !important;
 }
 
-.visit-contact-k {
+.visit-contact-label {
   font-family: "Manrope", sans-serif !important;
-  font-size: 8.5px !important;
+  font-size: 9px !important;
   font-weight: 800 !important;
   letter-spacing: 0.14em !important;
-  color: #9a6410 !important;
+  color: rgba(245, 239, 223, 0.48) !important;
   text-transform: uppercase !important;
 }
 
-.visit-contact-v {
+.visit-contact-value {
   font-family: "DM Sans", sans-serif !important;
-  font-size: 11.5px !important;
-  line-height: 1.35 !important;
-  color: #070806 !important;
-  margin: 0 !important;
+  font-size: 13.5px !important;
+  color: var(--cream, #f5efdf) !important;
   font-weight: 500 !important;
 }
 
-.visit-contact-link {
-  font-family: "DM Sans", sans-serif !important;
-  font-size: 12px !important;
-  color: #070806 !important;
-  text-decoration: none !important;
-  font-weight: 500 !important;
-  transition: color 0.2s ease !important;
-}
-
-.visit-contact-link:hover {
-  color: #9a6410 !important;
-}
-
-.visit-social-link {
-  display: inline-flex !important;
+/* ---------- Get in touch ---------- */
+.visit-touch-banner {
+  position: relative !important;
+  display: flex !important;
   align-items: center !important;
-  gap: 6px !important;
-  color: #070806 !important;
-  font-weight: 600 !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: clamp(18px, 2.4vh, 26px) 0 0 !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
 }
 
-.visit-social-link:hover {
-  color: #9a6410 !important;
+.visit-touch-text {
+  position: relative !important;
+  z-index: 1 !important;
+  max-width: 50% !important;
 }
 
-.visit-social-link svg {
-  stroke: currentColor !important;
-  flex-shrink: 0 !important;
+.visit-touch-heading {
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-style: italic !important;
+  font-size: clamp(19px, 1.7vw, 25px) !important;
+  font-weight: 500 !important;
+  color: var(--cream, #f5efdf) !important;
+  margin: 4px 0 8px !important;
+  line-height: 1.15 !important;
+}
+
+.visit-touch-copy {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 12.5px !important;
+  line-height: 1.5 !important;
+  color: rgba(245, 239, 223, 0.6) !important;
+  margin: 0 !important;
+  max-width: 38ch !important;
+}
+
+.visit-pet-art {
+  position: absolute !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: clamp(230px, 24vw, 320px) !important;
+  height: auto !important;
+  opacity: 0.95 !important;
 }
 
 /* Close/Home button in top-right of visit panel */
@@ -14570,6 +14123,275 @@ body.detail-view #visit .section-home-button {
   margin: 0 !important;
   z-index: 10 !important;
   display: grid !important;
+}
+
+/* ============================================================
+   ABOUT EDITORIAL PANEL
+   Human-designed luxury hospitality composition (inspired by Café 72).
+   Clean typography, balanced whitespace, understated metadata tags,
+   two-column story spread, and subtle colophon detail.
+   ============================================================ */
+.about-editorial-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 100% !important;
+  gap: clamp(16px, 2.2vh, 26px) !important;
+  box-sizing: border-box !important;
+}
+
+/* Header & Headline */
+.about-intro-block {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+
+.about-micro-eyebrow {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: clamp(10px, 0.72vw, 11.5px) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: #9a6410 !important;
+  margin: 0 0 clamp(8px, 1.1vh, 14px) 0 !important;
+  line-height: 1 !important;
+}
+
+.about-headline {
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+  line-height: 0.92 !important;
+}
+
+.about-head-sans {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: clamp(38px, 3.8vw, 62px) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.04em !important;
+  color: #070806 !important;
+  text-transform: uppercase !important;
+  display: block !important;
+}
+
+.about-head-serif {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 500 !important;
+  font-size: clamp(40px, 4vw, 64px) !important;
+  letter-spacing: -0.02em !important;
+  color: #9a6410 !important;
+  display: block !important;
+}
+
+.about-lead-statement {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  font-size: clamp(18px, 1.45vw, 23px) !important;
+  line-height: 1.42 !important;
+  color: #1a1b15 !important;
+  margin: clamp(14px, 1.8vh, 22px) 0 clamp(16px, 2vh, 22px) 0 !important;
+  max-width: 48ch !important;
+}
+
+/* Metadata Tags — Understated Editorial Style */
+.about-meta-tags {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: clamp(6px, 0.6vw, 9px) !important;
+  margin: 0 !important;
+}
+
+.about-meta-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 5px 12px !important;
+  border: 1px solid rgba(7, 8, 6, 0.15) !important;
+  background: rgba(7, 8, 6, 0.02) !important;
+  border-radius: 4px !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: clamp(9px, 0.68vw, 10.5px) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: rgba(7, 8, 6, 0.75) !important;
+  line-height: 1 !important;
+  transition: all 0.2s ease !important;
+}
+
+.about-meta-pill:hover {
+  border-color: #9a6410 !important;
+  color: #9a6410 !important;
+  background: rgba(154, 100, 16, 0.04) !important;
+}
+
+/* Hairline Divider */
+.about-hairline {
+  width: 100% !important;
+  height: 1px !important;
+  background: rgba(7, 8, 6, 0.1) !important;
+  margin: clamp(14px, 1.8vh, 22px) 0 !important;
+  flex-shrink: 0 !important;
+}
+
+/* Story Spread: 2 Columns */
+.about-body-spread {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr) !important;
+  gap: clamp(20px, 2.5vw, 36px) !important;
+  align-items: flex-start !important;
+  flex: 1 1 auto !important;
+}
+
+.about-col-label {
+  display: block !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: clamp(9px, 0.65vw, 10.5px) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: #9a6410 !important;
+  margin-bottom: clamp(6px, 0.9vh, 10px) !important;
+}
+
+.about-story-title {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: clamp(18px, 1.45vw, 24px) !important;
+  font-weight: 600 !important;
+  color: #070806 !important;
+  line-height: 1.2 !important;
+  margin: 0 0 clamp(8px, 1vh, 12px) 0 !important;
+}
+
+.about-story-text {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: clamp(12.5px, 0.9vw, 14.5px) !important;
+  line-height: 1.55 !important;
+  font-weight: 500 !important;
+  color: rgba(7, 8, 6, 0.88) !important;
+  margin: 0 0 clamp(8px, 0.9vh, 10px) 0 !important;
+}
+
+.about-story-subtext {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: clamp(12px, 0.84vw, 13.5px) !important;
+  line-height: 1.5 !important;
+  color: rgba(7, 8, 6, 0.65) !important;
+  margin: 0 !important;
+}
+
+/* Pillars List */
+.about-pillars {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: clamp(10px, 1.2vh, 14px) !important;
+}
+
+.about-pillar-row {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: clamp(10px, 1vw, 14px) !important;
+}
+
+.about-pillar-index {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: clamp(10.5px, 0.75vw, 12.5px) !important;
+  font-weight: 800 !important;
+  color: #9a6410 !important;
+  line-height: 1.4 !important;
+  flex-shrink: 0 !important;
+  letter-spacing: 0.05em !important;
+}
+
+.about-pillar-name {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: clamp(12px, 0.85vw, 14px) !important;
+  font-weight: 700 !important;
+  color: #070806 !important;
+  margin: 0 0 2px 0 !important;
+  line-height: 1.3 !important;
+}
+
+.about-pillar-desc {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: clamp(11.5px, 0.8vw, 13px) !important;
+  line-height: 1.45 !important;
+  color: rgba(7, 8, 6, 0.65) !important;
+  margin: 0 !important;
+}
+
+/* Colophon / Bottom Bar */
+.about-colophon {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding-top: clamp(12px, 1.6vh, 18px) !important;
+  border-top: 1px solid rgba(7, 8, 6, 0.1) !important;
+  flex-shrink: 0 !important;
+  margin-top: auto !important;
+}
+
+.about-colophon-left {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+
+.about-colophon-loc {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: clamp(9px, 0.68vw, 10.5px) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: rgba(7, 8, 6, 0.72) !important;
+}
+
+.about-colophon-copy {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: clamp(8.5px, 0.62vw, 9.5px) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  color: rgba(7, 8, 6, 0.45) !important;
+}
+
+.about-colophon-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.about-pet-mark {
+  display: block !important;
+  width: clamp(30px, 2.2vw, 36px) !important;
+  height: auto !important;
+  opacity: 0.88 !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.about-pet-mark:hover {
+  opacity: 1 !important;
+}
+
+/* Close/Home button on About panel */
+body.detail-view #about .section-home-button {
+  position: absolute !important;
+  top: clamp(16px, 1.8vh, 26px) !important;
+  right: clamp(16px, 1.8vw, 26px) !important;
+  margin: 0 !important;
+  z-index: 10 !important;
+  display: grid !important;
+  background: rgba(7, 8, 6, 0.06) !important;
+  color: #070806 !important;
+  border: 1px solid rgba(7, 8, 6, 0.14) !important;
+}
+
+body.detail-view #about .section-home-button:hover {
+  background: #070806 !important;
+  color: var(--cream, #f5efdf) !important;
 }
 
 /* Mobile Layout (<= 760px) */
@@ -14593,13 +14415,40 @@ body.detail-view #visit .section-home-button {
     max-height: none !important;
     padding: 30px 18px 44px !important;
     overflow: visible !important;
+    background: var(--ink, #070806) !important;
+    color: var(--cream, #f5efdf) !important;
+  }
+
+  body.detail-view #about.active-detail {
+    height: auto !important;
+    max-height: none !important;
+    padding: clamp(76px, 10vh, 90px) 18px 48px !important;
+    overflow: visible !important;
+    background: var(--cream, #f5efdf) !important;
+    color: var(--ink, #070806) !important;
+    border-radius: 20px !important;
+  }
+
+  .about-editorial-wrap {
+    gap: 22px !important;
+  }
+
+  .about-body-spread {
+    grid-template-columns: 1fr !important;
+    gap: 22px !important;
+  }
+
+  .about-colophon {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
   }
 
   .visit-shell {
-    gap: 20px !important;
+    gap: 26px !important;
   }
 
-  .visit-top-block {
+  .visit-intro-head {
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 14px !important;
@@ -14611,19 +14460,32 @@ body.detail-view #visit .section-home-button {
     margin-right: 0 !important;
   }
 
-  .visit-middle-block {
+  .visit-location-card {
+    flex-direction: column !important;
+  }
+
+  .visit-location-image img {
+    min-height: 180px !important;
+  }
+
+  .visit-contact-row {
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 14px !important;
+    gap: 16px !important;
   }
 
-  .visit-bottom-grid {
-    grid-template-columns: 1fr !important;
-    max-height: none !important;
+  .visit-touch-banner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding-bottom: clamp(190px, 50vw, 240px) !important;
   }
 
-  .visit-map-card {
-    height: 180px !important;
+  .visit-touch-text {
+    max-width: 100% !important;
+  }
+
+  .visit-pet-art {
+    width: clamp(190px, 58vw, 260px) !important;
   }
 }
 
