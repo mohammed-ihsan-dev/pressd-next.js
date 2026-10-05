@@ -66,6 +66,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <link href={GOOGLE_FONTS_HREF} rel="stylesheet" />
         <link href={NOTO_FALLBACK_FONTS_HREF} rel="stylesheet" />
+        {/* "PRESSD Editorial" italic (globals.css) — Home card labels. */}
+        <link
+          rel="preload"
+          href="/fonts/playfair-display-italic-latin.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <link
           rel="preload"
           href="/assets/pressd-hero-cinematic.mp4?v=2"
