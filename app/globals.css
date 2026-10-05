@@ -16257,3 +16257,439 @@ body:not(.menu-detail-view)>footer .footer-bottom {
     min-height: 44px !important;
   }
 }
+
+/* ============================================================
+   VISIT — SINGLE-SCREEN 4-ZONE LAYOUT (phones + touch tablets)
+   Visit only (#visit / :has(#visit.active-detail)); Home, About and
+   Menu are untouched, and desktop / landscape tablets keep their
+   existing Visit composition (it already fits one screen).
+   Zones: 1 Opening hours (+ Book a table / Get directions)
+          2 Photo gallery (2 x 2)
+          3 Location + map (Show route / Open in maps)
+          4 Connect with us (address, phone, email, Instagram)
+   Portrait: 2 x 2 — row 1 = hours 65% | photos 35% (sized to the hours
+   content), row 2 = location | contact (takes the rest; the map absorbs
+   the spare height). Landscape phones are too short for two rows, so
+   the same four zones sit side by side in one row.
+   The long hours narrative, the "for inquiries" note + line art and the
+   colophon strip are secondary copy that cannot fit a no-scroll phone
+   screen; they remain on desktop.
+   ============================================================ */
+@media (max-width: 760px),
+  (min-width: 761px) and (max-width: 1100px) and (orientation: portrait) and (pointer: coarse),
+  (min-width: 761px) and (max-width: 1194px) and (orientation: landscape) and (min-height: 541px) and (pointer: coarse),
+  (min-width: 761px) and (max-height: 540px) and (pointer: coarse) {
+
+  /* Fill the given space instead of scrolling. overflow-y: auto is only
+     a safety net for devices shorter than the smallest supported
+     layout: content then stays reachable rather than clipped. */
+  body.detail-view #visit.active-detail {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    scrollbar-width: none !important;
+  }
+
+  body.detail-view #visit .visit-grid {
+    flex: 1 1 auto !important;
+    align-self: stretch !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    grid-template-columns: repeat(20, minmax(0, 1fr)) !important;
+    grid-template-rows: auto minmax(0, 1fr) !important;
+    grid-auto-rows: auto !important;
+    gap: 6px !important;
+    padding: 6px !important;
+  }
+
+  body.detail-view #visit .visit-hours-narrative,
+  body.detail-view #visit .visit-touch-signature,
+  body.detail-view #visit .visit-colophon-bar,
+  body.detail-view #visit .visit-line-dec {
+    display: none !important;
+  }
+
+  body.detail-view #visit .visit-panel {
+    padding: 9px 10px !important;
+    border-radius: 14px !important;
+    gap: 6px !important;
+    min-height: 0 !important;
+    justify-content: flex-start !important;
+    container-type: inline-size;
+  }
+
+  /* Zone placement */
+  body.detail-view #visit .visit-hours-panel   { grid-column: 1 / 14 !important;  grid-row: 1 !important; }
+  body.detail-view #visit .visit-gallery-grid  { grid-column: 14 / 21 !important; grid-row: 1 !important; }
+  body.detail-view #visit .visit-map-panel     { grid-column: 1 / 11 !important;  grid-row: 2 !important; }
+  body.detail-view #visit .visit-touch-panel   { grid-column: 11 / 21 !important; grid-row: 2 !important; }
+
+  /* Shared type */
+  body.detail-view #visit .visit-micro-eyebrow,
+  body.detail-view #visit .visit-entry-label,
+  body.detail-view #visit .visit-hours-service-note {
+    font-size: 9px !important;
+    letter-spacing: 0.12em !important;
+    line-height: 1.2 !important;
+  }
+
+  body.detail-view #visit .visit-panel-serif-title {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    column-gap: 0.3em !important;
+    font-size: clamp(13px, 8.4cqi, 22px) !important;
+    line-height: 1.05 !important;
+  }
+
+  /* ---- Zone 1: opening hours ---- */
+  body.detail-view #visit .visit-panel-header,
+  body.detail-view #visit .visit-heading-wrap {
+    gap: 3px !important;
+  }
+
+  body.detail-view #visit .visit-schedule-list {
+    margin: 0 !important;
+    gap: 1px !important;
+  }
+
+  /* Day + time sized to the zone's own width so the full
+     "7:00 AM – 10:00 PM" always fits beside the day. */
+  body.detail-view #visit .visit-schedule-row {
+    gap: 6px !important;
+    font-size: clamp(9px, 5.6cqi, 14px) !important;
+    line-height: 1.3 !important;
+  }
+
+  body.detail-view #visit .visit-schedule-day,
+  body.detail-view #visit .visit-schedule-time {
+    white-space: nowrap !important;
+    font-size: inherit !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  body.detail-view #visit .visit-schedule-dots {
+    min-width: 2px !important;
+  }
+
+  body.detail-view #visit .visit-hours-footer {
+    margin-top: auto !important;
+    padding-top: 6px !important;
+    gap: 5px !important;
+  }
+
+  body.detail-view #visit .visit-hours-service-note {
+    margin: 0 !important;
+  }
+
+  /* Side by side when they fit, stacked when the zone is narrow. */
+  body.detail-view #visit .visit-action-group {
+    margin: 0 !important;
+    gap: 5px 10px !important;
+  }
+
+  body.detail-view #visit .visit-btn-book,
+  body.detail-view #visit .visit-link-directions {
+    min-height: 34px !important;
+    font-size: 9px !important;
+    letter-spacing: 0.08em !important;
+    justify-content: center !important;
+  }
+
+  body.detail-view #visit .visit-btn-book {
+    padding: 0 10px !important;
+  }
+
+  body.detail-view #visit .visit-link-directions {
+    padding: 0 2px !important;
+  }
+
+  /* ---- Zone 2: photos — one curated 2 x 2 block filling the zone ---- */
+  body.detail-view #visit .visit-gallery-grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+    gap: 6px !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  body.detail-view #visit .visit-gallery-tile {
+    aspect-ratio: auto !important;
+    min-height: 0 !important;
+    border-radius: 12px !important;
+  }
+
+  /* ---- Zone 3: location + map (the map takes the remaining height) ---- */
+  body.detail-view #visit .visit-map-panel {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  body.detail-view #visit .visit-map-header {
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    gap: 3px !important;
+  }
+
+  body.detail-view #visit .visit-location-title {
+    font-size: clamp(13px, 8cqi, 22px) !important;
+    line-height: 1.1 !important;
+    margin: 1px 0 !important;
+  }
+
+  body.detail-view #visit .visit-location-text {
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+  }
+
+  body.detail-view #visit .visit-map-route-cta {
+    margin: 0 !important;
+    padding: 3px 0 2px !important;
+    font-size: 9px !important;
+  }
+
+  body.detail-view #visit .visit-map-viewport {
+    flex: 1 1 auto !important;
+    height: auto !important;
+    min-height: 52px !important;
+    margin-top: 4px !important;
+    border-radius: 10px !important;
+  }
+
+  /* ---- Zone 4: connect with us — label beside value for the
+     one-line entries; the address keeps its label above. ---- */
+  body.detail-view #visit .visit-touch-head {
+    gap: 3px !important;
+  }
+
+  body.detail-view #visit .visit-title-divider {
+    margin: 3px auto 0 !important;
+  }
+
+  body.detail-view #visit .visit-contact-entries {
+    gap: 5px !important;
+  }
+
+  body.detail-view #visit .visit-contact-entry {
+    gap: 2px !important;
+  }
+
+  body.detail-view #visit .visit-contact-entry:not(:first-child) {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: baseline !important;
+    column-gap: 6px !important;
+  }
+
+  body.detail-view #visit .visit-entry-val,
+  body.detail-view #visit .visit-entry-link {
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+    overflow-wrap: anywhere !important;
+  }
+}
+
+/* Roomier when the screen is taller (most phones in a browser at
+   >= 700px visible height, and touch tablets). */
+@media (max-width: 760px) and (orientation: portrait) and (min-height: 700px),
+  (min-width: 761px) and (max-width: 1100px) and (orientation: portrait) and (pointer: coarse),
+  (min-width: 761px) and (max-width: 1194px) and (orientation: landscape) and (min-height: 541px) and (pointer: coarse) {
+  body.detail-view #visit .visit-grid {
+    gap: 9px !important;
+    padding: 9px !important;
+  }
+
+  body.detail-view #visit .visit-panel {
+    padding: 13px 13px !important;
+    gap: 9px !important;
+  }
+
+  body.detail-view #visit .visit-micro-eyebrow,
+  body.detail-view #visit .visit-entry-label,
+  body.detail-view #visit .visit-hours-service-note {
+    font-size: 9.5px !important;
+  }
+
+  body.detail-view #visit .visit-schedule-list { gap: 3px !important; }
+  body.detail-view #visit .visit-hours-footer { padding-top: 9px !important; gap: 8px !important; }
+  body.detail-view #visit .visit-contact-entries { gap: 9px !important; }
+
+  body.detail-view #visit .visit-btn-book,
+  body.detail-view #visit .visit-link-directions {
+    min-height: 40px !important;
+    font-size: 10px !important;
+  }
+
+  body.detail-view #visit .visit-location-text,
+  body.detail-view #visit .visit-entry-val,
+  body.detail-view #visit .visit-entry-link {
+    font-size: 11.5px !important;
+  }
+
+  body.detail-view #visit .visit-map-route-cta { font-size: 10px !important; }
+}
+
+/* Touch tablets: more room again. */
+@media (min-width: 761px) and (max-width: 1100px) and (orientation: portrait) and (pointer: coarse),
+  (min-width: 761px) and (max-width: 1194px) and (orientation: landscape) and (min-height: 541px) and (pointer: coarse) {
+  body.detail-view #visit .visit-panel { padding: 18px 16px !important; gap: 12px !important; }
+  body.detail-view #visit .visit-schedule-list { gap: 6px !important; }
+  body.detail-view #visit .visit-contact-entries { gap: 12px !important; }
+
+  body.detail-view #visit .visit-btn-book,
+  body.detail-view #visit .visit-link-directions {
+    min-height: 44px !important;
+  }
+
+  body.detail-view #visit .visit-location-text,
+  body.detail-view #visit .visit-entry-val,
+  body.detail-view #visit .visit-entry-link {
+    font-size: 13px !important;
+  }
+}
+
+/* Landscape phones: one row of four zones (two rows cannot fit). */
+@media (max-width: 760px) and (orientation: landscape),
+  (min-width: 761px) and (max-height: 540px) and (pointer: coarse) {
+  body.detail-view #visit .visit-grid {
+    grid-template-columns: 1.6fr 1fr 1fr 0.6fr !important;
+    grid-template-rows: minmax(0, 1fr) !important;
+  }
+
+  body.detail-view #visit .visit-hours-panel,
+  body.detail-view #visit .visit-gallery-grid,
+  body.detail-view #visit .visit-map-panel,
+  body.detail-view #visit .visit-touch-panel {
+    grid-row: 1 !important;
+  }
+
+  /* Photos last, so the panel's corner home button sits over a photo
+     (as in portrait) rather than over the contact heading. */
+  body.detail-view #visit .visit-hours-panel  { grid-column: 1 !important; }
+  body.detail-view #visit .visit-map-panel    { grid-column: 2 !important; }
+  body.detail-view #visit .visit-touch-panel  { grid-column: 3 !important; }
+  body.detail-view #visit .visit-gallery-grid { grid-column: 4 !important; }
+
+  body.detail-view #visit .visit-panel { padding: 8px 9px !important; gap: 4px !important; }
+  body.detail-view #visit .visit-schedule-row {
+    line-height: 1.2 !important;
+    font-size: clamp(9px, min(5.6cqi, 2.9dvh), 13px) !important;
+  }
+
+  body.detail-view #visit .visit-panel-serif-title,
+  body.detail-view #visit .visit-location-title {
+    font-size: clamp(12px, min(8.4cqi, 4.2dvh), 18px) !important;
+  }
+  body.detail-view #visit .visit-hours-footer { padding-top: 4px !important; gap: 4px !important; }
+  body.detail-view #visit .visit-contact-entries { gap: 4px !important; }
+
+  body.detail-view #visit .visit-btn-book,
+  body.detail-view #visit .visit-link-directions {
+    min-height: 30px !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  body.detail-view #visit .visit-btn-book { padding: 0 8px !important; }
+  body.detail-view #visit .visit-action-group { column-gap: 8px !important; }
+}
+
+/* Larger touch landscape (> 760px wide, short): Visit uses the same slim
+   header-banner shell as phones so the four zones get the full width;
+   the banner is just the backdrop behind the floating compact nav. */
+@media (min-width: 761px) and (max-height: 540px) and (pointer: coarse) {
+  body.detail-view:has(#visit.active-detail) main {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  body.detail-view:has(#visit.active-detail) .hero {
+    flex: 0 0 auto !important;
+    height: 80px !important;
+    max-height: 80px !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+  }
+
+  body.detail-view:has(#visit.active-detail) .hero-content,
+  body.detail-view:has(#visit.active-detail) .hero-pet-float {
+    display: none !important;
+  }
+
+  body.detail-view:has(#visit.active-detail) #visit.active-detail {
+    flex: 1 1 auto !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+  }
+}
+
+/* Short portrait windows (e.g. iPhone SE / small Android with browser
+   bars): tighter rhythm, same content and minimum type sizes. */
+@media (max-width: 760px) and (orientation: portrait) and (max-height: 620px) {
+  body.detail-view #visit .visit-grid { gap: 5px !important; padding: 5px !important; }
+  body.detail-view #visit .visit-panel { padding: 7px 8px !important; gap: 4px !important; }
+  body.detail-view #visit .visit-schedule-list { gap: 0 !important; }
+  body.detail-view #visit .visit-schedule-row { line-height: 1.22 !important; }
+  body.detail-view #visit .visit-hours-footer { padding-top: 4px !important; gap: 4px !important; }
+  body.detail-view #visit .visit-contact-entries { gap: 3px !important; }
+  body.detail-view #visit .visit-map-viewport { min-height: 44px !important; margin-top: 3px !important; }
+
+  body.detail-view #visit .visit-panel-serif-title,
+  body.detail-view #visit .visit-location-title {
+    font-size: 13px !important;
+  }
+
+  body.detail-view #visit .visit-btn-book,
+  body.detail-view #visit .visit-link-directions {
+    min-height: 32px !important;
+    font-size: 8.5px !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  body.detail-view #visit .visit-btn-book { padding: 0 8px !important; }
+  body.detail-view #visit .visit-action-group { column-gap: 8px !important; }
+}
+
+/* Narrowest phones (320-340px): contact details one step down so the
+   long address wraps in fewer lines. */
+@media (max-width: 340px) and (orientation: portrait) {
+  body.detail-view #visit .visit-entry-val,
+  body.detail-view #visit .visit-entry-link,
+  body.detail-view #visit .visit-location-text {
+    font-size: 9.5px !important;
+    line-height: 1.25 !important;
+  }
+
+  body.detail-view #visit .visit-touch-head { gap: 2px !important; }
+  body.detail-view #visit .visit-title-divider { margin-top: 2px !important; }
+  body.detail-view #visit .visit-contact-entries { gap: 2px !important; }
+  body.detail-view #visit .visit-touch-panel { gap: 3px !important; }
+}
+
+/* Below the smallest screen the four zones can share without overlap
+   (e.g. first-gen iPhone SE in Safari, small landscape phones where the
+   dock takes a quarter of the height): let each zone keep its natural
+   height and the panel scroll, so no zone ever spills into another. */
+@media (max-width: 760px) and (orientation: portrait) and (max-height: 520px),
+  (max-width: 760px) and (orientation: landscape) and (max-height: 365px) {
+  body.detail-view #visit .visit-grid {
+    height: auto !important;
+    flex: 0 0 auto !important;
+    grid-template-rows: auto auto !important;
+  }
+
+  body.detail-view #visit .visit-map-viewport {
+    min-height: 90px !important;
+  }
+}
+
+@media (max-width: 760px) and (orientation: landscape) and (max-height: 365px) {
+  body.detail-view #visit .visit-grid {
+    grid-template-rows: auto !important;
+  }
+}
