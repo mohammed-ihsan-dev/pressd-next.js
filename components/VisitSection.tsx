@@ -3,7 +3,36 @@
 import { useBooking } from "@/components/booking/BookingContext";
 import SectionHomeButton from "@/components/SectionHomeButton";
 
-const MAPS_URL = "https://maps.app.goo.gl/PnBP3FGwKFWAP8VF8";
+const MAPS_URL =
+  "https://www.google.com/maps/place/PRESS%E2%80%99D+Wellness+Caf%C3%A9/@25.1497789,55.2944217,17z/data=!4m6!3m5!1s0x3e5f69b12bacfaa1:0xf705edb34aadfb3c!8m2!3d25.1497789!4d55.2944217!16s%2Fg%2F11svlbgvyk";
+
+const SCHEDULE = [
+  { day: "MON", hours: "7:00 AM — 10:00 PM" },
+  { day: "TUE", hours: "7:00 AM — 10:00 PM" },
+  { day: "WED", hours: "7:00 AM — 10:00 PM" },
+  { day: "THU", hours: "7:00 AM — 10:00 PM" },
+  { day: "FRI", hours: "7:00 AM — 10:00 PM" },
+  { day: "SAT & SUN", hours: "7:00 AM — 10:00 PM" },
+];
+
+const GALLERY_IMAGES = [
+  {
+    src: "/assets/visit-lifestyle-sofa.webp",
+    alt: "Guest relaxing on lounge sofa inside PRESS'D café",
+  },
+  {
+    src: "/assets/sandwich-halloumi-pesto.webp",
+    alt: "Freshly prepared wholesome dish at PRESS'D",
+  },
+  {
+    src: "/assets/visit-service-counter.webp",
+    alt: "Barista preparing specialty coffee at the espresso counter",
+  },
+  {
+    src: "/assets/visit-coffee-detail.webp",
+    alt: "Craft coffee pour with signature latte art on handcrafted wood tray",
+  },
+];
 
 /** Minimal continuous-line sketch of a cat and dog cuddling — understated warm-gold linework */
 function PetLoveArt() {
@@ -74,223 +103,198 @@ export default function VisitSection() {
 
   return (
     <section className="visit section" id="visit" aria-label="Visit PRESS'D Wellness Café">
-      <div className="visit-editorial-layout">
-        {/* DESKTOP LEFT: Dominant real PRESS'D café photograph (50-55% visual anchor) */}
-        <div className="visit-dominant-col">
-          <figure className="visit-dominant-figure">
-            <img
-              src="/assets/visit-main-interior.webp"
-              alt="Real sunlit PRESS'D café interior showing windows, palms, lounge seating, pendant lighting, and warm wood architecture"
-              className="visit-dominant-image"
-              loading="eager"
-            />
-            <figcaption className="visit-dominant-caption">
-              <span className="visit-dominant-eyebrow">THIS IS OUR CAFÉ</span>
-              <p className="visit-dominant-loc">Meydan Polo Residence · Nad Al Sheba 1, Dubai</p>
-            </figcaption>
-          </figure>
-        </div>
-
-        {/* DESKTOP RIGHT: Asymmetric editorial flow */}
-        <div className="visit-editorial-col">
-          {/* 1. INTRO / VISIT INFORMATION */}
-          <div className="visit-block visit-intro-block">
-            <div className="visit-intro-top-row">
-              <div className="visit-intro-title-wrap">
-                <span className="visit-micro-eyebrow">COME SAY HELLO</span>
-                <h1 className="visit-editorial-title">
-                  COME VISIT <span className="visit-title-serif">PRESS’D.</span>
-                </h1>
-              </div>
-
-              {/* 2. OPENING HOURS (Clean, compact, no giant clocks or cards) */}
-              <div className="visit-hours-editorial">
-                <span className="visit-micro-eyebrow">OPENING HOURS</span>
-                <div className="visit-hours-schedule">
-                  <span className="visit-hours-days">DAILY</span>
-                  <span className="visit-hours-times">7:00 AM — 10:00 PM</span>
-                </div>
-                <span className="visit-hours-status">Dine-in &amp; Takeaway · All week</span>
-              </div>
+      <div className="visit-grid">
+        {/* 1. UPPER LEFT: OPENING HOURS PANEL */}
+        <div className="visit-panel visit-hours-panel">
+          <div className="visit-panel-header">
+            <span className="visit-line-dec" aria-hidden="true" />
+            <div className="visit-heading-wrap">
+              <span className="visit-micro-eyebrow">EDITORIAL TIMETABLE</span>
+              <h2 className="visit-panel-serif-title">
+                <span>OPENING</span>
+                <span>HOURS</span>
+              </h2>
             </div>
+            <span className="visit-line-dec" aria-hidden="true" />
+          </div>
 
-            <p className="visit-intro-narrative">
+          <div className="visit-schedule-list">
+            {SCHEDULE.map((item) => (
+              <div key={item.day} className="visit-schedule-row">
+                <span className="visit-schedule-day">{item.day}</span>
+                <span className="visit-schedule-dots" aria-hidden="true" />
+                <span className="visit-schedule-time">{item.hours}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="visit-hours-footer">
+            <p className="visit-hours-service-note">Dine-in &amp; Takeaway · All week</p>
+            <p className="visit-hours-narrative">
               Clean ingredients, mindful rituals, and an open sunlit sanctuary.
-              Whether you are stopping by for your morning brew or lingering over wholesome food,
-              our doors are always open at Meydan Polo Residence.
+              Whether you are stopping by for your morning brew or lingering over wholesome fare,
+              our doors are always open at Muscat St, Nad Al Sheba 1, Dubai.
             </p>
 
-            <div className="visit-action-row">
+            <div className="visit-action-group">
               <button
                 type="button"
-                className="visit-action-book"
+                className="visit-btn-book"
                 onClick={openBooking}
                 aria-label="Book a table at PRESS'D"
               >
-                Book a table <span>↗</span>
+                BOOK A TABLE <span>↗</span>
               </button>
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="visit-action-directions"
+                className="visit-link-directions"
                 aria-label="Get directions to PRESS'D on Google Maps"
               >
-                Get directions <span>→</span>
+                GET DIRECTIONS <span>→</span>
               </a>
             </div>
           </div>
+        </div>
 
-          <div className="visit-editorial-rule" />
+        {/* 2. UPPER RIGHT: 2x2 IMAGE GALLERY */}
+        <div className="visit-gallery-grid" aria-label="Café gallery">
+          {GALLERY_IMAGES.map((img, i) => (
+            <figure key={i} className="visit-gallery-tile">
+              <img src={img.src} alt={img.alt} loading="lazy" />
+            </figure>
+          ))}
+        </div>
 
-          {/* 3. LOCATION */}
-          <div className="visit-block visit-location-section">
-            <div className="visit-location-editorial-row">
-              <div className="visit-location-editorial-info">
-                <span className="visit-micro-eyebrow">LOCATION</span>
-                <h2 className="visit-location-heading">PRESS’D Wellness Café</h2>
-                <p className="visit-location-address">
-                  Meydan Polo Residence<br />
-                  Nad Al Sheba 1, Dubai, UAE
-                </p>
-              </div>
-              <div className="visit-location-editorial-cta">
-                <a
-                  href={MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="visit-editorial-maps-link"
-                  aria-label="Open PRESS'D on Google Maps"
-                >
-                  OPEN IN MAPS <span>→</span>
-                </a>
-              </div>
+        {/* 3. LOWER LEFT: MAP / LOCATION PANEL */}
+        <div className="visit-panel visit-map-panel">
+          <div className="visit-map-header">
+            <div>
+              <span className="visit-micro-eyebrow">LOCATION</span>
+              <h3 className="visit-location-title">PRESS’D Wellness Café</h3>
+              <p className="visit-location-text">
+                47XV+XQ2 · Muscat St · Nad Al Sheba 1, Dubai · UAE
+              </p>
             </div>
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="visit-map-route-cta"
+              aria-label="Show route to PRESS'D on Google Maps"
+            >
+              SHOW ROUTE <span>→</span>
+            </a>
           </div>
 
-          <div className="visit-editorial-rule" />
+          <div className="visit-map-viewport">
+            <iframe
+              title="PRESS'D Wellness Café Google Maps Location"
+              src="https://maps.google.com/maps?q=PRESS%E2%80%99D%20Wellness%20Caf%C3%A9&ftid=0x3e5f69b12bacfaa1:0xf705edb34aadfb3c&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              className="visit-map-iframe"
+              loading="lazy"
+              allowFullScreen
+            />
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="visit-map-badge"
+              aria-label="Open in Google Maps"
+            >
+              OPEN IN MAPS ↗
+            </a>
+          </div>
+        </div>
 
-          {/* 4. SMALL REAL-PHOTO GALLERY (Asymmetric arrangement) */}
-          <div className="visit-block visit-gallery-section">
-            <div className="visit-gallery-label-row">
-              <span className="visit-micro-eyebrow">THE SPACE &amp; RITUALS</span>
-              <span className="visit-gallery-counter">3 REAL MOMENTS</span>
-            </div>
-
-            <div className="visit-asymmetric-gallery">
-              {/* IMAGE 01: Real lifestyle inside café */}
-              <figure className="visit-gallery-item visit-gallery-item-lifestyle">
-                <img
-                  src="/assets/visit-lifestyle-sofa.webp"
-                  alt="Guest enjoying dessert and iced coffee on lounge sofa inside PRESS'D café"
-                  loading="lazy"
-                />
-                <figcaption className="visit-gallery-caption">
-                  <span className="visit-cap-index">01</span>
-                  <span className="visit-cap-title">LOUNGE &amp; RETREAT</span>
-                </figcaption>
-              </figure>
-
-              {/* IMAGE 02 & 03: Service counter & coffee detail */}
-              <div className="visit-gallery-split-sub">
-                <figure className="visit-gallery-item visit-gallery-item-service">
-                  <img
-                    src="/assets/visit-service-counter.webp"
-                    alt="Barista at the PRESS'D service counter with pastry display and modern brew station"
-                    loading="lazy"
-                  />
-                  <figcaption className="visit-gallery-caption">
-                    <span className="visit-cap-index">02</span>
-                    <span className="visit-cap-title">THE ESPRESSO BAR</span>
-                  </figcaption>
-                </figure>
-
-                <figure className="visit-gallery-item visit-gallery-item-detail">
-                  <img
-                    src="/assets/visit-coffee-detail.webp"
-                    alt="Signature PRESS'D hot coffee with latte art on handcrafted wooden serving tray"
-                    loading="lazy"
-                  />
-                  <figcaption className="visit-gallery-caption">
-                    <span className="visit-cap-index">03</span>
-                    <span className="visit-cap-title">CRAFT &amp; POUR</span>
-                  </figcaption>
-                </figure>
-              </div>
-            </div>
+        {/* 4. LOWER RIGHT: GET IN TOUCH PANEL */}
+        <div className="visit-panel visit-touch-panel">
+          <div className="visit-touch-head">
+            <span className="visit-micro-eyebrow">CONNECT WITH US</span>
+            <h2 className="visit-panel-serif-title">
+              <span>GET IN</span>
+              <span>TOUCH</span>
+            </h2>
+            <div className="visit-title-divider" aria-hidden="true" />
           </div>
 
-          <div className="visit-editorial-rule" />
-
-          {/* 5. MAP */}
-          <div className="visit-block visit-map-section">
-            <div className="visit-map-editorial-wrap">
-              <iframe
-                title="PRESS'D Wellness Café Location Map"
-                src="https://maps.google.com/maps?q=Meydan%20Polo%20Residence%2C%20Nad%20Al%20Sheba%201%2C%20Dubai&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                className="visit-map-frame"
-                loading="lazy"
-                allowFullScreen
-              />
+          <div className="visit-contact-entries">
+            <div className="visit-contact-entry">
+              <span className="visit-entry-label">ADDRESS</span>
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="visit-map-float-cue"
+                className="visit-entry-val visit-entry-address-link"
+                title="View 47XV+XQ2 Muscat St on Google Maps"
               >
-                Open in Maps ↗
+                47XV+XQ2, Muscat St<br />
+                Nad Al Sheba 1, Nad Al Sheba<br />
+                Dubai, United Arab Emirates
               </a>
             </div>
-          </div>
 
-          <div className="visit-editorial-rule" />
-
-          {/* 6. CONTACT INFORMATION (Single refined editorial information row, no cards, no icon circles) */}
-          <div className="visit-block visit-contact-section">
-            <div className="visit-contact-single-row">
-              <a href="tel:+971501234567" className="visit-contact-editorial-item">
-                <span className="visit-contact-micro-label">CALL</span>
-                <span className="visit-contact-editorial-val">+971 50 123 4567</span>
+            <div className="visit-contact-entry">
+              <span className="visit-entry-label">PHONE</span>
+              <a href="tel:+971501234567" className="visit-entry-link">
+                +971 50 123 4567
               </a>
+            </div>
 
-              <div className="visit-contact-editorial-sep" aria-hidden="true" />
-
-              <a href="mailto:hello@pressd.cafe" className="visit-contact-editorial-item">
-                <span className="visit-contact-micro-label">EMAIL</span>
-                <span className="visit-contact-editorial-val">hello@pressd.cafe</span>
+            <div className="visit-contact-entry">
+              <span className="visit-entry-label">EMAIL</span>
+              <a href="mailto:hello@pressd.cafe" className="visit-entry-link">
+                hello@pressd.cafe
               </a>
+            </div>
 
-              <div className="visit-contact-editorial-sep" aria-hidden="true" />
-
+            <div className="visit-contact-entry">
+              <span className="visit-entry-label">FOLLOW</span>
               <a
                 href="https://www.instagram.com/pressd.cafe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="visit-contact-editorial-item"
+                className="visit-entry-link visit-entry-instagram"
               >
-                <span className="visit-contact-micro-label">INSTAGRAM</span>
-                <span className="visit-contact-editorial-val">@pressd.cafe</span>
+                <svg
+                  className="visit-insta-icon"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--orange, #fbb019)"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+                <span>@pressd.cafe</span>
               </a>
             </div>
           </div>
 
-          <div className="visit-editorial-rule" />
-
-          {/* 7. GET IN TOUCH & PET DETAIL */}
-          <div className="visit-block visit-closing-editorial">
-            <div className="visit-closing-text-wrap">
-              <span className="visit-micro-eyebrow">GET IN TOUCH</span>
-              <h3 className="visit-closing-heading">We’d Love to Hear From You</h3>
-              <p className="visit-closing-copy">
-                For inquiries, collaborations or private events, feel free to reach out.
-                Our team is always happy to connect and welcome you.
-              </p>
-            </div>
-
-            <div className="visit-closing-pet-wrap" title="Pet friendly café with love">
+          <div className="visit-touch-signature">
+            <p className="visit-touch-note">
+              For inquiries, collaborations or private events, feel free to reach out. Our team will get back to you as soon as possible.
+            </p>
+            <div className="visit-pet-sig-wrap" title="Pet friendly café with love">
               <PetLoveArt />
             </div>
           </div>
+        </div>
+
+        {/* 5. BOTTOM ROW: BRAND COLOPHON */}
+        <div className="visit-colophon-bar">
+          <span className="visit-colophon-loc">47XV+XQ2 · MUSCAT ST · NAD AL SHEBA 1 · DUBAI</span>
+          <span className="visit-colophon-sep" aria-hidden="true">◇</span>
+          <span className="visit-colophon-tag">WELLNESS CAFÉ &amp; SPECIALTY ROASTS</span>
+          <span className="visit-colophon-sep" aria-hidden="true">◇</span>
+          <span className="visit-colophon-copy">© PRESS’D · ALL RIGHTS RESERVED</span>
         </div>
       </div>
 

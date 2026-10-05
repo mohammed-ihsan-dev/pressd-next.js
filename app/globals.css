@@ -13765,14 +13765,27 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
     max-height: calc(100dvh - clamp(28px, 2.4vw, 40px)) !important;
     min-height: 0 !important;
     margin: 0 !important;
-    padding: clamp(26px, 2.6vw, 44px) clamp(28px, 3vw, 50px) !important;
-    background: var(--ink, #070806) !important;
+    padding: 0 !important;
+    background: transparent !important;
     color: var(--cream, #f5efdf) !important;
-    border-radius: 24px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
     box-sizing: border-box !important;
-    overflow: hidden !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(245, 239, 223, 0.18) transparent !important;
     position: relative !important;
     animation: detailPanelIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards !important;
+  }
+
+  body.detail-view #visit.active-detail::-webkit-scrollbar {
+    width: 5px !important;
+  }
+
+  body.detail-view #visit.active-detail::-webkit-scrollbar-thumb {
+    background: rgba(245, 239, 223, 0.18) !important;
+    border-radius: 10px !important;
   }
 
   body.detail-view #about.active-detail {
@@ -13806,375 +13819,505 @@ body.menu-detail-view .navbar .desktop-nav a.nav-link-menu {
   }
 }
 
-.visit-shell {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  height: 100% !important;
-  max-height: 100% !important;
-  min-height: 0 !important;
-  gap: clamp(14px, 2vh, 22px) !important;
+/* ============================================================
+   VISIT EDITORIAL HOSPITALITY GRID
+   Asymmetric luxury magazine-style grid for the Visit panel:
+     row 1: OPENING HOURS (7 cols) | 2x2 IMAGE GALLERY (5 cols)
+     row 2: LOCATION & MAP (7 cols) | GET IN TOUCH (5 cols)
+     row 3: BRAND COLOPHON STRIP (12 cols)
+   ============================================================ */
+.visit-grid {
+  --visit-gap: clamp(12px, 1.1vw, 18px);
+  --visit-pad: clamp(20px, 1.8vw, 30px);
+  --visit-radius: 18px;
+  --visit-line: rgba(245, 239, 223, 0.1);
+  display: grid !important;
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  gap: var(--visit-gap) !important;
+  min-height: 100% !important;
   box-sizing: border-box !important;
+  position: relative !important;
+  padding-bottom: 8px !important;
 }
 
-/* ---------- Intro ---------- */
-.visit-intro {
-  flex-shrink: 0 !important;
-}
-
-.visit-intro-head {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: flex-start !important;
-  gap: 20px !important;
-}
-
-.visit-title-group .eyebrow {
-  margin: 0 0 6px 0 !important;
-  color: var(--orange, #fbb019) !important;
-}
-
-.visit-heading {
-  font-family: "Manrope", sans-serif !important;
-  font-size: clamp(32px, 3.4vw, 52px) !important;
-  font-weight: 800 !important;
-  line-height: 0.95 !important;
-  letter-spacing: -0.03em !important;
-  color: var(--cream, #f5efdf) !important;
+.visit-panel {
+  position: relative !important;
+  min-width: 0 !important;
   margin: 0 !important;
-  text-transform: uppercase !important;
-}
-
-.visit-heading .accent {
-  font-family: "Playfair Display", Georgia, serif !important;
-  font-style: italic !important;
-  font-weight: 500 !important;
-  color: var(--orange, #fbb019) !important;
-  display: inline-block !important;
-}
-
-.visit-hours-card {
+  padding: var(--visit-pad) !important;
+  border: 1px solid var(--visit-line) !important;
+  border-radius: var(--visit-radius) !important;
+  background: var(--ink, #070806) !important;
+  color: var(--cream, #f5efdf) !important;
+  box-sizing: border-box !important;
   display: flex !important;
   flex-direction: column !important;
-  align-items: flex-end !important;
-  text-align: right !important;
-  gap: 6px !important;
-  padding-top: 4px !important;
-  margin-right: clamp(40px, 4.2vw, 60px) !important;
-  flex-shrink: 0 !important;
+  justify-content: space-between !important;
 }
 
-.visit-micro-tag {
+/* Common Micro Eyebrow */
+.visit-micro-eyebrow {
   font-family: "Manrope", sans-serif !important;
-  font-size: 9.5px !important;
+  font-size: clamp(9px, 0.68vw, 10.5px) !important;
   font-weight: 800 !important;
-  letter-spacing: 0.18em !important;
+  letter-spacing: 0.22em !important;
   text-transform: uppercase !important;
   color: var(--orange, #fbb019) !important;
   display: block !important;
+  line-height: 1 !important;
 }
 
-.visit-hours-details {
-  display: flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-  color: var(--orange, #fbb019) !important;
-}
-
-.visit-hours-day {
-  font-family: "DM Sans", sans-serif !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  color: rgba(245, 239, 223, 0.6) !important;
-}
-
-.visit-hours-time {
-  font-family: "Manrope", sans-serif !important;
-  font-size: 13.5px !important;
-  font-weight: 700 !important;
+/* Serif Headings */
+.visit-panel-serif-title {
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-size: clamp(22px, 1.9vw, 30px) !important;
+  font-weight: 600 !important;
+  line-height: 1.05 !important;
+  letter-spacing: 0.04em !important;
   color: var(--cream, #f5efdf) !important;
-  letter-spacing: 0.01em !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  text-transform: uppercase !important;
 }
 
-.visit-divider {
-  height: 1px !important;
-  background: rgba(245, 239, 223, 0.14) !important;
-  margin: clamp(14px, 1.8vh, 20px) 0 clamp(12px, 1.6vh, 16px) !important;
+/* ---------- 1. Opening Hours Panel ---------- */
+.visit-hours-panel {
+  grid-column: span 7 !important;
 }
 
-.visit-intro-copy {
-  font-family: "DM Sans", sans-serif !important;
-  font-size: clamp(13px, 0.95vw, 15px) !important;
-  line-height: 1.5 !important;
-  color: rgba(245, 239, 223, 0.72) !important;
-  margin: 0 0 clamp(16px, 2vh, 22px) !important;
-  font-weight: 400 !important;
-  max-width: 46ch !important;
-}
-
-.visit-actions {
+.visit-panel-header {
   display: flex !important;
   align-items: center !important;
-  gap: 10px !important;
-  flex-shrink: 0 !important;
-  margin: 0 !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  margin-bottom: clamp(14px, 1.6vh, 20px) !important;
+  width: 100% !important;
 }
 
-.visit-cta-book {
-  height: clamp(40px, 4.2vh, 46px) !important;
-  padding: 0 clamp(20px, 1.6vw, 28px) !important;
+.visit-heading-wrap {
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.visit-line-dec {
+  flex: 1 !important;
+  height: 1px !important;
+  background: rgba(245, 239, 223, 0.12) !important;
+}
+
+.visit-schedule-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: clamp(7px, 0.9vh, 10px) !important;
+  margin-bottom: clamp(14px, 1.6vh, 18px) !important;
+  width: 100% !important;
+}
+
+.visit-schedule-row {
+  display: flex !important;
+  align-items: baseline !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  width: 100% !important;
+}
+
+.visit-schedule-day {
+  font-family: "Manrope", sans-serif !important;
+  font-size: clamp(10.5px, 0.8vw, 12px) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  color: rgba(245, 239, 223, 0.72) !important;
+  min-width: 72px !important;
+  text-transform: uppercase !important;
+}
+
+.visit-schedule-dots {
+  flex: 1 !important;
+  border-bottom: 1px dotted rgba(245, 239, 223, 0.22) !important;
+  transform: translateY(-4px) !important;
+}
+
+.visit-schedule-time {
+  font-family: "Manrope", sans-serif !important;
+  font-size: clamp(11.5px, 0.86vw, 13px) !important;
+  font-weight: 600 !important;
+  color: var(--cream, #f5efdf) !important;
+  letter-spacing: 0.02em !important;
+  white-space: nowrap !important;
+}
+
+.visit-hours-footer {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  margin-top: auto !important;
+  padding-top: clamp(10px, 1.2vh, 14px) !important;
+  border-top: 1px solid rgba(245, 239, 223, 0.08) !important;
+}
+
+.visit-hours-service-note {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: clamp(11px, 0.78vw, 12px) !important;
+  font-weight: 600 !important;
+  color: var(--orange, #fbb019) !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  margin: 0 0 clamp(6px, 0.8vh, 10px) 0 !important;
+}
+
+.visit-hours-narrative {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: clamp(12px, 0.84vw, 13px) !important;
+  line-height: 1.5 !important;
+  color: rgba(245, 239, 223, 0.65) !important;
+  margin: 0 0 clamp(14px, 1.6vh, 18px) 0 !important;
+  max-width: 48ch !important;
+}
+
+.visit-action-group {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: clamp(14px, 1.4vw, 22px) !important;
+  flex-wrap: wrap !important;
+}
+
+.visit-btn-book {
   background: var(--orange, #fbb019) !important;
   color: #070806 !important;
   border: 1px solid var(--orange, #fbb019) !important;
-  border-radius: 3px !important;
+  border-radius: 4px !important;
+  padding: 8px clamp(18px, 1.5vw, 24px) !important;
   font-family: "Manrope", sans-serif !important;
-  font-size: clamp(11px, 0.82vw, 12.5px) !important;
+  font-size: clamp(10px, 0.75vw, 11px) !important;
   font-weight: 800 !important;
   letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
   cursor: pointer !important;
-  white-space: nowrap !important;
+  transition: all 0.25s ease !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 6px !important;
-  transition: all 0.25s ease !important;
+  white-space: nowrap !important;
 }
 
-.visit-cta-book:hover {
+.visit-btn-book:hover {
   background: #f5efdf !important;
-  color: #070806 !important;
   border-color: #f5efdf !important;
-  transform: translateY(-2px) !important;
+  color: #070806 !important;
+  transform: translateY(-1px) !important;
 }
 
-.visit-cta-directions {
-  height: clamp(40px, 4.2vh, 46px) !important;
-  padding: 0 4px !important;
+.visit-link-directions {
   background: transparent !important;
-  color: rgba(245, 239, 223, 0.78) !important;
+  color: var(--cream, #f5efdf) !important;
   border: 0 !important;
-  border-bottom: 1px solid rgba(245, 239, 223, 0.3) !important;
+  border-bottom: 1px solid rgba(245, 239, 223, 0.35) !important;
   border-radius: 0 !important;
   font-family: "Manrope", sans-serif !important;
-  font-size: clamp(11px, 0.82vw, 12.5px) !important;
+  font-size: clamp(10px, 0.75vw, 11px) !important;
   font-weight: 700 !important;
   letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
   text-decoration: none !important;
   cursor: pointer !important;
-  white-space: nowrap !important;
   display: inline-flex !important;
   align-items: center !important;
-  gap: 5px !important;
+  gap: 6px !important;
+  padding: 4px 2px !important;
   transition: all 0.25s ease !important;
+  white-space: nowrap !important;
 }
 
-.visit-cta-directions:hover {
+.visit-link-directions:hover {
   border-color: var(--orange, #fbb019) !important;
   color: var(--orange, #fbb019) !important;
 }
 
-/* ---------- Location ---------- */
-.visit-location-card {
-  display: flex !important;
-  align-items: stretch !important;
-  gap: clamp(18px, 2vw, 30px) !important;
-  padding: clamp(10px, 1.4vh, 16px) 0 !important;
-  flex-shrink: 0 !important;
+/* ---------- 2. 2x2 Image Gallery ---------- */
+.visit-gallery-grid {
+  grid-column: span 5 !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  grid-template-rows: 1fr 1fr !important;
+  gap: var(--visit-gap) !important;
+  min-height: 100% !important;
 }
 
-.visit-location-info {
+.visit-gallery-tile {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 1px solid var(--visit-line) !important;
+  border-radius: var(--visit-radius) !important;
+  overflow: hidden !important;
+  position: relative !important;
+  background: var(--ink, #070806) !important;
+  aspect-ratio: 1 / 1 !important;
+}
+
+.visit-gallery-tile img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.visit-gallery-tile:hover img {
+  transform: scale(1.04) !important;
+}
+
+/* ---------- 3. Location & Map Panel ---------- */
+.visit-map-panel {
+  grid-column: span 7 !important;
+}
+
+.visit-map-header {
   display: flex !important;
-  flex-direction: column !important;
   align-items: flex-start !important;
-  gap: 6px !important;
-  text-align: left !important;
-  flex: 1.1 1 0 !important;
-  min-width: 0 !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  width: 100% !important;
 }
 
-.visit-location-name {
+.visit-location-title {
   font-family: "Playfair Display", Georgia, serif !important;
-  font-size: clamp(18px, 1.4vw, 22px) !important;
+  font-size: clamp(18px, 1.5vw, 23px) !important;
   font-weight: 600 !important;
   color: var(--cream, #f5efdf) !important;
-  margin: 2px 0 0 !important;
+  margin: 4px 0 2px 0 !important;
   line-height: 1.2 !important;
 }
 
-.visit-location-sub {
+.visit-location-text {
   font-family: "DM Sans", sans-serif !important;
-  font-size: clamp(12.5px, 0.9vw, 14px) !important;
+  font-size: clamp(11.5px, 0.8vw, 12.5px) !important;
   color: rgba(245, 239, 223, 0.6) !important;
-  margin: 0 0 6px !important;
-  font-weight: 400 !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
 }
 
-.visit-location-address {
-  display: flex !important;
-  align-items: flex-start !important;
-  gap: 8px !important;
-  font-family: "DM Sans", sans-serif !important;
-  font-size: 12px !important;
-  line-height: 1.5 !important;
-  color: rgba(245, 239, 223, 0.6) !important;
-  margin: 2px 0 10px !important;
-}
-
-.visit-location-address svg {
-  flex-shrink: 0 !important;
-  margin-top: 2px !important;
+.visit-map-route-cta {
+  font-family: "Manrope", sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
   color: var(--orange, #fbb019) !important;
-}
-
-.visit-maps-link {
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(251, 176, 25, 0.4) !important;
+  padding-bottom: 2px !important;
   display: inline-flex !important;
   align-items: center !important;
-  gap: 7px !important;
-  padding: 0 0 2px !important;
-  border: 0 !important;
-  border-bottom: 1px solid rgba(245, 239, 223, 0.3) !important;
-  border-radius: 0 !important;
-  font-family: "Manrope", sans-serif !important;
-  font-size: 10.5px !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.1em !important;
-  text-transform: uppercase !important;
-  color: rgba(245, 239, 223, 0.78) !important;
-  text-decoration: none !important;
-  transition: all 0.25s ease !important;
+  gap: 5px !important;
+  flex-shrink: 0 !important;
+  transition: all 0.2s ease !important;
+  margin-top: 4px !important;
 }
 
-.visit-maps-link:hover {
+.visit-map-route-cta:hover {
+  border-color: var(--orange, #fbb019) !important;
+  opacity: 0.85 !important;
+}
+
+.visit-map-viewport {
+  position: relative !important;
+  width: 100% !important;
+  height: clamp(180px, 20vh, 250px) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(245, 239, 223, 0.08) !important;
+  margin-top: clamp(12px, 1.4vh, 18px) !important;
+  background: #11120f !important;
+}
+
+.visit-map-iframe {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0 !important;
+  filter: invert(90%) hue-rotate(180deg) contrast(95%) brightness(88%) !important;
+}
+
+.visit-map-badge {
+  position: absolute !important;
+  bottom: 10px !important;
+  right: 10px !important;
+  background: rgba(7, 8, 6, 0.88) !important;
+  backdrop-filter: blur(8px) !important;
+  color: var(--cream, #f5efdf) !important;
+  border: 1px solid rgba(245, 239, 223, 0.2) !important;
+  border-radius: 4px !important;
+  padding: 5px 11px !important;
+  font-family: "Manrope", sans-serif !important;
+  font-size: 9.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+  z-index: 2 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.visit-map-badge:hover {
   border-color: var(--orange, #fbb019) !important;
   color: var(--orange, #fbb019) !important;
 }
 
-.visit-location-image {
-  flex: 0.9 1 0 !important;
-  min-width: 0 !important;
-  border-radius: 0 !important;
-  overflow: hidden !important;
-  position: relative !important;
+/* ---------- 4. Get In Touch Panel ---------- */
+.visit-touch-panel {
+  grid-column: span 5 !important;
 }
 
-.visit-location-image img {
-  width: 100% !important;
-  height: 100% !important;
-  min-height: 150px !important;
-  object-fit: cover !important;
-  display: block !important;
-}
-
-/* ---------- Contact ---------- */
-.visit-contact-row {
-  display: flex !important;
-  align-items: center !important;
-  gap: clamp(28px, 3.4vw, 48px) !important;
-  flex-shrink: 0 !important;
-  padding: clamp(14px, 1.8vh, 20px) 0 !important;
-  flex-wrap: wrap !important;
-}
-
-.visit-contact-item {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 11px !important;
-  color: var(--orange, #fbb019) !important;
-  text-decoration: none !important;
-  transition: opacity 0.2s ease !important;
-}
-
-.visit-contact-item:hover {
-  opacity: 0.72 !important;
-}
-
-.visit-contact-item svg {
-  flex-shrink: 0 !important;
-  width: 16px !important;
-  height: 16px !important;
-}
-
-.visit-contact-item>span {
+.visit-touch-head {
+  text-align: center !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 1px !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin-bottom: clamp(12px, 1.5vh, 18px) !important;
 }
 
-.visit-contact-label {
+.visit-title-divider {
+  width: 32px !important;
+  height: 1px !important;
+  background: var(--orange, #fbb019) !important;
+  opacity: 0.5 !important;
+  margin-top: 4px !important;
+}
+
+.visit-contact-entries {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: clamp(8px, 1.1vh, 13px) !important;
+  width: 100% !important;
+}
+
+.visit-contact-entry {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+
+.visit-entry-label {
   font-family: "Manrope", sans-serif !important;
   font-size: 9px !important;
   font-weight: 800 !important;
-  letter-spacing: 0.14em !important;
-  color: rgba(245, 239, 223, 0.48) !important;
+  letter-spacing: 0.16em !important;
   text-transform: uppercase !important;
+  color: var(--orange, #fbb019) !important;
 }
 
-.visit-contact-value {
+.visit-entry-val {
   font-family: "DM Sans", sans-serif !important;
-  font-size: 13.5px !important;
+  font-size: clamp(11.5px, 0.8vw, 12.5px) !important;
+  line-height: 1.4 !important;
   color: var(--cream, #f5efdf) !important;
-  font-weight: 500 !important;
+  margin: 0 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
 }
 
-/* ---------- Get in touch ---------- */
-.visit-touch-banner {
-  position: relative !important;
+.visit-entry-address-link:hover {
+  color: var(--orange, #fbb019) !important;
+}
+
+.visit-entry-link {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: clamp(12px, 0.85vw, 13px) !important;
+  color: var(--cream, #f5efdf) !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  width: fit-content !important;
+}
+
+.visit-entry-link:hover {
+  color: var(--orange, #fbb019) !important;
+}
+
+.visit-insta-icon {
+  flex-shrink: 0 !important;
+}
+
+.visit-touch-signature {
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  margin-top: auto !important;
+  padding-top: clamp(10px, 1.2vh, 14px) !important;
+  border-top: 1px solid rgba(245, 239, 223, 0.08) !important;
+}
+
+.visit-touch-note {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: clamp(10.5px, 0.74vw, 11.5px) !important;
+  line-height: 1.45 !important;
+  color: rgba(245, 239, 223, 0.5) !important;
+  margin: 0 !important;
+  max-width: 24ch !important;
+}
+
+.visit-pet-sig-wrap {
+  width: clamp(75px, 6vw, 95px) !important;
+  height: clamp(50px, 4vh, 65px) !important;
+  flex-shrink: 0 !important;
   display: flex !important;
   align-items: center !important;
-  justify-content: space-between !important;
-  gap: 16px !important;
-  background: transparent !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  padding: clamp(18px, 2.4vh, 26px) 0 0 !important;
-  flex: 1 1 auto !important;
-  min-height: 0 !important;
-  overflow: hidden !important;
-  box-sizing: border-box !important;
-}
-
-.visit-touch-text {
-  position: relative !important;
-  z-index: 1 !important;
-  max-width: 50% !important;
-}
-
-.visit-touch-heading {
-  font-family: "Playfair Display", Georgia, serif !important;
-  font-style: italic !important;
-  font-size: clamp(19px, 1.7vw, 25px) !important;
-  font-weight: 500 !important;
-  color: var(--cream, #f5efdf) !important;
-  margin: 4px 0 8px !important;
-  line-height: 1.15 !important;
-}
-
-.visit-touch-copy {
-  font-family: "DM Sans", sans-serif !important;
-  font-size: 12.5px !important;
-  line-height: 1.5 !important;
-  color: rgba(245, 239, 223, 0.6) !important;
-  margin: 0 !important;
-  max-width: 38ch !important;
+  justify-content: center !important;
 }
 
 .visit-pet-art {
-  position: absolute !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  width: clamp(230px, 24vw, 320px) !important;
+  width: 100% !important;
   height: auto !important;
-  opacity: 0.95 !important;
+  opacity: 0.85 !important;
 }
 
-/* Close/Home button in top-right of visit panel */
+/* ---------- 5. Brand Colophon Strip ---------- */
+.visit-colophon-bar {
+  grid-column: 1 / -1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 14px !important;
+  padding: 12px 20px !important;
+  border: 1px solid var(--visit-line) !important;
+  border-radius: var(--visit-radius) !important;
+  background: var(--ink, #070806) !important;
+  font-family: "Manrope", sans-serif !important;
+  font-size: 9.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.16em !important;
+  color: rgba(245, 239, 223, 0.5) !important;
+  text-transform: uppercase !important;
+  box-sizing: border-box !important;
+}
+
+.visit-colophon-sep {
+  color: var(--orange, #fbb019) !important;
+  opacity: 0.65 !important;
+  font-size: 8px !important;
+}
+
+/* Section Home/Back-to-top button in top-right */
 body.detail-view #visit .section-home-button {
   position: absolute !important;
   top: 16px !important;
   right: 16px !important;
   margin: 0 !important;
-  z-index: 10 !important;
+  z-index: 20 !important;
   display: grid !important;
 }
 
@@ -14605,10 +14748,11 @@ body.detail-view #about .section-home-button {
   body.detail-view #visit.active-detail {
     height: auto !important;
     max-height: none !important;
-    padding: 30px 18px 44px !important;
+    padding: clamp(76px, 10vh, 90px) 0 24px !important;
     overflow: visible !important;
-    background: var(--ink, #070806) !important;
-    color: var(--cream, #f5efdf) !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
   }
 
   body.detail-view #about.active-detail {
@@ -14621,48 +14765,35 @@ body.detail-view #about .section-home-button {
     border-radius: 0 !important;
   }
 
-  .visit-shell {
-    gap: 26px !important;
-  }
-
-  .visit-intro-head {
-    flex-direction: column !important;
-    align-items: flex-start !important;
+  .visit-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
     gap: 14px !important;
+    --visit-pad: 22px;
   }
 
-  .visit-hours-card {
-    align-items: flex-start !important;
-    text-align: left !important;
-    margin-right: 0 !important;
+  .visit-hours-panel,
+  .visit-gallery-grid,
+  .visit-map-panel,
+  .visit-touch-panel,
+  .visit-colophon-bar {
+    grid-column: 1 / -1 !important;
   }
 
-  .visit-location-card {
+  .visit-gallery-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+
+  .visit-colophon-bar {
     flex-direction: column !important;
+    gap: 8px !important;
+    text-align: center !important;
   }
 
-  .visit-location-image img {
-    min-height: 180px !important;
-  }
-
-  .visit-contact-row {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 16px !important;
-  }
-
-  .visit-touch-banner {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    padding-bottom: clamp(190px, 50vw, 240px) !important;
-  }
-
-  .visit-touch-text {
-    max-width: 100% !important;
-  }
-
-  .visit-pet-art {
-    width: clamp(190px, 58vw, 260px) !important;
+  .visit-colophon-sep {
+    display: none !important;
   }
 }
 
