@@ -96,7 +96,6 @@ export default function IntroSection({ googleReviews }: { googleReviews: GoogleR
               <span>Specialty Coffee</span>
             </p>
           </div>
-          <SectionHomeButton />
         </div>
 
         {/* ROW 1 RIGHT: Interactive Large Image Carousel */}
@@ -213,16 +212,10 @@ export default function IntroSection({ googleReviews }: { googleReviews: GoogleR
           <span className="about-colophon-tag">WELLNESS CAFÉ &amp; SPECIALTY ROASTS</span>
           <span className="about-colophon-sep" aria-hidden="true">◇</span>
           <span className="about-colophon-copy">© PRESS’D WELLNESS CAFÉ</span>
-          <img
-            src="/website-pet-icon.png"
-            alt=""
-            className="about-pet-mark"
-            width="32"
-            height="32"
-            aria-hidden="true"
-          />
         </div>
       </div>
+
+      <SectionHomeButton />
     </section>
   );
 }
