@@ -16693,3 +16693,409 @@ body:not(.menu-detail-view)>footer .footer-bottom {
     grid-template-rows: auto !important;
   }
 }
+
+/* ============================================================
+   ABOUT — SINGLE-SCREEN 4-ZONE LAYOUT (phones + touch tablets)
+   About only (#about / :has(#about.active-detail)); Home, Visit and
+   Menu are untouched; desktop keeps its existing composition.
+   Zones: 1 Philosophy         2 Café images (both existing carousels,
+                                  stacked as one gallery column)
+          3 Google reviews     4 Our story (+ its location line)
+            + total rating
+   Row 1 = philosophy 60% | images 40% (height set by the philosophy
+   copy, shared by the two carousels); row 2 = reviews 55% | story 45%
+   (takes the rest). The reviews component keeps its own logic; only
+   its sizes are tuned. The colophon strip is secondary in this
+   compact layout (the story keeps its location line); it remains on
+   desktop.
+   ============================================================ */
+@media (max-width: 760px),
+  (min-width: 761px) and (max-width: 1100px) and (orientation: portrait) and (pointer: coarse),
+  (min-width: 761px) and (max-width: 1194px) and (orientation: landscape) and (min-height: 541px) and (pointer: coarse),
+  (min-width: 761px) and (max-height: 540px) and (pointer: coarse) {
+
+  /* Fill the given space instead of scrolling (auto only as a safety
+     net on screens too small for all four zones). */
+  body.detail-view #about.active-detail {
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    scrollbar-width: none !important;
+  }
+
+  body.detail-view #about .about-grid {
+    flex: 1 1 auto !important;
+    align-self: stretch !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    grid-template-columns: repeat(20, minmax(0, 1fr)) !important;
+    /* The last row fills the remaining height but never shrinks below
+       its content: on a screen too small for all four zones the panel
+       scrolls instead of zones overlapping or clipping. */
+    grid-template-rows: auto auto minmax(auto, 1fr) !important;
+    grid-auto-rows: auto !important;
+    gap: 5px !important;
+    padding: 5px !important;
+  }
+
+  body.detail-view #about .about-colophon {
+    display: none !important;
+  }
+
+  body.detail-view #about .about-tile {
+    padding: 8px 9px !important;
+    border-radius: 14px !important;
+    min-height: 0 !important;
+  }
+
+  /* Zone placement */
+  body.detail-view #about .about-tile-intro          { grid-column: 1 / 13 !important;  grid-row: 1 / 3 !important; order: 0 !important; }
+  body.detail-view #about .about-tile-carousel-top   { grid-column: 13 / 21 !important; grid-row: 1 !important;     order: 0 !important; }
+  body.detail-view #about .about-tile-carousel-story { grid-column: 13 / 21 !important; grid-row: 2 !important;     order: 0 !important; }
+  body.detail-view #about .about-tile-reviews        { grid-column: 1 / 12 !important;  grid-row: 3 !important;     order: 0 !important; }
+  body.detail-view #about .about-tile-story          { grid-column: 12 / 21 !important; grid-row: 3 !important;     order: 0 !important; }
+
+  /* The corner home button lives in the philosophy tile; anchoring it to
+     the panel instead puts it in the panel's top-right corner, over the
+     café photo (as on Visit), so it no longer covers the headline. */
+  body.detail-view #about .about-tile-intro {
+    position: static !important;
+  }
+
+  body.detail-view #about .section-home-button {
+    top: 9px !important;
+    right: 9px !important;
+  }
+
+  body.detail-view #about .about-tile-carousel-top .about-carousel-meta {
+    right: 56px !important; /* the photo label ends before the button */
+  }
+
+  /* ---- Zone 1: philosophy ---- */
+  body.detail-view #about .about-tile-intro {
+    container-type: inline-size;
+    gap: 6px !important;
+    justify-content: space-between !important;
+  }
+
+  body.detail-view #about .about-micro-eyebrow {
+    font-size: 9px !important;
+    letter-spacing: 0.14em !important;
+    margin: 0 0 3px !important;
+  }
+
+  body.detail-view #about .about-head-serif {
+    font-size: clamp(15px, 9.2cqi, 28px) !important;
+    line-height: 1.04 !important;
+  }
+
+  body.detail-view #about .about-lead-statement {
+    font-size: clamp(10.5px, 5.4cqi, 14px) !important;
+    line-height: 1.4 !important;
+    margin: 0 0 4px !important;
+    max-width: none !important;
+  }
+
+  body.detail-view #about .about-features {
+    font-size: 9px !important;
+    gap: 1px 6px !important;
+    line-height: 1.45 !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  /* ---- Zone 2: the two café image carousels as one column ---- */
+  body.detail-view #about .about-tile-carousel {
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 64px !important;
+    aspect-ratio: auto !important;
+  }
+
+  body.detail-view #about .about-carousel-btn {
+    width: 34px !important;
+    height: 34px !important;
+    right: 6px !important;
+    bottom: 6px !important;
+  }
+
+  body.detail-view #about .about-carousel-meta {
+    top: 6px !important;
+    left: 6px !important;
+  }
+
+  body.detail-view #about .about-carousel-tag {
+    font-size: 9px !important;
+    padding: 4px 6px !important;
+    letter-spacing: 0.08em !important;
+    line-height: 1.25 !important;
+  }
+
+  /* ---- Zone 3: Google reviews + total rating ---- */
+  body.detail-view #about .about-reviews-inner { gap: 6px !important; }
+  body.detail-view #about .about-reviews-panel { gap: 5px !important; }
+
+  body.detail-view #about .about-reviews-label {
+    font-size: 9px !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  body.detail-view #about .about-reviews-label-rule { width: 18px !important; }
+
+  body.detail-view #about .about-reviews-stage {
+    padding: 7px 8px !important;
+    border-radius: 10px !important;
+  }
+
+  body.detail-view #about .about-reviews-slide {
+    column-gap: 7px !important;
+    row-gap: 4px !important;
+    grid-template-columns: 22px minmax(0, 1fr) !important;
+  }
+
+  body.detail-view #about .about-reviews-avatar {
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 11px !important;
+  }
+
+  body.detail-view #about .about-reviews-stars { font-size: 10px !important; }
+
+  body.detail-view #about .about-reviews-quote p {
+    font-size: clamp(12px, 6.4cqi, 17px) !important;
+    line-height: 1.32 !important;
+  }
+
+  body.detail-view #about .about-reviews-quote.is-long p {
+    font-size: clamp(11.5px, 5.8cqi, 16px) !important;
+  }
+
+  body.detail-view #about .about-reviews-meta { margin-top: 0 !important; gap: 3px 8px !important; }
+  body.detail-view #about .about-reviews-author { font-size: 10px !important; gap: 6px !important; }
+  body.detail-view #about .about-reviews-author-rule { width: 12px !important; }
+  body.detail-view #about .about-reviews-source { font-size: 9.5px !important; }
+
+  body.detail-view #about .about-reviews-progress { gap: 5px !important; }
+  body.detail-view #about .about-reviews-tick { width: 20px !important; padding: 6px 0 !important; }
+  body.detail-view #about .about-reviews-tick.is-active { width: 30px !important; }
+  body.detail-view #about .about-reviews-tick-fill { top: 6px !important; }
+
+  /* Rating: the big figure on the left, label / stars / count beside it,
+     the CTA underneath. */
+  body.detail-view #about .about-reviews-rating {
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    grid-template-areas:
+      "figure label"
+      "figure stars"
+      "figure count"
+      "cta    cta"
+      "attr   attr" !important;
+    padding-top: 7px !important;
+    column-gap: 10px !important;
+    row-gap: 2px !important;
+  }
+
+  body.detail-view #about .about-reviews-rating-label {
+    font-size: 9px !important;
+    letter-spacing: 0.2em !important;
+    margin: 0 !important;
+  }
+
+  body.detail-view #about .about-reviews-rating-value { font-size: clamp(30px, 17cqi, 56px) !important; }
+  body.detail-view #about .about-reviews-rating-max { font-size: clamp(12px, 6cqi, 20px) !important; }
+  body.detail-view #about .about-reviews-rating-stars { font-size: 11px !important; align-self: center !important; }
+
+  body.detail-view #about .about-reviews-rating-count {
+    font-size: 9px !important;
+    letter-spacing: 0.16em !important;
+    margin: 0 !important;
+  }
+
+  body.detail-view #about .about-reviews-cta {
+    margin-top: 5px !important;
+    font-size: 10px !important;
+    letter-spacing: 0.12em !important;
+    padding-bottom: 3px !important;
+  }
+
+  /* Text tiles keep their content-based minimum height so their rows
+     grow (and the panel scrolls) rather than clipping. */
+  body.detail-view #about .about-tile-intro,
+  body.detail-view #about .about-tile-reviews,
+  body.detail-view #about .about-tile-story {
+    min-height: auto !important;
+  }
+
+  /* ---- Zone 4: our story ---- */
+  body.detail-view #about .about-tile-story {
+    container-type: inline-size;
+    gap: 5px !important;
+    justify-content: flex-start !important;
+  }
+
+  body.detail-view #about .about-col-label {
+    font-size: 9px !important;
+    gap: 8px !important;
+  }
+
+  body.detail-view #about .about-col-label-line { width: 14px !important; }
+
+  body.detail-view #about .about-story-title {
+    font-size: clamp(14px, 9cqi, 24px) !important;
+    margin: 0 0 3px !important;
+  }
+
+  body.detail-view #about .about-story-text {
+    font-size: clamp(10.5px, 6.6cqi, 14px) !important;
+    line-height: 1.4 !important;
+    max-width: none !important;
+  }
+
+  body.detail-view #about .about-story-signoff {
+    margin-top: auto !important;
+    padding-top: 5px !important;
+  }
+
+  body.detail-view #about .about-story-loc {
+    font-size: 9px !important;
+    line-height: 1.35 !important;
+  }
+}
+
+/* Roomier when the screen is taller (tall phones, touch tablets). */
+@media (max-width: 760px) and (orientation: portrait) and (min-height: 760px),
+  (min-width: 761px) and (max-width: 1100px) and (orientation: portrait) and (pointer: coarse),
+  (min-width: 761px) and (max-width: 1194px) and (orientation: landscape) and (min-height: 541px) and (pointer: coarse) {
+  body.detail-view #about .about-grid { gap: 8px !important; padding: 8px !important; }
+  body.detail-view #about .about-tile { padding: 12px 12px !important; }
+  body.detail-view #about .about-tile-intro { gap: 10px !important; }
+  body.detail-view #about .about-reviews-inner { gap: 10px !important; }
+  body.detail-view #about .about-reviews-panel { gap: 8px !important; }
+  body.detail-view #about .about-reviews-stage { padding: 10px !important; }
+  body.detail-view #about .about-reviews-slide { grid-template-columns: 28px minmax(0, 1fr) !important; row-gap: 6px !important; }
+  body.detail-view #about .about-reviews-avatar { width: 28px !important; height: 28px !important; font-size: 13px !important; }
+  body.detail-view #about .about-reviews-stars { font-size: 11px !important; }
+  body.detail-view #about .about-reviews-quote p { line-height: 1.4 !important; }
+  body.detail-view #about .about-reviews-author { font-size: 11px !important; }
+  body.detail-view #about .about-tile-story { gap: 8px !important; }
+  body.detail-view #about .about-story-text { line-height: 1.5 !important; }
+}
+
+/* Larger touch landscape (> 760px wide, short): About uses the same slim
+   header-banner shell as phones so the four zones get the full width. */
+@media (min-width: 761px) and (max-height: 540px) and (pointer: coarse) {
+  body.detail-view:has(#about.active-detail) main {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  body.detail-view:has(#about.active-detail) .hero {
+    flex: 0 0 auto !important;
+    height: 80px !important;
+    max-height: 80px !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+  }
+
+  body.detail-view:has(#about.active-detail) .hero-content,
+  body.detail-view:has(#about.active-detail) .hero-pet-float {
+    display: none !important;
+  }
+
+  body.detail-view:has(#about.active-detail) #about.active-detail {
+    flex: 1 1 auto !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+  }
+}
+
+/* Shorter portrait phones (< 700px tall in the browser): a slightly
+   smaller philosophy headline and tighter leading free height for the
+   reviews and story row. */
+@media (max-width: 760px) and (orientation: portrait) and (max-height: 699px) {
+  body.detail-view #about .about-tile { padding: 7px 8px !important; }
+  body.detail-view #about .about-tile-intro { gap: 4px !important; }
+  body.detail-view #about .about-head-serif { font-size: clamp(14px, 8.4cqi, 28px) !important; }
+  body.detail-view #about .about-lead-statement { line-height: 1.35 !important; }
+  body.detail-view #about .about-story-text { line-height: 1.36 !important; }
+}
+
+/* Landscape: height is the constraint, so type follows the height too. */
+@media (orientation: landscape) and (max-width: 760px),
+  (min-width: 761px) and (max-height: 540px) and (pointer: coarse) {
+  body.detail-view #about .about-head-serif { font-size: clamp(14px, min(9.2cqi, 5.4dvh), 28px) !important; }
+  body.detail-view #about .about-lead-statement { font-size: clamp(10.5px, min(5.4cqi, 2.9dvh), 14px) !important; }
+  body.detail-view #about .about-story-text { font-size: clamp(10.5px, min(6.6cqi, 3dvh), 14px) !important; }
+  body.detail-view #about .about-reviews-quote p { font-size: clamp(11.5px, min(6.4cqi, 3.3dvh), 17px) !important; }
+  body.detail-view #about .about-reviews-quote.is-long p { font-size: clamp(11.5px, min(5.8cqi, 2.9dvh), 16px) !important; }
+  body.detail-view #about .about-story-title { font-size: clamp(14px, min(9cqi, 4.6dvh), 24px) !important; }
+}
+
+@media (max-width: 760px) and (orientation: portrait) and (max-height: 650px) {
+  body.detail-view #about .about-grid { gap: 4px !important; padding: 4px !important; }
+  body.detail-view #about .about-tile { padding: 6px 7px !important; }
+  body.detail-view #about .about-reviews-panel,
+  body.detail-view #about .about-reviews-inner { gap: 4px !important; }
+  body.detail-view #about .about-reviews-stage { padding: 6px 7px !important; }
+}
+
+/* Landscape: two rows cannot fit the short height, so the four zones sit
+   in one row (philosophy | both photos stacked | reviews | story), each
+   using the full height — the same approach as the Visit page. */
+@media (orientation: landscape) and (max-width: 760px),
+  (min-width: 761px) and (max-height: 540px) and (pointer: coarse) {
+  /* Content-sized rows stretched to fill the height (flexible rows would
+     ignore the full-height zones when sizing). */
+  body.detail-view #about .about-grid {
+    grid-template-rows: auto auto !important;
+    align-content: stretch !important;
+  }
+
+  body.detail-view #about .about-tile-intro          { grid-column: 1 / 5 !important;   grid-row: 1 / 3 !important; }
+  body.detail-view #about .about-tile-carousel-top   { grid-column: 5 / 8 !important;   grid-row: 1 !important; }
+  body.detail-view #about .about-tile-carousel-story { grid-column: 5 / 8 !important;   grid-row: 2 !important; }
+  body.detail-view #about .about-tile-reviews        { grid-column: 8 / 15 !important;  grid-row: 1 / 3 !important; }
+  body.detail-view #about .about-tile-story          { grid-column: 15 / 21 !important; grid-row: 1 / 3 !important; }
+
+  /* Keep the corner home button over the top photo (as in portrait): its
+     left edge is the photo column's right edge (grid padding 5px, 20
+     columns, 5px gaps — the column ends after 7 columns + 6 gaps) minus
+     the 44px button and a 6px inset. */
+  body.detail-view #about .section-home-button {
+    right: auto !important;
+    left: calc(5px + 7 * ((100% - 10px - 95px) / 20) + 30px - 50px) !important;
+    top: 11px !important;
+  }
+
+  body.detail-view #about .about-carousel-meta { right: 6px !important; }
+  body.detail-view #about .about-tile-carousel-top .about-carousel-meta { right: 50px !important; }
+  body.detail-view #about .about-carousel-tag { white-space: normal !important; }
+}
+
+@media (max-width: 760px) and (orientation: portrait) and (max-height: 650px) {
+  body.detail-view #about .about-head-serif { font-size: clamp(14px, 8cqi, 28px) !important; }
+  body.detail-view #about .about-story-text { line-height: 1.3 !important; }
+  body.detail-view #about .about-reviews-quote p { line-height: 1.28 !important; }
+}
+
+/* Small landscape phones (<= 760px wide; these already scroll): the photos
+   are too narrow to hold both the label and the corner button, so the
+   button returns to the panel's top-right and the story zone makes room
+   for it at its top. */
+@media (orientation: landscape) and (max-width: 760px) {
+  body.detail-view #about .section-home-button {
+    left: auto !important;
+    right: 9px !important;
+    top: 9px !important;
+  }
+
+  body.detail-view #about .about-tile-carousel-top .about-carousel-meta { right: 6px !important; }
+  body.detail-view #about .about-tile-story { padding-top: 56px !important; }
+  body.detail-view #about .about-carousel-tag { overflow-wrap: anywhere !important; }
+}
