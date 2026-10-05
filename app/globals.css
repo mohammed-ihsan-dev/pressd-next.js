@@ -15527,18 +15527,24 @@ body.detail-view #about .section-home-button {
     display: flex !important;
     flex-direction: column !important;
     padding: clamp(6px, 1.8vw, 10px) !important;
-    gap: clamp(5px, 0.9vh, 8px) !important;
+    /* Reserve the fixed bottom dock — its offset (which already includes
+       the home-indicator safe area) + its 66px height + 8px breathing
+       room — so content never sits behind it. */
+    padding-bottom: calc(max(7px, env(safe-area-inset-bottom)) + 74px) !important;
+    gap: clamp(6px, 1.6vw, 8px) !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
   }
 
-  /* Compact cinema video banner at the top */
+  /* Compact cinema video banner at the top — sized to sit exactly behind
+     the fixed mobile header (top = safe-area inset, 56px tall) instead of
+     leaving a dead strip below it. */
   body.detail-view:not(.menu-detail-view) .hero {
     display: block !important;
     flex: 0 0 auto !important;
-    height: clamp(62px, 10.5dvh, 84px) !important;
+    height: calc(max(8px, env(safe-area-inset-top)) + 50px) !important;
     min-height: 0 !important;
-    max-height: clamp(62px, 10.5dvh, 84px) !important;
+    max-height: calc(max(8px, env(safe-area-inset-top)) + 50px) !important;
     margin: 0 !important;
     padding: 0 !important;
     border-radius: 14px !important;
@@ -15605,16 +15611,22 @@ body.detail-view #about .section-home-button {
     display: none !important;
   }
 
-  /* Active detail container (About, Visit, etc.): takes remaining height, no scroll */
+  /* Active detail container (About, Visit, etc.): takes the remaining
+     height of the fixed single-screen shell. The page itself never
+     scrolls; the panel scrolls inside its frame (as on desktop), so
+     content stacks at readable sizes instead of being shrunk or clipped. */
   body.detail-view:not(.menu-detail-view) main > section.active-detail {
     display: block !important;
     flex: 1 1 auto !important;
     min-height: 0 !important;
     height: auto !important;
-    max-height: calc(100dvh - clamp(62px, 10.5dvh, 84px) - clamp(18px, 3vh, 26px)) !important;
+    max-height: none !important;
     margin: 0 !important;
     padding: 0 !important;
-    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    scrollbar-width: none !important;
     border: 1px solid rgba(251, 176, 25, 0.2) !important;
     border-radius: 14px !important;
     background: var(--ink, #070806) !important;
@@ -15633,360 +15645,6 @@ body.detail-view #about .section-home-button {
     z-index: 25 !important;
   }
 
-  /* ---------------- ABOUT GRID (<= 760px) ----------------
-     2-column, 4-row layout matching desktop editorial composition:
-     Row 1: Philosophy (col 1) | Carousel (col 2)
-     Row 2: Community & Google Reviews (col 1 / -1)
-     Row 3: Story Carousel (col 1) | Our Story (col 2)
-     Row 4: Colophon (col 1 / -1) */
-  .about-grid {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    grid-template-rows: minmax(0, 1.25fr) auto minmax(0, 1.25fr) auto !important;
-    gap: clamp(4px, 0.8vh, 6px) !important;
-    padding: clamp(5px, 0.8vh, 8px) !important;
-    height: 100% !important;
-    max-height: 100% !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-  }
-
-  .about-tile {
-    padding: clamp(6px, 1vh, 9px) !important;
-    border-radius: 10px !important;
-    min-height: 0 !important;
-    overflow: hidden !important;
-  }
-
-  .about-tile-intro {
-    grid-column: 1 / 2 !important;
-    grid-row: 1 !important;
-    order: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    gap: 2px !important;
-  }
-
-  .about-micro-eyebrow {
-    font-size: clamp(7px, 2vw, 8.5px) !important;
-    letter-spacing: 0.16em !important;
-    margin: 0 0 2px 0 !important;
-  }
-
-  .about-headline {
-    gap: 1px !important;
-  }
-
-  .about-head-serif {
-    font-size: clamp(12px, 3.4vw, 16px) !important;
-    line-height: 1.05 !important;
-  }
-
-  .about-lead-statement {
-    font-size: clamp(8px, 2.2vw, 9.5px) !important;
-    line-height: 1.25 !important;
-    margin: 2px 0 !important;
-    max-width: 100% !important;
-  }
-
-  .about-features {
-    font-size: clamp(7px, 1.9vw, 8px) !important;
-    gap: 2px 5px !important;
-  }
-
-  .about-features span {
-    gap: 4px !important;
-  }
-
-  .about-tile-carousel-top {
-    grid-column: 2 / 3 !important;
-    grid-row: 1 !important;
-    order: 2 !important;
-    height: 100% !important;
-    min-height: 0 !important;
-    position: relative !important;
-  }
-
-  .about-tile-reviews {
-    grid-column: 1 / -1 !important;
-    grid-row: 2 !important;
-    order: 3 !important;
-    padding: clamp(4px, 0.8vh, 7px) clamp(6px, 1.5vw, 10px) !important;
-  }
-
-  .about-reviews-inner {
-    gap: clamp(4px, 1vw, 8px) !important;
-  }
-
-  .about-reviews-title {
-    font-size: clamp(8.5px, 2.3vw, 10.5px) !important;
-  }
-
-  .about-reviews-score {
-    font-size: clamp(10px, 2.8vw, 13px) !important;
-  }
-
-  .about-reviews-quote {
-    font-size: clamp(8px, 2.1vw, 9.5px) !important;
-    line-height: 1.25 !important;
-  }
-
-  .about-reviews-author {
-    font-size: clamp(7px, 1.8vw, 8px) !important;
-  }
-
-  .about-tile-carousel-story {
-    grid-column: 1 / 2 !important;
-    grid-row: 3 !important;
-    order: 4 !important;
-    height: 100% !important;
-    min-height: 0 !important;
-    position: relative !important;
-  }
-
-  .about-tile-story {
-    grid-column: 2 / 3 !important;
-    grid-row: 3 !important;
-    order: 5 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    gap: 2px !important;
-  }
-
-  .about-col-label {
-    font-size: clamp(7px, 1.8vw, 8px) !important;
-    margin-bottom: 2px !important;
-  }
-
-  .about-story-title {
-    font-size: clamp(10.5px, 2.8vw, 13px) !important;
-    line-height: 1.15 !important;
-    margin: 0 0 2px 0 !important;
-  }
-
-  .about-story-text {
-    font-size: clamp(7.5px, 2vw, 9px) !important;
-    line-height: 1.25 !important;
-    margin: 0 !important;
-  }
-
-  .about-story-loc {
-    font-size: clamp(6.5px, 1.7vw, 7.5px) !important;
-  }
-
-  .about-carousel-btn {
-    width: 24px !important;
-    height: 24px !important;
-    bottom: 6px !important;
-    right: 6px !important;
-  }
-
-  .about-carousel-btn svg {
-    width: 11px !important;
-    height: 11px !important;
-  }
-
-  .about-carousel-tag {
-    font-size: 7.5px !important;
-    padding: 2px 5px !important;
-  }
-
-  .about-colophon {
-    grid-column: 1 / -1 !important;
-    grid-row: 4 !important;
-    order: 6 !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    padding: clamp(3px, 0.6vh, 5px) clamp(6px, 1.5vw, 10px) !important;
-    font-size: clamp(6.5px, 1.7vw, 8px) !important;
-    gap: 4px !important;
-  }
-
-  .about-colophon-sep {
-    display: inline !important;
-  }
-
-  .about-pet-mark {
-    width: 16px !important;
-    height: 16px !important;
-    position: static !important;
-    transform: none !important;
-  }
-
-  /* ---------------- VISIT GRID (<= 760px) ----------------
-     2-column, 3-row layout matching desktop editorial composition:
-     Row 1: Hours Panel (col 1) | 2x2 Gallery (col 2)
-     Row 2: Location Map (col 1) | Touch Panel (col 2)
-     Row 3: Colophon Bar (col 1 / -1) */
-  .visit-grid {
-    display: grid !important;
-    grid-template-columns: 1.12fr 0.88fr !important;
-    grid-template-rows: minmax(0, 1.45fr) minmax(0, 1.05fr) auto !important;
-    gap: clamp(4px, 0.8vh, 6px) !important;
-    padding: clamp(5px, 0.8vh, 8px) !important;
-    height: 100% !important;
-    max-height: 100% !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-  }
-
-  .visit-panel {
-    padding: clamp(6px, 1vh, 9px) !important;
-    border-radius: 10px !important;
-    min-height: 0 !important;
-    overflow: hidden !important;
-  }
-
-  .visit-hours-panel {
-    grid-column: 1 / 2 !important;
-    grid-row: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    gap: 2px !important;
-  }
-
-  .visit-micro-eyebrow {
-    font-size: clamp(7px, 1.8vw, 8px) !important;
-  }
-
-  .visit-panel-serif-title {
-    font-size: clamp(11.5px, 3.2vw, 15px) !important;
-    line-height: 1 !important;
-  }
-
-  .visit-schedule-list {
-    margin: 2px 0 !important;
-    gap: 1px !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  .visit-schedule-row {
-    font-size: clamp(7.5px, 2vw, 9px) !important;
-    line-height: 1.15 !important;
-  }
-
-  .visit-hours-service-note {
-    font-size: clamp(7px, 1.8vw, 8px) !important;
-    margin: 1px 0 !important;
-  }
-
-  .visit-hours-narrative {
-    display: none !important;
-  }
-
-  .visit-action-group {
-    display: flex !important;
-    gap: 4px !important;
-    margin-top: 2px !important;
-  }
-
-  .visit-btn-book,
-  .visit-link-directions {
-    padding: clamp(4px, 0.8vh, 6px) clamp(6px, 1.5vw, 9px) !important;
-    font-size: clamp(7px, 1.8vw, 8.5px) !important;
-    border-radius: 999px !important;
-  }
-
-  .visit-gallery-grid {
-    grid-column: 2 / 3 !important;
-    grid-row: 1 !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    grid-template-rows: 1fr 1fr !important;
-    gap: 4px !important;
-    height: 100% !important;
-    min-height: 0 !important;
-    margin: 0 !important;
-  }
-
-  .visit-gallery-tile {
-    margin: 0 !important;
-    border-radius: 8px !important;
-    overflow: hidden !important;
-    position: relative !important;
-  }
-
-  .visit-gallery-tile img {
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-
-  .visit-map-panel {
-    grid-column: 1 / 2 !important;
-    grid-row: 2 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    gap: 2px !important;
-  }
-
-  .visit-location-title {
-    font-size: clamp(10px, 2.8vw, 13px) !important;
-    margin: 1px 0 !important;
-  }
-
-  .visit-location-text {
-    font-size: clamp(7.5px, 2vw, 9px) !important;
-    line-height: 1.2 !important;
-    margin: 0 !important;
-  }
-
-  .visit-map-thumb {
-    height: clamp(32px, 5.5vh, 46px) !important;
-    min-height: 0 !important;
-    border-radius: 6px !important;
-  }
-
-  .visit-touch-panel {
-    grid-column: 2 / 3 !important;
-    grid-row: 2 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    gap: 2px !important;
-  }
-
-  .visit-touch-heading {
-    font-size: clamp(10px, 2.8vw, 13px) !important;
-    margin: 1px 0 !important;
-  }
-
-  .visit-touch-list {
-    gap: 2px !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  .visit-touch-link {
-    font-size: clamp(7.5px, 2vw, 9px) !important;
-    line-height: 1.2 !important;
-  }
-
-  .visit-colophon-bar {
-    grid-column: 1 / -1 !important;
-    grid-row: 3 !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    padding: clamp(3px, 0.6vh, 5px) clamp(6px, 1.5vw, 10px) !important;
-    font-size: clamp(6.5px, 1.7vw, 8px) !important;
-    gap: 4px !important;
-    text-align: left !important;
-  }
-
-  .visit-colophon-sep {
-    display: inline !important;
-  }
 }
 
 /* ============================================================
@@ -16277,5 +15935,325 @@ body:not(.menu-detail-view)>footer .footer-bottom {
 
   .visit-location-title {
     font-size: 17px !important;
+  }
+}
+
+/* ============================================================
+   TOUCH / SMALL-SCREEN DETAIL PANELS — stacked, readable reflow
+   Applies to: phones (<= 760px), touch tablets in portrait, and touch
+   phones in landscape (short viewports). Desktop and landscape tablets
+   keep their existing composition (fine pointers never match the touch
+   clauses). The page stays a fixed single screen; the About / Visit
+   panel scrolls inside its own frame, so existing content reflows to a
+   single column at its normal sizes instead of being squeezed, shrunk
+   or clipped. Layout only — no colours, fonts, images or content change.
+   ============================================================ */
+@media (max-width: 760px),
+  (min-width: 761px) and (max-width: 1100px) and (orientation: portrait) and (pointer: coarse),
+  (min-width: 761px) and (max-height: 540px) and (pointer: coarse) {
+
+  /* Tablet/landscape keep the desktop split; let its panel scroll too. */
+  body.detail-view:not(.menu-detail-view) #about.active-detail,
+  body.detail-view:not(.menu-detail-view) #visit.active-detail {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+  }
+
+  body.detail-view #about .section-home-button,
+  body.detail-view #visit .section-home-button {
+    width: 44px !important;
+    height: 44px !important;
+    top: 8px !important;
+    right: 8px !important;
+  }
+
+  /* ---------- ABOUT ---------- */
+  body.detail-view:not(.menu-detail-view) .about-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: none !important;
+    grid-auto-rows: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    flex: 0 0 auto !important;
+    overflow: visible !important;
+    gap: clamp(10px, 2.6vw, 14px) !important;
+    padding: clamp(8px, 2.2vw, 12px) !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .about-tile {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    padding: clamp(18px, 5vw, 26px) !important;
+    border-radius: 14px !important;
+    min-height: 0 !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .about-tile-intro { order: 1 !important; gap: 18px !important; }
+  body.detail-view:not(.menu-detail-view) .about-tile-carousel-top { order: 2 !important; }
+  body.detail-view:not(.menu-detail-view) .about-tile-reviews { order: 3 !important; }
+  body.detail-view:not(.menu-detail-view) .about-tile-carousel-story { order: 4 !important; }
+  body.detail-view:not(.menu-detail-view) .about-tile-story { order: 5 !important; gap: 14px !important; }
+  body.detail-view:not(.menu-detail-view) .about-colophon { order: 6 !important; }
+
+  /* Photo tiles: full width, landscape crop, never thumbnail-sized. */
+  body.detail-view:not(.menu-detail-view) .about-tile-carousel {
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 16 / 10 !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .about-carousel-btn {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .about-head-serif {
+    font-size: clamp(26px, 7.6vw, 34px) !important;
+    line-height: 1.05 !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .about-lead-statement {
+    font-size: clamp(14px, 3.8vw, 15.5px) !important;
+    line-height: 1.55 !important;
+    max-width: 46ch !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .about-story-text {
+    font-size: clamp(14px, 3.8vw, 15px) !important;
+    line-height: 1.6 !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .about-story-title {
+    font-size: clamp(22px, 6.2vw, 26px) !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .about-colophon {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 6px 12px !important;
+    padding: 14px 18px !important;
+    font-size: 9.5px !important;
+    line-height: 1.6 !important;
+  }
+
+  /* The pet mark is pinned to the strip's right edge on desktop; once the
+     strip wraps it would sit on the text, so let it flow inline. */
+  body.detail-view:not(.menu-detail-view) .about-pet-mark {
+    position: static !important;
+    transform: none !important;
+  }
+
+  /* ---------- VISIT ---------- */
+  body.detail-view:not(.menu-detail-view) .visit-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: none !important;
+    grid-auto-rows: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    flex: 0 0 auto !important;
+    overflow: visible !important;
+    gap: clamp(10px, 2.6vw, 14px) !important;
+    padding: clamp(8px, 2.2vw, 12px) !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .visit-panel,
+  body.detail-view:not(.menu-detail-view) .visit-gallery-grid,
+  body.detail-view:not(.menu-detail-view) .visit-colophon-bar {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .visit-panel {
+    padding: clamp(18px, 5vw, 26px) !important;
+    border-radius: 14px !important;
+    min-height: 0 !important;
+    gap: 18px !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .visit-panel-serif-title {
+    font-size: clamp(22px, 6.4vw, 28px) !important;
+  }
+
+  /* Opening hours: day and time on one clean line each. */
+  body.detail-view:not(.menu-detail-view) .visit-schedule-row {
+    font-size: clamp(13px, 3.6vw, 15px) !important;
+    line-height: 1.5 !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .visit-schedule-day,
+  body.detail-view:not(.menu-detail-view) .visit-schedule-time {
+    white-space: nowrap !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .visit-hours-narrative {
+    display: block !important;
+    font-size: clamp(13px, 3.6vw, 14px) !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Book a table + Get directions: centred, same tap height. */
+  body.detail-view:not(.menu-detail-view) .visit-action-group {
+    gap: 10px 22px !important;
+    margin-top: 14px !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .visit-btn-book {
+    min-height: 44px !important;
+    padding: 0 22px !important;
+    font-size: 11px !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .visit-link-directions {
+    min-height: 44px !important;
+    padding: 0 2px !important;
+    font-size: 11px !important;
+  }
+
+  /* Gallery: 2 x 2 across the full width. */
+  body.detail-view:not(.menu-detail-view) .visit-gallery-grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    gap: clamp(8px, 2.4vw, 12px) !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .visit-gallery-tile {
+    aspect-ratio: 4 / 3 !important;
+    border-radius: 12px !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .visit-map-header {
+    flex-wrap: wrap !important;
+    row-gap: 6px !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .visit-map-route-cta {
+    padding: 8px 0 4px !important;
+    font-size: 10.5px !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .visit-location-title {
+    font-size: clamp(22px, 6.4vw, 26px) !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .visit-location-text {
+    font-size: clamp(13px, 3.6vw, 14px) !important;
+    line-height: 1.5 !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .visit-map-viewport {
+    height: clamp(200px, 56vw, 300px) !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .visit-touch-signature {
+    flex-wrap: wrap !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .visit-colophon-bar {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 6px 12px !important;
+    padding: 14px 18px !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+  }
+}
+
+/* ============================================================
+   DETAIL VIEWS, 761-1100px (tablets, iPad landscape, narrow windows)
+   The hero is only ~45% of the screen here.
+   1) Nav: the stylesheet already intends the compact nav (logo, cart,
+      menu button) in this range for detail views, but that rule lost
+      the cascade, so the full nav overflowed the hero by up to 140px.
+      Re-apply it.
+   2) Headline + Pet Friendly badge: size them to the hero's own width
+      (they share --hero-title-fs) so "BETTER DAYS." always leaves room
+      for the badge instead of running underneath it.
+   ============================================================ */
+@media (min-width: 761px) and (max-width: 1100px) {
+  body.detail-view:not(.menu-detail-view) .navbar .desktop-nav,
+  body.detail-view:not(.menu-detail-view) .navbar .nav-actions .book-btn {
+    display: none !important;
+  }
+
+  /* Same look as the existing <= 834px compact menu button (its styling
+     was only defined up to 834px, so above that it was invisible). */
+  body.detail-view:not(.menu-detail-view) .navbar .menu-toggle {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 1px solid rgba(246, 233, 218, 0.3) !important;
+    border-radius: 10px !important;
+    cursor: pointer !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .navbar .menu-toggle i {
+    display: block !important;
+    width: 18px !important;
+    height: 2px !important;
+    background: #f5efdf !important;
+    margin: 2px 0 !important;
+  }
+
+  /* The compact nav only holds logo, cart and menu button; its desktop
+     320px minimum width pushed it under the hero's Instagram button. */
+  body.detail-view:not(.menu-detail-view) .navbar {
+    width: auto !important;
+    min-width: 0 !important;
+    gap: 14px !important;
+  }
+
+  body.detail-view:not(.menu-detail-view) .hero-main {
+    container-type: inline-size;
+    --hero-title-fs: min(56px, 10.2cqi);
+  }
+}
+
+/* ============================================================
+   PHONE HEADER + BOTTOM DOCK (<= 760px) — fit and touch targets only
+   ============================================================ */
+@media (max-width: 760px) {
+  /* Matched 44 x 44 header buttons (touch minimum); the cart was a
+     58 x 44 oval beside a 38px-wide menu button. */
+  .navbar .nav-actions .cart-toggle,
+  .navbar .menu-toggle {
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+    padding: 0 !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  /* The dock is already lifted above the home indicator by its
+     bottom offset (max(7px, safe-area)); adding the safe area again as
+     inner padding doubled it on iPhones and squashed the home dock. */
+  body.home-view .mobile-dock,
+  body.detail-view .mobile-dock {
+    padding-bottom: 5px !important;
+  }
+
+  body.detail-view .mobile-dock {
+    height: 66px !important;
+  }
+}
+
+/* Touch tablets: same 44px minimum tap size for the header buttons.
+   (pointer: coarse) keeps mouse/trackpad desktops untouched. */
+@media (min-width: 761px) and (pointer: coarse) {
+  .navbar .nav-actions .cart-toggle,
+  .navbar .menu-toggle {
+    min-width: 44px !important;
+    min-height: 44px !important;
   }
 }
