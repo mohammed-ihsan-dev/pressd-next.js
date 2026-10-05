@@ -9364,108 +9364,10 @@ body.menu-detail-view .menu-subsection {
   }
 }
 
-@media(max-width:760px) {
-  body.menu-detail-view .menu-category:not(.active-menu-category)>.menu-subnav {
-    display: none !important
-  }
-
-  body.menu-detail-view .menu-category.active-menu-category>.menu-subnav {
-    position: fixed !important;
-    z-index: 91 !important;
-    top: 124px !important;
-    left: 12px !important;
-    right: 12px !important;
-    width: auto !important;
-    margin: 0 !important
-  }
-
-  body.menu-detail-view .menu-category.active-menu-category:has(>.menu-subnav)>.menu-subsections {
-    padding-top: 76px
-  }
-}
-
-@media(max-width:390px) {
-  body.menu-detail-view .menu-category.active-menu-category>.menu-subnav {
-    top: 124px !important
-  }
-}
-
-.mobile-subnav-dock {
-  display: none
-}
-
-@media(max-width:760px) {
-  body.menu-detail-view .menu-category>.menu-subnav {
-    display: none !important
-  }
-
-  body.menu-detail-view .mobile-subnav-dock:not([hidden]) {
-    position: fixed;
-    z-index: 92;
-    top: 124px;
-    left: 12px;
-    right: 12px;
-    display: flex;
-    min-height: 54px;
-    gap: 5px;
-    padding: 6px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    border: 1px solid rgba(251, 176, 25, .48);
-    border-radius: 15px;
-    background: rgba(5, 6, 5, .98);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, .46);
-    backdrop-filter: blur(18px)
-  }
-
-  .mobile-subnav-dock::-webkit-scrollbar {
-    display: none
-  }
-
-  .mobile-subnav-dock button {
-    display: inline-flex;
-    min-height: 40px;
-    flex: 0 0 auto;
-    align-items: center;
-    gap: 7px;
-    padding: 8px 12px;
-    border: 0;
-    border-radius: 10px;
-    background: transparent;
-    color: var(--cream);
-    font-size: 8px;
-    font-weight: 750;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    white-space: nowrap
-  }
-
-  .mobile-subnav-dock button:first-child {
-    background: transparent;
-    color: var(--cream);
-  }
-
-  .mobile-subnav-dock button span {
-    display: grid;
-    place-items: center;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: var(--orange);
-    color: var(--ink);
-    font-size: 7px
-  }
-
-  body.menu-detail-view .menu-category:has(>.menu-subnav)>.menu-subsections {
-    padding-top: 76px
-  }
-}
-
-@media(max-width:390px) {
-  body.menu-detail-view .mobile-subnav-dock:not([hidden]) {
-    top: 124px
-  }
-}
+/* (Removed: legacy mobile rules that hid the real Menu sub-navigation in
+   favour of a .mobile-subnav-dock element that no longer exists, and the
+   76px gap reserved for it. The in-flow sticky .menu-subnav rules above
+   now apply on mobile, with the same scroll hide/show as desktop.) */
 
 @media(max-width:760px) {
   body.menu-detail-view>.category-wrap.is-pinned {
@@ -17098,4 +17000,80 @@ body:not(.menu-detail-view)>footer .footer-bottom {
   body.detail-view #about .about-tile-carousel-top .about-carousel-meta { right: 6px !important; }
   body.detail-view #about .about-tile-story { padding-top: 56px !important; }
   body.detail-view #about .about-carousel-tag { overflow-wrap: anywhere !important; }
+}
+
+/* ============================================================
+   HOME "EXPLORE PRESS'D" CARD LABEL (phones) — black-box artifact fix
+   On desktop the label tab has its rounded corner top-left (facing the
+   photo), a hairline top/left border and no ::before. On phones an
+   older rule rounded the top-right corner instead (where the tab meets
+   the card's own clipped corner) and the legacy 24px "scooped corner"
+   ::before — removed on desktop — still drew a black block, leaving a
+   hard black rectangle cut into the photo. Match the desktop tab.
+   ============================================================ */
+@media (max-width: 760px) {
+  body.home-view .hero-rail .rail-card > span {
+    border-radius: 14px 0 0 0 !important;
+    border-top: 1px solid rgba(245, 239, 223, 0.12) !important;
+    border-left: 1px solid rgba(245, 239, 223, 0.12) !important;
+  }
+
+  body.home-view .hero-rail .rail-card > span::before {
+    display: none !important;
+    content: none !important;
+  }
+
+  body.home-view .hero-rail .rail-card > span b {
+    display: grid !important;
+    place-items: center !important;
+    line-height: 1 !important;
+  }
+}
+
+/* ============================================================
+   MENU PRODUCT CARD ACTIONS (phones, <= 639px) — touch targets
+   Details / Customize-or-Comment / Add were 36px tall with 7.5px
+   labels here. Same layout and look; 44px tap height and a label
+   size that scales with the width (still fits "⚙ CUSTOMIZE" at 320px).
+   ============================================================ */
+@media (max-width: 639px) {
+  body.menu-detail-view .menu-section .menu-subsection .view-details,
+  body.menu-detail-view .menu-section .menu-subsection .customize-product,
+  body.menu-detail-view .menu-section .menu-subsection .comment-product,
+  body.menu-detail-view .menu-section .menu-subsection .add-cart {
+    height: 44px !important;
+    min-height: 44px !important;
+    font-size: clamp(8px, 2.5vw, 9.5px) !important;
+  }
+}
+
+/* ============================================================
+   MENU PRODUCT DETAILS — short screens (e.g. phones in landscape)
+   The dialog is capped at the viewport height with overflow hidden, so
+   when its content is taller (landscape phones) the ingredients and the
+   Customize / Add actions were cut off and unreachable. Let the dialog
+   scroll internally instead (no visual change whenever content fits),
+   without scrolling the page behind it. On short screens the close
+   button (fixed to the screen corner) also sat on the price, so the
+   heading keeps clear of it there.
+   ============================================================ */
+dialog.product-details-modal[open] {
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+}
+
+@media (max-height: 600px) {
+  dialog.product-details-modal .product-modal-heading {
+    padding-right: 52px !important;
+  }
+}
+
+/* Small landscape phones: the dialog is 100% - 48px wide here (24px each
+   side) while the screen-pinned close button sat 18px from the edge, so it
+   overhung the dialog's corner. Inset it to sit 12px inside the corner. */
+@media (max-height: 600px) and (min-width: 640px) and (max-width: 760px) {
+  .product-details-modal .product-modal-close {
+    right: calc(24px + 12px) !important;
+    top: 18px !important;
+  }
 }

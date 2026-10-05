@@ -8,7 +8,7 @@ import ProductDetailsModal from "@/components/menu/ProductDetailsModal";
 import InstructionsModal from "@/components/menu/InstructionsModal";
 import CustomizeModal from "@/components/menu/CustomizeModal";
 import { MenuModalsProvider } from "@/components/menu/MenuModalsContext";
-import { columnId, columnsFor } from "@/components/menu/menuHelpers";
+import { columnId, columnsFor, revealInStrip } from "@/components/menu/menuHelpers";
 import SectionHomeButton from "@/components/SectionHomeButton";
 import RevealObserver from "@/components/RevealObserver";
 import { useLocale } from "@/lib/i18n/LocaleContext";
@@ -110,6 +110,16 @@ export default function MenuSection() {
     subsections.forEach((sub) => observer.observe(sub));
     return () => observer.disconnect();
   }, []);
+
+  // Keep the active subsection's button in view in its own sub-navigation.
+  useEffect(() => {
+    if (!activeSubcategory) return;
+    const button = document.querySelector<HTMLElement>(
+      `.menu-subnav button[data-subtarget="${CSS.escape(activeSubcategory)}"]`
+    );
+    const strip = button?.closest<HTMLElement>(".menu-subnav");
+    if (button && strip) revealInStrip(strip, button);
+  }, [activeSubcategory]);
 
   return (
     <MenuModalsProvider>

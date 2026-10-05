@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { MenuCategory } from "@/data/menu";
 import { useLocale } from "@/lib/i18n/LocaleContext";
+import { revealInStrip } from "@/components/menu/menuHelpers";
 
 export default function CategoryFilter({
   categories,
@@ -36,6 +37,14 @@ export default function CategoryFilter({
       removeEventListener("resize", update);
     };
   }, []);
+
+  // Keep the active category in view as it changes (e.g. while scrolling
+  // the menu on a narrow screen where the strip overflows).
+  useEffect(() => {
+    const strip = stripRef.current;
+    const button = strip?.querySelector<HTMLElement>("button.active");
+    if (strip && button) revealInStrip(strip, button);
+  }, [active]);
 
   const move = (direction: 1 | -1) => {
     const strip = stripRef.current;
