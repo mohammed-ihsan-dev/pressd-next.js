@@ -9,7 +9,7 @@ import { prefersReducedMotion } from "@/lib/utils";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 
 export default function ProductCard({ category, item }: { category: MenuCategory; item: MenuItem }) {
-  const [name, description, price, image, tag, details, , id] = item;
+  const [name, description, price, image, , details, , id] = item;
   const customizeMode = customizeModeFor(category, item);
   const { cart, addToCart } = useCart();
   const { openDetails, openInstructions, openCustomize } = useMenuModals();
@@ -161,7 +161,6 @@ export default function ProductCard({ category, item }: { category: MenuCategory
     >
       <div className="menu-img">
         <img src={image} alt={displayName} loading="lazy" />
-        {tag && <span>{tag}</span>}
       </div>
       <div className="menu-card-info">
         <div className="product-summary">

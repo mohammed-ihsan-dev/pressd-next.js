@@ -9443,7 +9443,9 @@ body.menu-detail-view .menu-subsection {
 
 .product-modal-heading h2 {
   min-width: 0;
-  overflow-wrap: anywhere
+  overflow-wrap: normal;
+  word-break: normal;
+  text-wrap: balance
 }
 
 .product-modal-heading .product-modal-price {
@@ -17023,33 +17025,106 @@ body:not(.menu-detail-view)>footer .footer-bottom {
 }
 
 /* ============================================================
-   MENU PRODUCT DETAILS — short screens (e.g. phones in landscape)
-   The dialog is capped at the viewport height with overflow hidden, so
-   when its content is taller (landscape phones) the ingredients and the
-   Customize / Add actions were cut off and unreachable. Let the dialog
-   scroll internally instead (no visual change whenever content fits),
-   without scrolling the page behind it. On short screens the close
-   button (fixed to the screen corner) also sat on the price, so the
-   heading keeps clear of it there.
+   MENU PRODUCT DETAILS — consolidated layout
+   Supersedes the stacked layers above for the dialog's size, columns,
+   image height and close button:
+   - A later single-panel layer capped the dialog at 680px while another
+     re-enabled the two-column grid, leaving the copy column ~280px wide
+     for a 46px title next to the price. The dialog now gets real width
+     and the title is sized from its own column (container units).
+   - The close button was position:fixed with offsets computed for a
+     near-full-height dialog, so on the (centred, shorter) dialog it
+     floated in the backdrop. It now sticks to the dialog's own corner and
+     stays there while the dialog scrolls.
+   - The image had a fixed clamp() height, leaving blank cream under it
+     whenever the copy column was taller; it now fills its column.
+   Content taller than the screen scrolls inside the dialog without
+   moving the page behind it.
    ============================================================ */
 dialog.product-details-modal[open] {
+  overflow-x: hidden !important;
   overflow-y: auto !important;
   overscroll-behavior: contain !important;
 }
 
-@media (max-height: 600px) {
-  dialog.product-details-modal .product-modal-heading {
-    padding-right: 52px !important;
+/* Explicit placement: the close button is an in-flow grid item spanning
+   every row so its sticky range is the whole dialog, not just one row. */
+dialog.product-details-modal .product-modal-image {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+dialog.product-details-modal .product-modal-copy {
+  grid-column: -2 / -1;
+}
+
+dialog.product-details-modal .product-modal-close {
+  position: sticky !important;
+  z-index: 3;
+  top: 14px !important;
+  right: auto !important;
+  left: auto !important;
+  grid-row: 1 / -1;
+  grid-column: -2 / -1;
+  justify-self: end;
+  align-self: start;
+  margin: 14px 0 0 !important;
+  margin-inline-end: 14px !important;
+}
+
+@media (max-width: 760px) {
+  dialog.product-details-modal .product-modal-copy {
+    grid-row: 2;
   }
 }
 
-/* Small landscape phones: the dialog is 100% - 48px wide here (24px each
-   side) while the screen-pinned close button sat 18px from the edge, so it
-   overhung the dialog's corner. Inset it to sit 12px inside the corner. */
-@media (max-height: 600px) and (min-width: 640px) and (max-width: 760px) {
-  .product-details-modal .product-modal-close {
-    right: calc(24px + 12px) !important;
-    top: 18px !important;
+@media (min-width: 761px) {
+  dialog.product-details-modal {
+    width: min(960px, calc(100% - 48px)) !important;
+  }
+
+  dialog.product-details-modal[open] {
+    grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr) !important;
+    grid-template-rows: auto !important;
+  }
+
+  dialog.product-details-modal .product-modal-image {
+    height: auto !important;
+    align-self: stretch;
+  }
+
+  dialog.product-details-modal .product-modal-copy {
+    grid-row: 1;
+    container-type: inline-size;
+    /* top padding + eyebrow put the heading below the close button
+       (14px + 42px), so a full-width title never runs under it */
+    padding: 40px clamp(24px, 3.2vw, 40px) 30px;
+  }
+
+  dialog.product-details-modal .product-modal-eyebrow {
+    margin-bottom: 18px;
+    padding-inline-end: 56px;
+  }
+
+  dialog.product-details-modal .product-modal-heading {
+    column-gap: 20px;
+  }
+
+  dialog.product-details-modal .product-modal-copy h2 {
+    font-size: clamp(28px, 9cqi, 44px);
+  }
+
+  /* Narrow copy column (tablet portrait): the title keeps the full width
+     and the price moves under it instead of squeezing it. */
+  @container (max-width: 360px) {
+    dialog.product-details-modal .product-modal-heading {
+      display: block;
+    }
+
+    dialog.product-details-modal .product-modal-heading .product-modal-price {
+      display: block;
+      margin-top: 8px !important;
+    }
   }
 }
 
