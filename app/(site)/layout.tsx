@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import "./globals.css";
+import "../globals.css";
+import { siteMetadata } from "@/lib/siteMetadata";
+import { applyOverride } from "@/lib/seo/core/metadata";
+import { publishedOverride } from "@/lib/seo/public";
 
 // Phase 1: loaded exactly as the original site did (same Google Fonts URL,
 // same weights/styles), so text renders identically. Switching this to
@@ -18,22 +21,12 @@ const GOOGLE_FONTS_HREF =
 const NOTO_FALLBACK_FONTS_HREF =
   "https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans+Malayalam:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap";
 
-export const metadata: Metadata = {
-  title: "PRESS'D | Specialty Coffee & Café at Meydan Polo Residence",
-  description:
-    "PRESS'D is a wellness café at Meydan Polo Residence, Dubai, serving specialty coffee, fresh food and good energy in a pet-friendly, work-friendly space.",
-  icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
-    apple: "/icon.png",
-  },
-  openGraph: {
-    title: "PRESS'D | Wellness Café at Meydan Polo Residence",
-    description:
-      "Good food, good coffee, good company — all day at Meydan Polo Residence, Dubai.",
-    type: "website",
-  },
-};
+// Defaults live in lib/siteMetadata.ts; metadata published from the SEO
+// dashboard (/admin/seo/pages) is layered on top. With nothing published the
+// output is identical to the defaults.
+export async function generateMetadata(): Promise<Metadata> {
+  return applyOverride(siteMetadata, await publishedOverride("/"));
+}
 
 export const viewport: Viewport = {
   themeColor: "#fbb019",

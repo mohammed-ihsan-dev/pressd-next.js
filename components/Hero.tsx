@@ -8,7 +8,7 @@ import PetPawTrail from "@/components/PetPawTrail";
 import PetInteractiveIcon from "@/components/PetInteractiveIcon";
 
 const RAIL_LINKS = [
-  { href: "#menu", label: "Menu", img: "/assets/menu-latte-cover.webp", kind: "a" as const },
+  { href: "#menu", label: "Menu", img: "/assets/menu-acai-bowl-cover.webp", kind: "a" as const },
   { href: "#book", label: "Reservation", img: "/assets/reservation-cover.webp", kind: "book" as const },
   { href: "#about", label: "Our café", img: "/assets/cafe-interior-cover.webp", kind: "a" as const },
 ];
